@@ -15,3 +15,7 @@ navbar:
   right:
   - text: "Materi"  
     menu: 
+    - text: "HTML"
+      href: materi-lme.html
+    - text: "pdf"
+      href: materi-lme.pdf
