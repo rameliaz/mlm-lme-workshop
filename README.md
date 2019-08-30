@@ -1,0 +1,66 @@
+# Workshop Linear Mixed Effect/Multilevel Modeling
+
+Berikut adalah repositori yang digunakan untuk menyimpan semua materi untuk **Workshop Linear Mixed Effect** yang diselenggarakan oleh Departemen Psikologi Kepribadian dan Sosial, Fakultas Psikologi Universitas Airlangga dalam rangka memperingati Dies Natalis Pendidikan Psikologi Universitas Airlangga yang ke-36. 
+
+Materi berlisensi [*Creative Commons* 4.0](https://creativecommons.org/licenses/by/4.0/). **Materi bebas digunakan kembali namun wajib menyebutkan sumber aslinya**.
+
+## Waktu dan tempat
+*Workshop* diselenggarakan pada hari Rabu, 4 September 2019, pukul 08.00-16.00 WIB di Ruang Sidang I, Fakultas Psikologi Universitas Airlangga.
+
+## *Outline* materi
+Workshop ini akan mencakup pengenalan `lme` dengan sebelumnya membahas konsep dasar mengenai *ordinary least square regression*. Peserta juga akan diminta untuk menganalisis data dengan menggunakan `lme` dan melaporkannya dalam artikel penelitian.
+
+Berikut adalah *outline* materi *workshop*:
+
+**Bagian 1**
+* Berlatih menginspeksi data secara visual dengan *scatterplot*
+* Model regresi linier (*ordinary least square*)
+* Menarik garis regresi (*fitted regression lines*)
+* Varians yang dapat dan yang tidak dapat dijelaskan oleh model (*R^2*)
+* Menguji hipotesis
+* Mengecek kecocokan model dengan data (*model fit*)
+* Mengecek asumsi
+  - Distribusi (normalitas) residual
+  - Homoskedastisitas
+* *Partitioning/centering*
+
+**Bagian 2**
+* Struktur data berjenjang/bersarang (*hierarchical/nested data*)
+* *Within* dan *between group variance*
+* Sampel hirarkial 2-level
+* Pengantar *linear mixed-effect* (`lme`)
+* Membandingkan garis regresi antar kelompok dengan `lme`
+* `lme` dengan prediktor level 1 (*random coefficients model*)
+  - Mengidentifikasi *intercept* (konstanta) yang berbeda antar kelompok (*random intercept model*)
+  - Mengidentifikasi *slopes* (gradien/kemiringan garis) yang berbeda antar kelompok (*random slopes model*)
+* `lme` dengan prediktor level 2
+* *Intra-class correlation*
+* *Explained variances* ([Nakagawa & Schielzeth, 2012](https://besjournals.onlinelibrary.wiley.com/doi/full/10.1111/j.2041-210x.2012.00261.x))
+  - *Marginal R^2*
+  - *Conditional R^2*
+* Melaporkan analisis dengan `lme` dalam manuskrip
+
+
+## Referensi
+* Galucci, M. (2019). GAMLj: General analysis for the linear model in jamovi. https://gamlj.github.io/index.html
+* Galucci, M. (2019). Mixed models module. https://gamlj.github.io/mixed.html
+* Lüdecke, D. (2019). Statistics for mixed effects model. https://strengejacke.github.io/sjstats/articles/mixedmodels-statistics.html
+* Nakagawa, S. and Schielzeth, H. (2013), A general and simple method for obtaining R2 from generalized linear mixed‐effects models. Methods Ecol Evol, 4: 133-142. doi: [10.1111/j.2041-210x.2012.00261.x](https://doi.org/10.1111/j.2041-210x.2012.00261.x)
+* Peugh, James L. (2010). A practical guide to multilevel modeling. Journal of School Psychology, 48, 85-112. doi: [10.1016/j.jsp.2009.09.002]((https://doi.org/10.1016/j.jsp.2009.09.002)
+
+
+## Contoh penelitian yang menggunakan `lme` sebagai teknik analisis data
+* Youngseek, K. & Stanton, J.M. (2016). Institutional and individual factors affecting scientists' data-sharing behaviors: A multilevel analysis: Institutional and Individual Factors Affecting Scientists' Data Sharing Behaviors: A Multilevel Analysis. Journal of the Association for Information Science and Technology, 67(4), 776-799. doi: [10.1002/asi.23424](https://asistdl.onlinelibrary.wiley.com/doi/abs/10.1002/asi.23424)
+* Zein, R.A., Putri, N.K., & Ridlo, I.A. (2019). Do Justice and Trust Affect Acceptability of Indonesian Social Health Insurance Policy? A cross-sectional survey of laypeople and health care workers. INA-Rxiv (pre-print). doi: [10.31227/osf.io/fvtjg](https://osf.io/preprints/inarxiv/fvtjg/)
+
+
+## Sumber belajar lainnya
+[LEMMA (Learning Environment for Multilevel Methods and Applications)](https://www.cmm.bris.ac.uk/lemma/)
+
+
+## Cara instalasi *module* GAMLj
+Klik disini untuk menyimak video petunjuk instalasi *module* GAMLj jamovi. Gunakan [jamovi versi terbaru (1.1.2)](https://www.jamovi.org/downloads/jamovi-1.1.2.0-win64.exe).
+
+
+## Video rekaman
+Saya akan mengunggah video rekaman *workshop* disini.

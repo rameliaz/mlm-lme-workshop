@@ -1,0 +1,60 @@
+---
+title: "Workshop LME"
+subtitle: "Dies Natalis 36th"
+author: "Rizqy Amelia Zein"
+date: "2019/08/26 (updated: `r Sys.Date()`)"
+output:
+  xaringan::moon_reader:
+    chakra: libs/remark-latest.min.js
+    css: ["default", "rladies", "rladies-fonts"]
+    lib_dir: libs
+    seal: false
+    nature:
+      highlightStyle: github
+      ratio: '16:9'
+      highlightLines: true
+      countIncrementalSlides: false
+vignette: >
+  %\VignetteIndexEntry{libs}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+class: inverse, middle, title-slide, spaced
+
+```{r setup, include=FALSE}
+library(fontawesome)
+library(tidyverse)
+library(emo)
+options(htmltools.dir.version = FALSE, width=120)
+```
+
+class: title-slide, spaced
+
+<img src="libs/unair.png" style="width:15%;" class="fancyimage"/> <img src="libs/STUA.png" style="width:23%;" class="fancyimage"/> <img src="libs/ina-logo.jpg" style="width:7%;" class="fancyimage"/> <img src="libs/igdore.png" style="width:23%;" class="fancyimage"/>
+
+# Linear Mixed Effect (Multi-Level Modelling)
+## Menggunakan `jamovi` (*module* GAMLj)
+<br>
+### <b>Rizqy Amelia Zein</b>
+* Dosen, [Fakultas Psikologi, Universitas Airlangga](https://psikologi.unair.ac.id)
+* Anggota, [#SainsTerbuka Airlangga](https://sainsterbukaua.github.io/) `r fa("universal-access")`
+* Relawan, [INA-Rxiv](https://inarxiv.id) 
+* Researcher-in-training, [Institute for Globally Distributed Open Research and Education (IGDORE)](https://igdore.org/)
+
+---
+
+class: center, middle
+
+# Menghubungi saya?  
+
+`r fa("paper-plane")` <a href="mailto:amelia.zein@psikologi.unair.ac.id"></i>&nbsp; amelia.zein@psikologi.unair.ac.id</a>
+`r fa("twitter")` [@ameliazein](https://twitter.com/ameliazein)
+`r fa("github")` [@rameliaz](https://github.com/rameliaz)
+`r fa("desktop")` https://rameliaz.github.io
+
+
+Materi dalam paparan ini berlisensi `r fa("creative-commons")` 4.0 dan tersedia di laman web pribadi saya **(https://rameliaz.github.io/talk/mlm-2019)**. 
+Kode tersedia secara terbuka di [repositori](https://github.com/rameliaz/lme-workshop-2019/tree/master/materi-lme.Rmd) `r fa("github")` saya.
+
+---
+
