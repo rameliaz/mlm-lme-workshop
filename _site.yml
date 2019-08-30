@@ -15,7 +15,11 @@ navbar:
   right:
   - text: "Materi"  
     menu: 
-    - text: "HTML"
-      href: materi-lme.html
-    - text: "pdf"
-      href: materi-lme.pdf
+    - text: "Bagian1-HTML"
+      href: materi-lme1.html
+    - text: "Bagian2-HTML"
+      href: materi-lme2.html
+    - text: "Bagian1-pdf"
+      href: materi-lme1.pdf
+    - text: "Bagian2-pdf"
+      href: materi-lme2.pdf
