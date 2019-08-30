@@ -34,6 +34,7 @@ class: title-slide, spaced
 
 # Linear Mixed Effect (Multi-Level Modeling)
 ## Menggunakan `jamovi` (GAMLj)
+## Bagian 1
 <br>
 ### <b>Rizqy Amelia Zein</b>
 * Dosen, [Fakultas Psikologi, Universitas Airlangga](https://psikologi.unair.ac.id)

@@ -34,27 +34,13 @@ class: title-slide, spaced
 
 # Linear Mixed Effect (Multi-Level Modeling)
 ## Menggunakan `jamovi` (GAMLj)
+## Bagian 2
 <br>
 ### <b>Rizqy Amelia Zein</b>
 * Dosen, [Fakultas Psikologi, Universitas Airlangga](https://psikologi.unair.ac.id)
 * Anggota, [#SainsTerbuka Airlangga](https://sainsterbukaua.github.io/) `r fa("universal-access")`
 * Relawan, [INA-Rxiv](https://inarxiv.id) 
 * Researcher-in-training, [Institute for Globally Distributed Open Research and Education (IGDORE)](https://igdore.org/)
-
----
-
-class: center, middle
-
-# Menghubungi saya?  
-
-`r fa("paper-plane")` <a href="mailto:amelia.zein@psikologi.unair.ac.id"></i>&nbsp; amelia.zein@psikologi.unair.ac.id</a>
-`r fa("twitter")` [@ameliazein](https://twitter.com/ameliazein)
-`r fa("github")` [@rameliaz](https://github.com/rameliaz)
-`r fa("desktop")` https://rameliaz.github.io
-
-
-Materi dalam paparan ini berlisensi `r fa("creative-commons")` 4.0 dan tersedia di laman web pribadi saya **(https://rameliaz.github.io/talk/mlm-2019)**. 
-Kode tersedia secara terbuka di [repositori](https://github.com/rameliaz/lme-workshop-2019/tree/master/materi-lme.Rmd) `r fa("github")` saya.
 
 ---
 

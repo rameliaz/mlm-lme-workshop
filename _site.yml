@@ -2,16 +2,13 @@ name: "lme2019"
 author: "Rizqy Amelia Zein"
 output_dir: "docs"
 exclude: ["*.xls", "*.csv","*.R"]
-output:
-  html_document:
-    toc: true
-    toc_float: yes
-    toc_depth: 3
-    df_print: paged
-    theme: flatly
-    highlight: tango
 navbar:
   title: "Linear Mixed Effect Workshop"
+  left:
+    - text: "oleh Rizqy Amelia Zein"
+      href: https://rameliaz.github.io/
+    - icon: fa-github fa-lg
+      href: https://github.com/rameliaz/mlm-lme-workshop
   right:
   - text: "Materi"  
     menu: 
@@ -23,3 +20,11 @@ navbar:
       href: materi-lme1.pdf
     - text: "Bagian2-pdf"
       href: materi-lme2.pdf
+output:
+  html_document:
+    toc: true
+    toc_float: yes
+    toc_depth: 3
+    df_print: paged
+    theme: flatly
+    highlight: tango
