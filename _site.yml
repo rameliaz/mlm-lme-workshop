@@ -20,6 +20,12 @@ navbar:
       href: materi-lme1.pdf
     - text: "Bagian2-pdf"
       href: materi-lme2.pdf
+  - text: "Dataset"  
+    menu: 
+    - text: "Dataset1-Sekolah"
+      href: dataset-sekolah.omv
+    - text: "Dataset2-Organisasi"
+      href: dataset-organisasi.omv
 output:
   html_document:
     toc: true
