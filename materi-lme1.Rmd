@@ -2,7 +2,7 @@
 title: "Workshop LME Bagian 1"
 subtitle: "Dies Natalis 36th"
 author: "Rizqy Amelia Zein"
-date: "2019/08/26 (updated: `r Sys.Date()`)"
+date: "2019/09/01 (updated: `r Sys.Date()`)"
 output:
   xaringan::moon_reader:
     chakra: libs/remark-latest.min.js
