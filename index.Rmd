@@ -59,7 +59,7 @@ Berikut adalah *outline* materi *workshop*:
 
 
 ## Cara instalasi *module* GAMLj
-Klik disini untuk menyimak video petunjuk instalasi *module* GAMLj jamovi. Gunakan [jamovi versi terbaru (1.1.2)](https://www.jamovi.org/downloads/jamovi-1.1.2.0-win64.exe).
+Klik disini untuk menyimak video petunjuk instalasi *module* GAMLj jamovi. Gunakan [jamovi versi terbaru (current) (1.1.2)](https://www.jamovi.org/download.html).
 
 
 ## Video rekaman

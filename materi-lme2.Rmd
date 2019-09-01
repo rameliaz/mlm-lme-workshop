@@ -2,7 +2,7 @@
 title: "Workshop LME Bagian 1"
 subtitle: "Dies Natalis 36th"
 author: "Rizqy Amelia Zein"
-date: "2019/08/26 (updated: `r Sys.Date()`)"
+date: "2019/09/01 (updated: `r Sys.Date()`)"
 output:
   xaringan::moon_reader:
     chakra: libs/remark-latest.min.js
@@ -33,8 +33,7 @@ class: title-slide, spaced
 <img src="libs/unair.png" style="width:15%;" class="fancyimage"/> <img src="libs/STUA.png" style="width:23%;" class="fancyimage"/> <img src="libs/ina-logo.jpg" style="width:7%;" class="fancyimage"/> <img src="libs/igdore.png" style="width:23%;" class="fancyimage"/>
 
 # Linear Mixed Effect (Multi-Level Modeling)
-## Menggunakan `jamovi` (GAMLj)
-## Bagian 2
+## Menggunakan `jamovi` (GAMLj): Bagian 2
 <br>
 ### <b>Rizqy Amelia Zein</b>
 * Dosen, [Fakultas Psikologi, Universitas Airlangga](https://psikologi.unair.ac.id)
