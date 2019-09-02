@@ -19,6 +19,7 @@ vignette: >
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
+
 class: inverse, middle, title-slide, spaced
 
 ```{r setup, include=FALSE}
@@ -58,3 +59,14 @@ Kode tersedia secara terbuka di [repositori](https://github.com/rameliaz/lme-wor
 
 ---
 
+class: inverse, middle, center
+
+# Quiz time! `r emo::ji("smile")`
+## [Klik disini](https://menti.com).
+
+![](https://media.giphy.com/media/3o6UBipuQxa6QwnvC8/giphy.gif)
+
+---
+
+
+---

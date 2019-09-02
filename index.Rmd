@@ -56,6 +56,12 @@ Berikut adalah *outline* materi *workshop*:
 
 ## Sumber belajar lainnya
 [LEMMA (Learning Environment for Multilevel Methods and Applications)](https://www.cmm.bris.ac.uk/lemma/)
+[Learning Statistics with jamovi](https://sites.google.com/brookes.ac.uk/learning-stats-with-jamovi)
+[Video tutorial jamovi dari Datalab](https://datalab.cc/tools/jamovi)
+
+## Sebelum mulai workshop
+* Sebaiknya semua peserta sudah memasang jamovi pada perangkatnya masing-masing, untuk menghindari terlalu banyaknya waktu untuk menyelesaikan *troubleshooting* instalasi ketika *workshop*.
+* Peserta sangat disarankan untuk menonton [video tutorial jamovi](https://datalab.cc/tools/jamovi) sebelum *workshop* untuk belajar menavigasikan menu dan fitur yang ada dalam jamovi. Cukup hanya dengan menonton yang bagian *Welcome*, *Installing jamovi*, dan *Navigating jamovi* (total durasi kurang lebih hanya 7 menit).
 
 
 ## Cara instalasi *module* GAMLj

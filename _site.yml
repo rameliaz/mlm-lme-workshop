@@ -10,7 +10,7 @@ navbar:
     - icon: fa-github fa-lg
       href: https://github.com/rameliaz/mlm-lme-workshop
   right:
-  - text: "Materi"  
+  - text: "Salindia"  
     menu: 
     - text: "Bagian1-HTML"
       href: materi-lme1.html
