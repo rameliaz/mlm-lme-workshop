@@ -175,7 +175,7 @@ Marimar heran sekaligus penasaran, mengapa tiap anak **memberikan respon yang be
 
 * Dalam dataset tersebut ada beberapa variabel
   - **neu** = Kecenderungan *Neuroticism* ibu (*five factor model*). Makin tinggi skor, Ibu makin mudah cemas, frustasi, cemburu, rasa bersalah, dan ketakutan berlebihan.
-  - **trust** = Kepercayaan ibu bahwa perkembangan anak dapat berlangsung secara natural (**trust in organismic development**). Makin tinggi skor, ibu makin percaya.
+  - **trust** = Kepercayaan ibu bahwa perkembangan anak dapat berlangsung secara natural ([**trust in organismic development**](https://link.springer.com/article/10.1007/s11031-008-9092-2)). Makin tinggi skor, ibu makin percaya.
   - **hi** = Pendapatan seluruh anggota keluarga inti (**household income**). Skor makin tinggi, pendapatan makin banyak.
   - **mandiri** = Tingkat kemandirian anak. Makin tinggi skor, anak makin independen dan lebih santai ketika ditinggal orangtuanya di sekolah.
 
@@ -210,7 +210,7 @@ class: center, middle
   - Klik **exploration**, pilih **scatterplot**
   - Masukkan **mandiri** pada kolom **Y-axis**
   - Masukkan **neu** (scatterplot 1) dan **trust** (scatterplot 2) pada **kolom X-axis**
-  - Pada opsi **regression line**, pilih linear dan centang kotak **standard error**
+  - Pada opsi **regression line**, pilih **linear** dan centang kotak **standard error**
 ]
 
 .pull-right[
@@ -255,7 +255,7 @@ class: inverse, middle, center
 # Kekuatan dan arah korelasi (1)
 
 .pull-left[
-Korelasi yang tampak pada *scatterplot* tadi dapat dikonseptualisasikan dengan lebih jelas dengan menghitung koefisien korelasi, yang mengimplikasikan kekuatan hubungan.
+Korelasi yang tampak pada *scatterplot* tadi dapat dikonseptualisasikan dengan lebih jelas dengan menghitung **koefisien korelasi**, yang mengimplikasikan kekuatan hubungan.
 
 * *Pearson’s* r misalnya, biasanya ditulis dengan rxy, sedangkan *Spearman's* rho ditulis rs.
 
@@ -263,8 +263,8 @@ Korelasi yang tampak pada *scatterplot* tadi dapat dikonseptualisasikan dengan l
 
 * -1 artinya korelasi negatif sempurna, 1 artinya korelasi positif sempurna
 
-* Koefisien korelasi *Pearson’s* r atau *Spearman's* rho dihitung dari *covariance* (*average cross product* dari dua variabel). 
-  - Dua variabel yang sama sekali tak berkorelasi, maka *covariancenya* nol.
+* Koefisien korelasi *Pearson’s* r atau *Spearman's* rho dihitung dari kovarians (*covariance*/*average cross product* dari dua variabel). 
+  - Dua variabel yang sama sekali tak berkorelasi, maka kovarians nol.
 
 ]
 
@@ -279,17 +279,17 @@ Korelasi yang tampak pada *scatterplot* tadi dapat dikonseptualisasikan dengan l
 # Kekuatan dan arah korelasi (2)
 
 .pull-left[
-* *Covariance* sulit diinterpretasi, sehingga formula *Pearson’s* r dan *Spearman's* rho menstandardisasi *covariance* agar lebih mudah diinterpretasi
+* Kovarians sulit diinterpretasi, sehingga formula *Pearson’s* r dan *Spearman's* rho menstandardisasi kovarians agar lebih mudah diinterpretasi
 
 * Fungsi *Pearson’s* r dan *Spearman's* rho mirip *z-score*
 
 * Kuat >< lemahnya koefisien korelasi sebenarnya sangat tergantung konteks penelitiannya.
-  - Pada fenomena yang multifaktor, misalnya mencari variabel yang berkaitan dengan kecenderungan Skizofrenia, korelasi 0.3 aja sudah bermakna sangat besar.
 ]
+  - Pada fenomena yang multifaktor, misalnya mencari variabel yang berkaitan dengan kecenderungan Skizofrenia, korelasi 0.3 aja sudah bermakna sangat besar.
 
 .pull-right[
 
-<img src="libs/corr.jpg" style="width:100%;" class="fancyimage"/>
+<img src="libs/corr.jpg" style="width:80%;" class="fancyimage"/>
 
 ]
 
@@ -305,7 +305,7 @@ class: middle
 
 * Ide dasarnya adalah menyusun persamaan garis yang dapat digunakan untuk **memperkirakan** nilai Y ketika nilai X diketahui
   - Contohnya, kita tahu bahwa **kemandirian** berkorelasi positif dan sedang dengan **neuroticism** dan **trust**
-  - Namun dengan regresi, kita bisa memperkirakan tingkat kemandirian anak, ketika hanya informasi mengenai *neuroticism* dan *trust* yang tersedia.
+  - Namun dengan regresi, kita bisa *mengestimasi* tingkat kemandirian anak, ketika hanya informasi mengenai *neuroticism* dan *trust* yang tersedia.
 
 * OLS bekerja dengan pendekatan *least square*, artinya mencari **jumlah kuadrat terkecil** antara garis regresi (nilai Y yang diperkirakan oleh model) dengan nilai Y yang diobservasi.
 ]
@@ -516,6 +516,9 @@ Marimar ingin tahu apakah ada kaitan antara kecenderungan *neuroticism* ibu terh
 * Kalau diatas 1 bagaimana?
   - Coba bikin lagi garis regresi tanpa *outlier* tersebut, cari tahu kenapa nilainya bisa se-ekstrim itu
   - Kalau sangat mendesak, *outlier* dapat dikeluarkan dari model. Tetapi ini tidak terlalu disarankan dan kalaupun dilakukan, harus ditulis dengan jelas di manuskrip/laporan.
+  
+* Dari *output* di samping, dapat disimpulkan bahwa apabila *outlier* tidak disertakan dalam analisis, maka perubahan rerata, median, dan standar deviasi keseluruhan sampel dapat diabaikan.
+
 ]
 
 .pull-right[

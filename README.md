@@ -1,4 +1,3 @@
-# Workshop Linear Mixed Effect/Multilevel Modeling
 
 ## Deskripsi
 Berikut adalah repositori yang digunakan untuk menyimpan semua materi untuk **Workshop Linear Mixed Effect** yang diselenggarakan oleh Departemen Psikologi Kepribadian dan Sosial, Fakultas Psikologi Universitas Airlangga dalam rangka memperingati Dies Natalis Pendidikan Psikologi Universitas Airlangga yang ke-36. 
@@ -14,6 +13,8 @@ Workshop ini akan mencakup pengenalan `lme` dengan sebelumnya membahas konsep da
 Berikut adalah *outline* materi *workshop*:
 
 ### **Bagian 1**
+#### Sebelum istirahat (08.00-12.00)
+
 * Berlatih menginspeksi data secara visual dengan *scatterplot*
 * Model regresi linier (*ordinary least square*)
 * Menarik garis regresi (*fitted regression lines*)
@@ -23,22 +24,26 @@ Berikut adalah *outline* materi *workshop*:
 * Mengecek asumsi
   - Distribusi (normalitas) residual
   - Homoskedastisitas
-* *Partitioning/centering*
+  - Multikolinearitas
+* Mendeteksi *outliers*
+* Menguji *interaction effects* dan *model change*
+* Menulis hasil analisis regresi linier dengan *interaction terms* dalam manuskrip
 
 ### **Bagian 2**
+#### ## Setelah istirahat (13.00-16.00)
+
 * Struktur data berjenjang/bersarang (*hierarchical/nested data*)
 * *Within* dan *between group variance*
-* Sampel hirarkial 2-level
 * Pengantar *linear mixed-effect* (`lme`)
+* *Intra-class correlation* dan *likelihood ratio test* (LRT)
 * Membandingkan garis regresi antar kelompok dengan `lme`
 * `lme` dengan prediktor level 1 (*random coefficients model*)
   - Mengidentifikasi *intercept* (konstanta) yang berbeda antar kelompok (*random intercept model*)
   - Mengidentifikasi *slopes* (gradien/kemiringan garis) yang berbeda antar kelompok (*random slopes model*)
-* `lme` dengan prediktor level 2
-* *Intra-class correlation*
 * *Explained variances* ([Nakagawa & Schielzeth, 2012](https://besjournals.onlinelibrary.wiley.com/doi/full/10.1111/j.2041-210x.2012.00261.x))
   - *Marginal R^2*
   - *Conditional R^2*
+* *Contextual effect* dan *partitioning/centering*
 * Melaporkan analisis dengan `lme` dalam manuskrip
 
 
@@ -57,10 +62,16 @@ Berikut adalah *outline* materi *workshop*:
 
 ## Sumber belajar lainnya
 [LEMMA (Learning Environment for Multilevel Methods and Applications)](https://www.cmm.bris.ac.uk/lemma/)
+[Learning Statistics with jamovi](https://sites.google.com/brookes.ac.uk/learning-stats-with-jamovi)
+[Video tutorial jamovi dari Datalab](https://datalab.cc/tools/jamovi)
+
+## Sebelum mulai workshop
+* Sebaiknya semua peserta sudah memasang jamovi pada perangkatnya masing-masing, untuk menghindari terlalu banyaknya waktu untuk menyelesaikan *troubleshooting* instalasi ketika *workshop*.
+* Peserta sangat disarankan untuk menonton [video tutorial jamovi](https://datalab.cc/tools/jamovi) sebelum *workshop* untuk belajar menavigasikan menu dan fitur yang ada dalam jamovi. Cukup hanya dengan menonton yang bagian *Welcome*, *Installing jamovi*, dan *Navigating jamovi* (total durasi kurang lebih hanya 7 menit).
 
 
 ## Cara instalasi *module* GAMLj
-Klik disini untuk menyimak video petunjuk instalasi *module* GAMLj jamovi. Gunakan [jamovi versi terbaru (1.1.2)](https://www.jamovi.org/downloads/jamovi-1.1.2.0-win64.exe).
+[Klik disini untuk menyimak video petunjuk instalasi *module* GAMLj jamovi](https://www.youtube.com/embed/XM9LqoY8w04). Gunakan [jamovi versi terbaru (1.1.2)](https://www.jamovi.org/downloads/jamovi-1.1.2.0-win64.exe).
 
 
 ## Video rekaman
