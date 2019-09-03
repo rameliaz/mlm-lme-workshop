@@ -14,20 +14,20 @@
 
 <title>index.utf8.md</title>
 
-<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<script src="site_libs/jquery/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<link href="site_libs/bootstrap-3.3.5/css/flatly.min.css" rel="stylesheet" />
-<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
-<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
-<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
-<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
-<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
-<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
-<script src="site_libs/navigation-1.1/tabsets.js"></script>
-<link href="site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet" />
-<script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script>
-<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
-<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+<link href="site_libs/bootstrap/css/flatly.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui/jquery-ui.min.js"></script>
+<link href="site_libs/tocify/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify/jquery.tocify.js"></script>
+<script src="site_libs/navigation/tabsets.js"></script>
+<link href="site_libs/pagedtable/css/pagedtable.css" rel="stylesheet" />
+<script src="site_libs/pagedtable/js/pagedtable.js"></script>
+<link href="site_libs/font-awesome/css/all.css" rel="stylesheet" />
+<link href="site_libs/font-awesome/css/v4-shims.css" rel="stylesheet" />
 
 
 
@@ -403,6 +403,8 @@ div.tocify {
 <p>Berikut adalah <em>outline</em> materi <em>workshop</em>:</p>
 <div id="bagian-1" class="section level3">
 <h3><strong>Bagian 1</strong></h3>
+<div id="sebelum-istirahat-08.00-12.00" class="section level4">
+<h4>Sebelum istirahat (08.00-12.00)</h4>
 <ul>
 <li>Berlatih menginspeksi data secara visual dengan <em>scatterplot</em></li>
 <li>Model regresi linier (<em>ordinary least square</em>)</li>
@@ -414,32 +416,38 @@ div.tocify {
 <ul>
 <li>Distribusi (normalitas) residual</li>
 <li>Homoskedastisitas</li>
+<li>Multikolinearitas</li>
 </ul></li>
-<li><em>Partitioning/centering</em></li>
+<li>Mendeteksi <em>outliers</em></li>
+<li>Menguji <em>interaction effects</em> dan <em>model change</em></li>
+<li>Menulis hasil analisis regresi linier dengan <em>interaction terms</em> dalam manuskrip</li>
 </ul>
+</div>
 </div>
 <div id="bagian-2" class="section level3">
 <h3><strong>Bagian 2</strong></h3>
+<div id="setelah-istirahat-13.00-16.00" class="section level4">
+<h4>## Setelah istirahat (13.00-16.00)</h4>
 <ul>
 <li>Struktur data berjenjang/bersarang (<em>hierarchical/nested data</em>)</li>
 <li><em>Within</em> dan <em>between group variance</em></li>
-<li>Sampel hirarkial 2-level</li>
 <li>Pengantar <em>linear mixed-effect</em> (<code>lme</code>)</li>
+<li><em>Intra-class correlation</em> dan <em>likelihood ratio test</em> (LRT)</li>
 <li>Membandingkan garis regresi antar kelompok dengan <code>lme</code></li>
 <li><code>lme</code> dengan prediktor level 1 (<em>random coefficients model</em>)
 <ul>
 <li>Mengidentifikasi <em>intercept</em> (konstanta) yang berbeda antar kelompok (<em>random intercept model</em>)</li>
 <li>Mengidentifikasi <em>slopes</em> (gradien/kemiringan garis) yang berbeda antar kelompok (<em>random slopes model</em>)</li>
 </ul></li>
-<li><code>lme</code> dengan prediktor level 2</li>
-<li><em>Intra-class correlation</em></li>
 <li><em>Explained variances</em> (<a href="https://besjournals.onlinelibrary.wiley.com/doi/full/10.1111/j.2041-210x.2012.00261.x">Nakagawa &amp; Schielzeth, 2012</a>)
 <ul>
 <li><em>Marginal R^2</em></li>
 <li><em>Conditional R^2</em></li>
 </ul></li>
+<li><em>Contextual effect</em> dan <em>partitioning/centering</em></li>
 <li>Melaporkan analisis dengan <code>lme</code> dalam manuskrip</li>
 </ul>
+</div>
 </div>
 </div>
 <div id="referensi" class="section level2">

@@ -13,6 +13,8 @@ Workshop ini akan mencakup pengenalan `lme` dengan sebelumnya membahas konsep da
 Berikut adalah *outline* materi *workshop*:
 
 ### **Bagian 1**
+#### Sebelum istirahat (08.00-12.00)
+
 * Berlatih menginspeksi data secara visual dengan *scatterplot*
 * Model regresi linier (*ordinary least square*)
 * Menarik garis regresi (*fitted regression lines*)
@@ -22,22 +24,26 @@ Berikut adalah *outline* materi *workshop*:
 * Mengecek asumsi
   - Distribusi (normalitas) residual
   - Homoskedastisitas
-* *Partitioning/centering*
+  - Multikolinearitas
+* Mendeteksi *outliers*
+* Menguji *interaction effects* dan *model change*
+* Menulis hasil analisis regresi linier dengan *interaction terms* dalam manuskrip
 
 ### **Bagian 2**
+#### ## Setelah istirahat (13.00-16.00)
+
 * Struktur data berjenjang/bersarang (*hierarchical/nested data*)
 * *Within* dan *between group variance*
-* Sampel hirarkial 2-level
 * Pengantar *linear mixed-effect* (`lme`)
+* *Intra-class correlation* dan *likelihood ratio test* (LRT)
 * Membandingkan garis regresi antar kelompok dengan `lme`
 * `lme` dengan prediktor level 1 (*random coefficients model*)
   - Mengidentifikasi *intercept* (konstanta) yang berbeda antar kelompok (*random intercept model*)
   - Mengidentifikasi *slopes* (gradien/kemiringan garis) yang berbeda antar kelompok (*random slopes model*)
-* `lme` dengan prediktor level 2
-* *Intra-class correlation*
 * *Explained variances* ([Nakagawa & Schielzeth, 2012](https://besjournals.onlinelibrary.wiley.com/doi/full/10.1111/j.2041-210x.2012.00261.x))
   - *Marginal R^2*
   - *Conditional R^2*
+* *Contextual effect* dan *partitioning/centering*
 * Melaporkan analisis dengan `lme` dalam manuskrip
 
 

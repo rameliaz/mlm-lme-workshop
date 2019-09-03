@@ -165,9 +165,9 @@ c3=18
 #----
 # Bikin persamaan regresinya
 
-org1 <- a1*con - b1*inf + c1*pow + rnorm(npekerja, sd=4) # persamaan garis regresi di organisasi 1
-org2 <- -a2*con + b2*inf + c2*pow + rnorm(npekerja, sd=2) # persamaan garis regresi di organisasi 2
-org3 <- a3*con + b3*inf + c3*pow + rnorm(npekerja, sd=3) # persamaan garis regresi di organisasi 3
+org1 <- a1*con - b1*inf - c1*pow + rnorm(npekerja, sd=4) # persamaan garis regresi di organisasi 1
+org2 <- -a2*con + b2*inf - c2*pow + rnorm(npekerja, sd=2) # persamaan garis regresi di organisasi 2
+org3 <- a3*con + b3*inf - c3*pow + rnorm(npekerja, sd=3) # persamaan garis regresi di organisasi 3
 
 #----
 # Bikin dataframe
