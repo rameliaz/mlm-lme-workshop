@@ -61,9 +61,9 @@ Berikut adalah *outline* materi *workshop*:
 
 
 ## Sumber belajar lainnya
-[LEMMA (Learning Environment for Multilevel Methods and Applications)](https://www.cmm.bris.ac.uk/lemma/)
-[Learning Statistics with jamovi](https://sites.google.com/brookes.ac.uk/learning-stats-with-jamovi)
-[Video tutorial jamovi dari Datalab](https://datalab.cc/tools/jamovi)
+* [LEMMA (Learning Environment for Multilevel Methods and Applications)](https://www.cmm.bris.ac.uk/lemma/)
+* [Learning Statistics with jamovi](https://sites.google.com/brookes.ac.uk/learning-stats-with-jamovi)
+* [Video tutorial jamovi dari Datalab](https://datalab.cc/tools/jamovi)
 
 ## Sebelum mulai workshop
 * Sebaiknya semua peserta sudah memasang jamovi pada perangkatnya masing-masing, untuk menghindari terlalu banyaknya waktu untuk menyelesaikan *troubleshooting* instalasi ketika *workshop*.
@@ -71,8 +71,38 @@ Berikut adalah *outline* materi *workshop*:
 
 
 ## Cara instalasi *module* GAMLj
-[Klik disini untuk menyimak video petunjuk instalasi *module* GAMLj jamovi](https://www.youtube.com/embed/XM9LqoY8w04). Gunakan [jamovi versi terbaru (1.1.2)](https://www.jamovi.org/downloads/jamovi-1.1.2.0-win64.exe).
+[Klik disini untuk menyimak video petunjuk instalasi *module* GAMLj jamovi](https://www.youtube.com/XM9LqoY8w04). Gunakan [jamovi versi terbaru (1.1.2 untuk Windows, 1.1.3 untuk Mac)](https://www.jamovi.org/downloads/jamovi-1.1.2.0-win64.exe).
 
 
 ## Video rekaman
-Saya akan mengunggah video rekaman *workshop* disini.
+
+### Sesi 1 (08.00-12.00)
+
+[Klik disini untuk menonton video.](https://www.youtube.com/WwlILOtniBw)
+
+### Sesi 2 (13.00-16.00)
+
+[Klik disini untuk menonton video.](https://www.youtube.com/N2O48MoMddQ)
+
+
+## Pembaruan dan koreksi
+
+* Dalam video dan salindia yang lama, saya menyebutkan *contextual effects* adalah selisih dari *between-group variances* dengan *within-group variances*. Padahal **yang benar**, *contextual effect* adalah selisih dari **between-group effect** dengan **within-group effect**.
+* Saya menambahkan cara menginterpretasi *contextual effect* ketika tandanya negatif, atau positif.
+
+
+## Poster kegiatan
+
+<center><img src="libs/poster.jpg" style="width:70%;" class="fancyimage"/></center>
+
+
+## Jawaban Latihan
+
+### Latihan Mandiri (1): OLS dengan *interaction terms*
+
+[Klik disini untuk melihat jawaban]() saya atas latihan mandiri (1).
+
+
+### Latihan Mandiri (2): `lme`
+
+[Klik disini untuk melihat jawaban]() saya atas latihan mandiri (1).

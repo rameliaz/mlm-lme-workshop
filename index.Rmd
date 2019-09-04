@@ -97,12 +97,13 @@ Mohon untuk menyimak video petunjuk instalasi *module* GAMLj jamovi berikut ini.
 
 <center><img src="libs/poster.jpg" style="width:70%;" class="fancyimage"/></center>
 
+## Jawaban Latihan
 
-## Jawaban dari Latihan Mandiri (1): OLS dengan *interaction terms*
+### Latihan Mandiri (1): OLS dengan *interaction terms*
 
 [Klik disini untuk melihat jawaban]() saya atas latihan mandiri (1).
 
 
-## Jawaban dari Latihan Mandiri (2): `lme`
+### Latihan Mandiri (2): `lme`
 
 [Klik disini untuk melihat jawaban]() saya atas latihan mandiri (1).
