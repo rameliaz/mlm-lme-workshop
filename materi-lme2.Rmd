@@ -46,7 +46,7 @@ class: title-slide, spaced
 class: inverse, middle, center
 
 # Quiz time! `r emo::ji("smile")`
-## [Klik disini](https://menti.com) untuk menuju laman kuis.
+## [Klik disini untuk menuju laman kuis.](https://menti.com)
 
 <img src="https://media.giphy.com/media/3o6UBipuQxa6QwnvC8/giphy.gif" style="width:30%;" class="fancyimage"/>
 
@@ -360,15 +360,15 @@ Setelah menginspeksi data secara visual, kita tahu bahwa korelasi antara **penda
 
 # *Contextual effects* & *partitioning*
 
-* *Within-group variances*
+* *Within-group effect*
   - Seberapa besar selisih Y dari 2 orang yang berada di **kelompok yang sama**, ketika **selisih Xnya** sebesar 1 poin?
   - Seberapa besar perbedaan tingkat kemandirian dua orang anak yang berada dalam **sekolah yang sama**, ketika selisih **tingkat pendapatan keluarga** mereka berbeda sebesar 1 poin?
 
-* *Between-group variances*
+* *Between-group effect*
   - Seberapa besar selisih Y dari 2 orang yang berbeda (dari 2 kelompok yang berbeda), namun berada dalam **posisi relatif yang sama** (dibandingkan dengan rerata kelompok), ketika **selisih X** mereka sebesar 1 poin?
   - Seberapa besar perbedaan tingkat kemandirian 2 orang anak yang berasal dari **sekolah yang berbeda**, namun pada **posisi yang sama** apabila **dibandingkan dengan rata-rata** kemandirian anak-anak di **sekolah mereka masing-masing** (misal sama-sama yang paling/paling tidak manja), apabila **selisih pendapatan keluarga** mereka = 1 poin?
 
-* *Contextual effects*
+* *Contextual effect*
   - Seberapa besar selisih Y dua orang dari kelompok yang berbeda, namun dengan **X yang sama**, ketika **rerata X kelompoknya** berbeda sebesar 1 poin.
   - Seberapa besar selisih tingkat kemandirian 2 orang anak dari **sekolah yang berbeda**, namun memiliki **tingkat pendapatan keluarga yang sama** persis, ketika **rata-rata tingkat pendapatan keluarga anak-anak di sekolahnya** berbeda sebesar 1 poin?
 
@@ -380,15 +380,17 @@ Setelah menginspeksi data secara visual, kita tahu bahwa korelasi antara **penda
 
 * Umumnya yang dipartisi/*centering* adalah **variabel X, bukan Y**
 
-* *Group-mean centered*
+* *Group-mean centering*
   - Nilai X individu dikurangi rata-rata X kelompoknya
   - Pendapatan keluarga anak A dikurangi rata-rata pendapatan keluarga anak-anak di sekolahnya
 
-* *Grand-mean centered*
+* *Grand-mean centering*
   - Nilai X individu dikurangi rata-rata X pada seluruh sampel
   - Pendapatan keluarga anak A dikurangi rata-rata pendapatan keluarga seluruh anak yang menjadi sampel
 
-* *Contextual effect* = *Between-group variances* - *Within-group variances*
+* *Contextual effect* = *Between-group effect* - *Within-group effect*
+  - *Contextual effect* yang positif artinya **kelompok** dengan **rata-rata X yang lebih tinggi**, cenderung memiliki *intercept* (rata-rata Y) yang **lebih tinggi**, atau begitu pula sebaliknya.
+  - *Contextual effect* yang negatif artinya **kelompok** dengan **rata-rata X yang lebih tinggi**, cenderung memiliki *intercept* (rata-rata Y) yang **lebih rendah**, atau begitu pula sebaliknya.
 
 ---
 
@@ -417,7 +419,7 @@ Setelah menginspeksi data secara visual, kita tahu bahwa korelasi antara **penda
 
 .pull-left[
 
-* Kita tidak punya bukti yang meyakinkan bahwa kita dapat menolak hipotesis bahwa *within* (*B*=0.257 95% CI [-0.115, 0.629], *SE*=0.190, *t*=1.354, *p*=.213), maupun *between-group variance* (*B*=-0.454 95% CI [-1.207, 0.299], *SE*=0.384, *t*=-1.182, *p*=.315) tidak dapat menjelaskan varians tingkat kemandirian anak.
+* Kita tidak punya bukti yang meyakinkan bahwa kita dapat menolak hipotesis bahwa *within* (*B*=0.257 95% CI [-0.115, 0.629], *SE*=0.190, *t*=1.354, *p*=.213), maupun *between-group effect* (*B*=-0.454 95% CI [-1.207, 0.299], *SE*=0.384, *t*=-1.182, *p*=.315) tidak dapat menjelaskan varians tingkat kemandirian anak.
 
 * *Contextual effects* = -0.711
 
@@ -452,9 +454,9 @@ class: inverse
 
 "...model *random effects* menunjukkan bahwa peneliti dapat menolak hipotesis bahwa tidak ada perbedaan varians tingkat kemandirian antar-kelompok (LRT(2)=74.0, *p*<.001). Varians kemandirian anak paling banyak dijelaskan oleh rata-rata tingkat kemandirian anak di masing-masing sekolah (varians *random intercept* (σ<sup>2</sup><sub>*U0*</sub>)) daripada oleh varians *random slopes*  (σ<sup>2</sup><sub>*U1*</sub>). Selain itu, 93.1% varians tingkat kemandirian anak dijelaskan oleh perbedaan kelompok (ICC=0.931).
 
-Peneliti tidak memiliki cukup bukti yang meyakinkan untuk menolak hipotesis yang menyatakan bahwa *within* (*B*=0.257 95% CI [-0.115, 0.629], *SE*=0.190, *t*=1.354, *p*=.213), maupun *between-group variance* (*B*=-0.454 95% CI [-1.207, 0.299], *SE*=0.384, *t*=-1.182, *p*=.315) tidak dapat menjelaskan varians tingkat kemandirian anak. 
+Peneliti tidak memiliki cukup bukti yang meyakinkan untuk menolak hipotesis yang menyatakan bahwa *within* (*B*=0.257 95% CI [-0.115, 0.629], *SE*=0.190, *t*=1.354, *p*=.213), maupun *between-group effect* (*B*=-0.454 95% CI [-1.207, 0.299], *SE*=0.384, *t*=-1.182, *p*=.315) tidak dapat menjelaskan varians tingkat kemandirian anak. 
 
-*Contextual effects* ditemukan sebesar -0.711, artinya, anak yang bersekolah di dua tempat yang berbeda, dengan selisih rata-rata tingkat kemandirian anak-anak di dua sekolah tersebut sebesar 1 poin, maka tingkat kemandirian mereka berbeda sebesar 0.711 poin, apabila diasumsikan keluarga mereka memiliki pendapatan yang sama besarnya..."
+*Contextual effects* ditemukan sebesar -0.711, artinya, anak yang bersekolah di dua tempat yang berbeda, dengan selisih rata-rata tingkat kemandirian anak-anak di dua sekolah tersebut sebesar 1 poin, maka tingkat kemandirian mereka berbeda sebesar -0.711 poin, apabila diasumsikan keluarga mereka memiliki pendapatan yang sama besarnya. Tanda negatif dari *contextual effect* mengindikasikan bahwa sekolah yang rata-rata pendapatan keluarga siswanya lebih tinggi, cenderung memiliki rata-rata tingkat kemandirian yang rendah..."
 
 ---
 
@@ -498,14 +500,13 @@ Peneliti tidak memiliki cukup bukti yang meyakinkan untuk menolak hipotesis yang
 
 ]
 
-
 ---
 
 class: inverse, center, middle
 
 # The problem with linear relationship
 
-<img src="https://i.pinimg.com/originals/19/8a/7b/198a7be0157b1dc1224a0a50821b1ec0.gif" style="width:150%;" class="fancyimage"/>
+<img src="https://i.pinimg.com/originals/19/8a/7b/198a7be0157b1dc1224a0a50821b1ec0.gif" style="width:40%;" class="fancyimage"/>
 
 ---
 

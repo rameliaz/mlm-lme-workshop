@@ -61,9 +61,9 @@ Berikut adalah *outline* materi *workshop*:
 
 
 ## Sumber belajar lainnya
-[LEMMA (Learning Environment for Multilevel Methods and Applications)](https://www.cmm.bris.ac.uk/lemma/)
-[Learning Statistics with jamovi](https://sites.google.com/brookes.ac.uk/learning-stats-with-jamovi)
-[Video tutorial jamovi dari Datalab](https://datalab.cc/tools/jamovi)
+* [LEMMA (Learning Environment for Multilevel Methods and Applications)](https://www.cmm.bris.ac.uk/lemma/)
+* [Learning Statistics with jamovi](https://sites.google.com/brookes.ac.uk/learning-stats-with-jamovi)
+* [Video tutorial jamovi dari Datalab](https://datalab.cc/tools/jamovi)
 
 ## Sebelum mulai workshop
 * Sebaiknya semua peserta sudah memasang jamovi pada perangkatnya masing-masing, untuk menghindari terlalu banyaknya waktu untuk menyelesaikan *troubleshooting* instalasi ketika *workshop*.
@@ -77,4 +77,32 @@ Mohon untuk menyimak video petunjuk instalasi *module* GAMLj jamovi berikut ini.
 
 
 ## Video rekaman
-Saya akan mengunggah video rekaman *workshop* disini.
+
+### Sesi 1 (08.00-12.00)
+
+<center><iframe width="560" height="315" src="https://www.youtube.com/embed/WwlILOtniBw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></center>
+
+### Sesi 2 (13.00-16.00)
+
+<center><iframe width="560" height="315" src="https://www.youtube.com/embed/N2O48MoMddQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></center>
+
+
+## Pembaruan dan koreksi
+
+* Dalam video dan salindia yang lama, saya menyebutkan *contextual effects* adalah selisih dari *between-group variances* dengan *within-group variances*. Padahal **yang benar**, *contextual effect* adalah selisih dari **between-group effect** dengan **within-group effect**.
+* Saya menambahkan cara menginterpretasi *contextual effect* ketika tandanya negatif, atau positif.
+
+
+## Poster kegiatan
+
+<center><img src="libs/poster.jpg" style="width:70%;" class="fancyimage"/></center>
+
+
+## Jawaban dari Latihan Mandiri (1): OLS dengan *interaction terms*
+
+[Klik disini untuk melihat jawaban]() saya atas latihan mandiri (1).
+
+
+## Jawaban dari Latihan Mandiri (2): `lme`
+
+[Klik disini untuk melihat jawaban]() saya atas latihan mandiri (1).
