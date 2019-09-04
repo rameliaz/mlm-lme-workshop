@@ -2,7 +2,7 @@
 ## Deskripsi
 Berikut adalah repositori yang digunakan untuk menyimpan semua materi untuk **Workshop Linear Mixed Effect** yang diselenggarakan oleh Departemen Psikologi Kepribadian dan Sosial, Fakultas Psikologi Universitas Airlangga dalam rangka memperingati Dies Natalis Pendidikan Psikologi Universitas Airlangga yang ke-36. 
 
-Materi berlisensi [*Creative Commons* 4.0](https://creativecommons.org/licenses/by/4.0/). **Materi bebas digunakan kembali namun wajib menyebutkan sumber aslinya**.
+Materi berlisensi [<i class="fab fa-creative-commons"></i> 4.0](https://creativecommons.org/licenses/by/4.0/). **Materi bebas digunakan kembali namun wajib menyebutkan sumber aslinya**.
 
 ## Waktu dan tempat
 *Workshop* diselenggarakan pada hari **Rabu, 4 September 2019**, pukul 08.00-16.00 WIB di Ruang Sidang I, Fakultas Psikologi Universitas Airlangga.
