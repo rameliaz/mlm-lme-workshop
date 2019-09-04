@@ -94,12 +94,12 @@ class: middle, center, inverse
 
 --
 
-* Pura-pura ga tahu, kita abaikan aja dan langsung menggunakan regresi OLS, dengan atau tanpa informasi mengenai pengelompokan data sebagai variabel kontrol.
+* Pura-pura *ga tahu*, kita abaikan saja dan langsung menggunakan regresi OLS, dengan atau tanpa informasi mengenai pengelompokan data sebagai variabel kontrol.
 
 --
 
   - Masalahnya, data/observasi kita sangat bergantung pada pengelompokan unit analisis
-  - **Melanggar asumsi OLS dong?** (data/observasi dan residual harus independen)
+  - **Nah, lalu melanggar asumsi OLS dong?** (data/observasi dan residual harus independen)
   - Efeknya, *standard error* yang diestimasi oleh model terlalu kecil (karena mengabaikan varians dependen variabel yang ditentukan oleh kelompok)
   - Varians variabel dependen yang tidak bisa dijelaskan (residual) akan makin besar
   - Kesimpulan/inferensi yang ditarik menjadi tidak tepat, sehingga risiko terjadinya *type I error* meningkat.
@@ -154,17 +154,17 @@ class: inverse, middle, center
 
 ---
 
-# Co-varians (korelasi) antara *random intercept* dan *random slopes* (σ&lt;sub&gt;*U0*&lt;/sub&gt;&lt;sub&gt;*U1*&lt;/sub&gt;)
+# Kovarians (korelasi) antara *random intercept* dan *random slopes* (σ&lt;sub&gt;*U0*&lt;/sub&gt;&lt;sub&gt;*U1*&lt;/sub&gt;)
 
 .pull-left[
 
-* Nilainya positif, maka semakin tinggi *intercept* akan diasosiasikan dengan kemiringan garis yang lebih curam/*slopes* yang lebih besar
+* **Nilainya positif**, maka semakin tinggi *intercept* akan diasosiasikan dengan kemiringan garis yang lebih curam/*slopes* yang lebih besar
 
-* Misalnya, di sekolah yang rata-rata pendapatan keluarga inti perbulan siswanya tinggi, maka korelasi antara pendapatan per bulan dengan tingkat kemandirian siswa akan menguat.
+* Misalnya, di sekolah yang **rata-rata pendapatan** keluarga inti perbulan siswanya **tinggi**, maka **korelasi** antara pendapatan per bulan dengan tingkat kemandirian siswa **akan menguat**.
 
-* Nilainya negatif, maka semakin tinggi *intercept* akan diasosiasikan dengan kemiringan garis yang lebih landai/*slopes* yang lebih kecil
+* **Nilainya negatif**, maka semakin tinggi *intercept* akan diasosiasikan dengan kemiringan garis yang lebih landai/*slopes* yang lebih kecil
 
-* Misalnya, di sekolah yang rata-rata pendapatan keluarga inti perbulan siswanya tinggi, maka korelasi antara pendapatan per bulan dengan tingkat kemandirian siswa akan melemah.
+* Misalnya, di sekolah yang **rata-rata pendapatan** keluarga inti perbulan siswanya **tinggi**, maka **korelasi** antara pendapatan per bulan dengan tingkat kemandirian siswa **akan melemah**.
 ]
   
 .pull-right[
@@ -186,7 +186,7 @@ class: inverse, middle, center
 
 * Varians *random slopes*  (σ&lt;sup&gt;2&lt;/sup&gt;&lt;sub&gt;*U1*&lt;/sub&gt;)
 
-* Co-varians (korelasi) antara *random intercept* dan *random slopes* (σ&lt;sub&gt;*U0*&lt;/sub&gt;&lt;sub&gt;*U1*&lt;/sub&gt;)
+* Kovarians (korelasi) antara *random intercept* dan *random slopes* (σ&lt;sub&gt;*U0*&lt;/sub&gt;&lt;sub&gt;*U1*&lt;/sub&gt;)
 
 * Varians residual level-1 (σ&lt;sup&gt;2&lt;/sup&gt;&lt;sub&gt;*e*&lt;/sub&gt;)
 
@@ -267,7 +267,8 @@ Setelah menginspeksi data secara visual, kita tahu bahwa korelasi antara **penda
 
 .pull-right[
 
-&lt;img src="libs/random-1.jpg" style="width:100%;" class="fancyimage"/&gt;
+&lt;img src="libs/random-1.jpg" style="width:90%;" class="fancyimage"/&gt; &lt;br&gt;
+&lt;img src="libs/lrt-2.jpg" style="width:100%;" class="fancyimage"/&gt; &lt;/br&gt;
 
 ]
 
@@ -288,7 +289,8 @@ Setelah menginspeksi data secara visual, kita tahu bahwa korelasi antara **penda
 
 .pull-right[
 
-&lt;img src="libs/random-1.jpg" style="width:100%;" class="fancyimage"/&gt;
+&lt;img src="libs/random-1.jpg" style="width:90%;" class="fancyimage"/&gt; &lt;br&gt;
+&lt;img src="libs/lrt-2.jpg" style="width:100%;" class="fancyimage"/&gt; &lt;/br&gt;
 
 ]
 
@@ -298,7 +300,7 @@ Setelah menginspeksi data secara visual, kita tahu bahwa korelasi antara **penda
 
 .pull-left[
 
-* Menguji efek sekolah (kelompok)
+* Menguji efek sekolah (kelompok) / (*testing group effects*)
 
   - ICC=0.931, artinya 93.1% varians tingkat kemandirian anak dijelaskan oleh perbedaan kelompok. ICC diatas 0.1 biasanya menunjukkan `lme` adalah opsi yang lebih baik daripada OLS.
   
@@ -307,7 +309,8 @@ Setelah menginspeksi data secara visual, kita tahu bahwa korelasi antara **penda
 
 .pull-right[
 
-&lt;img src="libs/random-1.jpg" style="width:100%;" class="fancyimage"/&gt;
+&lt;img src="libs/random-1.jpg" style="width:90%;" class="fancyimage"/&gt; &lt;br&gt;
+&lt;img src="libs/lrt-2.jpg" style="width:100%;" class="fancyimage"/&gt; &lt;/br&gt;
 
 ]
 

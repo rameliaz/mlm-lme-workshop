@@ -1,7 +1,7 @@
 name: "lme2019"
 author: "Rizqy Amelia Zein"
 output_dir: "docs"
-exclude: ["*.xls", "*.csv","*.R"]
+exclude: ["*.xls", "*.csv","*.R","/slides","*.pptx"]
 navbar:
   title: "Linear Mixed Effect Workshop"
   left:

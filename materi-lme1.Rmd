@@ -265,7 +265,6 @@ Korelasi yang tampak pada *scatterplot* tadi dapat dikonseptualisasikan dengan l
 
 * Koefisien korelasi *Pearson’s* r atau *Spearman's* rho dihitung dari kovarians (*covariance*/*average cross product* dari dua variabel). 
   - Dua variabel yang sama sekali tak berkorelasi, maka kovarians nol.
-
 ]
 
 .pull-right[
@@ -517,7 +516,7 @@ Marimar ingin tahu apakah ada kaitan antara kecenderungan *neuroticism* ibu terh
   - Coba bikin lagi garis regresi tanpa *outlier* tersebut, cari tahu kenapa nilainya bisa se-ekstrim itu
   - Kalau sangat mendesak, *outlier* dapat dikeluarkan dari model. Tetapi ini tidak terlalu disarankan dan kalaupun dilakukan, harus ditulis dengan jelas di manuskrip/laporan.
   
-* Dari *output* di samping, dapat disimpulkan bahwa apabila *outlier* tidak disertakan dalam analisis, maka perubahan rerata, median, dan standar deviasi keseluruhan sampel dapat diabaikan.
+* Dari *output* di samping, dapat disimpulkan bahwa apabila *outlier* tidak disertakan dalam analisis, maka perubahan rerata, median, dan standar deviasi keseluruhan sampel kurang dari 1 dari nilai asalnya.
 
 ]
 
@@ -564,6 +563,8 @@ Diagnostik *outlier* dilakukan dengan menggunakan *Cook's distance*, dan menghas
 
 # Latihan (2)
 
+* Lakukan semua langkah yang sudah dilakukan di Latihan (1)
+
 * Pada opsi **model builder**, klik **add new block**
   - Klik **Block 1**, sampai keluar *shading* di pinggir kotak, lalu masukkan **hi**
   - Klik **Block 2**, sampai keluar *shading* di pinggir kotak 
@@ -571,7 +572,7 @@ Diagnostik *outlier* dilakukan dengan menggunakan *Cook's distance*, dan menghas
 
 * Dengan begitu kita punya 2 model regresi
   - Model 1 prediktornya **hi**
-  - Model 2 prediktornya **neu** dan interaksi antara **neu** dengan **trust**
+  - Model 2 prediktornya **hi** dan interaksi antara **neu** dengan **trust**
 
 * Pada opsi **assumption checks**, tambahkan centang pada **collinearity statistics**
 
@@ -630,7 +631,7 @@ Ketika dibandingkan, Model 1 dan Model 2 berbeda signifikan (*F*(1,397)=104, p<.
 
 #### Pendapatan keluarga dapat menjelaskan variasi kemandirian anak (*B*=-0.943 95% CI [-1.164, -0.721], *SE*=0.112, *t*=-8.39, *p*<.001).
 
-#### *Interaction terms* juga signifikan dalam menjelaskan varians kemandirian anak (*B*=0.054 95% CI [0.044, 0.065], *SE*=0.112, *t*=10.8, *p*<.001).
+#### *Interaction terms* juga signifikan dalam menjelaskan varians kemandirian anak (*B*=0.054 95% CI [0.044, 0.065], *SE*=0.005, *t*=10.18, *p*<.001).
 
 ---
 
@@ -656,7 +657,7 @@ Ketika dibandingkan, Model 1 dan Model 2 berbeda signifikan (*F*(1,397)=104, p<.
 
 .pull-left[
 * Dapat dideteksi dengan melakukan analisis melihat *variance inflated factors* (VIF).
-  - Bila VIF < 4, maka multi-kolinearitas kemungkinan besar tidak terjadi.
+  - Bila VIF < 2.5, maka multi-kolinearitas kemungkinan besar tidak terjadi.
 
 * Penelitian *longitudinal* punya potensi terjadinya autokorelasi (residual *time 1* dan *time 2* berkorelasi)
   - Dapat dicek dengan tes Durbin-Watson
@@ -681,7 +682,7 @@ class: inverse, middle
 
 Ketika dibandingkan, Model 1 dan Model 2 berbeda signifikan (*F*(1,397)=104, p<.001). R<sup>2</sup> bertambah sebesar 20.2% (ΔR<sup>2</sup>=.202) ketika interaksi antara *neuroticism* dengan *trust* ditambahkan dalam Model 2. Model 2 (*F*(2,397)=58.2, p<.001, R<sup>2</sup>=.226, AIC=3237, BIC=3253) dapat menjelaskan varians tingkat kemandirian anak lebih baik daripada Model 1 (*F*(1,398)=10.2, p=.002, R<sup>2</sup>=.025, AIC=3327, BIC=3339). Model 2 dapat menjelaskan varians tingkat kemandirian sebesar 22.6%, sedangkan Model 2 sebesar 2.5%. 
 
-Pendapatan keluarga dapat menjelaskan variasi kemandirian anak (*B*=-0.943 95% CI [-1.164, -0.721], *SE*=0.112, *t*=-8.39, *p*<.001). Interaksi antara *neuroticism* dengan *trust* juga signifikan dalam menjelaskan varians kemandirian anak (*B*=0.054 95% CI [0.044, 0.065], *SE*=0.112, *t*=10.8, *p*<.001). Artinya, pada korelasi antara kecenderungan *neuroticism* ibu dengan kemandirian anak akan menguat pada ibu yang *trust*nya rendah.
+Pendapatan keluarga dapat menjelaskan variasi kemandirian anak (*B*=-0.943 95% CI [-1.164, -0.721], *SE*=0.112, *t*=-8.39, *p*<.001). Interaksi antara *neuroticism* dengan *trust* juga signifikan dalam menjelaskan varians kemandirian anak (*B*=0.054 95% CI [0.044, 0.065], *SE*=0.005, *t*=10.18, *p*<.001). Artinya, pada korelasi antara kecenderungan *neuroticism* ibu dengan kemandirian anak akan menguat pada ibu yang *trust*nya tinggi.
 
 Potensi multikolinieritas dideteksi dengan *variance inflated factors* (VIF) dan hasil analisis menunjukkan multikolinieritas kemungkinan besar tidak terjadi (VIF=1.38)..."
 
