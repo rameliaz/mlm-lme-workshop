@@ -398,6 +398,8 @@ Setelah menginspeksi data secara visual, kita tahu bahwa korelasi antara **penda
 
 * Lakukan `lme` dengan memasukkan **hi_group_centered** dan **hi_grand_mean_centered** dalam satu model yang sama
 
+* Masukkan kedua variabel tersebut dalam **fixed coefficients** dan **random coefficients**
+
 * Lihat *fixed slopes*-nya untuk kedua prediktor
 
 ]
@@ -415,9 +417,9 @@ Setelah menginspeksi data secara visual, kita tahu bahwa korelasi antara **penda
 
 .pull-left[
 
-* Kita tidak punya bukti yang meyakinkan bahwa kita dapat menolak hipotesis bahwa *within* (*B*=-0.099 95% CI [-2.42, 2.61], *SE*=1.28, *t*=0.077, *p*=.943), maupun *between-group variance* (*B*=-0.359 95% CI [-2.87, 2.15], *SE*=0.372, *t*=-0.280, *p*=.797) tidak dapat menjelaskan varians tingkat kemandirian anak.
+* Kita tidak punya bukti yang meyakinkan bahwa kita dapat menolak hipotesis bahwa *within* (*B*=0.257 95% CI [-0.115, 0.629], *SE*=0.190, *t*=1.354, *p*=.213), maupun *between-group variance* (*B*=-0.454 95% CI [-1.207, 0.299], *SE*=0.384, *t*=-1.182, *p*=.315) tidak dapat menjelaskan varians tingkat kemandirian anak.
 
-* *Contextual effects* = -.4581
+* *Contextual effects* = -0.711
 
 ]
 
@@ -450,9 +452,9 @@ class: inverse
 
 "...model *random effects* menunjukkan bahwa peneliti dapat menolak hipotesis bahwa tidak ada perbedaan varians tingkat kemandirian antar-kelompok (LRT(2)=74.0, *p*<.001). Varians kemandirian anak paling banyak dijelaskan oleh rata-rata tingkat kemandirian anak di masing-masing sekolah (varians *random intercept* (σ<sup>2</sup><sub>*U0*</sub>)) daripada oleh varians *random slopes*  (σ<sup>2</sup><sub>*U1*</sub>). Selain itu, 93.1% varians tingkat kemandirian anak dijelaskan oleh perbedaan kelompok (ICC=0.931).
 
-Peneliti tidak memiliki cukup bukti yang meyakinkan untuk menolak hipotesis yang menyatakan bahwa *within* (*B*=-0.099 95% CI [-2.42, 2.61], *SE*=1.28, *t*=0.077, *p*=.943), maupun *between-group variance* (*B*=-0.359 95% CI [-2.87, 2.15], *SE*=0.372, *t*=-0.280, *p*=.797) tidak dapat menjelaskan varians tingkat kemandirian anak. 
+Peneliti tidak memiliki cukup bukti yang meyakinkan untuk menolak hipotesis yang menyatakan bahwa *within* (*B*=0.257 95% CI [-0.115, 0.629], *SE*=0.190, *t*=1.354, *p*=.213), maupun *between-group variance* (*B*=-0.454 95% CI [-1.207, 0.299], *SE*=0.384, *t*=-1.182, *p*=.315) tidak dapat menjelaskan varians tingkat kemandirian anak. 
 
-*Contextual effects* ditemukan sebesar -.4581, artinya, anak yang bersekolah di dua tempat yang berbeda, dengan selisih rata-rata tingkat kemandirian anak-anak di dua sekolah tersebut sebesar 1 poin, maka tingkat kemandirian mereka berbeda sebesar 0.4581 poin, apabila diasumsikan keluarga mereka memiliki pendapatan yang sama besarnya..."
+*Contextual effects* ditemukan sebesar -0.711, artinya, anak yang bersekolah di dua tempat yang berbeda, dengan selisih rata-rata tingkat kemandirian anak-anak di dua sekolah tersebut sebesar 1 poin, maka tingkat kemandirian mereka berbeda sebesar 0.711 poin, apabila diasumsikan keluarga mereka memiliki pendapatan yang sama besarnya..."
 
 ---
 
