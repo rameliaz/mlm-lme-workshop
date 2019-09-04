@@ -26,6 +26,11 @@ navbar:
       href: dataset-sekolah.omv
     - text: "Dataset2-Organisasi"
       href: dataset-organisasi.omv
+  - text: "Survei"  
+    menu: 
+    - text: "Evaluasi Workshop"
+      href: https://www.soscisurvey.de/invited-talk-feedback/
+    
 output:
   html_document:
     toc: true
