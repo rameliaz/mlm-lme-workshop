@@ -100,9 +100,9 @@ Berikut adalah *outline* materi *workshop*:
 
 ### Latihan Mandiri (1): OLS dengan *interaction terms*
 
-[Klik disini untuk melihat jawaban]() saya atas latihan mandiri (1).
+[Klik disini untuk melihat jawaban](https://docs.google.com/document/d/1tqfB5rmEyxsZLwTAb4N-765bv2l9o8xdt7_ZfUNZGtY/edit?usp=sharing) saya atas latihan mandiri (1).
 
 
 ### Latihan Mandiri (2): `lme`
 
-[Klik disini untuk melihat jawaban]() saya atas latihan mandiri (1).
+[Klik disini untuk melihat jawaban](https://docs.google.com/document/d/1cVVTgyTE4mvMMbdzKr0MM5t6QoZ42NBCQR0DuXNxy4E/edit?usp=sharing) saya atas latihan mandiri (1).
