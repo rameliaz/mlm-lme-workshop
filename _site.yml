@@ -3,7 +3,7 @@ author: "Rizqy Amelia Zein"
 output_dir: "docs"
 exclude: ["*.xls", "*.csv","*.R","/slides","*.pptx","*.jpg"]
 navbar:
-  title: "Linear Mixed Effect Workshop"
+  title: "Linear Mixed Models Workshop"
   left:
     - text: "oleh Rizqy Amelia Zein"
       href: https://rameliaz.github.io/

@@ -1,6 +1,6 @@
 
 ## Deskripsi
-Berikut adalah repositori yang digunakan untuk menyimpan semua materi untuk **Workshop Linear Mixed Effect** yang diselenggarakan oleh Departemen Psikologi Kepribadian dan Sosial, Fakultas Psikologi Universitas Airlangga dalam rangka memperingati Dies Natalis Pendidikan Psikologi Universitas Airlangga yang ke-36. 
+Berikut adalah repositori yang digunakan untuk menyimpan semua materi untuk **Workshop Linear Mixed Models** yang diselenggarakan oleh Departemen Psikologi Kepribadian dan Sosial, Fakultas Psikologi Universitas Airlangga dalam rangka memperingati Dies Natalis Pendidikan Psikologi Universitas Airlangga yang ke-36. 
 
 Materi berlisensi [<i class="fab fa-creative-commons"></i> 4.0](https://creativecommons.org/licenses/by/4.0/). **Materi bebas digunakan kembali namun wajib menyebutkan sumber aslinya**.
 
@@ -33,8 +33,8 @@ Berikut adalah *outline* materi *workshop*:
 #### ## Setelah istirahat (13.00-16.00)
 
 * Struktur data berjenjang/bersarang (*hierarchical/nested data*)
-* *Within* dan *between group variance*
-* Pengantar *linear mixed-effect* (`lme`)
+* *Within* dan *between group variances*
+* Pengantar *linear mixed-effects models* (`lme`)
 * *Intra-class correlation* dan *likelihood ratio test* (LRT)
 * Membandingkan garis regresi antar kelompok dengan `lme`
 * `lme` dengan prediktor level 1 (*random coefficients model*)
@@ -50,9 +50,10 @@ Berikut adalah *outline* materi *workshop*:
 ## Referensi
 * Galucci, M. (2019). GAMLj: General analysis for the linear model in jamovi. https://gamlj.github.io/index.html
 * Galucci, M. (2019). Mixed models module. https://gamlj.github.io/mixed.html
-* Lüdecke, D. (2019). Statistics for mixed effects model. https://strengejacke.github.io/sjstats/articles/mixedmodels-statistics.html
+* Hajduk, G.K. (2017). Introduction to linear mixed models. https://ourcodingclub.github.io/2017/03/15/mixed-models.html
 * Nakagawa, S. and Schielzeth, H. (2013), A general and simple method for obtaining R2 from generalized linear mixed‐effects models. Methods Ecol Evol, 4: 133-142. doi: [10.1111/j.2041-210x.2012.00261.x](https://doi.org/10.1111/j.2041-210x.2012.00261.x)
-* Peugh, James L. (2010). A practical guide to multilevel modeling. Journal of School Psychology, 48, 85-112. doi: [10.1016/j.jsp.2009.09.002](https://doi.org/10.1016/j.jsp.2009.09.002)
+* Peugh, James L. (2010). A practical guide to multilevel modeling. Journal of School Psychology, 48, 85-112. doi: [10.1016/j.jsp.2009.09.002](https://doi.org/10.1016/j.jsp.2009.09.002) 
+* Winter, B. (2013). Linear models and linear mixed effects models in R with linguistic applications. [arXiv:1308.5499](https://web.stanford.edu/class/psych252/section/Mixed_models_tutorial.html).
 
 
 ## Contoh penelitian dengan `lme`
