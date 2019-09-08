@@ -30,7 +30,7 @@ Berikut adalah *outline* materi *workshop*:
 * Menulis hasil analisis regresi linier dengan *interaction terms* dalam manuskrip
 
 ### **Bagian 2**
-#### ## Setelah istirahat (13.00-16.00)
+#### Setelah istirahat (13.00-16.00)
 
 * Struktur data berjenjang/bersarang (*hierarchical/nested data*)
 * *Within* dan *between group variances*
