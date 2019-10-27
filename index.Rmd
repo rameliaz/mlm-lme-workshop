@@ -1,11 +1,13 @@
+<br>
+</br>
 
 ## Deskripsi
-Berikut adalah repositori yang digunakan untuk menyimpan semua materi untuk **Workshop Linear Mixed Models** yang diselenggarakan oleh Departemen Psikologi Kepribadian dan Sosial, Fakultas Psikologi Universitas Airlangga dalam rangka memperingati Dies Natalis Pendidikan Psikologi Universitas Airlangga yang ke-36. 
+Berikut adalah repositori yang digunakan untuk menyimpan semua materi untuk **Workshop Linear Mixed Models** yang diselenggarakan oleh Departemen Psikologi Kepribadian dan Sosial, Fakultas Psikologi Universitas Airlangga dalam rangka memperingati Dies Natalis Pendidikan Psikologi Universitas Airlangga yang ke-36. Selain itu, materi yang sama juga disampaikan pada *workshop* yang diadakan oleh Universitas Islam Sultan Agung, Semarang.
 
-Materi berlisensi [<i class="fab fa-creative-commons"></i> BY 4.0](https://creativecommons.org/licenses/by/4.0/). **Materi bebas digunakan kembali namun wajib menyebutkan sumber aslinya**. <br>
+Materi berlisensi [<i class="fab fa-creative-commons"></i> BY 4.0](https://creativecommons.org/licenses/by/4.0/). **Materi bebas digunakan kembali namun wajib mengatribusi sumber aslinya**. <br>
 
 ## Waktu dan tempat
-*Workshop* diselenggarakan pada hari **Rabu, 4 September 2019**, pukul 08.00-16.00 WIB di Ruang Sidang I, Fakultas Psikologi Universitas Airlangga. <br>
+*Workshop* diselenggarakan pada hari **Rabu, 4 September 2019**, pukul 08.00-16.00 WIB di Ruang Sidang I, Fakultas Psikologi Universitas Airlangga. Materi yang sama juga disampaikan di **Ruang Meeting Fakultas Psikologi Universitas Islam Sultan Agung, Semarang**, pada hari **Sabtu, 2 November 2019**, pukul 08.00-16.00 WIB <br>
 
 ## *Outline* materi
 Workshop ini akan mencakup pengenalan `lme` dengan sebelumnya membahas konsep dasar mengenai *ordinary least square regression*. Peserta juga akan diminta untuk menganalisis data dengan menggunakan `lme` dan melaporkannya dalam artikel penelitian.
@@ -73,7 +75,9 @@ Berikut adalah *outline* materi *workshop*:
 
 
 ## Cara instalasi *module* GAMLj
-Mohon untuk menyimak video petunjuk instalasi *module* GAMLj jamovi berikut ini. Gunakan [jamovi versi terbaru (1.1.2 untuk Windows, 1.1.3 untuk MacOS)](https://www.jamovi.org/downloads/jamovi-1.1.2.0-win64.exe).
+Mohon untuk menyimak video petunjuk instalasi *module* GAMLj jamovi berikut ini. 
+
+Gunakan **jamovi versi terbaru** (1.1.6) [untuk Windows](https://www.jamovi.org/downloads/jamovi-1.1.6.0-win64.exe) atau [MacOS](https://www.jamovi.org/download.html).
 
 <center><iframe width="560" height="315" src="https://www.youtube.com/embed/XM9LqoY8w04" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></center>
 <br>
@@ -97,15 +101,16 @@ Mohon untuk menyimak video petunjuk instalasi *module* GAMLj jamovi berikut ini.
 
 ## Poster kegiatan
 
-<center><img src="libs/poster.jpg" style="width:70%;" class="fancyimage"/></center> <br>
+<center><img src="libs/poster.jpg" style="width:70%;" class="fancyimage"/></center><br>
+<center><img src="libs/poster-unisula.jpg" style="width:70%;" class="fancyimage"/></center><br>
 
 ## Jawaban latihan
 
 ### Latihan Mandiri (1): OLS dengan *interaction terms*
 
-[Klik disini untuk melihat jawaban](https://docs.google.com/document/d/1tqfB5rmEyxsZLwTAb4N-765bv2l9o8xdt7_ZfUNZGtY/edit?usp=sharing) saya atas latihan mandiri (1).
+**Akan diunggah setelah workshop selesai**
 
 
 ### Latihan Mandiri (2): `lme`
 
-[Klik disini untuk melihat jawaban](https://docs.google.com/document/d/1cVVTgyTE4mvMMbdzKr0MM5t6QoZ42NBCQR0DuXNxy4E/edit?usp=sharing) saya atas latihan mandiri (2).
+**Akan diunggah setelah workshop selesai**
