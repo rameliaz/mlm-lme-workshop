@@ -364,7 +364,7 @@ class: center, middle, inverse
 
 # Ayo kita coba! `r emo::ji("mag")`
 
-![](https://media.giphy.com/media/jTeK2JM4e50T2xvJBV/giphy.gif)
+![](https://media.giphy.com/media/UO5elnTqo4vSg/giphy.gif)
 
 ---
 
