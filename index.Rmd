@@ -108,9 +108,9 @@ Gunakan **jamovi versi terbaru** (1.1.7) [untuk Windows](https://www.jamovi.org/
 
 ### Latihan Mandiri (1): OLS dengan *interaction terms*
 
-**Akan diunggah setelah workshop selesai**
+[Klik disini untuk melihat jawaban](https://docs.google.com/document/d/1tqfB5rmEyxsZLwTAb4N-765bv2l9o8xdt7_ZfUNZGtY/edit?usp=sharing) saya atas latihan mandiri (1).
 
 
 ### Latihan Mandiri (2): `lme`
 
-**Akan diunggah setelah workshop selesai**
+[Klik disini untuk melihat jawaban](https://docs.google.com/document/d/1cVVTgyTE4mvMMbdzKr0MM5t6QoZ42NBCQR0DuXNxy4E/edit?usp=sharing) saya atas latihan mandiri (1).
