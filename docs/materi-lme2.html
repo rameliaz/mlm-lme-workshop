@@ -10,8 +10,8 @@
   <meta name="generator" content="quarto-1.8.14">
 
   <meta name="author" content="Rizqy Amelia Zein">
-  <meta name="dcterms.date" content="2019-09-01">
-  <title>Linear Mixed Models Workshop – Linear Mixed Models (Multi-Level Modeling)</title>
+  <meta name="dcterms.date" content="2026-03-28">
+  <title>LME Workshop – Linear Mixed Models (Multi-Level Modeling)</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -30,7 +30,7 @@
       vertical-align: middle;
     }
   </style>
-  <link rel="stylesheet" href="site_libs/revealjs/dist/theme/quarto-cd3c57f1dd1833c844af9712d3d0f46e.css">
+  <link rel="stylesheet" href="site_libs/revealjs/dist/theme/quarto-a34fe8a8ceb863ae7323e319d33dffc4.css">
   <link href="site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -127,9 +127,9 @@
   <div class="reveal">
     <div class="slides">
 
-<section id="title-slide" data-background-color="white" class="quarto-title-block center">
+<section id="title-slide" class="quarto-title-block center">
   <h1 class="title">Linear Mixed Models (Multi-Level Modeling)</h1>
-  <p class="subtitle">Menggunakan <code>jamovi</code> (GAMLj): Bagian 2</p>
+  <p class="subtitle">Menggunakan <code>jamovi</code> (GAMLj)</p>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -139,7 +139,7 @@ Rizqy Amelia Zein
 </div>
 </div>
 
-  <p class="date">2019-09-01</p>
+  <p class="date">2026-03-28</p>
 </section>
 <section id="section" class="slide level2 center">
 <h2></h2>
@@ -152,11 +152,33 @@ Rizqy Amelia Zein
 <li>Researcher-in-training, <a href="https://igdore.org/">Institute for Globally Distributed Open Research and Education (IGDORE)</a></li>
 </ul>
 </section>
-<section id="quiz-time" class="slide level2 center" data-background-color="#14497F">
-<h2>Quiz time! 😊</h2>
-<h3 id="klik-disini-untuk-menuju-laman-kuis."><a href="https://menti.com">Klik disini untuk menuju laman kuis.</a></h3>
-
-<img data-src="https://media.giphy.com/media/3o6UBipuQxa6QwnvC8/giphy.gif" style="width:30.0%" class="r-stretch"></section>
+<section id="outline" class="slide level2">
+<h2><em>Outline</em></h2>
+<ul>
+<li>Struktur data berjenjang/bersarang (<em>hierarchical/nested data</em>)</li>
+<li><em>Within</em> dan <em>between group variance</em></li>
+<li>Pengantar <em>linear mixed-effect</em> (<code>lme</code>)</li>
+<li><em>Intra-class correlation</em> dan <em>likelihood ratio test</em> (LRT)</li>
+<li>Membandingkan garis regresi antar kelompok dengan <code>lme</code></li>
+<li><code>lme</code> dengan prediktor level 1 (<em>random coefficients model</em>)
+<ul>
+<li>Mengidentifikasi <em>intercept</em> (konstanta) yang berbeda antar kelompok (<em>random intercept model</em>)</li>
+<li>Mengidentifikasi <em>slopes</em> (gradien/kemiringan garis) yang berbeda antar kelompok (<em>random slopes model</em>)</li>
+</ul></li>
+</ul>
+</section>
+<section id="outline-1" class="slide level2">
+<h2><em>Outline</em></h2>
+<ul>
+<li><em>Explained variances</em> (<a href="https://besjournals.onlinelibrary.wiley.com/doi/full/10.1111/j.2041-210x.2012.00261.x">Nakagawa &amp; Schielzeth, 2012</a>)
+<ul>
+<li><em>Marginal R^2</em></li>
+<li><em>Conditional R^2</em></li>
+</ul></li>
+<li><em>Contextual effect</em> dan <em>partitioning/centering</em></li>
+<li>Melaporkan analisis dengan <code>lme</code> dalam manuskrip</li>
+</ul>
+</section>
 <section id="coba-kita-lihat-lebih-dekat" class="slide level2">
 <h2>Coba kita lihat lebih dekat…</h2>
 <ul>
@@ -662,7 +684,7 @@ Rizqy Amelia Zein
         previewLinks: false,
 
         // Transition style (none/fade/slide/convex/concave/zoom)
-        transition: 'none',
+        transition: 'slide',
 
         // Transition speed (default/fast/slow)
         transitionSpeed: 'default',
@@ -682,9 +704,9 @@ Rizqy Amelia Zein
         // The "normal" size of the presentation, aspect ratio will be preserved
         // when the presentation is scaled to fit different resolutions. Can be
         // specified using percentage units.
-        width: 1280,
+        width: 1050,
 
-        height: 720,
+        height: 700,
 
         // Factor of the display size that should remain empty around the content
         margin: 0.1,
@@ -717,36 +739,48 @@ Rizqy Amelia Zein
       });
     </script>
     <script>
+    // Single unified function to manage all logos
     function manageLogos() {
       const slides = document.querySelectorAll('.reveal .slides section');
-
+      
       slides.forEach(function(slide, index) {
+        // Handle title slide (first slide)
         if (index === 0) {
+          // Remove any regular logos from title slide
           const regularLogos = slide.querySelectorAll('.slide-logo');
           regularLogos.forEach(logo => logo.remove());
-
+          
+          // Add centered logo if it doesn't exist
           if (!slide.querySelector('.title-slide-logo')) {
             const titleLogo = document.createElement('img');
-            titleLogo.src = 'libs/unair.png';
+            titleLogo.src = 'img/logo.png';
             titleLogo.className = 'title-slide-logo';
             titleLogo.alt = 'Universitas Airlangga Logo';
             slide.insertBefore(titleLogo, slide.firstChild);
           }
           return;
         }
-
+        
+        // For all other slides, ensure only ONE logo exists
         const existingLogos = slide.querySelectorAll('.slide-logo');
-
+        
+        // If multiple logos exist, remove all and start fresh
         if (existingLogos.length > 1) {
           existingLogos.forEach(logo => logo.remove());
         }
-
+        
+        // Check background color
         const bgColor = slide.getAttribute('data-background-color');
-        const logoSrc = 'libs/unair.png';
-
+        const logoSrc = (bgColor === '#14497F' || bgColor === '#14497f') 
+          ? 'img/logo_white.png' 
+          : 'img/logo.png';
+        
+        // If exactly one logo exists, just update its source
         if (existingLogos.length === 1) {
           existingLogos[0].src = logoSrc;
-        } else if (existingLogos.length === 0) {
+        } 
+        // If no logo exists, create one
+        else if (existingLogos.length === 0) {
           const logo = document.createElement('img');
           logo.src = logoSrc;
           logo.className = 'slide-logo';
@@ -756,6 +790,7 @@ Rizqy Amelia Zein
       });
     }
 
+    // Initialize on page load
     document.addEventListener('DOMContentLoaded', function() {
       if (typeof Reveal !== 'undefined') {
         Reveal.on('ready', function() {
@@ -766,6 +801,7 @@ Rizqy Amelia Zein
       }
     });
 
+    // Update when slides change
     if (typeof Reveal !== 'undefined') {
       Reveal.on('slidechanged', function() {
         manageLogos();
@@ -774,9 +810,10 @@ Rizqy Amelia Zein
     </script>
 
     <style>
+    /* Additional inline styles for logo */
     .reveal .slide-logo {
       position: absolute !important;
-      top: 15px !important;
+      top: -1em !important;  /* Aligns with title */
       right: 15px !important;
       max-height: 80px !important;
       max-width: 200px !important;
@@ -784,10 +821,15 @@ Rizqy Amelia Zein
       object-fit: contain;
     }
 
+    /* Ensure title slide doesn't have logo overlap */
+    .reveal .title-slide {
+      padding-right: 220px;
+    }
+
+    /* Section title slide styling */
     .reveal section[data-background-color] h1,
     .reveal section[data-background-color] h2 {
       color: white !important;
-      border-bottom-color: #FFCB05 !important;
     }
     </style>
     <script id="quarto-html-after-body" type="application/javascript">

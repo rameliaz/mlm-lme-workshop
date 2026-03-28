@@ -3,12 +3,13 @@ project:
   output-dir: docs
   resources:
     - libs/
+    - img/
   render:
     - "*.qmd"
     - "!rmarkdown/**"
 
 website:
-  title: "Linear Mixed Models Workshop"
+  title: "LME Workshop"
   navbar:
     left:
       - href: https://rameliaz.github.io/
@@ -17,11 +18,11 @@ website:
       - icon: github
         href: https://github.com/rameliaz/mlm-lme-workshop
     right:
-      - text: "Salindia"
+      - text: "Materi"
         menu:
-          - text: "Bagian 1"
+          - text: "Bagian 1 (html)"
             href: materi-lme1.html
-          - text: "Bagian 2"
+          - text: "Bagian 2 (html)"
             href: materi-lme2.html
       - text: "Dataset"
         menu:
@@ -43,7 +44,7 @@ website:
     location: navbar
     type: overlay
   page-footer:
-      left: "&#169; 2025 Rizqy Amelia Zein"
+      left: "&#169; 2026 Rizqy Amelia Zein"
       center: |
         <a class="link-dark me-1" href="https://github.com/rameliaz" title="github" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i></a>
         <a class="link-dark me-1" href="mailto:amelia.zein@psikologi.unair.ac.id" title="Email" target="_blank" rel="noopener"><i class="fa-solid fa-envelope"></i></a>

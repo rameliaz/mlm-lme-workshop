@@ -20,7 +20,7 @@ $presentation-heading-font-weight: 700;
 $presentation-heading-text-transform: none;
 
 // Body font
-$presentation-font-size-root: 32px;
+$presentation-font-size-root: 24px;
 $font-family-sans-serif: "Segoe UI", "Inter", -apple-system, BlinkMacSystemFont, "Avenir Next", Avenir, "Helvetica Neue", Helvetica, Ubuntu, Roboto, Noto, sans-serif;
 
 // Code blocks
@@ -32,7 +32,7 @@ $code-color: $unair-blue;
 // Logo positioning in top-right corner
 .reveal .slide-logo {
   position: absolute !important;
-  top: -0.3em !important;
+  top: -1em !important;  // Use em units to match text positioning
   right: 15px !important;
   max-height: 80px;
   z-index: 100;
@@ -40,36 +40,57 @@ $code-color: $unair-blue;
   padding-top: 0 !important;
 }
 
+// Move logo to left for section divider slides
+.reveal section[data-background-color] .slide-logo {
+  left: 15px !important;
+  right: auto !important;
+}
+
 // Title slide styling
 .reveal .title-slide {
   text-align: left;
-
+  padding-top: 150px; // Make room for logo
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 300px;
+    height: 120px;
+    background-image: url('img/logo.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  
   h1.title {
     color: $unair-blue;
-    font-size: 2.5em;
+    font-size: 2em;
     font-weight: 700;
     margin-bottom: 0.5em;
     border-bottom: 4px solid $unair-yellow;
     padding-bottom: 0.3em;
   }
-
+  
   p.subtitle {
     color: darken($unair-blue, 5%);
     font-size: 1.3em;
     margin-bottom: 2em;
   }
-
+  
   p.author {
     color: #666;
     font-size: 1.1em;
     margin-bottom: 0.5em;
   }
-
+  
   p.date {
     color: #666;
     font-size: 0.9em;
   }
-
+  
   p.institute {
     color: #666;
     font-size: 0.95em;
@@ -77,12 +98,21 @@ $code-color: $unair-blue;
   }
 }
 
-// Logo for title slide
+// logo for title slide
 .reveal .title-slide-logo {
-  max-width: 400px;
-  max-height: 180px;
-  margin: 0 auto 1em auto;
-  display: block;
+     max-width: 320px;  // Increase for larger
+     max-height: 144px; // Adjust proportionally
+     margin: 0 auto 1em auto; // spacing
+   }
+
+// Section header slides
+.reveal .section-title-slide {
+  h1, h2 {
+    color: $unair-white;
+    background-color: $unair-blue;
+    padding: 0.5em 1em;
+    border-left: 8px solid $unair-yellow;
+  }
 }
 
 // Regular slides
@@ -109,7 +139,7 @@ $code-color: $unair-blue;
   color: $unair-blue;
   text-decoration: none;
   transition: color 0.2s ease;
-
+  
   &:hover {
     color: $unair-yellow;
     text-decoration: underline;
@@ -131,6 +161,10 @@ $code-color: $unair-blue;
 .reveal strong, .reveal b {
   color: $unair-blue;
   font-weight: 700;
+}
+
+.reveal em {
+  color: darken($unair-blue, 5%);
 }
 
 // Blockquotes
@@ -209,7 +243,50 @@ $code-color: $unair-blue;
   border-radius: 3px;
 }
 
-// Controls
+// Custom classes for accent colors
+.unair-blue {
+  color: $unair-blue !important;
+}
+
+.unair-yellow {
+  color: $unair-yellow !important;
+}
+
+.unair-red {
+  color: $unair-red !important;
+}
+
+.bg-unair-blue {
+  background-color: $unair-blue !important;
+  color: $unair-white !important;
+}
+
+.bg-unair-yellow {
+  background-color: $unair-yellow !important;
+  color: $unair-black !important;
+}
+
+// Fragments styling
+.reveal .fragment.highlight-unair-blue {
+  opacity: 1;
+  visibility: inherit;
+}
+
+.reveal .fragment.highlight-unair-blue.visible {
+  color: $unair-blue;
+  font-weight: 600;
+}
+
+// Footer styling (optional)
+.reveal .footer {
+  position: fixed;
+  bottom: 10px;
+  left: 10px;
+  font-size: 0.6em;
+  color: #999;
+}
+
+// Controls styling
 .reveal .controls {
   color: $unair-blue;
 }
@@ -255,36 +332,4 @@ $code-color: $unair-blue;
 .callout-important {
   background-color: lighten($unair-red, 40%);
   border-left-color: $unair-red;
-}
-
-// Utility classes
-.unair-blue { color: $unair-blue !important; }
-.unair-yellow { color: $unair-yellow !important; }
-.unair-red { color: $unair-red !important; }
-
-.bg-unair-blue {
-  background-color: $unair-blue !important;
-  color: $unair-white !important;
-}
-
-.bg-unair-yellow {
-  background-color: $unair-yellow !important;
-  color: $unair-black !important;
-}
-
-// Font size helpers
-.large { font-size: 130%; }
-.small { font-size: 70%; }
-
-// Center text helper
-.center { text-align: center; }
-
-// Footnote styling
-.footnote {
-  font-size: 0.7em;
-  position: absolute;
-  bottom: 1em;
-  left: 2em;
-  right: 2em;
-  color: #555;
 }

@@ -1,15 +1,15 @@
 ---
 title: "Linear Mixed Models (Multi-Level Modeling)"
-subtitle: "Menggunakan `jamovi` (GAMLj): Bagian 2"
+subtitle: "Menggunakan `jamovi` (GAMLj)"
 author: "Rizqy Amelia Zein"
-date: "2019-09-01"
+date: today
 format:
   unair-revealjs:
     slide-number: true
-    width: 1280
-    height: 720    
-title-slide-attributes:
-  data-background-color: "white"
+    progress: true
+    history: true
+    center: false
+    transition: slide
 execute:
   echo: false
   warning: false
@@ -28,11 +28,26 @@ execute:
 
 ---
 
-## Quiz time! 😊 {background-color="#14497F" .center}
+## _Outline_
 
-### [Klik disini untuk menuju laman kuis.](https://menti.com)
+* Struktur data berjenjang/bersarang (*hierarchical/nested data*)
+* *Within* dan *between group variance*
+* Pengantar *linear mixed-effect* (`lme`)
+* *Intra-class correlation* dan *likelihood ratio test* (LRT)
+* Membandingkan garis regresi antar kelompok dengan `lme`
+* `lme` dengan prediktor level 1 (*random coefficients model*)
+  - Mengidentifikasi *intercept* (konstanta) yang berbeda antar kelompok (*random intercept model*)
+  - Mengidentifikasi *slopes* (gradien/kemiringan garis) yang berbeda antar kelompok (*random slopes model*)
 
-![](https://media.giphy.com/media/3o6UBipuQxa6QwnvC8/giphy.gif){width="30%"}
+---
+
+## _Outline_
+
+* *Explained variances* ([Nakagawa & Schielzeth, 2012](https://besjournals.onlinelibrary.wiley.com/doi/full/10.1111/j.2041-210x.2012.00261.x))
+  - *Marginal R^2*
+  - *Conditional R^2*
+* *Contextual effect* dan *partitioning/centering*
+* Melaporkan analisis dengan `lme` dalam manuskrip
 
 ---
 
