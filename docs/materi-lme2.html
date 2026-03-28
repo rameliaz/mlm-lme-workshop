@@ -1,0 +1,962 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-html/tabby.min.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-8f1af79587c2686b78fe4e1fbadd71ab.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.8.14">
+
+  <meta name="author" content="Rizqy Amelia Zein">
+  <meta name="dcterms.date" content="2019-09-01">
+  <title>Linear Mixed Models Workshop – Linear Mixed Models (Multi-Level Modeling)</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="site_libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="site_libs/revealjs/dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="site_libs/revealjs/dist/theme/quarto-cd3c57f1dd1833c844af9712d3d0f46e.css">
+  <link href="site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" data-background-color="white" class="quarto-title-block center">
+  <h1 class="title">Linear Mixed Models (Multi-Level Modeling)</h1>
+  <p class="subtitle">Menggunakan <code>jamovi</code> (GAMLj): Bagian 2</p>
+
+<div class="quarto-title-authors">
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+Rizqy Amelia Zein 
+</div>
+</div>
+</div>
+
+  <p class="date">2019-09-01</p>
+</section>
+<section id="section" class="slide level2 center">
+<h2></h2>
+<p><img src="libs/unair.png" style="width:15%;" class="fancyimage"> <img src="libs/STUA.png" style="width:23%;" class="fancyimage"> <img src="libs/ina-logo.jpg" style="width:7%;" class="fancyimage"> <img src="libs/igdore.png" style="width:23%;" class="fancyimage"></p>
+<h3 id="rizqy-amelia-zein"><strong>Rizqy Amelia Zein</strong></h3>
+<ul>
+<li>Dosen, <a href="https://psikologi.unair.ac.id">Fakultas Psikologi, Universitas Airlangga</a></li>
+<li>Anggota, <a href="https://sainsterbukaua.github.io/">#SainsTerbuka Airlangga</a> <i class="fas fa-universal-access"></i></li>
+<li>Relawan, <a href="https://inarxiv.id">INA-Rxiv</a></li>
+<li>Researcher-in-training, <a href="https://igdore.org/">Institute for Globally Distributed Open Research and Education (IGDORE)</a></li>
+</ul>
+</section>
+<section id="quiz-time" class="slide level2 center" data-background-color="#14497F">
+<h2>Quiz time! 😊</h2>
+<h3 id="klik-disini-untuk-menuju-laman-kuis."><a href="https://menti.com">Klik disini untuk menuju laman kuis.</a></h3>
+
+<img data-src="https://media.giphy.com/media/3o6UBipuQxa6QwnvC8/giphy.gif" style="width:30.0%" class="r-stretch"></section>
+<section id="coba-kita-lihat-lebih-dekat" class="slide level2">
+<h2>Coba kita lihat lebih dekat…</h2>
+<ul>
+<li><p>Coba kita lakukan inspeksi visual sekali lagi <strong>dataset-sekolah.omv</strong></p></li>
+<li><p>Buat <em>scatterplot</em> dimana <strong>mandiri</strong> menjadi <strong>Y-Axis</strong>, sedangkan <strong>neu</strong>, <strong>hi</strong>, <strong>trust</strong> sebagai <strong>X-Axis</strong></p></li>
+<li><p>Kemudian masukkan <strong>idsekolah</strong> pada kolom <strong>Group</strong></p>
+<ul>
+<li>Fungsinya, kita akan mendapatkan garis regresi untuk masing-masing sekolah</li>
+</ul></li>
+<li><p>Apa yang terjadi?</p></li>
+</ul>
+</section>
+<section id="section-1" class="slide level2 center">
+<h2></h2>
+<p><img src="libs/scat-neu.jpg" style="width:35%;" class="fancyimage"> <img src="libs/scat-hi.jpg" style="width:35%;" class="fancyimage"></p>
+<p><img src="libs/scat-trust.jpg" style="width:35%;" class="fancyimage"></p>
+</section>
+<section id="ternyata-covariance-nya-bervariasi-di-tiap-kelompok" class="slide level2">
+<h2>Ternyata <em>covariance</em>-nya bervariasi di tiap kelompok! 😱</h2>
+<div class="columns">
+<div class="column" style="width:55%;">
+<ul>
+<li><p><em>Intercept</em> <em>neuroticism</em> dan <em>trust</em> ternyata bervariasi di setiap sekolah</p></li>
+<li><p>Yang menarik, tidak hanya <em>intercept</em>, <em>slope</em> pendapatan personal juga bervariasi di setiap sekolah</p>
+<ul>
+<li>Berdasarkan analisis yang kita lakukan pagi tadi, disimpulkan bahwa <strong>pendapatan keluarga dan kemandirian anak korelasinya negatif</strong></li>
+<li>Tapi bisakah <strong>kesimpulan yang sama</strong> kita tarik untuk Sekolah B dan D?</li>
+</ul></li>
+<li><p>Hati-hati <em>ecological fallacy</em>!</p>
+<ul>
+<li>Terjadi ketika kita salah menyimpulkan suatu gejala yang skalanya individual, padahal yang dianalisis oleh peneliti sesungguhnya fenomena yang berlaku pada skala yang lebih besar (kelompok atau sub-kelompok)</li>
+</ul></li>
+</ul>
+</div><div class="column" style="width:45%;">
+<p><img src="https://pbs.twimg.com/media/DcUJpGUW0AAHG8Y.jpg" style="width:100%;" class="fancyimage"></p>
+</div></div>
+</section>
+<section id="struktur-sampel-bersarangberjenjang" class="slide level2 center" data-background-color="#14497F">
+<h2>Struktur sampel bersarang/berjenjang</h2>
+
+<img src="libs/hierarchical-data.jpg" style="width:60%;" class="fancyimage r-stretch"></section>
+<section id="apa-yang-harus-dilakukan" class="slide level2">
+<h2>Apa yang harus dilakukan?</h2>
+<ul>
+<li class="fragment">Pura-pura <em>ga tahu</em>, kita abaikan saja dan langsung menggunakan regresi OLS, dengan atau tanpa informasi mengenai pengelompokan data sebagai variabel kontrol.
+<ul>
+<li class="fragment">Masalahnya, data/observasi kita sangat bergantung pada pengelompokan unit analisis</li>
+<li class="fragment"><strong>Nah, lalu melanggar asumsi OLS dong?</strong> (data/observasi dan residual harus independen)</li>
+<li class="fragment">Efeknya, <em>standard error</em> yang diestimasi oleh model terlalu kecil (karena mengabaikan varians dependen variabel yang ditentukan oleh kelompok)</li>
+<li class="fragment">Varians variabel dependen yang tidak bisa dijelaskan (residual) akan makin besar</li>
+<li class="fragment">Kesimpulan/inferensi yang ditarik menjadi tidak tepat, sehingga risiko terjadinya <em>type I error</em> meningkat.</li>
+</ul></li>
+<li class="fragment">Gimana kalau pengelompokan (<em>group status</em>) dimasukkan aja dalam regresi OLS sebagai variabel moderator
+<ul>
+<li class="fragment">Dengan begitu, estimasi <em>standard error</em> disesuaikan dengan menggunakan <em>marginal model</em></li>
+<li class="fragment">Estimasi <em>standard error</em> akan lebih presisi, <strong>tetapi</strong> kita tetap tidak bisa mengestimasi <em>between-group variance</em></li>
+</ul></li>
+<li class="fragment">Kalo di agregat? Jadi unit analisis yang tadinya individual, menjadi kelompok.
+<ul>
+<li class="fragment">Ukuran sampel menjadi lebih sedikit, sehingga <em>statistical power</em> menjadi lebih rendah ❗</li>
+</ul></li>
+</ul>
+</section>
+<section id="fixed-dan-random-effects" class="slide level2 center">
+<h2><em>Fixed</em> dan <em>random effects</em></h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h3 id="model-fixed-effects">Model <em>fixed effects</em></h3>
+<p><img src="libs/fixed-effects.jpg" style="width:90%;" class="fancyimage"></p>
+</div><div class="column" style="width:50%;">
+<h3 id="model-random-effects">Model <em>random effects</em></h3>
+<p><img src="libs/random-effects.jpg" style="width:100%;" class="fancyimage"></p>
+</div></div>
+</section>
+<section id="full-model" class="slide level2 center" data-background-color="#14497F">
+<h2><em>Full model</em></h2>
+
+<img src="libs/full-model.jpg" style="width:85%;" class="fancyimage r-stretch"></section>
+<section id="kovarians-antara-random-intercept-dan-random-slopes-σu0u1" class="slide level2">
+<h2>Kovarians antara <em>random intercept</em> dan <em>random slopes</em> (σ<sub>U0U1</sub>)</h2>
+<div class="columns">
+<div class="column" style="width:55%;">
+<ul>
+<li><p><strong>Nilainya positif</strong>, maka semakin tinggi <em>intercept</em> akan diasosiasikan dengan kemiringan garis yang lebih curam/<em>slopes</em> yang lebih besar</p></li>
+<li><p>Misalnya, di sekolah yang <strong>rata-rata pendapatan</strong> keluarga inti perbulan siswanya <strong>tinggi</strong>, maka <strong>korelasi</strong> antara pendapatan per bulan dengan tingkat kemandirian siswa <strong>akan menguat</strong>.</p></li>
+<li><p><strong>Nilainya negatif</strong>, maka semakin tinggi <em>intercept</em> akan diasosiasikan dengan kemiringan garis yang lebih landai/<em>slopes</em> yang lebih kecil</p></li>
+<li><p>Misalnya, di sekolah yang <strong>rata-rata pendapatan</strong> keluarga inti perbulan siswanya <strong>tinggi</strong>, maka <strong>korelasi</strong> antara pendapatan per bulan dengan tingkat kemandirian siswa <strong>akan melemah</strong>.</p></li>
+</ul>
+</div><div class="column" style="width:45%;">
+<p><img data-src="https://media.giphy.com/media/3o7btPCcdNniyf0ArS/giphy.gif" style="width:100.0%"></p>
+</div></div>
+</section>
+<section id="parameter-yang-diestimasi-dalam-linear-mixed-effects" class="slide level2">
+<h2>Parameter yang diestimasi dalam <em>linear mixed effects</em></h2>
+<ul>
+<li><p><em>Fixed intercept</em> (<em>c</em><sub>00</sub>)</p></li>
+<li><p><em>Fixed slopes</em> (<em>c</em><sub>10</sub>)</p></li>
+<li><p>Varians <em>random intercept</em> (σ<sup>2</sup><sub>U0</sub>)</p></li>
+<li><p>Varians <em>random slopes</em> (σ<sup>2</sup><sub>U1</sub>)</p></li>
+<li><p>Kovarians antara <em>random intercept</em> dan <em>random slopes</em> (σ<sub>U0U1</sub>)</p></li>
+<li><p>Varians residual level-1 (σ<sup>2</sup><sub>e</sub>)</p></li>
+</ul>
+</section>
+<section id="yuk-kita-coba" class="slide level2 center" data-background-color="#14497F">
+<h2>Yuk kita coba! 💪</h2>
+<h3 id="pastikan-module-gamlj-sudah-terpasang-di-jamovi">Pastikan <em>module</em> GAMLj sudah terpasang di jamovi</h3>
+
+<img data-src="https://media.giphy.com/media/cjudIH6tZrvcPD2P4j/giphy.gif" class="r-stretch"></section>
+<section id="latihan-3-kembali-ke-sekolah" class="slide level2">
+<h2>Latihan (3): Kembali ke sekolah 🏫</h2>
+<p>Setelah menginspeksi data secara visual, kita tahu bahwa korelasi antara <strong>pendapatan keluarga</strong> dengan <strong>tingkat kemandirian anak</strong> adalah yang paling bervariasi. Kita akan membuat <em>linear mixed model</em> dengan <strong>pendapatan keluarga</strong> sebagai prediktor, dan <strong>tingkat kemandirian anak</strong> sebagai variabel dependen.</p>
+<h3 id="bikin-model-kosong">Bikin “model kosong”</h3>
+<ul>
+<li><p>Yaitu model yang isinya hanya <em>intercept</em> saja, tidak ada prediktornya (<em>slopes</em>)</p></li>
+<li><p>Pada <em>menu bar</em>, klik <strong>Linear Models</strong>, pilih <strong>mixed models</strong></p>
+<ul>
+<li>Masukkan <strong>mandiri</strong> dalam kolom <strong>dependent variable</strong></li>
+<li>Masukkan <strong>idsekolah</strong> dalam kolom <strong>cluster variables</strong></li>
+<li>Pada menu <strong>random effects</strong> masukkan <strong>intercept|idsekolah</strong> dalam kolom <strong>random coefficients</strong></li>
+</ul></li>
+<li><p>Catat nilai AIC yang tersedia dalam tabel <strong>model info</strong></p></li>
+<li><p>Yuk ingat-ingat lagi, AIC fungsinya untuk apa ya? 🤔</p></li>
+</ul>
+</section>
+<section id="latihan-3-model-dengan-prediktor" class="slide level2">
+<h2>Latihan (3): Model dengan prediktor</h2>
+<h3 id="bikin-linear-mixed-model-dengan-prediktor">Bikin <em>linear mixed model</em> dengan prediktor</h3>
+<ul>
+<li><p>Masukkan <strong>hi</strong> dalam kolom <strong>covariates</strong></p></li>
+<li><p>Pada menu <strong>random effects</strong>, masukkan juga <strong>hi|idsekolah</strong>, karena kita akan mengestimasi <strong>random slopes</strong>-nya juga</p>
+<ul>
+<li>Centang opsi <strong>LRT for Random Test</strong></li>
+</ul></li>
+<li><p>Pada menu <strong>covariates scaling</strong>, ubah <strong>centered</strong> menjadi <strong>cluster-based centered</strong></p>
+<ul>
+<li>Berkaitan dengan <strong>partitioning</strong> (akan dijelaskan di bagian selanjutnya)</li>
+</ul></li>
+</ul>
+</section>
+<section id="fixed-coefficients" class="slide level2">
+<h2><em>Fixed coefficients</em></h2>
+<div class="columns">
+<div class="column" style="width:55%;">
+<ul>
+<li>Tes kecocokan model (<em>Omnibus Test</em>) tidak signifikan (<em>F</em>(1,3.98)=0.309, p=.608)
+<ul>
+<li>Berbeda sekali dengan hasil OLS</li>
+<li><strong>Kemungkinan besar</strong> korelasi antara pendapatan keluarga per bulan dengan kemandirian <strong>tidak linier</strong></li>
+</ul></li>
+<li>Kita tidak punya cukup bukti untuk menolak hipotesis nol, bahwa pendapatan keluarga per bulan dengan kemandirian tidak berkaitan (<em>B</em>=-0.207 95% CI [-0.937, 0.523], <em>SE</em>=0.372, <em>t</em>=-0.556, <em>p</em>=.608).
+<ul>
+<li>Sekali lagi, berbeda sekali dengan hasil OLS</li>
+</ul></li>
+</ul>
+</div><div class="column" style="width:45%;">
+<p><img src="libs/fixed-1.jpg" style="width:100%;" class="fancyimage"></p>
+</div></div>
+</section>
+<section id="random-coefficients-1" class="slide level2">
+<h2><em>Random coefficients</em> (1)</h2>
+<div class="columns">
+<div class="column" style="width:55%;">
+<ul>
+<li>Varians kemandirian paling banyak dijelaskan oleh rata-rata tingkat kemandirian anak di masing-masing sekolah (varians <em>random intercept</em> (σ<sup>2</sup><sub>U0</sub>)) daripada oleh varians <em>random slopes</em> (σ<sup>2</sup><sub>U1</sub>).</li>
+</ul>
+</div><div class="column" style="width:45%;">
+<p><img src="libs/random-1.jpg" style="width:90%;" class="fancyimage"></p>
+<p><img src="libs/lrt-2.jpg" style="width:100%;" class="fancyimage"></p>
+</div></div>
+</section>
+<section id="random-coefficients-2" class="slide level2">
+<h2><em>Random coefficients</em> (2)</h2>
+<div class="columns">
+<div class="column" style="width:55%;">
+<ul>
+<li>Menguji efek sekolah (kelompok)
+<ul>
+<li><p><em>Intra-class correlation</em>, yaitu merupakan proporsi total varians variabel dependen yang dapat dijelaskan oleh variasi antar kelompok</p></li>
+<li><p><em>Likelihood ratio test</em> (LRT), yaitu teknik untuk menguji ada/tidaknya perbedaan varians antar-kelompok</p></li>
+<li><p>Keduanya juga bisa berfungsi sebagai indikator perlu/tidaknya <code>lme</code> dilakukan</p></li>
+</ul></li>
+</ul>
+</div><div class="column" style="width:45%;">
+<p><img src="libs/random-1.jpg" style="width:90%;" class="fancyimage"></p>
+<p><img src="libs/lrt-2.jpg" style="width:100%;" class="fancyimage"></p>
+</div></div>
+</section>
+<section id="random-coefficients-3" class="slide level2">
+<h2><em>Random coefficients</em> (3)</h2>
+<div class="columns">
+<div class="column" style="width:55%;">
+<ul>
+<li><p>ICC=0.931, artinya <strong>93.1%</strong> varians tingkat kemandirian anak dijelaskan oleh perbedaan kelompok. ICC di atas 0.1 biasanya menunjukkan <code>lme</code> adalah opsi yang lebih baik daripada OLS.</p></li>
+<li><p>LRT menunjukkan bahwa kita dapat menolak hipotesis bahwa tidak ada perbedaan varians tingkat kemandirian antar-kelompok (LRT(2)=74.0, <em>p</em>&lt;.001).</p></li>
+</ul>
+</div><div class="column" style="width:45%;">
+<p><img src="libs/random-1.jpg" style="width:90%;" class="fancyimage"></p>
+<p><img src="libs/lrt-2.jpg" style="width:100%;" class="fancyimage"></p>
+</div></div>
+</section>
+<section id="model-comparison" class="slide level2">
+<h2><em>Model Comparison</em></h2>
+<div class="columns">
+<div class="column" style="width:55%;">
+<ul>
+<li><p><strong>AIC</strong></p>
+<ul>
+<li>Apabila kita membandingkan “model kosong” dengan model yang ada prediktor, maka model yang terakhir lebih mampu menjelaskan varians kemandirian anak.</li>
+</ul></li>
+<li><p><strong>R<sup>2</sup> (<a href="https://besjournals.onlinelibrary.wiley.com/doi/full/10.1111/j.2041-210x.2012.00261.x">Nakagawa &amp; Schielzeth, 2012</a>)</strong></p>
+<ul>
+<li><p><em>Marginal</em>: proporsi varians variabel dependen yang dapat dijelaskan oleh <strong>fixed models</strong> saja</p></li>
+<li><p><em>Conditional</em>: proporsi varians variabel dependen yang dapat dijelaskan oleh <strong>fixed</strong> dan <strong>random models</strong> sekaligus</p></li>
+<li><p>Varians yang dapat dijelaskan oleh <em>fixed model</em> saja hanya <strong>0.12%</strong>, sedangkan oleh keseluruhan model adalah <strong>93.18%</strong>.</p></li>
+</ul></li>
+</ul>
+</div><div class="column" style="width:45%;">
+<p><img src="libs/model-info-1.jpg" style="width:65%;" class="fancyimage"></p>
+<p><img src="libs/model-info-2.jpg" style="width:65%;" class="fancyimage"></p>
+<p><img src="libs/lrt-1.jpg" style="width:65%;" class="fancyimage"></p>
+<p><img src="libs/lrt-2.jpg" style="width:65%;" class="fancyimage"></p>
+</div></div>
+</section>
+<section id="contextual-effects-partitioning-1" class="slide level2">
+<h2><em>Contextual effects</em> &amp; <em>partitioning</em> (1)</h2>
+<ul>
+<li><strong><em>Within-group effect</em></strong>
+<ul>
+<li>Seberapa besar selisih Y dari 2 orang yang berada di <strong>kelompok yang sama</strong>, ketika <strong>selisih X</strong>-nya sebesar 1 poin?</li>
+<li>Seberapa besar perbedaan tingkat kemandirian dua orang anak yang berada dalam <strong>sekolah yang sama</strong>, ketika selisih <strong>tingkat pendapatan keluarga</strong> mereka berbeda sebesar 1 poin?</li>
+</ul></li>
+<li><strong><em>Between-group effect</em></strong>
+<ul>
+<li>Seberapa besar selisih Y dari 2 orang yang berbeda (dari 2 kelompok yang berbeda), namun berada dalam <strong>posisi relatif yang sama</strong> (dibandingkan dengan rerata kelompok), ketika <strong>selisih X</strong> mereka sebesar 1 poin?</li>
+</ul></li>
+<li><strong><em>Contextual effect</em></strong>
+<ul>
+<li>Seberapa besar selisih Y dua orang dari kelompok yang berbeda, namun dengan <strong>X yang sama</strong>, ketika <strong>rerata X kelompoknya</strong> berbeda sebesar 1 poin.</li>
+</ul></li>
+</ul>
+</section>
+<section id="contextual-effects-partitioning-2" class="slide level2">
+<h2><em>Contextual effects</em> &amp; <em>partitioning</em> (2)</h2>
+<ul>
+<li><p>Untuk menghitung <em>contextual effect</em>, kita harus melakukan <em>partitioning</em> terlebih dahulu</p></li>
+<li><p>Umumnya yang dipartisi/<em>centering</em> adalah <strong>variabel X, bukan Y</strong></p></li>
+<li><p><strong><em>Group-mean centering</em></strong></p>
+<ul>
+<li>Nilai X individu dikurangi rata-rata X kelompoknya</li>
+<li>Pendapatan keluarga anak A dikurangi rata-rata pendapatan keluarga anak-anak di sekolahnya</li>
+</ul></li>
+<li><p><strong><em>Grand-mean centering</em></strong></p>
+<ul>
+<li>Nilai X individu dikurangi rata-rata X pada seluruh sampel</li>
+<li>Pendapatan keluarga anak A dikurangi rata-rata pendapatan keluarga seluruh anak yang menjadi sampel</li>
+</ul></li>
+<li><p><strong><em>Contextual effect</em></strong> = <em>Between-group effect</em> - <em>Within-group effect</em></p>
+<ul>
+<li>Positif: <strong>kelompok</strong> dengan <strong>rata-rata X yang lebih tinggi</strong>, cenderung memiliki <em>intercept</em> (rata-rata Y) yang <strong>lebih tinggi</strong></li>
+<li>Negatif: <strong>kelompok</strong> dengan <strong>rata-rata X yang lebih tinggi</strong>, cenderung memiliki <em>intercept</em> (rata-rata Y) yang <strong>lebih rendah</strong></li>
+</ul></li>
+</ul>
+</section>
+<section id="latihan-4-contextual-effects" class="slide level2">
+<h2>Latihan (4): <em>Contextual effects</em></h2>
+<div class="columns">
+<div class="column" style="width:55%;">
+<ul>
+<li><p>Lakukan <code>lme</code> dengan memasukkan <strong>hi_group_centered</strong> dan <strong>hi_grand_mean_centered</strong> dalam satu model yang sama</p></li>
+<li><p>Masukkan kedua variabel tersebut dalam <strong>fixed coefficients</strong> dan <strong>random coefficients</strong></p></li>
+<li><p>Lihat <em>fixed slopes</em>-nya untuk kedua prediktor</p></li>
+</ul>
+</div><div class="column" style="width:45%;">
+<p><img data-src="https://media.giphy.com/media/l1KVaj5UcbHwrBMqI/giphy.gif" style="width:100.0%"></p>
+</div></div>
+</section>
+<section id="contextual-effects-hasil" class="slide level2">
+<h2><em>Contextual effects</em>: Hasil</h2>
+<div class="columns">
+<div class="column" style="width:55%;">
+<ul>
+<li><p>Kita tidak punya bukti yang meyakinkan bahwa kita dapat menolak hipotesis bahwa <em>within</em> (<em>B</em>=0.257 95% CI [-0.115, 0.629], <em>SE</em>=0.190, <em>t</em>=1.354, <em>p</em>=.213), maupun <em>between-group effect</em> (<em>B</em>=-0.454 95% CI [-1.207, 0.299], <em>SE</em>=0.384, <em>t</em>=-1.182, <em>p</em>=.315) tidak dapat menjelaskan varians tingkat kemandirian anak.</p></li>
+<li><p><strong><em>Contextual effects</em></strong> = <strong>-0.711</strong></p></li>
+</ul>
+</div><div class="column" style="width:45%;">
+<p><img src="libs/context.jpg" style="width:100%;" class="fancyimage"></p>
+</div></div>
+</section>
+<section id="bagaimana-melaporkannya-1" class="slide level2" data-background-color="#14497F">
+<h2>Bagaimana melaporkannya? (1)</h2>
+<p>“…untuk menguji hipotesis bahwa ada perbedaan rerata tingkat kemandirian anak, dan korelasi antara pendapatan keluarga dengan tingkat kemandirian anak di masing-masing sekolah, peneliti melakukan analisis <em>linear mixed effect</em>.</p>
+<p>Tingkat kemandirian anak dijelaskan sebagai fungsi dari tingkat pendapatan keluarga, dengan mengontrol asal sekolah (PAUD) anak. Sebelum melakukan analisis, tingkat pendapatan keluarga dipartisi dengan cara menguranginya dengan rata-rata tingkat pendapatan keluarga di masing-masing sekolah (<em>group-mean/cluster-based centering</em>).</p>
+<p>Pengujian model menghasilkan kesimpulan bahwa model tidak cocok menggambarkan data (<em>F</em>(1,3.98)=0.309, p=.608), sehingga kami gagal menolak hipotesis bahwa tingkat pendapatan keluarga dan kemandirian anak, tidak berkorelasi.</p>
+<p>Model <em>fixed effects</em> menunjukkan bahwa peneliti tidak punya cukup bukti untuk menolak hipotesis nol, bahwa pendapatan keluarga per bulan dengan kemandirian tidak berkaitan (<em>B</em>=-0.207 95% CI [-0.937, 0.523], <em>SE</em>=0.372, <em>t</em>=-0.556, <em>p</em>=.608).”</p>
+</section>
+<section id="bagaimana-melaporkannya-2" class="slide level2" data-background-color="#14497F">
+<h2>Bagaimana melaporkannya? (2)</h2>
+<p>“…model <em>random effects</em> menunjukkan bahwa peneliti dapat menolak hipotesis bahwa tidak ada perbedaan varians tingkat kemandirian antar-kelompok (LRT(2)=74.0, <em>p</em>&lt;.001). Varians kemandirian anak paling banyak dijelaskan oleh rata-rata tingkat kemandirian anak di masing-masing sekolah (varians <em>random intercept</em> (σ<sup>2</sup><sub>U0</sub>)) daripada oleh varians <em>random slopes</em> (σ<sup>2</sup><sub>U1</sub>). Selain itu, 93.1% varians tingkat kemandirian anak dijelaskan oleh perbedaan kelompok (ICC=0.931).</p>
+<p>Peneliti tidak memiliki cukup bukti yang meyakinkan untuk menolak hipotesis yang menyatakan bahwa <em>within</em> (<em>B</em>=0.257 95% CI [-0.115, 0.629], <em>SE</em>=0.190, <em>t</em>=1.354, <em>p</em>=.213), maupun <em>between-group effect</em> (<em>B</em>=-0.454 95% CI [-1.207, 0.299], <em>SE</em>=0.384, <em>t</em>=-1.182, <em>p</em>=.315) tidak dapat menjelaskan varians tingkat kemandirian anak.</p>
+<p><em>Contextual effects</em> ditemukan sebesar -0.711, artinya, anak yang bersekolah di dua tempat yang berbeda, dengan selisih rata-rata tingkat kemandirian anak-anak di dua sekolah tersebut sebesar 1 poin, maka tingkat kemandirian mereka berbeda sebesar -0.711 poin, apabila diasumsikan keluarga mereka memiliki pendapatan yang sama besarnya. Tanda negatif mengindikasikan bahwa sekolah yang rata-rata pendapatan keluarga siswanya lebih tinggi, cenderung memiliki rata-rata tingkat kemandirian yang rendah…”</p>
+</section>
+<section id="latihan-mandiri-2" class="slide level2">
+<h2>Latihan mandiri (2)</h2>
+<ul>
+<li><p>Lakukan analisis <code>lme</code> untuk mengetahui:</p>
+<ul>
+<li><p>Apakah varians <strong>tingkat kemandirian anak</strong> dapat dijelaskan oleh sekolah tempat anak tersebut belajar?</p></li>
+<li><p>Apakah varians korelasi antara kecenderungan <strong>neuroticism</strong> ibu dengan <strong>kemandirian anak</strong> juga dapat dijelaskan oleh sekolah tempat anak tersebut belajar?</p></li>
+<li><p>Seberapa besar perbedaan <strong>tingkat kemandirian</strong> dua orang anak yang berada di <strong>sekolah yang berbeda</strong>, yang <strong>ibunya sama-sama pencemas</strong>, apabila <strong>rata-rata kecemasan</strong> wali murid di <strong>dua sekolah tersebut</strong> berbeda sebesar 1 poin?</p></li>
+</ul></li>
+</ul>
+<h3 id="klik-disini-untuk-mengakses-lembar-kerja"><a href="https://forms.gle/87BrLEdC321khd8g6">Klik disini untuk mengakses lembar kerja</a></h3>
+</section>
+<section id="yang-belum-dibahas" class="slide level2">
+<h2>Yang belum dibahas…</h2>
+<div class="columns">
+<div class="column" style="width:55%;">
+<ul>
+<li><p>Kalau korelasi antara X dan Y tidak linier, pakai apa dong?</p>
+<ul>
+<li>Jelas tidak bisa menggunakan <code>lme</code>. Alternatifnya, bisa menggunakan <a href="https://en.wikipedia.org/wiki/Generalized_additive_model"><em>generalised additive model</em> (GAM)</a>.</li>
+</ul></li>
+<li><p>Kalau prediktornya level-2, bagaimana?</p></li>
+<li><p>Bisa ga <code>lme</code> digunakan untuk mengestimasi perubahan Y pada <em>time-series</em>?</p></li>
+<li><p>Gimana cara merencanakan jumlah sampelnya?</p></li>
+<li><p>Gimana kalo sampelnya bersarang/berjenjang level-3, bahkan lebih?</p></li>
+<li><p>Gimana kalo terjadi interaksi antara variabel prediktor level-1 dengan level-2 (<em>cross-level interactions</em>)?</p></li>
+</ul>
+</div><div class="column" style="width:45%;">
+<p><img data-src="https://media.giphy.com/media/wMvESGxZ0Cqd2/giphy.gif" style="width:100.0%"></p>
+</div></div>
+</section>
+<section id="the-problem-with-linear-relationship" class="slide level2 center" data-background-color="#14497F">
+<h2><em>The problem with linear relationship</em></h2>
+
+<img data-src="https://i.pinimg.com/originals/19/8a/7b/198a7be0157b1dc1224a0a50821b1ec0.gif" style="width:40.0%" class="r-stretch"></section>
+<section id="terima-kasih-banyak" class="slide level2 center">
+<h2>Terima kasih banyak! 😉</h2>
+
+<img data-src="https://media.giphy.com/media/hrBSJ2So6iTo4/giphy.gif" class="r-stretch"><p>Paparan disusun dengan menggunakan <a href="https://quarto.org">Quarto</a> dengan tema <strong>Universitas Airlangga</strong>.</p>
+<p>Materi dalam paparan ini berlisensi <i class="fab fa-creative-commons"></i> 4.0 dan tersedia di <strong>(https://rameliaz.github.io/mlm-lme-workshop/)</strong>.</p>
+
+
+</section>
+    </div>
+  <div class="quarto-auto-generated-content" style="display: none;">
+<div class="footer footer-default">
+
+</div>
+</div></div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="site_libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="site_libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="site_libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="site_libs/revealjs/plugin/search/search.js"></script>
+  <script src="site_libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="site_libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'jumpToSlide': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'none',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'none',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1280,
+
+        height: 720,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    <script>
+    function manageLogos() {
+      const slides = document.querySelectorAll('.reveal .slides section');
+
+      slides.forEach(function(slide, index) {
+        if (index === 0) {
+          const regularLogos = slide.querySelectorAll('.slide-logo');
+          regularLogos.forEach(logo => logo.remove());
+
+          if (!slide.querySelector('.title-slide-logo')) {
+            const titleLogo = document.createElement('img');
+            titleLogo.src = 'libs/unair.png';
+            titleLogo.className = 'title-slide-logo';
+            titleLogo.alt = 'Universitas Airlangga Logo';
+            slide.insertBefore(titleLogo, slide.firstChild);
+          }
+          return;
+        }
+
+        const existingLogos = slide.querySelectorAll('.slide-logo');
+
+        if (existingLogos.length > 1) {
+          existingLogos.forEach(logo => logo.remove());
+        }
+
+        const bgColor = slide.getAttribute('data-background-color');
+        const logoSrc = 'libs/unair.png';
+
+        if (existingLogos.length === 1) {
+          existingLogos[0].src = logoSrc;
+        } else if (existingLogos.length === 0) {
+          const logo = document.createElement('img');
+          logo.src = logoSrc;
+          logo.className = 'slide-logo';
+          logo.alt = 'Universitas Airlangga Logo';
+          slide.appendChild(logo);
+        }
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      if (typeof Reveal !== 'undefined') {
+        Reveal.on('ready', function() {
+          manageLogos();
+        });
+      } else {
+        setTimeout(manageLogos, 500);
+      }
+    });
+
+    if (typeof Reveal !== 'undefined') {
+      Reveal.on('slidechanged', function() {
+        manageLogos();
+      });
+    }
+    </script>
+
+    <style>
+    .reveal .slide-logo {
+      position: absolute !important;
+      top: 15px !important;
+      right: 15px !important;
+      max-height: 80px !important;
+      max-width: 200px !important;
+      z-index: 100 !important;
+      object-fit: contain;
+    }
+
+    .reveal section[data-background-color] h1,
+    .reveal section[data-background-color] h2 {
+      color: white !important;
+      border-bottom-color: #FFCB05 !important;
+    }
+    </style>
+    <script id="quarto-html-after-body" type="application/javascript">
+      window.document.addEventListener("DOMContentLoaded", function (event) {
+        const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+        tabsets.forEach(function(tabset) {
+          const tabby = new Tabby('#' + tabset.id);
+        });
+        const isCodeAnnotation = (el) => {
+          for (const clz of el.classList) {
+            if (clz.startsWith('code-annotation-')) {                     
+              return true;
+            }
+          }
+          return false;
+        }
+        const onCopySuccess = function(e) {
+          // button target
+          const button = e.trigger;
+          // don't keep focus
+          button.blur();
+          // flash "checked"
+          button.classList.add('code-copy-button-checked');
+          var currentTitle = button.getAttribute("title");
+          button.setAttribute("title", "Copied!");
+          let tooltip;
+          if (window.bootstrap) {
+            button.setAttribute("data-bs-toggle", "tooltip");
+            button.setAttribute("data-bs-placement", "left");
+            button.setAttribute("data-bs-title", "Copied!");
+            tooltip = new bootstrap.Tooltip(button, 
+              { trigger: "manual", 
+                customClass: "code-copy-button-tooltip",
+                offset: [0, -8]});
+            tooltip.show();    
+          }
+          setTimeout(function() {
+            if (tooltip) {
+              tooltip.hide();
+              button.removeAttribute("data-bs-title");
+              button.removeAttribute("data-bs-toggle");
+              button.removeAttribute("data-bs-placement");
+            }
+            button.setAttribute("title", currentTitle);
+            button.classList.remove('code-copy-button-checked');
+          }, 1000);
+          // clear code selection
+          e.clearSelection();
+        }
+        const getTextToCopy = function(trigger) {
+            const codeEl = trigger.previousElementSibling.cloneNode(true);
+            for (const childEl of codeEl.children) {
+              if (isCodeAnnotation(childEl)) {
+                childEl.remove();
+              }
+            }
+            return codeEl.innerText;
+        }
+        const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+          text: getTextToCopy
+        });
+        clipboard.on('success', onCopySuccess);
+        if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+          const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+            text: getTextToCopy,
+            container: window.document.getElementById('quarto-embedded-source-code-modal')
+          });
+          clipboardModal.on('success', onCopySuccess);
+        }
+          var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+          var mailtoRegex = new RegExp(/^mailto:/);
+            var filterRegex = new RegExp('/' + window.location.host + '/');
+          var isInternal = (href) => {
+              return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+          }
+          // Inspect non-navigation links and adorn them if external
+         var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+          for (var i=0; i<links.length; i++) {
+            const link = links[i];
+            if (!isInternal(link.href)) {
+              // undo the damage that might have been done by quarto-nav.js in the case of
+              // links that we want to consider external
+              if (link.dataset.originalHref !== undefined) {
+                link.href = link.dataset.originalHref;
+              }
+            }
+          }
+        function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+          const config = {
+            allowHTML: true,
+            maxWidth: 500,
+            delay: 100,
+            arrow: false,
+            appendTo: function(el) {
+                return el.closest('section.slide') || el.parentElement;
+            },
+            interactive: true,
+            interactiveBorder: 10,
+            theme: 'light-border',
+            placement: 'bottom-start',
+          };
+          if (contentFn) {
+            config.content = contentFn;
+          }
+          if (onTriggerFn) {
+            config.onTrigger = onTriggerFn;
+          }
+          if (onUntriggerFn) {
+            config.onUntrigger = onUntriggerFn;
+          }
+            config['offset'] = [0,0];
+            config['maxWidth'] = 700;
+          window.tippy(el, config); 
+        }
+        const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+        for (var i=0; i<noterefs.length; i++) {
+          const ref = noterefs[i];
+          tippyHover(ref, function() {
+            // use id or data attribute instead here
+            let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+            try { href = new URL(href).hash; } catch {}
+            const id = href.replace(/^#\/?/, "");
+            const note = window.document.getElementById(id);
+            if (note) {
+              return note.innerHTML;
+            } else {
+              return "";
+            }
+          });
+        }
+        const findCites = (el) => {
+          const parentEl = el.parentElement;
+          if (parentEl) {
+            const cites = parentEl.dataset.cites;
+            if (cites) {
+              return {
+                el,
+                cites: cites.split(' ')
+              };
+            } else {
+              return findCites(el.parentElement)
+            }
+          } else {
+            return undefined;
+          }
+        };
+        var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+        for (var i=0; i<bibliorefs.length; i++) {
+          const ref = bibliorefs[i];
+          const citeInfo = findCites(ref);
+          if (citeInfo) {
+            tippyHover(citeInfo.el, function() {
+              var popup = window.document.createElement('div');
+              citeInfo.cites.forEach(function(cite) {
+                var citeDiv = window.document.createElement('div');
+                citeDiv.classList.add('hanging-indent');
+                citeDiv.classList.add('csl-entry');
+                var biblioDiv = window.document.getElementById('ref-' + cite);
+                if (biblioDiv) {
+                  citeDiv.innerHTML = biblioDiv.innerHTML;
+                }
+                popup.appendChild(citeDiv);
+              });
+              return popup.innerHTML;
+            });
+          }
+        }
+      });
+      </script>
+    
+
+</body></html>
