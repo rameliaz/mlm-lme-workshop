@@ -1,0 +1,1117 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-html/tabby.min.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-8f1af79587c2686b78fe4e1fbadd71ab.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.8.14">
+
+  <meta name="author" content="Rizqy Amelia Zein">
+  <meta name="dcterms.date" content="2026-03-28">
+  <title>LME Workshop – Regresi Linier (Ordinary Least Square)</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="site_libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="site_libs/revealjs/dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="site_libs/revealjs/dist/theme/quarto-a34fe8a8ceb863ae7323e319d33dffc4.css">
+  <link href="site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" class="quarto-title-block center">
+  <h1 class="title">Regresi Linier (<em>Ordinary Least Square</em>)</h1>
+  <p class="subtitle">Menggunakan <code>jamovi</code></p>
+
+<div class="quarto-title-authors">
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+Rizqy Amelia Zein 
+</div>
+</div>
+</div>
+
+  <p class="date">2026-03-28</p>
+</section>
+<section id="menghubungi-saya" class="slide level2">
+<h2>Menghubungi saya?</h2>
+<p><i class="fas fa-paper-plane"></i> <a href="mailto:amelia.zein@psikologi.unair.ac.id">amelia.zein@psikologi.unair.ac.id</a></p>
+<p><i class="fab fa-twitter"></i> <a href="https://twitter.com/ameliazein"><span class="citation" data-cites="ameliazein">@ameliazein</span></a></p>
+<p><i class="fab fa-github"></i> <a href="https://github.com/rameliaz"><span class="citation" data-cites="rameliaz">@rameliaz</span></a></p>
+<p><i class="fas fa-desktop"></i> <a href="https://rameliaz.github.io" class="uri">https://rameliaz.github.io</a></p>
+<p>Materi dalam paparan ini berlisensi <i class="fab fa-creative-commons"></i> 4.0 dan tersedia di laman web pribadi saya <strong>(https://rameliaz.github.io/mlm-lme-workshop/)</strong>.</p>
+<p>Kode tersedia secara terbuka di <a href="https://github.com/rameliaz/mlm-lme-workshop">repositori</a> <i class="fab fa-github"></i> saya.</p>
+</section>
+<section id="outline" class="slide level2">
+<h2><em>Outline</em></h2>
+<ul>
+<li>Berlatih menginspeksi data secara visual dengan <em>scatterplot</em></li>
+<li>Model regresi linier (<em>ordinary least square</em>)</li>
+<li>Menarik garis regresi (<em>fitted regression lines</em>)</li>
+<li>Varians yang dapat dan yang tidak dapat dijelaskan oleh model (<em>R^2</em>)</li>
+<li>Menguji hipotesis</li>
+<li>Mengecek kecocokan model dengan data (<em>model fit</em>)</li>
+<li>Mengecek asumsi
+<ul>
+<li>Distribusi (normalitas) residual</li>
+<li>Homoskedastisitas</li>
+<li>Multikolinearitas</li>
+</ul></li>
+<li>Mendeteksi <em>outliers</em></li>
+<li>Menguji <em>interaction effects</em> dan <em>model change</em></li>
+<li>Menulis hasil analisis regresi linier dengan <em>interaction terms</em> dalam manuskrip</li>
+</ul>
+</section>
+<section id="skenario" class="slide level2">
+<h2>Skenario</h2>
+<p>Marimar adalah seorang wali murid di sebuah PAUD di Kota Surabaya. Pada suatu hari, ia mengamati seorang anak (dan orangtua) yang perilakunya menarik perhatiannya.</p>
+<p>Ibu anak tersebut <em>ngotot</em> untuk menunggui anaknya di sekolah, padahal guru kelas meminta agar Ibu pulang saja, mempercayakan anak pada guru, dengan tujuan melatih kemandirian anaknya.</p>
+<p>Melihat ibunya yang menggerutu karena diminta bu Guru pulang, si anak menangis meraung-raung tidak mau ditinggalkan. Akhirnya, terpaksa bu Guru membiarkan si Ibu menunggu di sekolah.</p>
+<p>Marimar heran sekaligus penasaran, mengapa tiap anak <strong>memberikan respon yang berbeda</strong> ketika ditinggal orangtuanya di sekolah. Ada yang menangis meraung-raung, ada yang lebih santai dengan langsung bermain. Apakah ada kaitan antara kemandirian anak dengan karakteristik orangtuanya?</p>
+</section>
+<section id="eksplorasi-dataset" class="slide level2">
+<h2>Eksplorasi dataset</h2>
+<h3 id="dataset-1-dataset-sekolah.omv">Dataset 1: dataset-sekolah.omv</h3>
+<ul>
+<li>Marimar yang penasaran akhirnya melakukan survei di 5 PAUD di Kota Surabaya, dengan ukuran sampel sebesar total 400 orang</li>
+<li>Buka laman repositori (http://bit.ly/mlm-dies-psi)</li>
+<li>Klik menu <strong>Dataset</strong> di pojok kanan dan unduh dataset-sekolah.omv</li>
+<li>Dalam dataset tersebut ada beberapa variabel
+<ul>
+<li><strong>neu</strong> = Kecenderungan <em>Neuroticism</em> ibu (<em>five factor model</em>). Makin tinggi skor, Ibu makin mudah cemas, frustasi, cemburu, rasa bersalah, dan ketakutan berlebihan.</li>
+<li><strong>trust</strong> = Kepercayaan ibu bahwa perkembangan anak dapat berlangsung secara natural (<a href="https://link.springer.com/article/10.1007/s11031-008-9092-2"><strong>trust in organismic development</strong></a>). Makin tinggi skor, ibu makin percaya.</li>
+<li><strong>hi</strong> = Pendapatan seluruh anggota keluarga inti (<strong>household income</strong>). Skor makin tinggi, pendapatan makin banyak.</li>
+<li><strong>mandiri</strong> = Tingkat kemandirian anak. Makin tinggi skor, anak makin independen dan lebih santai ketika ditinggal orangtuanya di sekolah.</li>
+</ul></li>
+</ul>
+</section>
+<section id="deskriptif" class="slide level2">
+<h2>Deskriptif</h2>
+<ul>
+<li>Coba eksplorasi keempat variabel diatas dengan pendekatan statistik deskriptif.
+<ul>
+<li>Pada <em>menu bar</em>, klik <strong>exploration</strong> lalu <strong>descriptives</strong>. Setelah itu masukkan keempat variabel tersebut dalam kolom <strong>variables</strong>.</li>
+<li>Klik opsi <strong>Statistics</strong> dan pada bagian <strong>Dispersion</strong> centang <strong>Std. deviation</strong>.</li>
+<li>Klik opsi <strong>plots</strong>, di bagian <strong>histograms</strong>, centang <strong>histograms</strong> dan <strong>density</strong>.</li>
+</ul></li>
+</ul>
+</section>
+<section id="section" class="slide level2 center">
+<h2></h2>
+<p><img src="libs/desc-table.jpg" style="width:30%;" class="fancyimage"> <img src="libs/hist-neu.jpg" style="width:30%;" class="fancyimage"></p>
+<p><img src="libs/hist-mandiri.jpg" style="width:30%;" class="fancyimage"> <img src="libs/hist-trust.jpg" style="width:30%;" class="fancyimage"> <img src="libs/hist-hi.jpg" style="width:30%;" class="fancyimage"></p>
+</section>
+<section id="membuat-scatterplot" class="slide level2">
+<h2>Membuat <em>scatterplot</em></h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li>Merupakan teknik inspeksi visual kemungkinan terjadinya korelasi antara variabel.</li>
+<li>Setelah melakukan analisis deskriptif, sepertinya akan menarik membandingkan kaitan antara:
+<ul>
+<li><em>Neuroticism</em> (neu) dengan tingkat kemandirian (mandiri)</li>
+<li>kepercayaan ibu bahwa anak dapat berkembang secara natural (<em>trust</em>) dengan tingkat kemandirian (mandiri)</li>
+</ul></li>
+<li>Ayo kita buat <em>scatterplot</em>nya!
+<ul>
+<li>Klik <strong>exploration</strong>, pilih <strong>scatterplot</strong></li>
+<li>Masukkan <strong>mandiri</strong> pada kolom <strong>Y-axis</strong></li>
+<li>Masukkan <strong>neu</strong> (scatterplot 1) dan <strong>trust</strong> (scatterplot 2) pada <strong>kolom X-axis</strong></li>
+<li>Pada opsi <strong>regression line</strong>, pilih <strong>linear</strong> dan centang kotak <strong>standard error</strong></li>
+</ul></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<p><img src="libs/scatplot.jpg" style="width:100%;" class="fancyimage"></p>
+</div></div>
+</section>
+<section id="section-1" class="slide level2 center">
+<h2></h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><img src="libs/scat-1.jpg" style="width:100%;" class="fancyimage"></p>
+<p><em>Scatterplot</em> 1. <em>Neuroticism</em> dan Kemandirian</p>
+</div><div class="column" style="width:50%;">
+<p><img src="libs/scat-2.jpg" style="width:100%;" class="fancyimage"></p>
+<p><em>Scatterplot</em> 2. <em>Trust</em> dan Kemandirian</p>
+</div></div>
+<div class="footnote">
+<p>Bagaimana kekuatan dan arah hubungan pada <em>scatterplot</em> 1 dan 2?</p>
+</div>
+</section>
+<section id="ayo-main" class="slide level2 center" data-background-color="#f4f4f4">
+<h2>Ayo main!! 📢</h2>
+<h3 id="guess-the-correlation"><a href="http://guessthecorrelation.com/"><strong>Guess the correlation</strong></a></h3>
+
+<img data-src="https://media.giphy.com/media/YJ5OlVLZ2QNl6/giphy.gif" class="r-stretch"></section>
+<section id="kekuatan-dan-arah-korelasi-1" class="slide level2">
+<h2>Kekuatan dan arah korelasi (1)</h2>
+<div class="columns">
+<div class="column" style="width:55%;">
+<p>Korelasi yang tampak pada <em>scatterplot</em> tadi dapat dikonseptualisasikan dengan lebih jelas dengan menghitung <strong>koefisien korelasi</strong>, yang mengimplikasikan kekuatan hubungan.</p>
+<ul>
+<li><em>Pearson’s</em> r misalnya, biasanya ditulis dengan rxy, sedangkan <em>Spearman’s</em> rho ditulis rs.</li>
+<li>Berkisar antara -1 s/d 1</li>
+<li>-1 artinya korelasi negatif sempurna, 1 artinya korelasi positif sempurna</li>
+<li>Koefisien korelasi <em>Pearson’s</em> r atau <em>Spearman’s</em> rho dihitung dari kovarians (<em>covariance</em>/<em>average cross product</em> dari dua variabel).
+<ul>
+<li>Dua variabel yang sama sekali tak berkorelasi, maka kovarians nol.</li>
+</ul></li>
+</ul>
+</div><div class="column" style="width:45%;">
+<p><img src="libs/gosling-corr.jpg" style="width:80%;" class="fancyimage"></p>
+</div></div>
+</section>
+<section id="kekuatan-dan-arah-korelasi-2" class="slide level2">
+<h2>Kekuatan dan arah korelasi (2)</h2>
+<div class="columns">
+<div class="column" style="width:55%;">
+<ul>
+<li>Kovarians sulit diinterpretasi, sehingga formula <em>Pearson’s</em> r dan <em>Spearman’s</em> rho menstandardisasi kovarians agar lebih mudah diinterpretasi</li>
+<li>Fungsi <em>Pearson’s</em> r dan <em>Spearman’s</em> rho mirip <em>z-score</em></li>
+<li>Kuat &gt;&lt; lemahnya koefisien korelasi sebenarnya sangat tergantung konteks penelitiannya.
+<ul>
+<li>Pada fenomena yang multifaktor, misalnya mencari variabel yang berkaitan dengan kecenderungan Skizofrenia, korelasi 0.3 aja sudah bermakna sangat besar.</li>
+</ul></li>
+</ul>
+</div><div class="column" style="width:45%;">
+<p><img src="libs/corr.jpg" style="width:80%;" class="fancyimage"></p>
+</div></div>
+</section>
+<section id="regresi-linier-ordinary-least-square-regressionols" class="slide level2">
+<h2>Regresi linier (<em>ordinary least square regression</em>/OLS)</h2>
+<div class="columns">
+<div class="column" style="width:55%;">
+<ul>
+<li>Merupakan kelanjutan yang lebih kompleks dari <em>Pearson’s</em> r</li>
+<li>Ide dasarnya adalah menyusun persamaan garis yang dapat digunakan untuk <strong>memperkirakan</strong> nilai Y ketika nilai X diketahui
+<ul>
+<li>Contohnya, kita tahu bahwa <strong>kemandirian</strong> berkorelasi positif dan sedang dengan <strong>neuroticism</strong> dan <strong>trust</strong></li>
+<li>Namun dengan regresi, kita bisa <em>mengestimasi</em> tingkat kemandirian anak, ketika hanya informasi mengenai <em>neuroticism</em> dan <em>trust</em> yang tersedia.</li>
+</ul></li>
+<li>OLS bekerja dengan pendekatan <em>least square</em>, artinya mencari <strong>jumlah kuadrat terkecil</strong> antara garis regresi (nilai Y yang diperkirakan oleh model) dengan nilai Y yang diobservasi.</li>
+</ul>
+</div><div class="column" style="width:45%;">
+<p><img src="libs/corr-meme.jpg" style="width:100%;" class="fancyimage"></p>
+</div></div>
+</section>
+<section id="persamaan-garis-regresi" class="slide level2 center" data-background-color="#f4f4f4">
+<h2>Persamaan garis regresi</h2>
+
+<img src="libs/reg-equation.jpg" style="width:40%;" class="fancyimage r-stretch"></section>
+<section id="contoh-garis-regresi" class="slide level2 center" data-background-color="#f4f4f4">
+<h2>Contoh garis regresi</h2>
+
+<img src="libs/reg-line.jpg" style="width:80%;" class="fancyimage r-stretch"></section>
+<section id="asumsi-yang-harus-dipenuhi" class="slide level2">
+<h2>Asumsi yang harus dipenuhi</h2>
+<div class="columns">
+<div class="column" style="width:55%;">
+<ul>
+<li>Variabel X dan Y <strong>berkorelasi secara linier</strong>
+<ul>
+<li>Lakukan analisis korelasi sebelum melakukan regresi untuk memastikan asumsi ini terpenuhi</li>
+</ul></li>
+<li>Residual/<em>error</em>/varians variabel Y yang tidak dapat dijelaskan oleh model
+<ul>
+<li>Berdistribusi normal</li>
+<li>Variansnya homogen (<strong>homoskedasdisitas</strong>)</li>
+<li>Tidak dipengaruhi oleh prediktor lain diluar model</li>
+</ul></li>
+<li>Prediktor dalam model independen satu sama lain (tidak berkorelasi)
+<ul>
+<li>Berlaku ketika ada dua atau lebih prediktor dalam satu model regresi</li>
+<li>Kalau prediktor berkorelasi satu sama lain maka telah terjadi <strong>multi-kolinearitas</strong></li>
+</ul></li>
+<li><strong>Data/observasi dan residual harus independen</strong></li>
+</ul>
+</div><div class="column" style="width:45%;">
+<p><img src="libs/gosling-asumsi.jpg" style="width:80%;" class="fancyimage"></p>
+</div></div>
+</section>
+<section id="ayo-kita-coba" class="slide level2 center" data-background-color="#f4f4f4">
+<h2>Ayo kita coba! 🔍</h2>
+
+<img data-src="https://media.giphy.com/media/UO5elnTqo4vSg/giphy.gif" class="r-stretch"></section>
+<section id="latihan-1" class="slide level2">
+<h2>Latihan (1)</h2>
+<div class="columns">
+<div class="column" style="width:55%;">
+<p>Marimar ingin tahu apakah ada kaitan antara kecenderungan <em>neuroticism</em> ibu terhadap kemandirian anak.</p>
+<ul>
+<li>Klik menu <strong>regression</strong>, pilih <strong>linear regression</strong>.</li>
+<li>Masukkan <strong>mandiri</strong> dalam kolom <strong>dependent variable</strong> dan <strong>neu</strong> pada <strong>covariates</strong>.</li>
+<li>Pada opsi <strong>assumption checks</strong>, centang <strong>Q-Q plot of residuals</strong>, <strong>residual plots</strong> dan <strong>Cook’s distance</strong>.</li>
+<li>Pada opsi <strong>model fit</strong>, centang <strong>R</strong>, <strong>R^2</strong>, dan <strong>F test</strong>.</li>
+<li>Pada opsi <strong>model coefficients</strong>, centang <strong>ANOVA test</strong>, <strong>confidence interval</strong>, dan <strong>standardized estimates</strong>.</li>
+</ul>
+</div><div class="column" style="width:45%;">
+<p><img src="libs/sheldon.jpg" style="width:80%;" class="fancyimage"></p>
+</div></div>
+</section>
+<section id="model-fit" class="slide level2">
+<h2>Model fit</h2>
+<div class="columns">
+<div class="column" style="width:55%;">
+<ul>
+<li>Model regresi kita cukup mampu menggambarkan data (<em>F</em>(1,398)=10.5, p=.001).</li>
+<li>Namun model hanya mampu menjelaskan 2.58% varians kemandirian anak (R<sup>2</sup>=.0258).</li>
+<li>Coba bandingkan <em>sum of squares</em> antara <strong>neu</strong> dengan <strong>Residuals</strong> (tabel ANOVA).
+<ul>
+<li>Manakah yang lebih banyak; varians yang <strong>dapat</strong>, atau yang <strong>tidak dapat dijelaskan</strong> oleh model?</li>
+</ul></li>
+<li>Statistical grand prize ❗: <strong>menjelaskan varians variabel dependen</strong>.
+<ul>
+<li>Hampir semua teknik statistik intinya adalah membandingkan varians yang dapat dengan yang tidak dapat dijelaskan (residual) oleh model</li>
+</ul></li>
+</ul>
+</div><div class="column" style="width:45%;">
+<p><img src="libs/mfit-1.jpg" style="width:100%;" class="fancyimage"></p>
+<p><img src="libs/ftest-1.jpg" style="width:100%;" class="fancyimage"></p>
+</div></div>
+</section>
+<section id="koefisien-model" class="slide level2">
+<h2>Koefisien model</h2>
+<center>
+<img src="libs/mod-coef1.jpg" style="width:70%;" class="fancyimage">
+</center>
+<h4 id="kecenderungan-neuroticism-ibu-dapat-menjelaskan-variasi-kemandirian-anak-b0.430-95-ci-0.170-0.691-se0.132-t3.25-p.001.">Kecenderungan <em>neuroticism</em> ibu dapat menjelaskan variasi kemandirian anak (<em>B</em>=0.430 95% CI [0.170, 0.691], <em>SE</em>=0.132, <em>t</em>=3.25, <em>p</em>=.001).</h4>
+<h4 id="interpretasi-standardized-β-dan-unstandardized-b-estimates">Interpretasi <em>standardized</em> (<em>β</em>) dan <em>unstandardized</em> (<em>B</em>) <em>estimates</em></h4>
+<ul>
+<li><em>Unstandardized</em> (<em>B</em>) <em>estimates</em>: Setiap perubahan <em>neuroticism</em> sebesar 1 poin, maka tingkat kemandirian juga berubah sebesar 0.43 poin.</li>
+<li><em>Standardized</em> (<em>β</em>) <em>estimates</em>: Setiap berubah <em>neuroticism</em> sebesar 1SD, maka tingkat kemandirian juga berubah sebesar 0.161SD.</li>
+</ul>
+<h4 id="tips-selalu-laporkan-unstandardized-estimates-dan-confidence-intervalnya-appelbaum-et.-al.-2018.">Tips ❗: Selalu laporkan <em>unstandardized estimates</em> dan <em>confidence interval</em>nya (<a href="http://dx.doi.org/10.1037/amp0000191">Appelbaum, et. al., 2018</a>).</h4>
+</section>
+<section id="diagnostik-model-distribusi-residual" class="slide level2">
+<h2>Diagnostik model: distribusi residual</h2>
+<div class="columns">
+<div class="column" style="width:55%;">
+<ul>
+<li>Salah satu asumsi penting yang harus dipenuhi ketika melakukan regresi OLS adalah <strong>residual (bukan data)</strong> harus berdistribusi normal.</li>
+<li>Sebaran residual mengikuti garis diagonal dalam Q-Q Plot, tandanya residual berdistribusi normal.</li>
+<li>Apabila residual tersebar secara acak atau makin menjauhi garis diagonal, berarti tidak berdistribusi normal dan ini melanggar asumsi <em>ordinary least square</em>.</li>
+<li>Akibatnya, model tak dapat diinterpretasi dan koefisien model (<em>intercept</em> dan <em>slope</em>) bias.</li>
+</ul>
+</div><div class="column" style="width:45%;">
+<p><img src="libs/resid-normal-1.jpg" style="width:100%;" class="fancyimage"></p>
+</div></div>
+</section>
+<section id="diagnostik-model-varians-residual-1" class="slide level2">
+<h2>Diagnostik model: varians residual (1)</h2>
+<div class="columns">
+<div class="column" style="width:55%;">
+<ul>
+<li>Asumsi lain yang harus dipenuhi adalah <strong>homoskedasdisitas</strong>.</li>
+<li>Residual memenuhi asumsi homoskedasdisitas, apabila variansnya <strong>uniform (sama)</strong> meskipun nilai X dan <em>fitted</em> Y (nilai Y yang diestimasi oleh model) berubah-ubah.
+<ul>
+<li>Hal ini ditunjukkan dari dua grafik disamping yang menunjukkan distribusi <strong>varians residual uniformed</strong>.</li>
+</ul></li>
+<li>Apabila asumsi ini dilanggar, maka residual mengalami <strong>heteroskedasdisitas</strong>, dengan begitu, estimasi model akan bias.</li>
+<li>Kalau residual menunjukkan karakteristik heterokedastik, maka distribusi residual akan terlihat seperti kerucut.</li>
+</ul>
+</div><div class="column" style="width:45%;">
+<p><img src="libs/resid-fit-1.jpg" style="width:60%;" class="fancyimage"></p>
+<p><img src="libs/resid-pred-1.jpg" style="width:60%;" class="fancyimage"></p>
+</div></div>
+</section>
+<section id="diagnostik-model-varians-residual-2" class="slide level2">
+<h2>Diagnostik model: varians residual (2)</h2>
+<div class="columns">
+<div class="column" style="width:55%;">
+<ul>
+<li>Plot disamping kanan menunjukkan kondisi <em>heteroskedastik</em></li>
+<li>Contoh heteroskedasdisitas: pendapatan personal dan usia
+<ul>
+<li>Pada usia <strong>anak-anak, remaja dan dewasa awal</strong>, variasi tingkat pendapatan sangat kecil, sedangkan yang <strong>usianya lebih tua</strong>, variasi tingkat pendapatan <strong>lebih besar</strong>.</li>
+<li>Kok bisa?</li>
+</ul></li>
+</ul>
+</div><div class="column" style="width:45%;">
+<p><img src="libs/heteroskedastik.jpg" style="width:100%;" class="fancyimage"></p>
+</div></div>
+</section>
+<section id="diagnostik-model-deteksi-outliers-1" class="slide level2">
+<h2>Diagnostik model: deteksi <em>outliers</em> (1)</h2>
+<div class="columns">
+<div class="column" style="width:55%;">
+<ul>
+<li>Gerak-gerik data <em>outlier</em> penting untuk diperhatikan.
+<ul>
+<li>Seperti grafik di sebelah kanan, penambahan data <em>outlier</em> dapat merubah garis regresi secara drastis.</li>
+</ul></li>
+<li>Untuk melihat seberapa ‘mengkhawatirkan’ data <em>outlier</em> ini dalam mengganggu garis regresi, kita dapat menggunakan <em>Cook’s distance</em>.</li>
+<li>Umumnya, apabila <em>outlier</em> dibuang dan perubahan rata-rata, median, dan standar deviasi kurang dari 1, dapat diabaikan. Artinya <em>outlier</em> tersebut tidak terlalu mengganggu garis regresi.</li>
+</ul>
+</div><div class="column" style="width:45%;">
+<p><img src="libs/cook-ilus.jpg" style="width:100%;" class="fancyimage"></p>
+</div></div>
+</section>
+<section id="diagnostik-model-deteksi-outliers-2" class="slide level2">
+<h2>Diagnostik model: deteksi <em>outliers</em> (2)</h2>
+<div class="columns">
+<div class="column" style="width:55%;">
+<ul>
+<li>Kalau diatas 1 bagaimana?
+<ul>
+<li>Coba bikin lagi garis regresi tanpa <em>outlier</em> tersebut, cari tahu kenapa nilainya bisa se-ekstrim itu</li>
+<li>Kalau sangat mendesak, <em>outlier</em> dapat dikeluarkan dari model. Tetapi ini tidak terlalu disarankan dan kalaupun dilakukan, harus ditulis dengan jelas di manuskrip/laporan.</li>
+</ul></li>
+<li>Dari <em>output</em> di samping, dapat disimpulkan bahwa apabila <em>outlier</em> tidak disertakan dalam analisis, maka perubahan rerata, median, dan standar deviasi keseluruhan sampel kurang dari 1 dari nilai asalnya.</li>
+</ul>
+</div><div class="column" style="width:45%;">
+<p><img src="libs/cook-1.jpg" style="width:100%;" class="fancyimage"></p>
+</div></div>
+</section>
+<section id="cara-melaporkannya-dalam-manuskrip" class="slide level2" data-background-color="#f4f4f4">
+<h2>Cara melaporkannya dalam manuskrip</h2>
+<p>“… untuk menguji hipotesis penelitian, peneliti melakukan analisis regresi <em>ordinary least square</em> (OLS). Hasil analisis menunjukkan bahwa model cocok menggambarkan data, namun hanya mampu menjelaskan kurang dari 3% varians tingkat kemandirian siswa (<em>F</em>(1,398)=10.5, p=.001, R<sup>2</sup>=.0258).</p>
+<p>Kecenderungan <em>neuroticism</em> ibu berkontribusi berarti dalam menjelaskan varians tingkat kemandirian siswa, dimana perubahan kecenderungan <em>neuroticism</em> sebesar 1 poin diasosiasikan dengan perubahan tingkat kemandirian anak sebesar 0.43 (<em>B</em>=0.430 95% CI [0.170, 0.691], <em>SE</em>=0.132, <em>t</em>=3.25, <em>p</em>=001).</p>
+<p>Setelah dilakukan diagnostik, varians yang tidak dapat dijelaskan oleh model berdistribusi normal dan ketika dikorelasikan dengan nilai prediktif tingkat kemandirian siswa dan kecenderungan <em>neuroticism</em> ibu, maka menghasilkan varians yang homogen (homoskedastik).</p>
+<p>Diagnostik <em>outlier</em> dilakukan dengan menggunakan <em>Cook’s distance</em>, dan menghasilkan kesimpulan bahwa apabila <em>outlier</em> tidak disertakan dalam model, maka perubahan rerata, nilai tengah, dan simpangan baku kurang dari satu dari nilai awalnya, sehingga tidak berpotensi mendistorsi garis regresi…”</p>
+</section>
+<section id="latihan-2" class="slide level2">
+<h2>Latihan (2)</h2>
+<div class="columns">
+<div class="column" style="width:55%;">
+<ul>
+<li>Marimar ingin menambahkan interaksi antara <em>neuroticism</em> dengan <em>trust</em>
+<ul>
+<li>Mungkin saja ibu yang percaya/kurang percaya bahwa anak dapat berkembang secara natural, korelasi antara <em>neuroticism</em> dengan kemandirian akan makin negatif.</li>
+<li>Selain itu, bisa jadi ada kaitannya antara pendapatan keluarga dengan tingkat kemandirian anak.</li>
+</ul></li>
+<li>Tambahkan variabel <strong>trust</strong>, <strong>neu</strong>, dan <strong>hi</strong> dalam kolom <strong>covariates</strong>.</li>
+</ul>
+</div><div class="column" style="width:45%;">
+<p><img src="libs/yodawg.jpg" style="width:100%;" class="fancyimage"></p>
+</div></div>
+</section>
+<section id="latihan-2-lanjutan" class="slide level2">
+<h2>Latihan (2) — lanjutan</h2>
+<ul>
+<li>Lakukan semua langkah yang sudah dilakukan di Latihan (1)</li>
+<li>Pada opsi <strong>model builder</strong>, klik <strong>add new block</strong>
+<ul>
+<li>Klik <strong>Block 1</strong>, sampai keluar <em>shading</em> di pinggir kotak, lalu masukkan <strong>hi</strong></li>
+<li>Klik <strong>Block 2</strong>, sampai keluar <em>shading</em> di pinggir kotak</li>
+<li>Kemudian sambil menekan tombol <code>ctrl</code>, klik <strong>neu</strong> kemudian <strong>trust</strong>, lalu klik tanda panah yang kedua dan pilih <strong>interaction</strong></li>
+</ul></li>
+<li>Dengan begitu kita punya 2 model regresi
+<ul>
+<li>Model 1 prediktornya <strong>hi</strong></li>
+<li>Model 2 prediktornya <strong>hi</strong> dan interaksi antara <strong>neu</strong> dengan <strong>trust</strong></li>
+</ul></li>
+<li>Pada opsi <strong>assumption checks</strong>, tambahkan centang pada <strong>collinearity statistics</strong></li>
+<li>Pada opsi <strong>model fit</strong>, klik <strong>AIC</strong> dan <strong>BIC</strong>.</li>
+<li>Pada opsi <strong>estimated marginal means</strong>, masukkan <strong>neu</strong> dan <strong>trust</strong> dalam <strong>terms 1</strong></li>
+</ul>
+</section>
+<section id="model-fit-1" class="slide level2">
+<h2>Model fit</h2>
+<div class="columns">
+<div class="column" style="width:55%;">
+<p>Model 2 (<em>F</em>(2,397)=58.2, p&lt;.001, R<sup>2</sup>=.226) dapat menjelaskan varians tingkat kemandirian anak lebih baik daripada Model 1 (<em>F</em>(1,398)=10.2, p=.002, R<sup>2</sup>=.025), dengan <em>overlapping variances</em> sebesar 22.6% dibanding 2.5%.</p>
+<p><strong>Information criteria (AIC &amp; BIC)</strong></p>
+<ul>
+<li>Digunakan untuk mengakomodasi kelemahan dari R<sup>2</sup> (apabila prediktor dalam model ditambah terus, maka nilai R<sup>2</sup> akan terus naik)</li>
+<li>Kelemahan R<sup>2</sup> ini serupa dengan prinsip reliabilitas dan jumlah aitem</li>
+<li>Rumus dari <em>information criteria</em> memberi “penalti” kepada model yang mengandung lebih banyak variabel prediktor</li>
+<li>Pilih model dengan AIC dan BIC yang terkecil (Model 2)</li>
+</ul>
+</div><div class="column" style="width:45%;">
+<p><img src="libs/mfit-2.jpg" style="width:100%;" class="fancyimage"></p>
+</div></div>
+</section>
+<section id="model-comparison" class="slide level2">
+<h2>Model comparison</h2>
+<div class="columns">
+<div class="column" style="width:55%;">
+<p>Ketika dibandingkan, Model 1 dan Model 2 berbeda signifikan (<em>F</em>(1,397)=104, p&lt;.001). ΔR<sup>2</sup>=.202, artinya selisih R<sup>2</sup> Model 1 dan Model 2=.202 atau R<sup>2</sup> naik sebesar 20.2%</p>
+<p><strong>Coba perhatikan Residuals Model 1 dengan Model 2</strong></p>
+</div><div class="column" style="width:45%;">
+<p><img src="libs/ftest-2a.jpg" style="width:100%;" class="fancyimage"></p>
+<p><img src="libs/ftest-2b.jpg" style="width:100%;" class="fancyimage"></p>
+<p><img src="libs/moco-1.jpg" style="width:100%;" class="fancyimage"></p>
+</div></div>
+</section>
+<section id="koefisien-model-2" class="slide level2">
+<h2>Koefisien model 2</h2>
+<center>
+<img src="libs/mod-coef2.jpg" style="width:70%;" class="fancyimage">
+</center>
+<h4 id="pendapatan-keluarga-dapat-menjelaskan-variasi-kemandirian-anak-b-0.943-95-ci--1.164--0.721-se0.112-t-8.39-p.001.">Pendapatan keluarga dapat menjelaskan variasi kemandirian anak (<em>B</em>=-0.943 95% CI [-1.164, -0.721], <em>SE</em>=0.112, <em>t</em>=-8.39, <em>p</em>&lt;.001).</h4>
+<h4 id="interaction-terms-juga-signifikan-dalam-menjelaskan-varians-kemandirian-anak-b0.054-95-ci-0.044-0.065-se0.005-t10.18-p.001."><em>Interaction terms</em> juga signifikan dalam menjelaskan varians kemandirian anak (<em>B</em>=0.054 95% CI [0.044, 0.065], <em>SE</em>=0.005, <em>t</em>=10.18, <em>p</em>&lt;.001).</h4>
+</section>
+<section id="simple-slope" class="slide level2">
+<h2><em>Simple slope</em></h2>
+<div class="columns">
+<div class="column" style="width:55%;">
+<ul>
+<li>Interpretasi <em>slopes</em> pada <em>interaction terms</em>:
+<ul>
+<li><em>Unstandardized B</em> yang positif artinya, pada ibu dengan <em>trust</em> yang tinggi, korelasi antara kecenderungan <em>neuroticism</em> dengan kemandirian anak juga semakin positif/menguat.</li>
+</ul></li>
+</ul>
+</div><div class="column" style="width:45%;">
+<p><img src="libs/simple-slopes.jpg" style="width:100%;" class="fancyimage"></p>
+</div></div>
+</section>
+<section id="diagnostik-kolinieritas" class="slide level2">
+<h2>Diagnostik kolinieritas</h2>
+<div class="columns">
+<div class="column" style="width:55%;">
+<ul>
+<li>Dapat dideteksi dengan melakukan analisis melihat <em>variance inflated factors</em> (VIF).
+<ul>
+<li>Bila VIF &lt; 2.5, maka multi-kolinearitas kemungkinan besar tidak terjadi.</li>
+</ul></li>
+<li>Penelitian <em>longitudinal</em> punya potensi terjadinya autokorelasi (residual <em>time 1</em> dan <em>time 2</em> berkorelasi)
+<ul>
+<li>Dapat dicek dengan tes Durbin-Watson</li>
+<li>Bila nilai p analisis autokorelasi &gt; 0.001, maka multi-kolinearitas tidak terjadi.</li>
+</ul></li>
+</ul>
+</div><div class="column" style="width:45%;">
+<p><img src="libs/multikol.jpg" style="width:100%;" class="fancyimage"></p>
+</div></div>
+</section>
+<section id="bagaimana-melaporkannya" class="slide level2" data-background-color="#f4f4f4">
+<h2>Bagaimana melaporkannya?</h2>
+<p>“…untuk menginvestigasi keterkaitan antara pendapatan keluarga, kecenderungan <em>neuroticism</em> ibu, dan kepercayaan ibu bahwa perkembangan anak dapat terjadi secara natural dengan tingkat kemandirian anak, peneliti melakukan analisis regresi linier hirarkial dengan <em>interaction terms</em>. Peneliti menyusun dua model, dimana; model 1 mengestimasi varians tingkat kemandirian anak dengan pendapatan keluarga inti sebagai prediktor, sedangkan pada model 2 peneliti menambahkan prediktor berupa <em>interaction terms</em> antara <em>neuroticism</em> dengan <em>trust</em>.</p>
+<p>Ketika dibandingkan, Model 1 dan Model 2 berbeda signifikan (<em>F</em>(1,397)=104, p&lt;.001). R<sup>2</sup> bertambah sebesar 20.2% (ΔR<sup>2</sup>=.202). Model 2 (<em>F</em>(2,397)=58.2, p&lt;.001, R<sup>2</sup>=.226, AIC=3237, BIC=3253) dapat menjelaskan varians tingkat kemandirian anak lebih baik daripada Model 1 (<em>F</em>(1,398)=10.2, p=.002, R<sup>2</sup>=.025, AIC=3327, BIC=3339).</p>
+<p>Pendapatan keluarga dapat menjelaskan variasi kemandirian anak (<em>B</em>=-0.943 95% CI [-1.164, -0.721], <em>SE</em>=0.112, <em>t</em>=-8.39, <em>p</em>&lt;.001). Interaksi antara <em>neuroticism</em> dengan <em>trust</em> juga signifikan (<em>B</em>=0.054 95% CI [0.044, 0.065], <em>SE</em>=0.005, <em>t</em>=10.18, <em>p</em>&lt;.001). Artinya, korelasi antara kecenderungan <em>neuroticism</em> ibu dengan kemandirian anak akan menguat pada ibu yang <em>trust</em>nya tinggi.</p>
+<p>Potensi multikolinieritas dideteksi dengan VIF dan hasil analisis menunjukkan multikolinieritas kemungkinan besar tidak terjadi (VIF=1.38)…”</p>
+</section>
+<section id="latihan-mandiri-1" class="slide level2">
+<h2>Latihan mandiri (1)</h2>
+<div class="columns">
+<div class="column" style="width:55%;">
+<p>Fernando Jose sebal sekali karena ia kembali kehilangan pengokotnya dan ini kali ketiga ia kehilangan pengokot yang baru dibelinya seminggu yang lalu.</p>
+<p>Teman-teman kerjanya memang punya kebiasaan buruk meminjam barang tanpa seijinnya. Ia akhirnya bertanya, apa ya yang menyebabkan teman-temannya berperilaku seperti itu?</p>
+<p>Akhirnya ia menduga, mungkin ada kaitannya dengan faktor kepribadian (<em>conscientiousness</em>) dan faktor situasional di tempat kerjanya.</p>
+<p>Untuk faktor situasi, ia mengamati sepertinya persepsi atas kondisi kerja yang informal dan relasi formal antara senior-junior mungkin juga berkaitan dengan timbulnya perilaku tersebut.</p>
+</div><div class="column" style="width:45%;">
+<p><img data-src="https://media.giphy.com/media/OLdblIEmgpTb2/giphy.gif"></p>
+</div></div>
+</section>
+<section id="eksplorasi-dataset-2" class="slide level2">
+<h2>Eksplorasi dataset (2)</h2>
+<h3 id="dataset-2-dataset-organisasi.omv">Dataset 2: dataset-organisasi.omv</h3>
+<ul>
+<li>Fernando Jose akhirnya melakukan penelitian survei pada 450 karyawan di 3 perusahaan yang berbeda</li>
+<li>Buka laman repositori (http://bit.ly/mlm-dies-psi) dan unduh dataset-organisasi.omv</li>
+<li>Dalam dataset tersebut ada beberapa variabel
+<ul>
+<li><strong>con</strong> = Kecenderungan <em>conscientiousness</em> karyawan. Makin tinggi skornya, karyawan lebih mungkin menunjukkan kehati-hatian dan keteraturan dalam bekerja, efisien, dan bertanggung jawab.</li>
+<li><strong>inf</strong> = Persepsi atas nuansa informal dalam kantor. Makin tinggi, karyawan makin merasa situasi kantor lebih informal.</li>
+<li><strong>pow</strong> = Jarak kuasa (<em>power distance</em>) dalam relasi antar-karyawan. Makin tinggi, budaya senioritas makin parah.</li>
+<li><strong>incivil</strong> = Intensitas perilaku tidak beradab. Makin besar skornya, karyawan akan lebih mungkin <em>emotionally abusive</em>, suka mengambil barang teman tanpa ijin, dan perilaku tidak pantas yang lain.</li>
+</ul></li>
+</ul>
+</section>
+<section id="latihan-mandiri-1-1" class="slide level2">
+<h2>Latihan mandiri (1)</h2>
+<ul>
+<li>Buatlah 2 model untuk mengestimasi varians perilaku tidak beradab dimana:
+<ul>
+<li>Prediktor model 1: jarak kuasa</li>
+<li>Prediktor model 2: interaksi antara <em>conscientiousness</em> dengan persepsi situasi kerja yang informal</li>
+</ul></li>
+<li>Bagaimana hipotesisnya?</li>
+<li>Laporkan hasil analisis datanya dan berikan penjelasan singkat apakah hasil analisis data menolak/gagal menolak hipotesis penelitian.</li>
+</ul>
+<h3 id="klik-disini-untuk-menuju-lembar-kerja"><a href="https://forms.gle/cikBBxALbFJZvx8j7">Klik disini untuk menuju lembar kerja</a></h3>
+</section>
+<section id="terima-kasih-banyak" class="slide level2 center">
+<h2>Terima kasih banyak! 😉</h2>
+
+<img data-src="https://media.giphy.com/media/hrBSJ2So6iTo4/giphy.gif" class="r-stretch"><p>Paparan disusun dengan menggunakan <i class="fab fa-r-project"></i> dengan <em>template</em> dan <em>fonts</em> dari <code>R-Ladies</code>.</p>
+
+
+</section>
+    </div>
+  <div class="quarto-auto-generated-content" style="display: none;">
+<div class="footer footer-default">
+
+</div>
+</div></div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="site_libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="site_libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="site_libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="site_libs/revealjs/plugin/search/search.js"></script>
+  <script src="site_libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="site_libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'jumpToSlide': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'slide',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'none',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1050,
+
+        height: 700,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    <script>
+    // Single unified function to manage all logos
+    function manageLogos() {
+      const slides = document.querySelectorAll('.reveal .slides section');
+      
+      slides.forEach(function(slide, index) {
+        // Handle title slide (first slide)
+        if (index === 0) {
+          // Remove any regular logos from title slide
+          const regularLogos = slide.querySelectorAll('.slide-logo');
+          regularLogos.forEach(logo => logo.remove());
+          
+          // Add centered logo if it doesn't exist
+          if (!slide.querySelector('.title-slide-logo')) {
+            const titleLogo = document.createElement('img');
+            titleLogo.src = 'img/logo.png';
+            titleLogo.className = 'title-slide-logo';
+            titleLogo.alt = 'Universitas Airlangga Logo';
+            slide.insertBefore(titleLogo, slide.firstChild);
+          }
+          return;
+        }
+        
+        // For all other slides, ensure only ONE logo exists
+        const existingLogos = slide.querySelectorAll('.slide-logo');
+        
+        // If multiple logos exist, remove all and start fresh
+        if (existingLogos.length > 1) {
+          existingLogos.forEach(logo => logo.remove());
+        }
+        
+        // Check background color
+        const bgColor = slide.getAttribute('data-background-color');
+        const logoSrc = (bgColor === '#14497F' || bgColor === '#14497f') 
+          ? 'img/logo_white.png' 
+          : 'img/logo.png';
+        
+        // If exactly one logo exists, just update its source
+        if (existingLogos.length === 1) {
+          existingLogos[0].src = logoSrc;
+        } 
+        // If no logo exists, create one
+        else if (existingLogos.length === 0) {
+          const logo = document.createElement('img');
+          logo.src = logoSrc;
+          logo.className = 'slide-logo';
+          logo.alt = 'Universitas Airlangga Logo';
+          slide.appendChild(logo);
+        }
+      });
+    }
+
+    // Initialize on page load
+    document.addEventListener('DOMContentLoaded', function() {
+      if (typeof Reveal !== 'undefined') {
+        Reveal.on('ready', function() {
+          manageLogos();
+        });
+      } else {
+        setTimeout(manageLogos, 500);
+      }
+    });
+
+    // Update when slides change
+    if (typeof Reveal !== 'undefined') {
+      Reveal.on('slidechanged', function() {
+        manageLogos();
+      });
+    }
+    </script>
+
+    <style>
+    /* Additional inline styles for logo */
+    .reveal .slide-logo {
+      position: absolute !important;
+      top: -1em !important;  /* Aligns with title */
+      right: 15px !important;
+      max-height: 80px !important;
+      max-width: 200px !important;
+      z-index: 100 !important;
+      object-fit: contain;
+    }
+
+    /* Ensure title slide doesn't have logo overlap */
+    .reveal .title-slide {
+      padding-right: 220px;
+    }
+
+    /* Section title slide styling */
+    .reveal section[data-background-color] h1,
+    .reveal section[data-background-color] h2 {
+      color: white !important;
+    }
+    </style>
+    <script id="quarto-html-after-body" type="application/javascript">
+      window.document.addEventListener("DOMContentLoaded", function (event) {
+        const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+        tabsets.forEach(function(tabset) {
+          const tabby = new Tabby('#' + tabset.id);
+        });
+        const isCodeAnnotation = (el) => {
+          for (const clz of el.classList) {
+            if (clz.startsWith('code-annotation-')) {                     
+              return true;
+            }
+          }
+          return false;
+        }
+        const onCopySuccess = function(e) {
+          // button target
+          const button = e.trigger;
+          // don't keep focus
+          button.blur();
+          // flash "checked"
+          button.classList.add('code-copy-button-checked');
+          var currentTitle = button.getAttribute("title");
+          button.setAttribute("title", "Copied!");
+          let tooltip;
+          if (window.bootstrap) {
+            button.setAttribute("data-bs-toggle", "tooltip");
+            button.setAttribute("data-bs-placement", "left");
+            button.setAttribute("data-bs-title", "Copied!");
+            tooltip = new bootstrap.Tooltip(button, 
+              { trigger: "manual", 
+                customClass: "code-copy-button-tooltip",
+                offset: [0, -8]});
+            tooltip.show();    
+          }
+          setTimeout(function() {
+            if (tooltip) {
+              tooltip.hide();
+              button.removeAttribute("data-bs-title");
+              button.removeAttribute("data-bs-toggle");
+              button.removeAttribute("data-bs-placement");
+            }
+            button.setAttribute("title", currentTitle);
+            button.classList.remove('code-copy-button-checked');
+          }, 1000);
+          // clear code selection
+          e.clearSelection();
+        }
+        const getTextToCopy = function(trigger) {
+            const codeEl = trigger.previousElementSibling.cloneNode(true);
+            for (const childEl of codeEl.children) {
+              if (isCodeAnnotation(childEl)) {
+                childEl.remove();
+              }
+            }
+            return codeEl.innerText;
+        }
+        const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+          text: getTextToCopy
+        });
+        clipboard.on('success', onCopySuccess);
+        if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+          const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+            text: getTextToCopy,
+            container: window.document.getElementById('quarto-embedded-source-code-modal')
+          });
+          clipboardModal.on('success', onCopySuccess);
+        }
+          var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+          var mailtoRegex = new RegExp(/^mailto:/);
+            var filterRegex = new RegExp('/' + window.location.host + '/');
+          var isInternal = (href) => {
+              return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+          }
+          // Inspect non-navigation links and adorn them if external
+         var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+          for (var i=0; i<links.length; i++) {
+            const link = links[i];
+            if (!isInternal(link.href)) {
+              // undo the damage that might have been done by quarto-nav.js in the case of
+              // links that we want to consider external
+              if (link.dataset.originalHref !== undefined) {
+                link.href = link.dataset.originalHref;
+              }
+            }
+          }
+        function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+          const config = {
+            allowHTML: true,
+            maxWidth: 500,
+            delay: 100,
+            arrow: false,
+            appendTo: function(el) {
+                return el.closest('section.slide') || el.parentElement;
+            },
+            interactive: true,
+            interactiveBorder: 10,
+            theme: 'light-border',
+            placement: 'bottom-start',
+          };
+          if (contentFn) {
+            config.content = contentFn;
+          }
+          if (onTriggerFn) {
+            config.onTrigger = onTriggerFn;
+          }
+          if (onUntriggerFn) {
+            config.onUntrigger = onUntriggerFn;
+          }
+            config['offset'] = [0,0];
+            config['maxWidth'] = 700;
+          window.tippy(el, config); 
+        }
+        const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+        for (var i=0; i<noterefs.length; i++) {
+          const ref = noterefs[i];
+          tippyHover(ref, function() {
+            // use id or data attribute instead here
+            let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+            try { href = new URL(href).hash; } catch {}
+            const id = href.replace(/^#\/?/, "");
+            const note = window.document.getElementById(id);
+            if (note) {
+              return note.innerHTML;
+            } else {
+              return "";
+            }
+          });
+        }
+        const findCites = (el) => {
+          const parentEl = el.parentElement;
+          if (parentEl) {
+            const cites = parentEl.dataset.cites;
+            if (cites) {
+              return {
+                el,
+                cites: cites.split(' ')
+              };
+            } else {
+              return findCites(el.parentElement)
+            }
+          } else {
+            return undefined;
+          }
+        };
+        var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+        for (var i=0; i<bibliorefs.length; i++) {
+          const ref = bibliorefs[i];
+          const citeInfo = findCites(ref);
+          if (citeInfo) {
+            tippyHover(citeInfo.el, function() {
+              var popup = window.document.createElement('div');
+              citeInfo.cites.forEach(function(cite) {
+                var citeDiv = window.document.createElement('div');
+                citeDiv.classList.add('hanging-indent');
+                citeDiv.classList.add('csl-entry');
+                var biblioDiv = window.document.getElementById('ref-' + cite);
+                if (biblioDiv) {
+                  citeDiv.innerHTML = biblioDiv.innerHTML;
+                }
+                popup.appendChild(citeDiv);
+              });
+              return popup.innerHTML;
+            });
+          }
+        }
+      });
+      </script>
+    
+
+</body></html>
