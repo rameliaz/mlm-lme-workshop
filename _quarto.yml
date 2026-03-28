@@ -33,7 +33,7 @@ website:
       - text: "Survei"
         menu:
           - text: "Evaluasi Workshop"
-            href: https://www.soscisurvey.de/invited-talk-feedback/
+            href: https://www.soscisurvey.de/fb-workshop-amel/
       - icon: envelope
         href: "mailto:amelia.zein@psikologi.unair.ac.id"
       - icon: github
