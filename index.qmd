@@ -12,7 +12,7 @@ Materi berlisensi [<i class="fab fa-creative-commons"></i> BY 4.0](https://creat
 
 ## Waktu dan tempat
 
-*Workshop* diselenggarakan pada hari **Sabtu, 09 Mei 2026** pukul 15.00 - 17.00 WIB secara virtual melalui Microsoft Teams.
+*Workshop* diselenggarakan pada hari **Kamis dan Jumat, 7-8 Mei 2026** pukul 15.00 - 17.00 WIB secara virtual melalui Microsoft Teams.
 
 ::: {.callout-note}
 **Catatan**: Peserta dapat _join meeting_ melalui _browser_, sehingga **tidak harus** _login_ atau memiliki akun MS Teams. 
@@ -28,7 +28,7 @@ Namun, apabila peserta ingin menyimpan atau mengakses _history chat_ setelah _wo
 Materi yang tersedia di laman web ini juga mencakup konsep dasar *ordinary least square regression* selain pengenalan `lme`. 
 
 ::: {.callout-important}
-Karena asumsinya mahasiswa S3 sudah memiliki pengetahuan statistik dasar, maka _workshop_ **hanya mencakup Bagian 2 saja**, sedangkan Bagian 1 dapat dipelajari peserta secara mandiri.
+Karena asumsinya mahasiswa S3 sudah memiliki pengetahuan statistik dasar, maka _workshop_ **hanya mencakup Bagian 2 saja**. Bagian 1 **harus dikuasai** oleh peserta terlebih dahulu sebelum memulai _workshop_ dan dapat dipelajari secara mandiri.
 :::
 
 Peserta juga akan diminta untuk menganalisis data dengan menggunakan `lme` dan melaporkannya dengan format yang biasa digunakan dalam artikel penelitian.
@@ -61,10 +61,11 @@ Berikut adalah *outline* materi yang tersedia di laman web ini:
 * `lme` dengan prediktor level 1 (*random coefficients model*)
   - Mengidentifikasi *intercept* (konstanta) yang berbeda antar kelompok (*random intercept model*)
   - Mengidentifikasi *slopes* (gradien/kemiringan garis) yang berbeda antar kelompok (*random slopes model*)
-* *Explained variances* ([Nakagawa & Schielzeth, 2012](https://besjournals.onlinelibrary.wiley.com/doi/full/10.1111/j.2041-210x.2012.00261.x))
-  - *Marginal R^2*
-  - *Conditional R^2*
+* "*Explained variances*" ([Nakagawa & Schielzeth, 2012](https://besjournals.onlinelibrary.wiley.com/doi/full/10.1111/j.2041-210x.2012.00261.x))
+  - *Marginal R*^2^
+  - *Conditional R*^2^
 * *Contextual effect* dan *partitioning/centering*
+* `lme` untuk pengukuran berulang (_repeated measures_)
 * Melaporkan analisis dengan `lme` dalam manuskrip
 
 ## Referensi
