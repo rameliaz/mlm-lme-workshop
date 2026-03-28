@@ -108,9 +108,9 @@ Gunakan **jamovi versi stabil yang terbaru** (2.6.44) [untuk Windows](https://ww
 
 Saat ini, sudah cukup banyak tutorial jamovi yang tersedia. Salah satu yang paling populer dan komperhensif adalah tutorial di bawah ini ⬇️
 
-```{=html}
-<iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?si=2n1v7D0CXRuQft8i&amp;list=PLvYqRUmlLZUMJ0EUxuTAA1f407wmBQ1QX" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-```
+{{< video https://youtu.be/t0tQcs-E5Z4?si=wur9Er_M92zR-J2v >}}
+
+[Simak seluruh video tutorial di <i class="fa-brands fa-youtube"></i> _playlist_.](https://www.youtube.com/playlist?list=PLvYqRUmlLZUMJ0EUxuTAA1f407wmBQ1QX)
 
 ## Evaluasi _workshop_
 
