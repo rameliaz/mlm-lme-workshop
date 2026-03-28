@@ -1,0 +1,140 @@
+/*-- scss:defaults --*/
+
+// R-Ladies color palette
+$rladies-purple: #88398a;
+$rladies-dark-purple: #562457;
+
+// Typography
+$font-family-sans-serif: 'Source Sans Pro', Helvetica, sans-serif !default;
+$presentation-heading-font: 'Raleway', Helvetica, sans-serif !default;
+$presentation-heading-color: $rladies-dark-purple !default;
+$link-color: $rladies-purple !default;
+$body-color: #333333 !default;
+$body-bg: #ffffff !default;
+$code-color: $rladies-purple !default;
+
+// Slide dimensions default to 16:9 via width/height in YAML
+
+/*-- scss:rules --*/
+
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;500;600&family=Raleway:wght@400;600&display=swap');
+
+// Headings
+.reveal h1,
+.reveal h2,
+.reveal h3,
+.reveal h4 {
+  font-family: 'Raleway', Helvetica, sans-serif;
+  color: $rladies-dark-purple;
+  margin-bottom: 0.3em;
+}
+
+// Body
+.reveal .slide-content {
+  font-family: 'Source Sans Pro', Helvetica, sans-serif;
+}
+
+// Inverse slide class — light grey background matching original custom.css
+// Usage: ## Heading {background-color="#f4f4f4"}
+// or apply class .inverse to a div
+
+// Code
+.reveal code {
+  color: $rladies-purple;
+}
+
+.reveal pre code {
+  text-shadow: 0 0 0 #fff;
+  font-size: 0.8em;
+}
+
+// Links
+.reveal a {
+  color: $rladies-purple;
+}
+.reveal a:hover {
+  color: $rladies-dark-purple;
+}
+
+// Utility: font size helpers (matching original custom.css)
+.large {
+  font-size: 130%;
+}
+
+.small {
+  font-size: 70%;
+}
+
+// Center text helper
+.center {
+  text-align: center;
+}
+
+// Table helpers (matching original custom.css)
+.table {
+  width: 100%;
+  text-align: center;
+}
+
+.reveal table td.success {
+  background-color: #dff0d8;
+}
+
+.reveal table td.warning {
+  background-color: #fcf8e3;
+}
+
+.reveal table td.danger {
+  background-color: #f2dede;
+}
+
+// MathJax sizing
+.mjx-chtml {
+  font-size: 110% !important;
+}
+
+// Image helper
+img.fancyimage,
+.fancyimage img {
+  border-radius: 4px;
+}
+
+// Footnote styling
+.footnote {
+  font-size: 0.7em;
+  position: absolute;
+  bottom: 1em;
+  left: 2em;
+  right: 2em;
+  color: #555;
+}
+
+// Sticker float
+.sticker-float img {
+  height: 200px;
+  float: right;
+}
+
+// Title slide customisation
+#title-slide {
+  background-color: white;
+
+  .title {
+    color: $rladies-dark-purple;
+    font-family: 'Raleway', Helvetica, sans-serif;
+  }
+
+  .subtitle {
+    color: $rladies-purple;
+  }
+
+  .author,
+  .date {
+    color: #555;
+  }
+}
+
+// Column balance
+.reveal .columns > .column {
+  padding: 0 0.5em;
+}

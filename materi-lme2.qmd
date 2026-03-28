@@ -1,0 +1,487 @@
+---
+title: "Linear Mixed Models (Multi-Level Modeling)"
+subtitle: "Menggunakan `jamovi` (GAMLj): Bagian 2"
+author: "Rizqy Amelia Zein"
+date: "2019-09-01"
+format:
+  unair-revealjs:
+    slide-number: true
+    width: 1280
+    height: 720    
+title-slide-attributes:
+  data-background-color: "white"
+execute:
+  echo: false
+  warning: false
+---
+
+## {.center}
+
+<img src="libs/unair.png" style="width:15%;" class="fancyimage"/> <img src="libs/STUA.png" style="width:23%;" class="fancyimage"/> <img src="libs/ina-logo.jpg" style="width:7%;" class="fancyimage"/> <img src="libs/igdore.png" style="width:23%;" class="fancyimage"/>
+
+### **Rizqy Amelia Zein**
+
+- Dosen, [Fakultas Psikologi, Universitas Airlangga](https://psikologi.unair.ac.id)
+- Anggota, [#SainsTerbuka Airlangga](https://sainsterbukaua.github.io/) <i class="fas fa-universal-access"></i>
+- Relawan, [INA-Rxiv](https://inarxiv.id)
+- Researcher-in-training, [Institute for Globally Distributed Open Research and Education (IGDORE)](https://igdore.org/)
+
+---
+
+## Quiz time! 😊 {background-color="#14497F" .center}
+
+### [Klik disini untuk menuju laman kuis.](https://menti.com)
+
+![](https://media.giphy.com/media/3o6UBipuQxa6QwnvC8/giphy.gif){width="30%"}
+
+---
+
+## Coba kita lihat lebih dekat...
+
+* Coba kita lakukan inspeksi visual sekali lagi **dataset-sekolah.omv**
+
+* Buat *scatterplot* dimana **mandiri** menjadi **Y-Axis**, sedangkan **neu**, **hi**, **trust** sebagai **X-Axis**
+
+* Kemudian masukkan **idsekolah** pada kolom **Group**
+  - Fungsinya, kita akan mendapatkan garis regresi untuk masing-masing sekolah
+
+* Apa yang terjadi?
+
+---
+
+## {.center}
+
+<img src="libs/scat-neu.jpg" style="width:35%;" class="fancyimage"/> <img src="libs/scat-hi.jpg" style="width:35%;" class="fancyimage"/>
+
+<img src="libs/scat-trust.jpg" style="width:35%;" class="fancyimage"/>
+
+---
+
+## Ternyata *covariance*-nya bervariasi di tiap kelompok! 😱
+
+:::: {.columns}
+::: {.column width="55%"}
+
+* *Intercept* *neuroticism* dan *trust* ternyata bervariasi di setiap sekolah
+
+* Yang menarik, tidak hanya *intercept*, *slope* pendapatan personal juga bervariasi di setiap sekolah
+  - Berdasarkan analisis yang kita lakukan pagi tadi, disimpulkan bahwa **pendapatan keluarga dan kemandirian anak korelasinya negatif**
+  - Tapi bisakah **kesimpulan yang sama** kita tarik untuk Sekolah B dan D?
+
+* Hati-hati *ecological fallacy*!
+  - Terjadi ketika kita salah menyimpulkan suatu gejala yang skalanya individual, padahal yang dianalisis oleh peneliti sesungguhnya fenomena yang berlaku pada skala yang lebih besar (kelompok atau sub-kelompok)
+
+:::
+::: {.column width="45%"}
+
+<img src="https://pbs.twimg.com/media/DcUJpGUW0AAHG8Y.jpg" style="width:100%;" class="fancyimage"/>
+
+:::
+::::
+
+---
+
+## Struktur sampel bersarang/berjenjang {background-color="#14497F" .center}
+
+<img src="libs/hierarchical-data.jpg" style="width:60%;" class="fancyimage"/>
+
+---
+
+## Apa yang harus dilakukan?
+
+::: {.incremental}
+
+* Pura-pura *ga tahu*, kita abaikan saja dan langsung menggunakan regresi OLS, dengan atau tanpa informasi mengenai pengelompokan data sebagai variabel kontrol.
+  - Masalahnya, data/observasi kita sangat bergantung pada pengelompokan unit analisis
+  - **Nah, lalu melanggar asumsi OLS dong?** (data/observasi dan residual harus independen)
+  - Efeknya, *standard error* yang diestimasi oleh model terlalu kecil (karena mengabaikan varians dependen variabel yang ditentukan oleh kelompok)
+  - Varians variabel dependen yang tidak bisa dijelaskan (residual) akan makin besar
+  - Kesimpulan/inferensi yang ditarik menjadi tidak tepat, sehingga risiko terjadinya *type I error* meningkat.
+
+* Gimana kalau pengelompokan (*group status*) dimasukkan aja dalam regresi OLS sebagai variabel moderator
+  - Dengan begitu, estimasi *standard error* disesuaikan dengan menggunakan *marginal model*
+  - Estimasi *standard error* akan lebih presisi, **tetapi** kita tetap tidak bisa mengestimasi *between-group variance*
+
+* Kalo di agregat? Jadi unit analisis yang tadinya individual, menjadi kelompok.
+  - Ukuran sampel menjadi lebih sedikit, sehingga *statistical power* menjadi lebih rendah ❗
+
+:::
+
+---
+
+## *Fixed* dan *random effects* {.center}
+
+:::: {.columns}
+::: {.column width="50%"}
+
+### Model *fixed effects*
+
+<img src="libs/fixed-effects.jpg" style="width:90%;" class="fancyimage"/>
+
+:::
+::: {.column width="50%"}
+
+### Model *random effects*
+
+<img src="libs/random-effects.jpg" style="width:100%;" class="fancyimage"/>
+
+:::
+::::
+
+---
+
+## *Full model* {background-color="#14497F" .center}
+
+<img src="libs/full-model.jpg" style="width:85%;" class="fancyimage"/>
+
+---
+
+## Kovarians antara *random intercept* dan *random slopes* (σ~U0~~U1~)
+
+:::: {.columns}
+::: {.column width="55%"}
+
+* **Nilainya positif**, maka semakin tinggi *intercept* akan diasosiasikan dengan kemiringan garis yang lebih curam/*slopes* yang lebih besar
+
+* Misalnya, di sekolah yang **rata-rata pendapatan** keluarga inti perbulan siswanya **tinggi**, maka **korelasi** antara pendapatan per bulan dengan tingkat kemandirian siswa **akan menguat**.
+
+* **Nilainya negatif**, maka semakin tinggi *intercept* akan diasosiasikan dengan kemiringan garis yang lebih landai/*slopes* yang lebih kecil
+
+* Misalnya, di sekolah yang **rata-rata pendapatan** keluarga inti perbulan siswanya **tinggi**, maka **korelasi** antara pendapatan per bulan dengan tingkat kemandirian siswa **akan melemah**.
+
+:::
+::: {.column width="45%"}
+
+![](https://media.giphy.com/media/3o7btPCcdNniyf0ArS/giphy.gif){width="100%"}
+
+:::
+::::
+
+---
+
+## Parameter yang diestimasi dalam *linear mixed effects*
+
+* *Fixed intercept* (*c*~00~)
+
+* *Fixed slopes* (*c*~10~)
+
+* Varians *random intercept* (σ^2^~U0~)
+
+* Varians *random slopes* (σ^2^~U1~)
+
+* Kovarians antara *random intercept* dan *random slopes* (σ~U0~~U1~)
+
+* Varians residual level-1 (σ^2^~e~)
+
+---
+
+## Yuk kita coba! 💪 {background-color="#14497F" .center}
+
+### Pastikan *module* GAMLj sudah terpasang di jamovi
+
+![](https://media.giphy.com/media/cjudIH6tZrvcPD2P4j/giphy.gif)
+
+---
+
+## Latihan (3): Kembali ke sekolah 🏫
+
+Setelah menginspeksi data secara visual, kita tahu bahwa korelasi antara **pendapatan keluarga** dengan **tingkat kemandirian anak** adalah yang paling bervariasi. Kita akan membuat *linear mixed model* dengan **pendapatan keluarga** sebagai prediktor, dan **tingkat kemandirian anak** sebagai variabel dependen.
+
+### Bikin "model kosong"
+
+* Yaitu model yang isinya hanya *intercept* saja, tidak ada prediktornya (*slopes*)
+
+* Pada *menu bar*, klik **Linear Models**, pilih **mixed models**
+  - Masukkan **mandiri** dalam kolom **dependent variable**
+  - Masukkan **idsekolah** dalam kolom **cluster variables**
+  - Pada menu **random effects** masukkan **intercept|idsekolah** dalam kolom **random coefficients**
+
+* Catat nilai AIC yang tersedia dalam tabel **model info**
+
+* Yuk ingat-ingat lagi, AIC fungsinya untuk apa ya? 🤔
+
+---
+
+## Latihan (3): Model dengan prediktor
+
+### Bikin *linear mixed model* dengan prediktor
+
+* Masukkan **hi** dalam kolom **covariates**
+
+* Pada menu **random effects**, masukkan juga **hi|idsekolah**, karena kita akan mengestimasi **random slopes**-nya juga
+  - Centang opsi **LRT for Random Test**
+
+* Pada menu **covariates scaling**, ubah **centered** menjadi **cluster-based centered**
+  - Berkaitan dengan **partitioning** (akan dijelaskan di bagian selanjutnya)
+
+---
+
+## *Fixed coefficients*
+
+:::: {.columns}
+::: {.column width="55%"}
+
+* Tes kecocokan model (*Omnibus Test*) tidak signifikan (*F*(1,3.98)=0.309, p=.608)
+  - Berbeda sekali dengan hasil OLS
+  - **Kemungkinan besar** korelasi antara pendapatan keluarga per bulan dengan kemandirian **tidak linier**
+
+* Kita tidak punya cukup bukti untuk menolak hipotesis nol, bahwa pendapatan keluarga per bulan dengan kemandirian tidak berkaitan (*B*=-0.207 95% CI [-0.937, 0.523], *SE*=0.372, *t*=-0.556, *p*=.608).
+  - Sekali lagi, berbeda sekali dengan hasil OLS
+
+:::
+::: {.column width="45%"}
+
+<img src="libs/fixed-1.jpg" style="width:100%;" class="fancyimage"/>
+
+:::
+::::
+
+---
+
+## *Random coefficients* (1)
+
+:::: {.columns}
+::: {.column width="55%"}
+
+* Varians kemandirian paling banyak dijelaskan oleh rata-rata tingkat kemandirian anak di masing-masing sekolah (varians *random intercept* (σ^2^~U0~)) daripada oleh varians *random slopes* (σ^2^~U1~).
+
+:::
+::: {.column width="45%"}
+
+<img src="libs/random-1.jpg" style="width:90%;" class="fancyimage"/>
+
+<img src="libs/lrt-2.jpg" style="width:100%;" class="fancyimage"/>
+
+:::
+::::
+
+---
+
+## *Random coefficients* (2)
+
+:::: {.columns}
+::: {.column width="55%"}
+
+* Menguji efek sekolah (kelompok)
+  - *Intra-class correlation*, yaitu merupakan proporsi total varians variabel dependen yang dapat dijelaskan oleh variasi antar kelompok
+
+  - *Likelihood ratio test* (LRT), yaitu teknik untuk menguji ada/tidaknya perbedaan varians antar-kelompok
+
+  - Keduanya juga bisa berfungsi sebagai indikator perlu/tidaknya `lme` dilakukan
+
+:::
+::: {.column width="45%"}
+
+<img src="libs/random-1.jpg" style="width:90%;" class="fancyimage"/>
+
+<img src="libs/lrt-2.jpg" style="width:100%;" class="fancyimage"/>
+
+:::
+::::
+
+---
+
+## *Random coefficients* (3)
+
+:::: {.columns}
+::: {.column width="55%"}
+
+* ICC=0.931, artinya **93.1%** varians tingkat kemandirian anak dijelaskan oleh perbedaan kelompok. ICC di atas 0.1 biasanya menunjukkan `lme` adalah opsi yang lebih baik daripada OLS.
+
+* LRT menunjukkan bahwa kita dapat menolak hipotesis bahwa tidak ada perbedaan varians tingkat kemandirian antar-kelompok (LRT(2)=74.0, *p*<.001).
+
+:::
+::: {.column width="45%"}
+
+<img src="libs/random-1.jpg" style="width:90%;" class="fancyimage"/>
+
+<img src="libs/lrt-2.jpg" style="width:100%;" class="fancyimage"/>
+
+:::
+::::
+
+---
+
+## *Model Comparison*
+
+:::: {.columns}
+::: {.column width="55%"}
+
+* **AIC**
+  - Apabila kita membandingkan "model kosong" dengan model yang ada prediktor, maka model yang terakhir lebih mampu menjelaskan varians kemandirian anak.
+
+* **R^2^ ([Nakagawa & Schielzeth, 2012](https://besjournals.onlinelibrary.wiley.com/doi/full/10.1111/j.2041-210x.2012.00261.x))**
+
+  - *Marginal*: proporsi varians variabel dependen yang dapat dijelaskan oleh **fixed models** saja
+
+  - *Conditional*: proporsi varians variabel dependen yang dapat dijelaskan oleh **fixed** dan **random models** sekaligus
+
+  - Varians yang dapat dijelaskan oleh *fixed model* saja hanya **0.12%**, sedangkan oleh keseluruhan model adalah **93.18%**.
+
+:::
+::: {.column width="45%"}
+
+<img src="libs/model-info-1.jpg" style="width:65%;" class="fancyimage"/>
+
+<img src="libs/model-info-2.jpg" style="width:65%;" class="fancyimage"/>
+
+<img src="libs/lrt-1.jpg" style="width:65%;" class="fancyimage"/>
+
+<img src="libs/lrt-2.jpg" style="width:65%;" class="fancyimage"/>
+
+:::
+::::
+
+---
+
+## *Contextual effects* & *partitioning* (1)
+
+* ***Within-group effect***
+  - Seberapa besar selisih Y dari 2 orang yang berada di **kelompok yang sama**, ketika **selisih X**-nya sebesar 1 poin?
+  - Seberapa besar perbedaan tingkat kemandirian dua orang anak yang berada dalam **sekolah yang sama**, ketika selisih **tingkat pendapatan keluarga** mereka berbeda sebesar 1 poin?
+
+* ***Between-group effect***
+  - Seberapa besar selisih Y dari 2 orang yang berbeda (dari 2 kelompok yang berbeda), namun berada dalam **posisi relatif yang sama** (dibandingkan dengan rerata kelompok), ketika **selisih X** mereka sebesar 1 poin?
+
+* ***Contextual effect***
+  - Seberapa besar selisih Y dua orang dari kelompok yang berbeda, namun dengan **X yang sama**, ketika **rerata X kelompoknya** berbeda sebesar 1 poin.
+
+---
+
+## *Contextual effects* & *partitioning* (2)
+
+* Untuk menghitung *contextual effect*, kita harus melakukan *partitioning* terlebih dahulu
+
+* Umumnya yang dipartisi/*centering* adalah **variabel X, bukan Y**
+
+* ***Group-mean centering***
+  - Nilai X individu dikurangi rata-rata X kelompoknya
+  - Pendapatan keluarga anak A dikurangi rata-rata pendapatan keluarga anak-anak di sekolahnya
+
+* ***Grand-mean centering***
+  - Nilai X individu dikurangi rata-rata X pada seluruh sampel
+  - Pendapatan keluarga anak A dikurangi rata-rata pendapatan keluarga seluruh anak yang menjadi sampel
+
+* ***Contextual effect*** = *Between-group effect* - *Within-group effect*
+  - Positif: **kelompok** dengan **rata-rata X yang lebih tinggi**, cenderung memiliki *intercept* (rata-rata Y) yang **lebih tinggi**
+  - Negatif: **kelompok** dengan **rata-rata X yang lebih tinggi**, cenderung memiliki *intercept* (rata-rata Y) yang **lebih rendah**
+
+---
+
+## Latihan (4): *Contextual effects*
+
+:::: {.columns}
+::: {.column width="55%"}
+
+* Lakukan `lme` dengan memasukkan **hi_group_centered** dan **hi_grand_mean_centered** dalam satu model yang sama
+
+* Masukkan kedua variabel tersebut dalam **fixed coefficients** dan **random coefficients**
+
+* Lihat *fixed slopes*-nya untuk kedua prediktor
+
+:::
+::: {.column width="45%"}
+
+![](https://media.giphy.com/media/l1KVaj5UcbHwrBMqI/giphy.gif){width="100%"}
+
+:::
+::::
+
+---
+
+## *Contextual effects*: Hasil
+
+:::: {.columns}
+::: {.column width="55%"}
+
+* Kita tidak punya bukti yang meyakinkan bahwa kita dapat menolak hipotesis bahwa *within* (*B*=0.257 95% CI [-0.115, 0.629], *SE*=0.190, *t*=1.354, *p*=.213), maupun *between-group effect* (*B*=-0.454 95% CI [-1.207, 0.299], *SE*=0.384, *t*=-1.182, *p*=.315) tidak dapat menjelaskan varians tingkat kemandirian anak.
+
+* ***Contextual effects*** = **-0.711**
+
+:::
+::: {.column width="45%"}
+
+<img src="libs/context.jpg" style="width:100%;" class="fancyimage"/>
+
+:::
+::::
+
+---
+
+## Bagaimana melaporkannya? (1) {background-color="#14497F"}
+
+"...untuk menguji hipotesis bahwa ada perbedaan rerata tingkat kemandirian anak, dan korelasi antara pendapatan keluarga dengan tingkat kemandirian anak di masing-masing sekolah, peneliti melakukan analisis *linear mixed effect*.
+
+Tingkat kemandirian anak dijelaskan sebagai fungsi dari tingkat pendapatan keluarga, dengan mengontrol asal sekolah (PAUD) anak. Sebelum melakukan analisis, tingkat pendapatan keluarga dipartisi dengan cara menguranginya dengan rata-rata tingkat pendapatan keluarga di masing-masing sekolah (*group-mean/cluster-based centering*).
+
+Pengujian model menghasilkan kesimpulan bahwa model tidak cocok menggambarkan data (*F*(1,3.98)=0.309, p=.608), sehingga kami gagal menolak hipotesis bahwa tingkat pendapatan keluarga dan kemandirian anak, tidak berkorelasi.
+
+Model *fixed effects* menunjukkan bahwa peneliti tidak punya cukup bukti untuk menolak hipotesis nol, bahwa pendapatan keluarga per bulan dengan kemandirian tidak berkaitan (*B*=-0.207 95% CI [-0.937, 0.523], *SE*=0.372, *t*=-0.556, *p*=.608)."
+
+---
+
+## Bagaimana melaporkannya? (2) {background-color="#14497F"}
+
+"...model *random effects* menunjukkan bahwa peneliti dapat menolak hipotesis bahwa tidak ada perbedaan varians tingkat kemandirian antar-kelompok (LRT(2)=74.0, *p*<.001). Varians kemandirian anak paling banyak dijelaskan oleh rata-rata tingkat kemandirian anak di masing-masing sekolah (varians *random intercept* (σ^2^~U0~)) daripada oleh varians *random slopes* (σ^2^~U1~). Selain itu, 93.1% varians tingkat kemandirian anak dijelaskan oleh perbedaan kelompok (ICC=0.931).
+
+Peneliti tidak memiliki cukup bukti yang meyakinkan untuk menolak hipotesis yang menyatakan bahwa *within* (*B*=0.257 95% CI [-0.115, 0.629], *SE*=0.190, *t*=1.354, *p*=.213), maupun *between-group effect* (*B*=-0.454 95% CI [-1.207, 0.299], *SE*=0.384, *t*=-1.182, *p*=.315) tidak dapat menjelaskan varians tingkat kemandirian anak.
+
+*Contextual effects* ditemukan sebesar -0.711, artinya, anak yang bersekolah di dua tempat yang berbeda, dengan selisih rata-rata tingkat kemandirian anak-anak di dua sekolah tersebut sebesar 1 poin, maka tingkat kemandirian mereka berbeda sebesar -0.711 poin, apabila diasumsikan keluarga mereka memiliki pendapatan yang sama besarnya. Tanda negatif mengindikasikan bahwa sekolah yang rata-rata pendapatan keluarga siswanya lebih tinggi, cenderung memiliki rata-rata tingkat kemandirian yang rendah..."
+
+---
+
+## Latihan mandiri (2)
+
+* Lakukan analisis `lme` untuk mengetahui:
+
+  - Apakah varians **tingkat kemandirian anak** dapat dijelaskan oleh sekolah tempat anak tersebut belajar?
+
+  - Apakah varians korelasi antara kecenderungan **neuroticism** ibu dengan **kemandirian anak** juga dapat dijelaskan oleh sekolah tempat anak tersebut belajar?
+
+  - Seberapa besar perbedaan **tingkat kemandirian** dua orang anak yang berada di **sekolah yang berbeda**, yang **ibunya sama-sama pencemas**, apabila **rata-rata kecemasan** wali murid di **dua sekolah tersebut** berbeda sebesar 1 poin?
+
+### [Klik disini untuk mengakses lembar kerja](https://forms.gle/87BrLEdC321khd8g6)
+
+---
+
+## Yang belum dibahas...
+
+:::: {.columns}
+::: {.column width="55%"}
+
+* Kalau korelasi antara X dan Y tidak linier, pakai apa dong?
+  - Jelas tidak bisa menggunakan `lme`. Alternatifnya, bisa menggunakan [*generalised additive model* (GAM)](https://en.wikipedia.org/wiki/Generalized_additive_model).
+
+* Kalau prediktornya level-2, bagaimana?
+
+* Bisa ga `lme` digunakan untuk mengestimasi perubahan Y pada *time-series*?
+
+* Gimana cara merencanakan jumlah sampelnya?
+
+* Gimana kalo sampelnya bersarang/berjenjang level-3, bahkan lebih?
+
+* Gimana kalo terjadi interaksi antara variabel prediktor level-1 dengan level-2 (*cross-level interactions*)?
+
+:::
+::: {.column width="45%"}
+
+![](https://media.giphy.com/media/wMvESGxZ0Cqd2/giphy.gif){width="100%"}
+
+:::
+::::
+
+---
+
+## *The problem with linear relationship* {background-color="#14497F" .center}
+
+![](https://i.pinimg.com/originals/19/8a/7b/198a7be0157b1dc1224a0a50821b1ec0.gif){width="40%"}
+
+---
+
+## Terima kasih banyak! 😉 {.center}
+
+![](https://media.giphy.com/media/hrBSJ2So6iTo4/giphy.gif)
+
+Paparan disusun dengan menggunakan [Quarto](https://quarto.org) dengan tema **Universitas Airlangga**.
+
+Materi dalam paparan ini berlisensi <i class="fab fa-creative-commons"></i> 4.0 dan tersedia di **(https://rameliaz.github.io/mlm-lme-workshop/)**.

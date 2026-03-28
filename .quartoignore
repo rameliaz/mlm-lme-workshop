@@ -1,0 +1,9 @@
+rmarkdown/
+rmarkdown/**
+*.Rmd
+*.R
+*.pptx
+*.Rproj
+sampul-1.jpg
+sampul-2.jpg
+CLAUDE.md

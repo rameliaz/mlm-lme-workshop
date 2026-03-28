@@ -1,0 +1,1088 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.14">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Rizqy Amelia Zein">
+<meta name="dcterms.date" content="2019-09-01">
+
+<title>Workshop LME Bagian 2 – Linear Mixed Models Workshop</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-6189859f80153d0aeab70023af215a12.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-6be5cbbe1594bfee0f849a7b4175f57b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<link href="../site_libs/pagedtable/css/pagedtable.css" rel="stylesheet">
+
+<script src="../site_libs/pagedtable/js/pagedtable.js"></script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Linear Mixed Models Workshop</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="https://rameliaz.github.io/"> <i class="bi bi-house" role="img">
+</i> 
+<span class="menu-text">oleh Rizqy Amelia Zein</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/rameliaz/mlm-lme-workshop"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-salindia" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Salindia</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-salindia">    
+        <li>
+    <a class="dropdown-item" href="../materi-lme1.html">
+ <span class="dropdown-text">Bagian 1</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../materi-lme2.html">
+ <span class="dropdown-text">Bagian 2</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-dataset" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Dataset</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-dataset">    
+        <li>
+    <a class="dropdown-item" href="../dataset-sekolah.omv">
+ <span class="dropdown-text">Dataset1-Sekolah</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../dataset-organisasi.omv">
+ <span class="dropdown-text">Dataset2-Organisasi</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-survei" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Survei</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-survei">    
+        <li>
+    <a class="dropdown-item" href="https://www.soscisurvey.de/invited-talk-feedback/">
+ <span class="dropdown-text">Evaluasi Workshop</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#linear-mixed-models-multi-level-modeling" id="toc-linear-mixed-models-multi-level-modeling" class="nav-link active" data-scroll-target="#linear-mixed-models-multi-level-modeling">Linear Mixed Models (Multi-Level Modeling)</a>
+  <ul class="collapse">
+  <li><a href="#menggunakan-jamovi-gamlj-bagian-2" id="toc-menggunakan-jamovi-gamlj-bagian-2" class="nav-link" data-scroll-target="#menggunakan-jamovi-gamlj-bagian-2">Menggunakan <code>jamovi</code> (GAMLj): Bagian 2</a></li>
+  </ul></li>
+  <li><a href="#quiz-time" id="toc-quiz-time" class="nav-link" data-scroll-target="#quiz-time">Quiz time! 😄</a>
+  <ul class="collapse">
+  <li><a href="#klik-disini-untuk-menuju-laman-kuis." id="toc-klik-disini-untuk-menuju-laman-kuis." class="nav-link" data-scroll-target="#klik-disini-untuk-menuju-laman-kuis.">Klik disini untuk menuju laman kuis.</a></li>
+  </ul></li>
+  <li><a href="#coba-kita-lihat-lebih-dekat" id="toc-coba-kita-lihat-lebih-dekat" class="nav-link" data-scroll-target="#coba-kita-lihat-lebih-dekat">Coba kita lihat lebih dekat…</a></li>
+  <li><a href="#ternyata-covariancenya-bervariasi-di-tiap-kelompok" id="toc-ternyata-covariancenya-bervariasi-di-tiap-kelompok" class="nav-link" data-scroll-target="#ternyata-covariancenya-bervariasi-di-tiap-kelompok">Ternyata <em>covariance</em>nya bervariasi di tiap kelompok! 😱</a></li>
+  <li><a href="#struktur-sampel-bersarangberjenjang" id="toc-struktur-sampel-bersarangberjenjang" class="nav-link" data-scroll-target="#struktur-sampel-bersarangberjenjang">Struktur sampel bersarang/berjenjang</a></li>
+  <li><a href="#apa-yang-harus-dilakukan" id="toc-apa-yang-harus-dilakukan" class="nav-link" data-scroll-target="#apa-yang-harus-dilakukan">Apa yang harus dilakukan?</a></li>
+  <li><a href="#fixed-dan-random-effects" id="toc-fixed-dan-random-effects" class="nav-link" data-scroll-target="#fixed-dan-random-effects"><em>Fixed</em> dan <em>random effects</em></a>
+  <ul class="collapse">
+  <li><a href="#model-fixed-effects" id="toc-model-fixed-effects" class="nav-link" data-scroll-target="#model-fixed-effects">Model <em>fixed effects</em></a></li>
+  <li><a href="#model-random-effects" id="toc-model-random-effects" class="nav-link" data-scroll-target="#model-random-effects">Model <em>random effects</em></a></li>
+  </ul></li>
+  <li><a href="#full-model" id="toc-full-model" class="nav-link" data-scroll-target="#full-model"><em>Full model</em></a></li>
+  <li><a href="#kovarians-korelasi-antara-random-intercept-dan-random-slopes-σu0u1" id="toc-kovarians-korelasi-antara-random-intercept-dan-random-slopes-σu0u1" class="nav-link" data-scroll-target="#kovarians-korelasi-antara-random-intercept-dan-random-slopes-σu0u1">Kovarians (korelasi) antara <em>random intercept</em> dan <em>random slopes</em> (σ<sub><em>U0</em></sub><sub><em>U1</em></sub>)</a></li>
+  <li><a href="#parameter-yang-diestimasi-dalam-linear-mixed-effects" id="toc-parameter-yang-diestimasi-dalam-linear-mixed-effects" class="nav-link" data-scroll-target="#parameter-yang-diestimasi-dalam-linear-mixed-effects">Parameter yang diestimasi dalam <em>linear mixed effects</em></a></li>
+  <li><a href="#yuk-kita-coba" id="toc-yuk-kita-coba" class="nav-link" data-scroll-target="#yuk-kita-coba">Yuk kita coba! ✊</a>
+  <ul class="collapse">
+  <li><a href="#pastikan-module-gamlj-sudah-terpasang-di-jamovi" id="toc-pastikan-module-gamlj-sudah-terpasang-di-jamovi" class="nav-link" data-scroll-target="#pastikan-module-gamlj-sudah-terpasang-di-jamovi">Pastikan <em>module</em> GAMLj sudah terpasang di jamovi</a></li>
+  </ul></li>
+  <li><a href="#latihan-3-kembali-ke-sekolah" id="toc-latihan-3-kembali-ke-sekolah" class="nav-link" data-scroll-target="#latihan-3-kembali-ke-sekolah">Latihan (3): Kembali ke sekolah 🏫</a>
+  <ul class="collapse">
+  <li><a href="#bikin-model-kosong" id="toc-bikin-model-kosong" class="nav-link" data-scroll-target="#bikin-model-kosong">Bikin “model kosong”</a></li>
+  </ul></li>
+  <li><a href="#latihan-3" id="toc-latihan-3" class="nav-link" data-scroll-target="#latihan-3">Latihan (3)</a>
+  <ul class="collapse">
+  <li><a href="#bikin-model-dengan-prediktor-linear-mixed-model" id="toc-bikin-model-dengan-prediktor-linear-mixed-model" class="nav-link" data-scroll-target="#bikin-model-dengan-prediktor-linear-mixed-model">Bikin model dengan prediktor (<em>linear mixed model</em>)</a></li>
+  </ul></li>
+  <li><a href="#fixed-coefficients" id="toc-fixed-coefficients" class="nav-link" data-scroll-target="#fixed-coefficients"><em>Fixed coefficients</em></a></li>
+  <li><a href="#random-coefficients" id="toc-random-coefficients" class="nav-link" data-scroll-target="#random-coefficients"><em>Random coefficients</em></a></li>
+  <li><a href="#random-coefficients-1" id="toc-random-coefficients-1" class="nav-link" data-scroll-target="#random-coefficients-1"><em>Random coefficients</em></a></li>
+  <li><a href="#random-coefficients-2" id="toc-random-coefficients-2" class="nav-link" data-scroll-target="#random-coefficients-2"><em>Random coefficients</em></a></li>
+  <li><a href="#model-comparison" id="toc-model-comparison" class="nav-link" data-scroll-target="#model-comparison"><em>Model Comparison</em></a></li>
+  <li><a href="#contextual-effects-partitioning" id="toc-contextual-effects-partitioning" class="nav-link" data-scroll-target="#contextual-effects-partitioning"><em>Contextual effects</em> &amp; <em>partitioning</em></a></li>
+  <li><a href="#contextual-effects-partitioning-1" id="toc-contextual-effects-partitioning-1" class="nav-link" data-scroll-target="#contextual-effects-partitioning-1"><em>Contextual effects</em> &amp; <em>partitioning</em></a></li>
+  <li><a href="#latihan-4-contextual-effects" id="toc-latihan-4-contextual-effects" class="nav-link" data-scroll-target="#latihan-4-contextual-effects">Latihan (4): <em>contextual effects</em></a></li>
+  <li><a href="#contextual-effects" id="toc-contextual-effects" class="nav-link" data-scroll-target="#contextual-effects"><em>Contextual effects</em></a></li>
+  <li><a href="#bagaimana-melaporkannya-1" id="toc-bagaimana-melaporkannya-1" class="nav-link" data-scroll-target="#bagaimana-melaporkannya-1">Bagaimana melaporkannya? (1)</a></li>
+  <li><a href="#bagaimana-melaporkannya-2" id="toc-bagaimana-melaporkannya-2" class="nav-link" data-scroll-target="#bagaimana-melaporkannya-2">Bagaimana melaporkannya? (2)</a></li>
+  <li><a href="#latihan-mandiri-2" id="toc-latihan-mandiri-2" class="nav-link" data-scroll-target="#latihan-mandiri-2">Latihan mandiri (2)</a>
+  <ul class="collapse">
+  <li><a href="#klik-disini-untuk-mengakses-lembar-kerja" id="toc-klik-disini-untuk-mengakses-lembar-kerja" class="nav-link" data-scroll-target="#klik-disini-untuk-mengakses-lembar-kerja">Klik disini untuk mengakses lembar kerja</a></li>
+  </ul></li>
+  <li><a href="#yang-belum-dibahas" id="toc-yang-belum-dibahas" class="nav-link" data-scroll-target="#yang-belum-dibahas">Yang belum dibahas…</a></li>
+  <li><a href="#the-problem-with-linear-relationship" id="toc-the-problem-with-linear-relationship" class="nav-link" data-scroll-target="#the-problem-with-linear-relationship">The problem with linear relationship</a></li>
+  <li><a href="#terima-kasih-banyak" id="toc-terima-kasih-banyak" class="nav-link" data-scroll-target="#terima-kasih-banyak">Terima kasih banyak! 😉</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Workshop LME Bagian 2</h1>
+<p class="subtitle lead">Dies Natalis 36th</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Rizqy Amelia Zein </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">September 1, 2019</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>class: inverse, middle, title-slide, spaced</p>
+<p>class: title-slide, spaced</p>
+<p><img src="libs/unair.png" style="width:15%;" class="fancyimage"> <img src="libs/STUA.png" style="width:23%;" class="fancyimage"> <img src="libs/ina-logo.jpg" style="width:7%;" class="fancyimage"> <img src="libs/igdore.png" style="width:23%;" class="fancyimage"></p>
+<section id="linear-mixed-models-multi-level-modeling" class="level1">
+<h1>Linear Mixed Models (Multi-Level Modeling)</h1>
+<section id="menggunakan-jamovi-gamlj-bagian-2" class="level2">
+<h2 class="anchored" data-anchor-id="menggunakan-jamovi-gamlj-bagian-2">Menggunakan <code>jamovi</code> (GAMLj): Bagian 2</h2>
+<p><br> ### <b>Rizqy Amelia Zein</b> * Dosen, <a href="https://psikologi.unair.ac.id">Fakultas Psikologi, Universitas Airlangga</a> * Anggota, <a href="https://sainsterbukaua.github.io/">#SainsTerbuka Airlangga</a> <svg aria-hidden="true" role="img" viewbox="0 0 512 512" style="height:1em;width:1em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256zm161.5-86.1c-12.2-5.2-26.3 .4-31.5 12.6s.4 26.3 12.6 31.5l11.9 5.1c17.3 7.4 35.2 12.9 53.6 16.3v50.1c0 4.3-.7 8.6-2.1 12.6l-28.7 86.1c-4.2 12.6 2.6 26.2 15.2 30.4s26.2-2.6 30.4-15.2l24.4-73.2c1.3-3.8 4.8-6.4 8.8-6.4s7.6 2.6 8.8 6.4l24.4 73.2c4.2 12.6 17.8 19.4 30.4 15.2s19.4-17.8 15.2-30.4l-28.7-86.1c-1.4-4.1-2.1-8.3-2.1-12.6V235.5c18.4-3.5 36.3-8.9 53.6-16.3l11.9-5.1c12.2-5.2 17.8-19.3 12.6-31.5s-19.3-17.8-31.5-12.6L338.7 175c-26.1 11.2-54.2 17-82.7 17s-56.5-5.8-82.7-17l-11.9-5.1zM256 160a40 40 0 1 0 0-80 40 40 0 1 0 0 80z"></path></svg> * Relawan, <a href="https://inarxiv.id">INA-Rxiv</a> * Researcher-in-training, <a href="https://igdore.org/">Institute for Globally Distributed Open Research and Education (IGDORE)</a></p>
+<hr>
+<p>class: inverse, middle, center</p>
+</section>
+</section>
+<section id="quiz-time" class="level1">
+<h1>Quiz time! 😄</h1>
+<section id="klik-disini-untuk-menuju-laman-kuis." class="level2">
+<h2 class="anchored" data-anchor-id="klik-disini-untuk-menuju-laman-kuis."><a href="https://menti.com">Klik disini untuk menuju laman kuis.</a></h2>
+<p><img src="https://media.giphy.com/media/3o6UBipuQxa6QwnvC8/giphy.gif" style="width:30%;" class="fancyimage"></p>
+<hr>
+</section>
+</section>
+<section id="coba-kita-lihat-lebih-dekat" class="level1">
+<h1>Coba kita lihat lebih dekat…</h1>
+<ul>
+<li><p>Coba kita lakukan inspeksi visual sekali lagi dataset-sekolah.omv</p></li>
+<li><p>Buat <em>scatterplot</em> dimana <strong>mandiri</strong> menjadi <strong>Y-Axis</strong>, sedangkan <strong>neu</strong>, <strong>hi</strong>, <strong>trust</strong> sebagai <strong>X-Axis</strong></p></li>
+<li><p>Kemudian masukkan <strong>idsekolah</strong> pada kolom <strong>Group</strong></p>
+<ul>
+<li>Fungsinya, kita akan mendapatkan garis regresi untuk masing-masing sekolah</li>
+</ul></li>
+<li><p>Apa yang terjadi?</p></li>
+</ul>
+<hr>
+<p>class: center, middle</p>
+<p><img src="libs/scat-neu.jpg" style="width:35%;" class="fancyimage"> <img src="libs/scat-hi.jpg" style="width:35%;" class="fancyimage"> <br> <img src="libs/scat-trust.jpg" style="width:35%;" class="fancyimage"> <br></p>
+<hr>
+</section>
+<section id="ternyata-covariancenya-bervariasi-di-tiap-kelompok" class="level1">
+<h1>Ternyata <em>covariance</em>nya bervariasi di tiap kelompok! 😱</h1>
+<p>.pull-left[ * <em>Intercept</em> <em>neuroticism</em> dan <em>trust</em> ternyata bervariasi di setiap sekolah</p>
+<ul>
+<li>Yang menarik, tidak hanya <em>intercept</em>, <em>slope</em> pendapatan personal juga bervariasi di setiap sekolah
+<ul>
+<li>Berdasarkan analisis yang kita lakukan pagi tadi, disimpulkan bahwa <strong>pendapatan keluarga dan kemandirian anak korelasinya negatif</strong></li>
+<li>Tapi bisakah <strong>kesimpulan yang sama</strong> kita tarik untuk Sekolah B dan D?</li>
+</ul></li>
+<li>Hati-hati <em>ecological fallacy</em>!
+<ul>
+<li>Terjadi ketika kita salah menyimpulkan suatu gejala yang skalanya individual, padahal yang dianalisis oleh peneliti sesusungguhnya fenomena yang berlaku pada skala yang lebih besar (kelompok atau sub-kelompok) ]</li>
+</ul></li>
+</ul>
+<p>.pull-right[</p>
+<p><img src="https://pbs.twimg.com/media/DcUJpGUW0AAHG8Y.jpg" style="width:100%;" class="fancyimage"></p>
+<p>]</p>
+<hr>
+<p>class: middle, center, inverse</p>
+</section>
+<section id="struktur-sampel-bersarangberjenjang" class="level1">
+<h1>Struktur sampel bersarang/berjenjang</h1>
+<p><img src="libs/hierarchical-data.jpg" style="width:60%;" class="fancyimage"></p>
+<hr>
+</section>
+<section id="apa-yang-harus-dilakukan" class="level1">
+<h1>Apa yang harus dilakukan?</h1>
+<p>–</p>
+<ul>
+<li>Pura-pura <em>ga tahu</em>, kita abaikan saja dan langsung menggunakan regresi OLS, dengan atau tanpa informasi mengenai pengelompokan data sebagai variabel kontrol.</li>
+</ul>
+<p>–</p>
+<ul>
+<li>Masalahnya, data/observasi kita sangat bergantung pada pengelompokan unit analisis</li>
+<li><strong>Nah, lalu melanggar asumsi OLS dong?</strong> (data/observasi dan residual harus independen)</li>
+<li>Efeknya, <em>standard error</em> yang diestimasi oleh model terlalu kecil (karena mengabaikan varians dependen variabel yang ditentukan oleh kelompok)</li>
+<li>Varians variabel dependen yang tidak bisa dijelaskan (residual) akan makin besar</li>
+<li>Kesimpulan/inferensi yang ditarik menjadi tidak tepat, sehingga risiko terjadinya <em>type I error</em> meningkat.</li>
+</ul>
+<p>–</p>
+<ul>
+<li>Gimana kalau pengelompokan (<em>group status</em>) dimasukkan aja dalam regresi OLS sebagai variabel moderator
+<ul>
+<li>Dengan begitu, estimasi <em>standard error</em> disesuaikan dengan menggunakan <em>marginal model</em></li>
+</ul></li>
+</ul>
+<p>–</p>
+<ul>
+<li>Estimasi <em>standard error</em> akan lebih presisi, <strong>tetapi</strong> kita tetap tidak bisa mengestimasi <em>between-group variance</em></li>
+</ul>
+<p>–</p>
+<ul>
+<li>Kalo di agregat? Jadi unit analisis yang tadinya individual, menjadi kelompok.</li>
+</ul>
+<p>–</p>
+<ul>
+<li>Ukuran sampel menjadi lebih sedikit, sehingga <em>statistical power</em> menjadi lebih rendah❗</li>
+</ul>
+<hr>
+<p>class: center, middle</p>
+</section>
+<section id="fixed-dan-random-effects" class="level1">
+<h1><em>Fixed</em> dan <em>random effects</em></h1>
+<p>.pull-left[</p>
+<section id="model-fixed-effects" class="level2">
+<h2 class="anchored" data-anchor-id="model-fixed-effects">Model <em>fixed effects</em></h2>
+<p><img src="libs/fixed-effects.jpg" style="width:90%;" class="fancyimage"></p>
+<p>]</p>
+<p>.pull-right[</p>
+</section>
+<section id="model-random-effects" class="level2">
+<h2 class="anchored" data-anchor-id="model-random-effects">Model <em>random effects</em></h2>
+<p><img src="libs/random-effects.jpg" style="width:100%;" class="fancyimage"></p>
+<p>]</p>
+<hr>
+<p>class: inverse, middle, center</p>
+</section>
+</section>
+<section id="full-model" class="level1">
+<h1><em>Full model</em></h1>
+<p><img src="libs/full-model.jpg" style="width:150%;" class="fancyimage"></p>
+<hr>
+</section>
+<section id="kovarians-korelasi-antara-random-intercept-dan-random-slopes-σu0u1" class="level1">
+<h1>Kovarians (korelasi) antara <em>random intercept</em> dan <em>random slopes</em> (σ<sub><em>U0</em></sub><sub><em>U1</em></sub>)</h1>
+<p>.pull-left[</p>
+<ul>
+<li><p><strong>Nilainya positif</strong>, maka semakin tinggi <em>intercept</em> akan diasosiasikan dengan kemiringan garis yang lebih curam/<em>slopes</em> yang lebih besar</p></li>
+<li><p>Misalnya, di sekolah yang <strong>rata-rata pendapatan</strong> keluarga inti perbulan siswanya <strong>tinggi</strong>, maka <strong>korelasi</strong> antara pendapatan per bulan dengan tingkat kemandirian siswa <strong>akan menguat</strong>.</p></li>
+<li><p><strong>Nilainya negatif</strong>, maka semakin tinggi <em>intercept</em> akan diasosiasikan dengan kemiringan garis yang lebih landai/<em>slopes</em> yang lebih kecil</p></li>
+<li><p>Misalnya, di sekolah yang <strong>rata-rata pendapatan</strong> keluarga inti perbulan siswanya <strong>tinggi</strong>, maka <strong>korelasi</strong> antara pendapatan per bulan dengan tingkat kemandirian siswa <strong>akan melemah</strong>. ]</p></li>
+</ul>
+<p>.pull-right[</p>
+<p><img src="https://media.giphy.com/media/3o7btPCcdNniyf0ArS/giphy.gif" style="width:150%;" class="fancyimage"></p>
+<p>]</p>
+<hr>
+</section>
+<section id="parameter-yang-diestimasi-dalam-linear-mixed-effects" class="level1">
+<h1>Parameter yang diestimasi dalam <em>linear mixed effects</em></h1>
+<ul>
+<li><p><em>Fixed intercept</em> (<em>c</em><sub><em>00</em></sub>)</p></li>
+<li><p><em>Fixed slopes</em> (<em>c</em><sub><em>10</em></sub>)</p></li>
+<li><p>Varians <em>random intercept</em> (σ<sup>2</sup><sub><em>U0</em></sub>)</p></li>
+<li><p>Varians <em>random slopes</em> (σ<sup>2</sup><sub><em>U1</em></sub>)</p></li>
+<li><p>Kovarians (korelasi) antara <em>random intercept</em> dan <em>random slopes</em> (σ<sub><em>U0</em></sub><sub><em>U1</em></sub>)</p></li>
+<li><p>Varians residual level-1 (σ<sup>2</sup><sub><em>e</em></sub>)</p></li>
+</ul>
+<hr>
+<p>class: center, inverse, middle</p>
+</section>
+<section id="yuk-kita-coba" class="level1">
+<h1>Yuk kita coba! ✊</h1>
+<section id="pastikan-module-gamlj-sudah-terpasang-di-jamovi" class="level2">
+<h2 class="anchored" data-anchor-id="pastikan-module-gamlj-sudah-terpasang-di-jamovi">Pastikan <em>module</em> GAMLj sudah terpasang di jamovi</h2>
+<p><img src="https://media.giphy.com/media/cjudIH6tZrvcPD2P4j/giphy.gif" class="img-fluid"></p>
+<hr>
+</section>
+</section>
+<section id="latihan-3-kembali-ke-sekolah" class="level1">
+<h1>Latihan (3): Kembali ke sekolah 🏫</h1>
+<p>Setelah menginspeksi data secara visual, kita tahu bahwa korelasi antara <strong>pendapatan keluarga</strong> dengan <strong>tingkat kemandirian anak</strong> adalah yang paling bervariasi (daripada prediktor yang lainnya). Oleh karena itu, kita akan membuat <em>linear mixed model</em> dengan <strong>pendapatan keluarga</strong> sebagai prediktor, dan <strong>tingkat kemandirian anak</strong> sebagai variabel dependen.</p>
+<section id="bikin-model-kosong" class="level2">
+<h2 class="anchored" data-anchor-id="bikin-model-kosong">Bikin “model kosong”</h2>
+<ul>
+<li><p>Yaitu model yang isinya hanya <em>intercept</em> saja, tidak ada prediktornya (<em>slopes</em>)</p></li>
+<li><p>Pada <em>menu bar</em>, klik <strong>Linear Models</strong>, pilih <strong>mixed models</strong></p>
+<ul>
+<li>Masukkan <strong>mandiri</strong> dalam kolom <strong>dependent variable</strong></li>
+<li>Masukkan <strong>idsekolah</strong> dalam kolom <strong>cluster variables</strong></li>
+<li>Pada menu <strong>random effects</strong> masukkan <strong>intercept|idsekolah</strong> dalam kolom <strong>random coefficients</strong></li>
+</ul></li>
+<li><p>Catat nilai AIC yang tersedia dalam tabel <strong>model info</strong></p></li>
+<li><p>Yuk ingat-ingat lagi, AIC fungsinya untuk apa ya? 😕</p></li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="latihan-3" class="level1">
+<h1>Latihan (3)</h1>
+<section id="bikin-model-dengan-prediktor-linear-mixed-model" class="level2">
+<h2 class="anchored" data-anchor-id="bikin-model-dengan-prediktor-linear-mixed-model">Bikin model dengan prediktor (<em>linear mixed model</em>)</h2>
+<ul>
+<li><p>Masukkan <strong>hi</strong> dalam kolom <strong>covariates</strong></p></li>
+<li><p>Pada menu <strong>random effects</strong>, masukkan juga <strong>hi|idsekolah</strong>, karena kita akan mengestimasi <strong>random slopes</strong>nya juga</p>
+<ul>
+<li>Centang opsi <strong>LRT for Random Test</strong></li>
+</ul></li>
+<li><p>Pada menu <strong>covariates scaling</strong>, ubah <strong>centered</strong> menjadi <strong>cluster-based centered</strong></p>
+<ul>
+<li>Berkaitan dengan <strong>partitioning</strong> (akan dijelaskan di bagian selanjutnya)</li>
+</ul></li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="fixed-coefficients" class="level1">
+<h1><em>Fixed coefficients</em></h1>
+<p>.pull-left[</p>
+<ul>
+<li>Tes kecocokan model (<em>Omnibus Test</em>) tidak signifikan (<em>F</em>(1,3.98)=0.309, p=.608)
+<ul>
+<li>Berbeda sekali dengan hasil OLS</li>
+<li><strong>Kemungkinan besar</strong> korelasi antara pendapatan keluarga per bulan dengan kemandirian <strong>tidak linier</strong></li>
+</ul></li>
+<li>Kita tidak punya cukup bukti untuk menolak hipotesis nol, bahwa pendapatan keluarga per bulan dengan kemandirian tidak berkaitan (<em>B</em>=-0.207 95% CI [-0.937, 0.523], <em>SE</em>=0.372, <em>t</em>=-0.556, <em>p</em>=.608).
+<ul>
+<li>Sekali lagi, berbeda sekali dengan hasil OLS</li>
+</ul></li>
+</ul>
+<p>]</p>
+<p>.pull-right[</p>
+<p><img src="libs/fixed-1.jpg" style="width:150%;" class="fancyimage"></p>
+<p>]</p>
+<hr>
+</section>
+<section id="random-coefficients" class="level1">
+<h1><em>Random coefficients</em></h1>
+<p>.pull-left[</p>
+<ul>
+<li>Varians kemandirian paling banyak dijelaskan oleh rata-rata tingkat kemandirian anak di masing-masing sekolah (varians <em>random intercept</em> (σ<sup>2</sup><sub><em>U0</em></sub>)) daripada oleh varians <em>random slopes</em> (σ<sup>2</sup><sub><em>U1</em></sub>).</li>
+</ul>
+<p>]</p>
+<p>.pull-right[</p>
+<p><img src="libs/random-1.jpg" style="width:90%;" class="fancyimage"> <br> <img src="libs/lrt-2.jpg" style="width:100%;" class="fancyimage"> <br></p>
+<p>]</p>
+<hr>
+</section>
+<section id="random-coefficients-1" class="level1">
+<h1><em>Random coefficients</em></h1>
+<p>.pull-left[</p>
+<ul>
+<li>Menguji efek sekolah (kelompok)
+<ul>
+<li><p><em>Intra-class correlation</em>, yaitu merupakan proporsi total varians variabel dependen yang dapat dijelaskan oleh variasi antar kelompok</p></li>
+<li><p><em>Likelihood ratio test</em> (LRT), yaitu teknik untuk menguji ada/tidaknya perbedaan varians antar-kelompok</p></li>
+<li><p>Keduanya juga bisa berfungsi sebagai indikator perlu/tidaknya <code>lme</code> dilakukan</p></li>
+</ul></li>
+</ul>
+<p>]</p>
+<p>.pull-right[</p>
+<p><img src="libs/random-1.jpg" style="width:90%;" class="fancyimage"> <br> <img src="libs/lrt-2.jpg" style="width:100%;" class="fancyimage"> <br></p>
+<p>]</p>
+<hr>
+</section>
+<section id="random-coefficients-2" class="level1">
+<h1><em>Random coefficients</em></h1>
+<p>.pull-left[</p>
+<ul>
+<li><p>Menguji efek sekolah (kelompok) / (<em>testing group effects</em>)</p>
+<ul>
+<li><p>ICC=0.931, artinya 93.1% varians tingkat kemandirian anak dijelaskan oleh perbedaan kelompok. ICC diatas 0.1 biasanya menunjukkan <code>lme</code> adalah opsi yang lebih baik daripada OLS.</p></li>
+<li><p>LRT juga menunjukkan bahwa kita dapat menolak hipotesis bahwa tidak adanya perbedaan varians tingkat kemandirian antar-kelompok (LRT(2)=74.0, <em>p</em>&lt;.001). ]</p></li>
+</ul></li>
+</ul>
+<p>.pull-right[</p>
+<p><img src="libs/random-1.jpg" style="width:90%;" class="fancyimage"> <br> <img src="libs/lrt-2.jpg" style="width:100%;" class="fancyimage"> <br></p>
+<p>]</p>
+<hr>
+</section>
+<section id="model-comparison" class="level1">
+<h1><em>Model Comparison</em></h1>
+<p>.pull-left[</p>
+<ul>
+<li><p>AIC</p>
+<ul>
+<li>Apabila kita membandingkan “model kosong” dengan model yang ada prediktor, maka model yang terakhir lebih mampu menjelaskan varians kemandirian anak.</li>
+</ul></li>
+<li><p>R<sup>2</sup> (<a href="https://besjournals.onlinelibrary.wiley.com/doi/full/10.1111/j.2041-210x.2012.00261.x">Nakagawa &amp; Schielzeth, 2012</a>)</p>
+<ul>
+<li><p><em>Marginal</em>, merupakan proporsi varians variabel dependen yang dapat dijelaskan oleh <strong>hanya fixed models</strong> saja</p></li>
+<li><p><em>Conditional</em>, merupakan proporsi varians variabel dependen yang dapat dijelaskan oleh <strong>fixed</strong> dan <strong>random models</strong> sekaligus</p></li>
+<li><p>Varians tingkat kemandirian anak yang dapat dijelaskan oleh <em>fixed model</em> saja hanya 0.12%, sedangkan yang dapat dijelaskan oleh keseluruhan model adalah 93.18%.</p></li>
+</ul></li>
+</ul>
+<p>]</p>
+<p>.pull-right[</p>
+<p><img src="libs/model-info-1.jpg" style="width:65%;" class="fancyimage"> <br> <img src="libs/model-info-2.jpg" style="width:65%;" class="fancyimage"> <br> <img src="libs/lrt-1.jpg" style="width:65%;" class="fancyimage"> <br> <img src="libs/lrt-2.jpg" style="width:65%;" class="fancyimage"> <br><br><br><br></p>
+<p>]</p>
+<hr>
+</section>
+<section id="contextual-effects-partitioning" class="level1">
+<h1><em>Contextual effects</em> &amp; <em>partitioning</em></h1>
+<ul>
+<li><em>Within-group effect</em>
+<ul>
+<li>Seberapa besar selisih Y dari 2 orang yang berada di <strong>kelompok yang sama</strong>, ketika <strong>selisih Xnya</strong> sebesar 1 poin?</li>
+<li>Seberapa besar perbedaan tingkat kemandirian dua orang anak yang berada dalam <strong>sekolah yang sama</strong>, ketika selisih <strong>tingkat pendapatan keluarga</strong> mereka berbeda sebesar 1 poin?</li>
+</ul></li>
+<li><em>Between-group effect</em>
+<ul>
+<li>Seberapa besar selisih Y dari 2 orang yang berbeda (dari 2 kelompok yang berbeda), namun berada dalam <strong>posisi relatif yang sama</strong> (dibandingkan dengan rerata kelompok), ketika <strong>selisih X</strong> mereka sebesar 1 poin?</li>
+<li>Seberapa besar perbedaan tingkat kemandirian 2 orang anak yang berasal dari <strong>sekolah yang berbeda</strong>, namun pada <strong>posisi yang sama</strong> apabila <strong>dibandingkan dengan rata-rata</strong> kemandirian anak-anak di <strong>sekolah mereka masing-masing</strong> (misal sama-sama yang paling/paling tidak manja), apabila <strong>selisih pendapatan keluarga</strong> mereka = 1 poin?</li>
+</ul></li>
+<li><em>Contextual effect</em>
+<ul>
+<li>Seberapa besar selisih Y dua orang dari kelompok yang berbeda, namun dengan <strong>X yang sama</strong>, ketika <strong>rerata X kelompoknya</strong> berbeda sebesar 1 poin.</li>
+<li>Seberapa besar selisih tingkat kemandirian 2 orang anak dari <strong>sekolah yang berbeda</strong>, namun memiliki <strong>tingkat pendapatan keluarga yang sama</strong> persis, ketika <strong>rata-rata tingkat pendapatan keluarga anak-anak di sekolahnya</strong> berbeda sebesar 1 poin?</li>
+</ul></li>
+</ul>
+<hr>
+</section>
+<section id="contextual-effects-partitioning-1" class="level1">
+<h1><em>Contextual effects</em> &amp; <em>partitioning</em></h1>
+<ul>
+<li><p>Untuk menghitung <em>contextual effect</em>, kita harus melakukan <em>partitioning</em> terlebih dahulu</p></li>
+<li><p>Umumnya yang dipartisi/<em>centering</em> adalah <strong>variabel X, bukan Y</strong></p></li>
+<li><p><em>Group-mean centering</em></p>
+<ul>
+<li>Nilai X individu dikurangi rata-rata X kelompoknya</li>
+<li>Pendapatan keluarga anak A dikurangi rata-rata pendapatan keluarga anak-anak di sekolahnya</li>
+</ul></li>
+<li><p><em>Grand-mean centering</em></p>
+<ul>
+<li>Nilai X individu dikurangi rata-rata X pada seluruh sampel</li>
+<li>Pendapatan keluarga anak A dikurangi rata-rata pendapatan keluarga seluruh anak yang menjadi sampel</li>
+</ul></li>
+<li><p><em>Contextual effect</em> = <em>Between-group effect</em> - <em>Within-group effect</em></p>
+<ul>
+<li><em>Contextual effect</em> yang positif artinya <strong>kelompok</strong> dengan <strong>rata-rata X yang lebih tinggi</strong>, cenderung memiliki <em>intercept</em> (rata-rata Y) yang <strong>lebih tinggi</strong>, atau begitu pula sebaliknya.</li>
+<li><em>Contextual effect</em> yang negatif artinya <strong>kelompok</strong> dengan <strong>rata-rata X yang lebih tinggi</strong>, cenderung memiliki <em>intercept</em> (rata-rata Y) yang <strong>lebih rendah</strong>, atau begitu pula sebaliknya.</li>
+</ul></li>
+</ul>
+<hr>
+</section>
+<section id="latihan-4-contextual-effects" class="level1">
+<h1>Latihan (4): <em>contextual effects</em></h1>
+<p>.pull-left[</p>
+<ul>
+<li><p>Lakukan <code>lme</code> dengan memasukkan <strong>hi_group_centered</strong> dan <strong>hi_grand_mean_centered</strong> dalam satu model yang sama</p></li>
+<li><p>Masukkan kedua variabel tersebut dalam <strong>fixed coefficients</strong> dan <strong>random coefficients</strong></p></li>
+<li><p>Lihat <em>fixed slopes</em>-nya untuk kedua prediktor</p></li>
+</ul>
+<p>]</p>
+<p>.pull-right[</p>
+<p><img src="https://media.giphy.com/media/l1KVaj5UcbHwrBMqI/giphy.gif" style="width:100%;" class="fancyimage"></p>
+<p>]</p>
+<hr>
+</section>
+<section id="contextual-effects" class="level1">
+<h1><em>Contextual effects</em></h1>
+<p>.pull-left[</p>
+<ul>
+<li><p>Kita tidak punya bukti yang meyakinkan bahwa kita dapat menolak hipotesis bahwa <em>within</em> (<em>B</em>=0.257 95% CI [-0.115, 0.629], <em>SE</em>=0.190, <em>t</em>=1.354, <em>p</em>=.213), maupun <em>between-group effect</em> (<em>B</em>=-0.454 95% CI [-1.207, 0.299], <em>SE</em>=0.384, <em>t</em>=-1.182, <em>p</em>=.315) tidak dapat menjelaskan varians tingkat kemandirian anak.</p></li>
+<li><p><em>Contextual effects</em> = -0.711</p></li>
+</ul>
+<p>]</p>
+<p>.pull-right[</p>
+<p><img src="libs/context.jpg" style="width:200%;" class="fancyimage"></p>
+<p>]</p>
+<hr>
+<p>class: inverse</p>
+</section>
+<section id="bagaimana-melaporkannya-1" class="level1">
+<h1>Bagaimana melaporkannya? (1)</h1>
+<p>“…untuk menguji hipotesis bahwa ada perbedaan rerata tingkat kemandirian anak, dan korelasi antara pendapatan keluarga dengan tingkat kemandirian anak di masing-masing sekolah, peneliti melakukan analisis <em>linear mixed effect</em>.</p>
+<p>Tingkat kemandirian anak dijelaskan sebagai fungsi dari tingkat pendapatan keluarga, dengan mengontrol asal sekolah (PAUD) anak. Sebelum melakukan analisis, tingkat pendapatan keluarga dipartisi dengan cara menguranginya dengan rata-rata tingkat pendapatan keluarga di masing-masing sekolah (<em>group-mean/cluster-based centering</em>).</p>
+<p>Pengujian model menghasilkan kesimpulan bahwa model tidak cocok menggambarkan data (<em>F</em>(1,3.98)=0.309, p=.608), sehingga kami gagal menolak hipotesis bahwa tingkat pendapatan keluarga dan kemandirian anak, tidak berkorelasi. Namun, ada kemungkinan korelasi antara tingkat pendapatan keluarga dan kemandirian anak tidak linier.</p>
+<p>Model <em>fixed effects</em> menunjukkan bahwa peneliti tidak punya cukup bukti untuk menolak hipotesis nol, bahwa pendapatan keluarga per bulan dengan kemandirian tidak berkaitan (<em>B</em>=-0.207 95% CI [-0.937, 0.523], <em>SE</em>=0.372, <em>t</em>=-0.556, <em>p</em>=.608).</p>
+<hr>
+<p>class: inverse</p>
+</section>
+<section id="bagaimana-melaporkannya-2" class="level1">
+<h1>Bagaimana melaporkannya? (2)</h1>
+<p>“…model <em>random effects</em> menunjukkan bahwa peneliti dapat menolak hipotesis bahwa tidak ada perbedaan varians tingkat kemandirian antar-kelompok (LRT(2)=74.0, <em>p</em>&lt;.001). Varians kemandirian anak paling banyak dijelaskan oleh rata-rata tingkat kemandirian anak di masing-masing sekolah (varians <em>random intercept</em> (σ<sup>2</sup><sub><em>U0</em></sub>)) daripada oleh varians <em>random slopes</em> (σ<sup>2</sup><sub><em>U1</em></sub>). Selain itu, 93.1% varians tingkat kemandirian anak dijelaskan oleh perbedaan kelompok (ICC=0.931).</p>
+<p>Peneliti tidak memiliki cukup bukti yang meyakinkan untuk menolak hipotesis yang menyatakan bahwa <em>within</em> (<em>B</em>=0.257 95% CI [-0.115, 0.629], <em>SE</em>=0.190, <em>t</em>=1.354, <em>p</em>=.213), maupun <em>between-group effect</em> (<em>B</em>=-0.454 95% CI [-1.207, 0.299], <em>SE</em>=0.384, <em>t</em>=-1.182, <em>p</em>=.315) tidak dapat menjelaskan varians tingkat kemandirian anak.</p>
+<p><em>Contextual effects</em> ditemukan sebesar -0.711, artinya, anak yang bersekolah di dua tempat yang berbeda, dengan selisih rata-rata tingkat kemandirian anak-anak di dua sekolah tersebut sebesar 1 poin, maka tingkat kemandirian mereka berbeda sebesar -0.711 poin, apabila diasumsikan keluarga mereka memiliki pendapatan yang sama besarnya. Tanda negatif dari <em>contextual effect</em> mengindikasikan bahwa sekolah yang rata-rata pendapatan keluarga siswanya lebih tinggi, cenderung memiliki rata-rata tingkat kemandirian yang rendah…”</p>
+<hr>
+</section>
+<section id="latihan-mandiri-2" class="level1">
+<h1>Latihan mandiri (2)</h1>
+<ul>
+<li><p>Lakukan analisis <code>lme</code> untuk mengetahui:</p>
+<ul>
+<li><p>Apakah varians <strong>tingkat kemandirian anak</strong> dapat dijelaskan oleh sekolah tempat anak tersebut belajar?</p></li>
+<li><p>Apakah varians korelasi antara kecenderungan <strong>neuroticism</strong> ibu dengan <strong>kemandirian anak</strong> juga dapat dijelaskan oleh sekolah tempat anak tersebut belajar?</p></li>
+<li><p>Seberapa besar perbedaan <strong>tingkat kemandirian</strong> dua orang anak yang berada di <strong>sekolah yang berbeda</strong>, yang <strong>ibunya sama-sama pencemas</strong>, apabila <strong>rata-rata kecemasan</strong> wali murid di <strong>dua sekolah tersebut</strong> berbeda sebesar 1 poin?</p></li>
+</ul></li>
+</ul>
+<section id="klik-disini-untuk-mengakses-lembar-kerja" class="level2">
+<h2 class="anchored" data-anchor-id="klik-disini-untuk-mengakses-lembar-kerja"><a href="https://forms.gle/87BrLEdC321khd8g6">Klik disini untuk mengakses lembar kerja</a></h2>
+<hr>
+</section>
+</section>
+<section id="yang-belum-dibahas" class="level1">
+<h1>Yang belum dibahas…</h1>
+<p>.pull-left[</p>
+<ul>
+<li><p>Kalau korelasi antara X dan Y tidak linier, pakai apa dong?</p>
+<ul>
+<li>Jelas tidak bisa menggunakan <code>lme</code>. Alternatifnya, bisa menggunakan <a href="https://en.wikipedia.org/wiki/Generalized_additive_model"><em>generalised additive model</em> (GAM)</a>.</li>
+</ul></li>
+<li><p>Kalau prediktornya level-2, bagaimana?</p></li>
+<li><p>Bisa ga <code>lme</code> digunakan untuk mengestimasi perubahan Y pada <em>time-series</em>?</p></li>
+<li><p>Gimana cara merencanakan jumlah sampelnya?</p></li>
+<li><p>Gimana kalo sampelnya bersarang/berjenjang level-3, bahkan lebih?</p></li>
+<li><p>Gimana kalo terjadi interaksi antara variabel prediktor level-1 dengan level-2 (<em>cross-level interactions</em>)?</p></li>
+</ul>
+<p>]</p>
+<p>.pull-right[</p>
+<p><img src="https://media.giphy.com/media/wMvESGxZ0Cqd2/giphy.gif" style="width:150%;" class="fancyimage"></p>
+<p>]</p>
+<hr>
+<p>class: inverse, center, middle</p>
+</section>
+<section id="the-problem-with-linear-relationship" class="level1">
+<h1>The problem with linear relationship</h1>
+<p><img src="https://i.pinimg.com/originals/19/8a/7b/198a7be0157b1dc1224a0a50821b1ec0.gif" style="width:40%;" class="fancyimage"></p>
+<hr>
+<p>class: center, middle</p>
+</section>
+<section id="terima-kasih-banyak" class="level1">
+<h1>Terima kasih banyak! 😉</h1>
+<p><img src="https://media.giphy.com/media/hrBSJ2So6iTo4/giphy.gif" class="img-fluid"></p>
+<p>Paparan disusun dengan menggunakan <svg aria-hidden="true" role="img" viewbox="0 0 581 512" style="height:1em;width:1.13em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M581 226.6C581 119.1 450.9 32 290.5 32S0 119.1 0 226.6C0 322.4 103.3 402 239.4 418.1V480h99.1v-61.5c24.3-2.7 47.6-7.4 69.4-13.9L448 480h112l-67.4-113.7c54.5-35.4 88.4-84.9 88.4-139.7zm-466.8 14.5c0-73.5 98.9-133 220.8-133s211.9 40.7 211.9 133c0 50.1-26.5 85-70.3 106.4-2.4-1.6-4.7-2.9-6.4-3.7-10.2-5.2-27.8-10.5-27.8-10.5s86.6-6.4 86.6-92.7-90.6-87.9-90.6-87.9h-199V361c-74.1-21.5-125.2-67.1-125.2-119.9zm225.1 38.3v-55.6c57.8 0 87.8-6.8 87.8 27.3 0 36.5-38.2 28.3-87.8 28.3zm-.9 72.5H365c10.8 0 18.9 11.7 24 19.2-16.1 1.9-33 2.8-50.6 2.9v-22.1z"></path></svg> <em>package</em> <a href="https://github.com/yihui/xaringan"><strong>xaringan</strong></a> dengan <em>template</em> dan <em>fonts</em> dari <code>R-Ladies</code>.</p>
+<p><em>Chakra</em> dibuat dengan <a href="https://remarkjs.com">remark.js</a>, <a href="http://yihui.name/knitr"><strong>knitr</strong></a>, dan <a href="https://rmarkdown.rstudio.com">R Markdown</a>.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>© 2025 Rizqy Amelia Zein</p>
+</div>   
+    <div class="nav-footer-center">
+<p><a class="link-dark me-1" href="https://github.com/rameliaz" title="github" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i></a> <a class="link-dark me-1" href="mailto:amelia.zein@psikologi.unair.ac.id" title="Email" target="_blank" rel="noopener"><i class="fa-solid fa-envelope"></i></a> <a class="link-dark me-1" href="https://bsky.app/profile/ameliazein.bsky.social" title="Bluesky" target="_blank" rel="noopener"><i class="fa-brands fa-bluesky"></i></a> <a class="link-dark me-1" href="https://discord.com/users/807046335613632555" title="Discord" target="_blank" rel="noopener"><i class="fa-brands fa-discord"></i></a></p>
+</div>
+    <div class="nav-footer-right">
+<p><a class="link-dark me-1" href="https://github.com/rameliaz/tutorial"><i class="fa-brands fa-github"></i> Source</a></p>
+</div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

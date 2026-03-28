@@ -1,0 +1,74 @@
+<script>
+function manageLogos() {
+  const slides = document.querySelectorAll('.reveal .slides section');
+
+  slides.forEach(function(slide, index) {
+    if (index === 0) {
+      const regularLogos = slide.querySelectorAll('.slide-logo');
+      regularLogos.forEach(logo => logo.remove());
+
+      if (!slide.querySelector('.title-slide-logo')) {
+        const titleLogo = document.createElement('img');
+        titleLogo.src = 'libs/unair.png';
+        titleLogo.className = 'title-slide-logo';
+        titleLogo.alt = 'Universitas Airlangga Logo';
+        slide.insertBefore(titleLogo, slide.firstChild);
+      }
+      return;
+    }
+
+    const existingLogos = slide.querySelectorAll('.slide-logo');
+
+    if (existingLogos.length > 1) {
+      existingLogos.forEach(logo => logo.remove());
+    }
+
+    const bgColor = slide.getAttribute('data-background-color');
+    const logoSrc = 'libs/unair.png';
+
+    if (existingLogos.length === 1) {
+      existingLogos[0].src = logoSrc;
+    } else if (existingLogos.length === 0) {
+      const logo = document.createElement('img');
+      logo.src = logoSrc;
+      logo.className = 'slide-logo';
+      logo.alt = 'Universitas Airlangga Logo';
+      slide.appendChild(logo);
+    }
+  });
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  if (typeof Reveal !== 'undefined') {
+    Reveal.on('ready', function() {
+      manageLogos();
+    });
+  } else {
+    setTimeout(manageLogos, 500);
+  }
+});
+
+if (typeof Reveal !== 'undefined') {
+  Reveal.on('slidechanged', function() {
+    manageLogos();
+  });
+}
+</script>
+
+<style>
+.reveal .slide-logo {
+  position: absolute !important;
+  top: 15px !important;
+  right: 15px !important;
+  max-height: 80px !important;
+  max-width: 200px !important;
+  z-index: 100 !important;
+  object-fit: contain;
+}
+
+.reveal section[data-background-color] h1,
+.reveal section[data-background-color] h2 {
+  color: white !important;
+  border-bottom-color: #FFCB05 !important;
+}
+</style>

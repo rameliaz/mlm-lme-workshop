@@ -1,0 +1,41 @@
+name: "lme2019"
+author: "Rizqy Amelia Zein"
+output_dir: "docs"
+exclude: ["*.xls", "*.csv","*.R","/slides","*.pptx","*.jpg"]
+navbar:
+  title: "Linear Mixed Models Workshop"
+  left:
+    - text: "oleh Rizqy Amelia Zein"
+      href: https://rameliaz.github.io/
+    - icon: fa-github fa-lg
+      href: https://github.com/rameliaz/mlm-lme-workshop
+  right:
+  - text: "Salindia"  
+    menu: 
+    - text: "Bagian1-HTML"
+      href: materi-lme1.html
+    - text: "Bagian2-HTML"
+      href: materi-lme2.html
+    - text: "Bagian1-pdf"
+      href: materi-lme1.pdf
+    - text: "Bagian2-pdf"
+      href: materi-lme2.pdf
+  - text: "Dataset"  
+    menu: 
+    - text: "Dataset1-Sekolah"
+      href: dataset-sekolah.omv
+    - text: "Dataset2-Organisasi"
+      href: dataset-organisasi.omv
+  - text: "Survei"  
+    menu: 
+    - text: "Evaluasi Workshop"
+      href: https://www.soscisurvey.de/invited-talk-feedback/
+    
+output:
+  html_document:
+    toc: true
+    toc_float: yes
+    toc_depth: 3
+    df_print: paged
+    theme: flatly
+    highlight: tango
