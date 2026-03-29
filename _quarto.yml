@@ -51,7 +51,7 @@ website:
         <a class="link-dark me-1" href="https://bsky.app/profile/ameliazein.bsky.social" title="Bluesky" target="_blank" rel="noopener"><i class="fa-brands fa-bluesky"></i></a>
         <a class="link-dark me-1" href="https://discord.com/users/807046335613632555" title="Discord" target="_blank" rel="noopener"><i class="fa-brands fa-discord"></i></a>
       right: |
-        <a class="link-dark me-1" href="https://github.com/rameliaz/tutorial"><i class="fa-brands fa-github"></i> Source</a>
+        <a class="link-dark me-1" href="https://github.com/rameliaz/mlm-lme-workshop"><i class="fa-brands fa-github"></i> Source</a>
 
 format:
   html:

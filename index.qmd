@@ -40,7 +40,7 @@ Berikut adalah *outline* materi yang tersedia di laman web ini:
 * Berlatih menginspeksi data secara visual dengan *scatterplot*
 * Model regresi linier (*ordinary least square*)
 * Menarik garis regresi (*fitted regression line*)
-* Varians yang dapat dan yang tidak dapat dijelaskan oleh model (*R^2*)
+* Varians yang dapat dan yang tidak dapat dijelaskan oleh model (R*^2^)
 * Menguji hipotesis
 * Mengecek kecocokan model dengan data (*model fit*)
 * Mengecek asumsi
