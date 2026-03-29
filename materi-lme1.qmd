@@ -2,17 +2,19 @@
 title: "Regresi Linier (*Ordinary Least Square*)"
 subtitle: "Menggunakan `jamovi`"
 author: "Rizqy Amelia Zein"
+institute:
+  - "Departemen Psikologi, Universitas Airlangga"
+  - "Research Data & Methods Team, Center for Advanced Internet Studies"
 date: today
 format:
   unair-revealjs:
     slide-number: true
     progress: true
-    history: true
-    center: false
     transition: slide
+    center: false
 execute:
-  echo: false
-  warning: false
+  eval: false
+  echo: true
 ---
 
 ## Menghubungi saya?

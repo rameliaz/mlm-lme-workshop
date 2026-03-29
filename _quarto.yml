@@ -5,8 +5,9 @@ project:
     - libs/
     - img/
   render:
-    - "*.qmd"
-    - "!rmarkdown/**"
+    - index.qmd
+    - materi-lme1.qmd
+    - materi-lme2.qmd
 
 website:
   title: "LME Workshop"
