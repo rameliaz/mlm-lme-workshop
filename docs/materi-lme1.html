@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.8.14">
 
   <meta name="author" content="Rizqy Amelia Zein">
-  <meta name="dcterms.date" content="2026-03-29">
+  <meta name="dcterms.date" content="2026-03-31">
   <title>LME Workshop – Regresi Linier (Ordinary Least Square)</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -137,7 +137,7 @@
 Rizqy Amelia Zein 
 </div>
         <p class="quarto-title-affiliation">
-            Departemen Psikologi, Universitas Airlangga
+            <em>Departemen Psikologi, Universitas Airlangga</em>
           </p>
         <p class="quarto-title-affiliation">
             Research Data &amp; Methods Team, Center for Advanced Internet Studies
@@ -145,16 +145,7 @@ Rizqy Amelia Zein
     </div>
 </div>
 
-  <p class="date">2026-03-29</p>
-</section>
-<section id="menghubungi-saya" class="slide level2">
-<h2>Menghubungi saya?</h2>
-<p><i class="fas fa-paper-plane"></i> <a href="mailto:amelia.zein@psikologi.unair.ac.id">amelia.zein@psikologi.unair.ac.id</a></p>
-<p><i class="fab fa-twitter"></i> <a href="https://twitter.com/ameliazein"><span class="citation" data-cites="ameliazein">@ameliazein</span></a></p>
-<p><i class="fab fa-github"></i> <a href="https://github.com/rameliaz"><span class="citation" data-cites="rameliaz">@rameliaz</span></a></p>
-<p><i class="fas fa-desktop"></i> <a href="https://rameliaz.github.io" class="uri">https://rameliaz.github.io</a></p>
-<p>Materi dalam paparan ini berlisensi <i class="fab fa-creative-commons"></i> 4.0 dan tersedia di laman web pribadi saya <strong>(https://rameliaz.github.io/mlm-lme-workshop/)</strong>.</p>
-<p>Kode tersedia secara terbuka di <a href="https://github.com/rameliaz/mlm-lme-workshop">repositori</a> <i class="fab fa-github"></i> saya.</p>
+  <p class="date">2026-03-31</p>
 </section>
 <section id="outline" class="slide level2">
 <h2><em>Outline</em></h2>
@@ -210,8 +201,8 @@ Rizqy Amelia Zein
 </ul></li>
 </ul>
 </section>
-<section id="section" class="slide level2 center">
-<h2></h2>
+<section id="output" class="slide level2">
+<h2><em>Output</em></h2>
 <p><img src="libs/desc-table.jpg" style="width:30%;" class="fancyimage"> <img src="libs/hist-neu.jpg" style="width:30%;" class="fancyimage"></p>
 <p><img src="libs/hist-mandiri.jpg" style="width:30%;" class="fancyimage"> <img src="libs/hist-trust.jpg" style="width:30%;" class="fancyimage"> <img src="libs/hist-hi.jpg" style="width:30%;" class="fancyimage"></p>
 </section>
@@ -238,8 +229,8 @@ Rizqy Amelia Zein
 <p><img src="libs/scatplot.jpg" style="width:100%;" class="fancyimage"></p>
 </div></div>
 </section>
-<section id="section-1" class="slide level2 center">
-<h2></h2>
+<section id="scatterplot" class="slide level2">
+<h2><em>Scatterplot</em></h2>
 <div class="columns">
 <div class="column" style="width:50%;">
 <p><img src="libs/scat-1.jpg" style="width:100%;" class="fancyimage"></p>
@@ -252,15 +243,13 @@ Rizqy Amelia Zein
 <p>Bagaimana kekuatan dan arah hubungan pada <em>scatterplot</em> 1 dan 2?</p>
 </div>
 </section>
-<section id="ayo-main" class="slide level2 center" data-background-color="#f4f4f4">
+<section id="ayo-main" class="slide level2">
 <h2>Ayo main!! 📢</h2>
 <h3 id="guess-the-correlation"><a href="http://guessthecorrelation.com/"><strong>Guess the correlation</strong></a></h3>
 
 <img data-src="https://media.giphy.com/media/YJ5OlVLZ2QNl6/giphy.gif" class="r-stretch"></section>
 <section id="kekuatan-dan-arah-korelasi-1" class="slide level2">
-<h2>Kekuatan dan arah korelasi (1)</h2>
-<div class="columns">
-<div class="column" style="width:55%;">
+<h2>Kekuatan dan arah korelasi 1️⃣</h2>
 <p>Korelasi yang tampak pada <em>scatterplot</em> tadi dapat dikonseptualisasikan dengan lebih jelas dengan menghitung <strong>koefisien korelasi</strong>, yang mengimplikasikan kekuatan hubungan.</p>
 <ul>
 <li><em>Pearson’s</em> r misalnya, biasanya ditulis dengan rxy, sedangkan <em>Spearman’s</em> rho ditulis rs.</li>
@@ -271,12 +260,9 @@ Rizqy Amelia Zein
 <li>Dua variabel yang sama sekali tak berkorelasi, maka kovarians nol.</li>
 </ul></li>
 </ul>
-</div><div class="column" style="width:45%;">
-<p><img src="libs/gosling-corr.jpg" style="width:80%;" class="fancyimage"></p>
-</div></div>
 </section>
 <section id="kekuatan-dan-arah-korelasi-2" class="slide level2">
-<h2>Kekuatan dan arah korelasi (2)</h2>
+<h2>Kekuatan dan arah korelasi 2️⃣</h2>
 <div class="columns">
 <div class="column" style="width:55%;">
 <ul>
@@ -308,18 +294,16 @@ Rizqy Amelia Zein
 <p><img src="libs/corr-meme.jpg" style="width:100%;" class="fancyimage"></p>
 </div></div>
 </section>
-<section id="persamaan-garis-regresi" class="slide level2 center" data-background-color="#f4f4f4">
+<section id="persamaan-garis-regresi" class="slide level2">
 <h2>Persamaan garis regresi</h2>
 
 <img src="libs/reg-equation.jpg" style="width:40%;" class="fancyimage r-stretch"></section>
-<section id="contoh-garis-regresi" class="slide level2 center" data-background-color="#f4f4f4">
+<section id="contoh-garis-regresi" class="slide level2">
 <h2>Contoh garis regresi</h2>
 
 <img src="libs/reg-line.jpg" style="width:80%;" class="fancyimage r-stretch"></section>
 <section id="asumsi-yang-harus-dipenuhi" class="slide level2">
 <h2>Asumsi yang harus dipenuhi</h2>
-<div class="columns">
-<div class="column" style="width:55%;">
 <ul>
 <li>Variabel X dan Y <strong>berkorelasi secara linier</strong>
 <ul>
@@ -338,18 +322,9 @@ Rizqy Amelia Zein
 </ul></li>
 <li><strong>Data/observasi dan residual harus independen</strong></li>
 </ul>
-</div><div class="column" style="width:45%;">
-<p><img src="libs/gosling-asumsi.jpg" style="width:80%;" class="fancyimage"></p>
-</div></div>
 </section>
-<section id="ayo-kita-coba" class="slide level2 center" data-background-color="#f4f4f4">
-<h2>Ayo kita coba! 🔍</h2>
-
-<img data-src="https://media.giphy.com/media/UO5elnTqo4vSg/giphy.gif" class="r-stretch"></section>
 <section id="latihan-1" class="slide level2">
-<h2>Latihan (1)</h2>
-<div class="columns">
-<div class="column" style="width:55%;">
+<h2>Latihan 1️⃣</h2>
 <p>Marimar ingin tahu apakah ada kaitan antara kecenderungan <em>neuroticism</em> ibu terhadap kemandirian anak.</p>
 <ul>
 <li>Klik menu <strong>regression</strong>, pilih <strong>linear regression</strong>.</li>
@@ -358,9 +333,6 @@ Rizqy Amelia Zein
 <li>Pada opsi <strong>model fit</strong>, centang <strong>R</strong>, <strong>R^2</strong>, dan <strong>F test</strong>.</li>
 <li>Pada opsi <strong>model coefficients</strong>, centang <strong>ANOVA test</strong>, <strong>confidence interval</strong>, dan <strong>standardized estimates</strong>.</li>
 </ul>
-</div><div class="column" style="width:45%;">
-<p><img src="libs/sheldon.jpg" style="width:80%;" class="fancyimage"></p>
-</div></div>
 </section>
 <section id="model-fit" class="slide level2">
 <h2>Model fit</h2>
@@ -394,7 +366,19 @@ Rizqy Amelia Zein
 <li><em>Unstandardized</em> (<em>B</em>) <em>estimates</em>: Setiap perubahan <em>neuroticism</em> sebesar 1 poin, maka tingkat kemandirian juga berubah sebesar 0.43 poin.</li>
 <li><em>Standardized</em> (<em>β</em>) <em>estimates</em>: Setiap berubah <em>neuroticism</em> sebesar 1SD, maka tingkat kemandirian juga berubah sebesar 0.161SD.</li>
 </ul>
-<h4 id="tips-selalu-laporkan-unstandardized-estimates-dan-confidence-intervalnya-appelbaum-et.-al.-2018.">Tips ❗: Selalu laporkan <em>unstandardized estimates</em> dan <em>confidence interval</em>nya (<a href="http://dx.doi.org/10.1037/amp0000191">Appelbaum, et. al., 2018</a>).</h4>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Tip</strong></p>
+</div>
+<div class="callout-content">
+<p><strong>Tips ❗</strong>: Selalu laporkan <em>unstandardized estimates</em> dan <em>confidence interval</em>nya (<a href="http://dx.doi.org/10.1037/amp0000191">Appelbaum, et. al., 2018</a>).</p>
+</div>
+</div>
+</div>
 </section>
 <section id="diagnostik-model-distribusi-residual" class="slide level2">
 <h2>Diagnostik model: distribusi residual</h2>
@@ -411,7 +395,7 @@ Rizqy Amelia Zein
 </div></div>
 </section>
 <section id="diagnostik-model-varians-residual-1" class="slide level2">
-<h2>Diagnostik model: varians residual (1)</h2>
+<h2>Diagnostik model: varians residual 1️⃣</h2>
 <div class="columns">
 <div class="column" style="width:55%;">
 <ul>
@@ -429,7 +413,7 @@ Rizqy Amelia Zein
 </div></div>
 </section>
 <section id="diagnostik-model-varians-residual-2" class="slide level2">
-<h2>Diagnostik model: varians residual (2)</h2>
+<h2>Diagnostik model: varians residual 2️⃣</h2>
 <div class="columns">
 <div class="column" style="width:55%;">
 <ul>
@@ -445,7 +429,7 @@ Rizqy Amelia Zein
 </div></div>
 </section>
 <section id="diagnostik-model-deteksi-outliers-1" class="slide level2">
-<h2>Diagnostik model: deteksi <em>outliers</em> (1)</h2>
+<h2>Diagnostik model: deteksi <em>outliers</em> 1️⃣</h2>
 <div class="columns">
 <div class="column" style="width:55%;">
 <ul>
@@ -461,7 +445,7 @@ Rizqy Amelia Zein
 </div></div>
 </section>
 <section id="diagnostik-model-deteksi-outliers-2" class="slide level2">
-<h2>Diagnostik model: deteksi <em>outliers</em> (2)</h2>
+<h2>Diagnostik model: deteksi <em>outliers</em> 2️⃣</h2>
 <div class="columns">
 <div class="column" style="width:55%;">
 <ul>
@@ -476,7 +460,7 @@ Rizqy Amelia Zein
 <p><img src="libs/cook-1.jpg" style="width:100%;" class="fancyimage"></p>
 </div></div>
 </section>
-<section id="cara-melaporkannya-dalam-manuskrip" class="slide level2" data-background-color="#f4f4f4">
+<section id="cara-melaporkannya-dalam-manuskrip" class="slide level2">
 <h2>Cara melaporkannya dalam manuskrip</h2>
 <p>“… untuk menguji hipotesis penelitian, peneliti melakukan analisis regresi <em>ordinary least square</em> (OLS). Hasil analisis menunjukkan bahwa model cocok menggambarkan data, namun hanya mampu menjelaskan kurang dari 3% varians tingkat kemandirian siswa (<em>F</em>(1,398)=10.5, p=.001, R<sup>2</sup>=.0258).</p>
 <p>Kecenderungan <em>neuroticism</em> ibu berkontribusi berarti dalam menjelaskan varians tingkat kemandirian siswa, dimana perubahan kecenderungan <em>neuroticism</em> sebesar 1 poin diasosiasikan dengan perubahan tingkat kemandirian anak sebesar 0.43 (<em>B</em>=0.430 95% CI [0.170, 0.691], <em>SE</em>=0.132, <em>t</em>=3.25, <em>p</em>=001).</p>
@@ -484,9 +468,7 @@ Rizqy Amelia Zein
 <p>Diagnostik <em>outlier</em> dilakukan dengan menggunakan <em>Cook’s distance</em>, dan menghasilkan kesimpulan bahwa apabila <em>outlier</em> tidak disertakan dalam model, maka perubahan rerata, nilai tengah, dan simpangan baku kurang dari satu dari nilai awalnya, sehingga tidak berpotensi mendistorsi garis regresi…”</p>
 </section>
 <section id="latihan-2" class="slide level2">
-<h2>Latihan (2)</h2>
-<div class="columns">
-<div class="column" style="width:55%;">
+<h2>Latihan 2️⃣</h2>
 <ul>
 <li>Marimar ingin menambahkan interaksi antara <em>neuroticism</em> dengan <em>trust</em>
 <ul>
@@ -495,14 +477,11 @@ Rizqy Amelia Zein
 </ul></li>
 <li>Tambahkan variabel <strong>trust</strong>, <strong>neu</strong>, dan <strong>hi</strong> dalam kolom <strong>covariates</strong>.</li>
 </ul>
-</div><div class="column" style="width:45%;">
-<p><img src="libs/yodawg.jpg" style="width:100%;" class="fancyimage"></p>
-</div></div>
 </section>
-<section id="latihan-2-lanjutan" class="slide level2">
-<h2>Latihan (2) — lanjutan</h2>
+<section id="latihan-2-1" class="slide level2">
+<h2>Latihan 2️⃣</h2>
 <ul>
-<li>Lakukan semua langkah yang sudah dilakukan di Latihan (1)</li>
+<li>Lakukan semua langkah yang sudah dilakukan di Latihan 1️⃣</li>
 <li>Pada opsi <strong>model builder</strong>, klik <strong>add new block</strong>
 <ul>
 <li>Klik <strong>Block 1</strong>, sampai keluar <em>shading</em> di pinggir kotak, lalu masukkan <strong>hi</strong></li>
@@ -536,7 +515,7 @@ Rizqy Amelia Zein
 </div></div>
 </section>
 <section id="model-comparison" class="slide level2">
-<h2>Model comparison</h2>
+<h2><em>Model comparison</em></h2>
 <div class="columns">
 <div class="column" style="width:55%;">
 <p>Ketika dibandingkan, Model 1 dan Model 2 berbeda signifikan (<em>F</em>(1,397)=104, p&lt;.001). ΔR<sup>2</sup>=.202, artinya selisih R<sup>2</sup> Model 1 dan Model 2=.202 atau R<sup>2</sup> naik sebesar 20.2%</p>
@@ -588,7 +567,7 @@ Rizqy Amelia Zein
 <p><img src="libs/multikol.jpg" style="width:100%;" class="fancyimage"></p>
 </div></div>
 </section>
-<section id="bagaimana-melaporkannya" class="slide level2" data-background-color="#f4f4f4">
+<section id="bagaimana-melaporkannya" class="slide level2">
 <h2>Bagaimana melaporkannya?</h2>
 <p>“…untuk menginvestigasi keterkaitan antara pendapatan keluarga, kecenderungan <em>neuroticism</em> ibu, dan kepercayaan ibu bahwa perkembangan anak dapat terjadi secara natural dengan tingkat kemandirian anak, peneliti melakukan analisis regresi linier hirarkial dengan <em>interaction terms</em>. Peneliti menyusun dua model, dimana; model 1 mengestimasi varians tingkat kemandirian anak dengan pendapatan keluarga inti sebagai prediktor, sedangkan pada model 2 peneliti menambahkan prediktor berupa <em>interaction terms</em> antara <em>neuroticism</em> dengan <em>trust</em>.</p>
 <p>Ketika dibandingkan, Model 1 dan Model 2 berbeda signifikan (<em>F</em>(1,397)=104, p&lt;.001). R<sup>2</sup> bertambah sebesar 20.2% (ΔR<sup>2</sup>=.202). Model 2 (<em>F</em>(2,397)=58.2, p&lt;.001, R<sup>2</sup>=.226, AIC=3237, BIC=3253) dapat menjelaskan varians tingkat kemandirian anak lebih baik daripada Model 1 (<em>F</em>(1,398)=10.2, p=.002, R<sup>2</sup>=.025, AIC=3327, BIC=3339).</p>
@@ -596,19 +575,14 @@ Rizqy Amelia Zein
 <p>Potensi multikolinieritas dideteksi dengan VIF dan hasil analisis menunjukkan multikolinieritas kemungkinan besar tidak terjadi (VIF=1.38)…”</p>
 </section>
 <section id="latihan-mandiri-1" class="slide level2">
-<h2>Latihan mandiri (1)</h2>
-<div class="columns">
-<div class="column" style="width:55%;">
+<h2>Latihan mandiri 1️⃣</h2>
 <p>Fernando Jose sebal sekali karena ia kembali kehilangan pengokotnya dan ini kali ketiga ia kehilangan pengokot yang baru dibelinya seminggu yang lalu.</p>
 <p>Teman-teman kerjanya memang punya kebiasaan buruk meminjam barang tanpa seijinnya. Ia akhirnya bertanya, apa ya yang menyebabkan teman-temannya berperilaku seperti itu?</p>
 <p>Akhirnya ia menduga, mungkin ada kaitannya dengan faktor kepribadian (<em>conscientiousness</em>) dan faktor situasional di tempat kerjanya.</p>
 <p>Untuk faktor situasi, ia mengamati sepertinya persepsi atas kondisi kerja yang informal dan relasi formal antara senior-junior mungkin juga berkaitan dengan timbulnya perilaku tersebut.</p>
-</div><div class="column" style="width:45%;">
-<p><img data-src="https://media.giphy.com/media/OLdblIEmgpTb2/giphy.gif"></p>
-</div></div>
 </section>
 <section id="eksplorasi-dataset-2" class="slide level2">
-<h2>Eksplorasi dataset (2)</h2>
+<h2>Eksplorasi dataset 2️⃣</h2>
 <h3 id="dataset-2-dataset-organisasi.omv">Dataset 2: dataset-organisasi.omv</h3>
 <ul>
 <li>Fernando Jose akhirnya melakukan penelitian survei pada 450 karyawan di 3 perusahaan yang berbeda</li>
@@ -623,7 +597,7 @@ Rizqy Amelia Zein
 </ul>
 </section>
 <section id="latihan-mandiri-1-1" class="slide level2">
-<h2>Latihan mandiri (1)</h2>
+<h2>Latihan mandiri 1️⃣</h2>
 <ul>
 <li>Buatlah 2 model untuk mengestimasi varians perilaku tidak beradab dimana:
 <ul>
@@ -633,12 +607,26 @@ Rizqy Amelia Zein
 <li>Bagaimana hipotesisnya?</li>
 <li>Laporkan hasil analisis datanya dan berikan penjelasan singkat apakah hasil analisis data menolak/gagal menolak hipotesis penelitian.</li>
 </ul>
-<h3 id="klik-disini-untuk-menuju-lembar-kerja"><a href="https://forms.gle/cikBBxALbFJZvx8j7">Klik disini untuk menuju lembar kerja</a></h3>
 </section>
-<section id="terima-kasih-banyak" class="slide level2 center">
-<h2>Terima kasih banyak! 😉</h2>
+<section id="ada-pertanyaan" class="slide level2">
+<h2>Ada pertanyaan❓</h2>
 
-<img data-src="https://media.giphy.com/media/hrBSJ2So6iTo4/giphy.gif" class="r-stretch"><p>Paparan disusun dengan menggunakan <i class="fab fa-r-project"></i> dengan <em>template</em> dan <em>fonts</em> dari <code>R-Ladies</code>.</p>
+<img data-src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExMDFtaDh5ZjZ2eXJ3dmJmZmFmYzBtNHEwdzlqZmZtdGtmbnE0bXZidiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/igB2Th9e4nW6s/giphy.gif" class="quarto-figure quarto-figure-center r-stretch"><div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Note</strong></p>
+</div>
+<div class="callout-content">
+<ul>
+<li>Paparan disusun dengan menggunakan <i class="fa-brands fa-r-project"></i> dan <a href="https://quarto.org"><strong>Quarto</strong></a> dengan <em>template</em> dari <a href="https://github.com/rameliaz/quarto-unair-theme">UNAIR Theme</a>.</li>
+<li>Kontak saya via <i class="fas fa-paper-plane"></i> <a href="mailto:amelia.zein@psikologi.unair.ac.id">amelia.zein@psikologi.unair.ac.id</a></li>
+</ul>
+</div>
+</div>
+</div>
 
 
 </section>

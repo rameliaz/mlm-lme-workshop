@@ -35,38 +35,56 @@ Peserta juga akan diminta untuk menganalisis data dengan menggunakan `lme` dan m
 
 Berikut adalah *outline* materi yang tersedia di laman web ini:
 
-### **Bagian 1** untuk Belajar Mandiri 
+### **Bagian 1️⃣**: _Ordinary Least Square Regression_  
 
-* Berlatih menginspeksi data secara visual dengan *scatterplot*
-* Model regresi linier (*ordinary least square*)
-* Menarik garis regresi (*fitted regression line*)
-* Varians yang dapat dan yang tidak dapat dijelaskan oleh model (R*^2^)
+* Berlatih menginspeksi data secara visual dengan _scatterplot_
+* Model regresi linier (_ordinary least square_)
+* Menarik garis regresi (_fitted regression line_)
+* Varians yang dapat dan yang tidak dapat dijelaskan oleh model (_R_^2^)
 * Menguji hipotesis
-* Mengecek kecocokan model dengan data (*model fit*)
+* Mengecek kecocokan model dengan data (_model fit_)
 * Mengecek asumsi
   - Distribusi (normalitas) residual
   - Homoskedastisitas
   - Multikolinearitas
-* Mendeteksi *outliers*
-* Menguji *interaction effects* dan *model change*
-* Menulis hasil analisis regresi linier dengan *interaction terms* dalam manuskrip
+* Mendeteksi _outliers_
+* Menguji _interaction effects_ dan _model change_
+* Menulis hasil analisis regresi linier dengan _interaction terms_ dalam manuskrip
 
-### **Bagian 2** Materi Inti 
+### **Bagian 2️⃣**: _Linear Mixed Effects Model_ 
 
 * Struktur data berjenjang/bersarang (*hierarchical/nested data*)
-* *Within* dan *between group variances*
-* Pengantar *linear mixed-effect* (`lme`)
-* *Intra-class correlation* dan *likelihood ratio test* (LRT)
+* _Within-_ dan _between-group variances_
+* Pengantar _linear mixed-effect_ (`lme`)
+* _Intra-class correlation_ dan _likelihood ratio test_ (LRT)
 * Membandingkan garis regresi antar kelompok dengan `lme`
-* `lme` dengan prediktor level 1 (*random coefficients model*)
-  - Mengidentifikasi *intercept* (konstanta) yang berbeda antar kelompok (*random intercept model*)
-  - Mengidentifikasi *slopes* (gradien/kemiringan garis) yang berbeda antar kelompok (*random slopes model*)
-* "*Explained variances*" ([Nakagawa & Schielzeth, 2012](https://besjournals.onlinelibrary.wiley.com/doi/full/10.1111/j.2041-210x.2012.00261.x))
-  - *Marginal R*^2^
-  - *Conditional R*^2^
-* *Contextual effect* dan *partitioning/centering*
-* `lme` untuk pengukuran berulang (_repeated measures_)
+* `lme` dengan prediktor level 1 (_random coefficients model_)
+  - Mengidentifikasi _intercept_ (konstanta) yang berbeda antar kelompok (_random-intercept model_)
+  - Mengidentifikasi _slopes_ (gradien/kemiringan garis) yang berbeda antar kelompok (_random slopes model_)
+* "_Explained variances_" ([Nakagawa & Schielzeth, 2012](https://besjournals.onlinelibrary.wiley.com/doi/full/10.1111/j.2041-210x.2012.00261.x))
+  - _Marginal R_^2^
+  - _Conditional R_^2^
+* _Contextual effect_ dan _partitioning/centering_
 * Melaporkan analisis dengan `lme` dalam manuskrip
+* Pengukuran berulang (_repeated measures_) dan _experience sampling_
+
+### **Bagian 3️⃣**: `lme` untuk Pengukuran Berulang dan *Experience Sampling*
+
+* Keterbatasan `lme` biasa untuk data berulang
+* *Repeated measures* dengan `lme`
+  - Struktur kovarians residual: *Identity*, *Compound Symmetry*, *Unstructured*
+  - Membandingkan model dengan struktur residual berbeda
+* *Experience Sampling Method* (ESM)
+  - Apa itu ESM dan pada saat seperti apa ESM dilakukan?
+  - *Temporal autocorrelation* dan struktur AR(1) & ARMA(1,1)
+  - *Person-mean centering*: efek *within-* vs. *between-person*
+  - *Cross-level interaction* dalam data ESM
+* _Setup_ di jamovi GAMLj
+* Melaporkan hasil dalam manuskrip
+
+::: {.callout-important}
+Karena keterbatasan waktu, bagian 3️⃣ **_tidak diajarkan_** di _workshop_. Materi tersedia di laman web ini dan dapat dipelajari secara mandiri.
+:::
 
 ## Referensi
 
@@ -77,6 +95,13 @@ Berikut adalah *outline* materi yang tersedia di laman web ini:
 * Nakagawa, S. and Schielzeth, H. (2013), A general and simple method for obtaining _R_^2^ from generalized linear mixed‐effects models. _Methods in Ecology and Evolution_, 4: 133-142. doi: [10.1111/j.2041-210x.2012.00261.x](https://doi.org/10.1111/j.2041-210x.2012.00261.x)
 * Peugh, James L. (2010). A practical guide to multilevel modeling. Journal of School Psychology, 48, 85-112. doi: [10.1016/j.jsp.2009.09.002](https://doi.org/10.1016/j.jsp.2009.09.002)
 * Winter, B. (2013). Linear models and linear mixed effects models in R with linguistic applications. [arXiv:1308.5499](https://web.stanford.edu/class/psych252/section/Mixed_models_tutorial.html).
+
+## Referensi tambahan untuk _repeated measures_ dan _expeience sampling_
+
+* Bolger, N., & Laurenceau, J-P. (2013). *Intensive longitudinal methods: An introduction to diary and experience sampling research*. Guilford Press.
+* Hamaker, E.L., Kuiper, R.M., & Grasman, R.P.P.P. (2015). A critique of the cross-lagged panel model. *Psychological Methods*, *20*(1), 102-116. doi: [10.1037/a0038889](https://doi.org/10.1037/a0038889)
+* Nezlek, J.B. (2012). Multilevel modeling analyses of diary-style data. In M.R. Mehl & T.S. Conner (Eds.), *Handbook of Research Methods for Studying Daily Life* (pp. 384-410). Guilford Press.
+* Trull, T.J. & Ebner-Priemer, U. (2014). The role of ambulatory assessment in psychological science. *Current Directions in Psychological Science*, *23*(6), 466-470. doi: [10.1177/0963721414550706](https://doi.org/10.1177/0963721414550706)
 
 ## Contoh penelitian dengan `lme`
 

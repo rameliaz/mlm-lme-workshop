@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.8.14">
 
   <meta name="author" content="Rizqy Amelia Zein">
-  <meta name="dcterms.date" content="2026-03-29">
+  <meta name="dcterms.date" content="2026-03-31">
   <title>LME Workshop – Linear Mixed Models (Multi-Level Modeling)</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -145,21 +145,10 @@ Rizqy Amelia Zein
     </div>
 </div>
 
-  <p class="date">2026-03-29</p>
+  <p class="date">2026-03-31</p>
 </section>
-<section id="section" class="slide level2 center">
-<h2></h2>
-<p><img src="libs/unair.png" style="width:15%;" class="fancyimage"> <img src="libs/STUA.png" style="width:23%;" class="fancyimage"> <img src="libs/ina-logo.jpg" style="width:7%;" class="fancyimage"> <img src="libs/igdore.png" style="width:23%;" class="fancyimage"></p>
-<h3 id="rizqy-amelia-zein"><strong>Rizqy Amelia Zein</strong></h3>
-<ul>
-<li>Dosen, <a href="https://psikologi.unair.ac.id">Fakultas Psikologi, Universitas Airlangga</a></li>
-<li>Anggota, <a href="https://sainsterbukaua.github.io/">#SainsTerbuka Airlangga</a> <i class="fas fa-universal-access"></i></li>
-<li>Relawan, <a href="https://inarxiv.id">INA-Rxiv</a></li>
-<li>Researcher-in-training, <a href="https://igdore.org/">Institute for Globally Distributed Open Research and Education (IGDORE)</a></li>
-</ul>
-</section>
-<section id="outline" class="slide level2">
-<h2><em>Outline</em></h2>
+<section id="outline-1" class="slide level2">
+<h2><em>Outline</em> 1️⃣</h2>
 <ul>
 <li>Struktur data berjenjang/bersarang (<em>hierarchical/nested data</em>)</li>
 <li><em>Within</em> dan <em>between group variance</em></li>
@@ -173,8 +162,8 @@ Rizqy Amelia Zein
 </ul></li>
 </ul>
 </section>
-<section id="outline-1" class="slide level2">
-<h2><em>Outline</em></h2>
+<section id="outline-2" class="slide level2">
+<h2><em>Outline</em> 2️⃣</h2>
 <ul>
 <li><em>Explained variances</em> (<a href="https://besjournals.onlinelibrary.wiley.com/doi/full/10.1111/j.2041-210x.2012.00261.x">Nakagawa &amp; Schielzeth, 2012</a>)
 <ul>
@@ -197,8 +186,8 @@ Rizqy Amelia Zein
 <li><p>Apa yang terjadi?</p></li>
 </ul>
 </section>
-<section id="section-1" class="slide level2 center">
-<h2></h2>
+<section id="scatterplot" class="slide level2">
+<h2><em>Scatterplot</em></h2>
 <p><img src="libs/scat-neu.jpg" style="width:35%;" class="fancyimage"> <img src="libs/scat-hi.jpg" style="width:35%;" class="fancyimage"></p>
 <p><img src="libs/scat-trust.jpg" style="width:35%;" class="fancyimage"></p>
 </section>
@@ -222,22 +211,22 @@ Rizqy Amelia Zein
 <p><img src="https://pbs.twimg.com/media/DcUJpGUW0AAHG8Y.jpg" style="width:100%;" class="fancyimage"></p>
 </div></div>
 </section>
-<section id="struktur-sampel-bersarangberjenjang" class="slide level2 center" data-background-color="#14497F">
+<section id="struktur-sampel-bersarangberjenjang" class="slide level2">
 <h2>Struktur sampel bersarang/berjenjang</h2>
 
 <img src="libs/hierarchical-data.jpg" style="width:60%;" class="fancyimage r-stretch"></section>
 <section id="apa-yang-harus-dilakukan" class="slide level2">
 <h2>Apa yang harus dilakukan?</h2>
 <ul>
-<li class="fragment">Pura-pura <em>ga tahu</em>, kita abaikan saja dan langsung menggunakan regresi OLS, dengan atau tanpa informasi mengenai pengelompokan data sebagai variabel kontrol.
+<li class="fragment">Kita abaikan saja dan langsung menggunakan regresi OLS, dengan atau tanpa informasi mengenai pengelompokan data sebagai variabel kontrol.
 <ul>
 <li class="fragment">Masalahnya, data/observasi kita sangat bergantung pada pengelompokan unit analisis</li>
-<li class="fragment"><strong>Nah, lalu melanggar asumsi OLS dong?</strong> (data/observasi dan residual harus independen)</li>
+<li class="fragment"><strong>Nah, lalu melanggar asumsi OLS?</strong> (data/observasi dan residual harus independen)</li>
 <li class="fragment">Efeknya, <em>standard error</em> yang diestimasi oleh model terlalu kecil (karena mengabaikan varians dependen variabel yang ditentukan oleh kelompok)</li>
 <li class="fragment">Varians variabel dependen yang tidak bisa dijelaskan (residual) akan makin besar</li>
 <li class="fragment">Kesimpulan/inferensi yang ditarik menjadi tidak tepat, sehingga risiko terjadinya <em>type I error</em> meningkat.</li>
 </ul></li>
-<li class="fragment">Gimana kalau pengelompokan (<em>group status</em>) dimasukkan aja dalam regresi OLS sebagai variabel moderator
+<li class="fragment">Bagaimana kalau pengelompokan (<em>group status</em>) dimasukkan aja dalam regresi OLS sebagai variabel moderator
 <ul>
 <li class="fragment">Dengan begitu, estimasi <em>standard error</em> disesuaikan dengan menggunakan <em>marginal model</em></li>
 <li class="fragment">Estimasi <em>standard error</em> akan lebih presisi, <strong>tetapi</strong> kita tetap tidak bisa mengestimasi <em>between-group variance</em></li>
@@ -248,7 +237,7 @@ Rizqy Amelia Zein
 </ul></li>
 </ul>
 </section>
-<section id="fixed-dan-random-effects" class="slide level2 center">
+<section id="fixed-dan-random-effects" class="slide level2">
 <h2><em>Fixed</em> dan <em>random effects</em></h2>
 <div class="columns">
 <div class="column" style="width:50%;">
@@ -259,23 +248,18 @@ Rizqy Amelia Zein
 <p><img src="libs/random-effects.jpg" style="width:100%;" class="fancyimage"></p>
 </div></div>
 </section>
-<section id="full-model" class="slide level2 center" data-background-color="#14497F">
+<section id="full-model" class="slide level2">
 <h2><em>Full model</em></h2>
 
 <img src="libs/full-model.jpg" style="width:85%;" class="fancyimage r-stretch"></section>
 <section id="kovarians-antara-random-intercept-dan-random-slopes-σu0u1" class="slide level2">
 <h2>Kovarians antara <em>random intercept</em> dan <em>random slopes</em> (σ<sub>U0U1</sub>)</h2>
-<div class="columns">
-<div class="column" style="width:55%;">
 <ul>
 <li><p><strong>Nilainya positif</strong>, maka semakin tinggi <em>intercept</em> akan diasosiasikan dengan kemiringan garis yang lebih curam/<em>slopes</em> yang lebih besar</p></li>
 <li><p>Misalnya, di sekolah yang <strong>rata-rata pendapatan</strong> keluarga inti perbulan siswanya <strong>tinggi</strong>, maka <strong>korelasi</strong> antara pendapatan per bulan dengan tingkat kemandirian siswa <strong>akan menguat</strong>.</p></li>
 <li><p><strong>Nilainya negatif</strong>, maka semakin tinggi <em>intercept</em> akan diasosiasikan dengan kemiringan garis yang lebih landai/<em>slopes</em> yang lebih kecil</p></li>
 <li><p>Misalnya, di sekolah yang <strong>rata-rata pendapatan</strong> keluarga inti perbulan siswanya <strong>tinggi</strong>, maka <strong>korelasi</strong> antara pendapatan per bulan dengan tingkat kemandirian siswa <strong>akan melemah</strong>.</p></li>
 </ul>
-</div><div class="column" style="width:45%;">
-<p><img data-src="https://media.giphy.com/media/3o7btPCcdNniyf0ArS/giphy.gif" style="width:100.0%"></p>
-</div></div>
 </section>
 <section id="parameter-yang-diestimasi-dalam-linear-mixed-effects" class="slide level2">
 <h2>Parameter yang diestimasi dalam <em>linear mixed effects</em></h2>
@@ -288,15 +272,14 @@ Rizqy Amelia Zein
 <li><p>Varians residual level-1 (σ<sup>2</sup><sub>e</sub>)</p></li>
 </ul>
 </section>
-<section id="yuk-kita-coba" class="slide level2 center" data-background-color="#14497F">
+<section id="yuk-kita-coba" class="slide level2" data-background-color="#14497F">
 <h2>Yuk kita coba! 💪</h2>
-<h3 id="pastikan-module-gamlj-sudah-terpasang-di-jamovi">Pastikan <em>module</em> GAMLj sudah terpasang di jamovi</h3>
-
-<img data-src="https://media.giphy.com/media/cjudIH6tZrvcPD2P4j/giphy.gif" class="r-stretch"></section>
+<p>Pastikan <em>module</em> <code>GAMLj</code> sudah terpasang di <code>jamovi</code></p>
+</section>
 <section id="latihan-3-kembali-ke-sekolah" class="slide level2">
-<h2>Latihan (3): Kembali ke sekolah 🏫</h2>
+<h2>Latihan 3️⃣: Kembali ke sekolah 🏫</h2>
 <p>Setelah menginspeksi data secara visual, kita tahu bahwa korelasi antara <strong>pendapatan keluarga</strong> dengan <strong>tingkat kemandirian anak</strong> adalah yang paling bervariasi. Kita akan membuat <em>linear mixed model</em> dengan <strong>pendapatan keluarga</strong> sebagai prediktor, dan <strong>tingkat kemandirian anak</strong> sebagai variabel dependen.</p>
-<h3 id="bikin-model-kosong">Bikin “model kosong”</h3>
+<h3 id="bikin-model-kosong-null-model">Bikin “model kosong” (<em>null model</em>)</h3>
 <ul>
 <li><p>Yaitu model yang isinya hanya <em>intercept</em> saja, tidak ada prediktornya (<em>slopes</em>)</p></li>
 <li><p>Pada <em>menu bar</em>, klik <strong>Linear Models</strong>, pilih <strong>mixed models</strong></p>
@@ -344,11 +327,11 @@ Rizqy Amelia Zein
 </div></div>
 </section>
 <section id="random-coefficients-1" class="slide level2">
-<h2><em>Random coefficients</em> (1)</h2>
+<h2><em>Random coefficients</em> 1️⃣</h2>
 <div class="columns">
 <div class="column" style="width:55%;">
 <ul>
-<li>Varians kemandirian paling banyak dijelaskan oleh rata-rata tingkat kemandirian anak di masing-masing sekolah (varians <em>random intercept</em> (σ<sup>2</sup><sub>U0</sub>)) daripada oleh varians <em>random slopes</em> (σ<sup>2</sup><sub>U1</sub>).</li>
+<li>Varians kemandirian paling banyak dijelaskan oleh rata-rata tingkat kemandirian siswa (varians <em>random intercept</em> (σ<sup>2</sup><sub>U0</sub>)) daripada oleh varians <em>random slopes</em> (σ<sup>2</sup><sub>U1</sub>).</li>
 </ul>
 </div><div class="column" style="width:45%;">
 <p><img src="libs/random-1.jpg" style="width:90%;" class="fancyimage"></p>
@@ -356,7 +339,7 @@ Rizqy Amelia Zein
 </div></div>
 </section>
 <section id="random-coefficients-2" class="slide level2">
-<h2><em>Random coefficients</em> (2)</h2>
+<h2><em>Random coefficients</em> 2️⃣</h2>
 <div class="columns">
 <div class="column" style="width:55%;">
 <ul>
@@ -373,12 +356,12 @@ Rizqy Amelia Zein
 </div></div>
 </section>
 <section id="random-coefficients-3" class="slide level2">
-<h2><em>Random coefficients</em> (3)</h2>
+<h2><em>Random coefficients</em> 3️⃣</h2>
 <div class="columns">
 <div class="column" style="width:55%;">
 <ul>
-<li><p>ICC=0.931, artinya <strong>93.1%</strong> varians tingkat kemandirian anak dijelaskan oleh perbedaan kelompok. ICC di atas 0.1 biasanya menunjukkan <code>lme</code> adalah opsi yang lebih baik daripada OLS.</p></li>
-<li><p>LRT menunjukkan bahwa kita dapat menolak hipotesis bahwa tidak ada perbedaan varians tingkat kemandirian antar-kelompok (LRT(2)=74.0, <em>p</em>&lt;.001).</p></li>
+<li><p>ICC=0.931, artinya <strong>93.1%</strong> varians tingkat kemandirian siswa dijelaskan oleh perbedaan sekolah. ICC di atas 0.1 biasanya menunjukkan <code>lme</code> adalah opsi yang lebih baik daripada OLS.</p></li>
+<li><p>LRT menunjukkan bahwa kita dapat menolak hipotesis bahwa tidak ada perbedaan varians tingkat kemandirian antar-sekolah (LRT(2)=74.0, <em>p</em>&lt;.001).</p></li>
 </ul>
 </div><div class="column" style="width:45%;">
 <p><img src="libs/random-1.jpg" style="width:90%;" class="fancyimage"></p>
@@ -409,7 +392,7 @@ Rizqy Amelia Zein
 </div></div>
 </section>
 <section id="contextual-effects-partitioning-1" class="slide level2">
-<h2><em>Contextual effects</em> &amp; <em>partitioning</em> (1)</h2>
+<h2><em>Contextual effects</em> &amp; <em>partitioning</em> 1️⃣</h2>
 <ul>
 <li><strong><em>Within-group effect</em></strong>
 <ul>
@@ -427,7 +410,7 @@ Rizqy Amelia Zein
 </ul>
 </section>
 <section id="contextual-effects-partitioning-2" class="slide level2">
-<h2><em>Contextual effects</em> &amp; <em>partitioning</em> (2)</h2>
+<h2><em>Contextual effects</em> &amp; <em>partitioning</em> 2️⃣</h2>
 <ul>
 <li><p>Untuk menghitung <em>contextual effect</em>, kita harus melakukan <em>partitioning</em> terlebih dahulu</p></li>
 <li><p>Umumnya yang dipartisi/<em>centering</em> adalah <strong>variabel X, bukan Y</strong></p></li>
@@ -449,7 +432,7 @@ Rizqy Amelia Zein
 </ul>
 </section>
 <section id="latihan-4-contextual-effects" class="slide level2">
-<h2>Latihan (4): <em>Contextual effects</em></h2>
+<h2>Latihan 4️⃣: <em>Contextual effects</em></h2>
 <div class="columns">
 <div class="column" style="width:55%;">
 <ul>
@@ -473,21 +456,21 @@ Rizqy Amelia Zein
 <p><img src="libs/context.jpg" style="width:100%;" class="fancyimage"></p>
 </div></div>
 </section>
-<section id="bagaimana-melaporkannya-1" class="slide level2" data-background-color="#14497F">
-<h2>Bagaimana melaporkannya? (1)</h2>
+<section id="bagaimana-melaporkannya-1" class="slide level2">
+<h2>Bagaimana melaporkannya? 1️⃣</h2>
 <p>“…untuk menguji hipotesis bahwa ada perbedaan rerata tingkat kemandirian anak, dan korelasi antara pendapatan keluarga dengan tingkat kemandirian anak di masing-masing sekolah, peneliti melakukan analisis <em>linear mixed effect</em>.</p>
 <p>Tingkat kemandirian anak dijelaskan sebagai fungsi dari tingkat pendapatan keluarga, dengan mengontrol asal sekolah (PAUD) anak. Sebelum melakukan analisis, tingkat pendapatan keluarga dipartisi dengan cara menguranginya dengan rata-rata tingkat pendapatan keluarga di masing-masing sekolah (<em>group-mean/cluster-based centering</em>).</p>
 <p>Pengujian model menghasilkan kesimpulan bahwa model tidak cocok menggambarkan data (<em>F</em>(1,3.98)=0.309, p=.608), sehingga kami gagal menolak hipotesis bahwa tingkat pendapatan keluarga dan kemandirian anak, tidak berkorelasi.</p>
 <p>Model <em>fixed effects</em> menunjukkan bahwa peneliti tidak punya cukup bukti untuk menolak hipotesis nol, bahwa pendapatan keluarga per bulan dengan kemandirian tidak berkaitan (<em>B</em>=-0.207 95% CI [-0.937, 0.523], <em>SE</em>=0.372, <em>t</em>=-0.556, <em>p</em>=.608).”</p>
 </section>
-<section id="bagaimana-melaporkannya-2" class="slide level2" data-background-color="#14497F">
-<h2>Bagaimana melaporkannya? (2)</h2>
+<section id="bagaimana-melaporkannya-2" class="slide level2">
+<h2>Bagaimana melaporkannya? 2️⃣</h2>
 <p>“…model <em>random effects</em> menunjukkan bahwa peneliti dapat menolak hipotesis bahwa tidak ada perbedaan varians tingkat kemandirian antar-kelompok (LRT(2)=74.0, <em>p</em>&lt;.001). Varians kemandirian anak paling banyak dijelaskan oleh rata-rata tingkat kemandirian anak di masing-masing sekolah (varians <em>random intercept</em> (σ<sup>2</sup><sub>U0</sub>)) daripada oleh varians <em>random slopes</em> (σ<sup>2</sup><sub>U1</sub>). Selain itu, 93.1% varians tingkat kemandirian anak dijelaskan oleh perbedaan kelompok (ICC=0.931).</p>
 <p>Peneliti tidak memiliki cukup bukti yang meyakinkan untuk menolak hipotesis yang menyatakan bahwa <em>within</em> (<em>B</em>=0.257 95% CI [-0.115, 0.629], <em>SE</em>=0.190, <em>t</em>=1.354, <em>p</em>=.213), maupun <em>between-group effect</em> (<em>B</em>=-0.454 95% CI [-1.207, 0.299], <em>SE</em>=0.384, <em>t</em>=-1.182, <em>p</em>=.315) tidak dapat menjelaskan varians tingkat kemandirian anak.</p>
 <p><em>Contextual effects</em> ditemukan sebesar -0.711, artinya, anak yang bersekolah di dua tempat yang berbeda, dengan selisih rata-rata tingkat kemandirian anak-anak di dua sekolah tersebut sebesar 1 poin, maka tingkat kemandirian mereka berbeda sebesar -0.711 poin, apabila diasumsikan keluarga mereka memiliki pendapatan yang sama besarnya. Tanda negatif mengindikasikan bahwa sekolah yang rata-rata pendapatan keluarga siswanya lebih tinggi, cenderung memiliki rata-rata tingkat kemandirian yang rendah…”</p>
 </section>
 <section id="latihan-mandiri-2" class="slide level2">
-<h2>Latihan mandiri (2)</h2>
+<h2>Latihan mandiri 2️⃣</h2>
 <ul>
 <li><p>Lakukan analisis <code>lme</code> untuk mengetahui:</p>
 <ul>
@@ -496,36 +479,43 @@ Rizqy Amelia Zein
 <li><p>Seberapa besar perbedaan <strong>tingkat kemandirian</strong> dua orang anak yang berada di <strong>sekolah yang berbeda</strong>, yang <strong>ibunya sama-sama pencemas</strong>, apabila <strong>rata-rata kecemasan</strong> wali murid di <strong>dua sekolah tersebut</strong> berbeda sebesar 1 poin?</p></li>
 </ul></li>
 </ul>
-<h3 id="klik-disini-untuk-mengakses-lembar-kerja"><a href="https://forms.gle/87BrLEdC321khd8g6">Klik disini untuk mengakses lembar kerja</a></h3>
 </section>
 <section id="yang-belum-dibahas" class="slide level2">
 <h2>Yang belum dibahas…</h2>
-<div class="columns">
-<div class="column" style="width:55%;">
 <ul>
-<li><p>Kalau korelasi antara X dan Y tidak linier, pakai apa dong?</p>
+<li><p>Kalau korelasi antara X dan Y tidak linier, pakai apa <em>dong</em>?</p>
 <ul>
-<li>Jelas tidak bisa menggunakan <code>lme</code>. Alternatifnya, bisa menggunakan <a href="https://en.wikipedia.org/wiki/Generalized_additive_model"><em>generalised additive model</em> (GAM)</a>.</li>
+<li>Jelas tidak bisa menggunakan <code>lme</code>. Alternatifnya, bisa menggunakan <a href="https://en.wikipedia.org/wiki/Generalized_additive_model"><em>generalized additive model</em> (GAM)</a>.</li>
 </ul></li>
 <li><p>Kalau prediktornya level-2, bagaimana?</p></li>
-<li><p>Bisa ga <code>lme</code> digunakan untuk mengestimasi perubahan Y pada <em>time-series</em>?</p></li>
-<li><p>Gimana cara merencanakan jumlah sampelnya?</p></li>
-<li><p>Gimana kalo sampelnya bersarang/berjenjang level-3, bahkan lebih?</p></li>
-<li><p>Gimana kalo terjadi interaksi antara variabel prediktor level-1 dengan level-2 (<em>cross-level interactions</em>)?</p></li>
+<li><p>Bagaimana cara merencanakan jumlah sampelnya?</p></li>
+<li><p>Bagaimana kalau sampelnya bersarang/berjenjang level-3, bahkan lebih?</p></li>
+<li><p>Bagaimana kalo terjadi interaksi antara variabel prediktor level-1 dengan level-2 (<em>cross-level interactions</em>)?</p></li>
 </ul>
-</div><div class="column" style="width:45%;">
-<p><img data-src="https://media.giphy.com/media/wMvESGxZ0Cqd2/giphy.gif" style="width:100.0%"></p>
-</div></div>
 </section>
-<section id="the-problem-with-linear-relationship" class="slide level2 center" data-background-color="#14497F">
+<section id="the-problem-with-linear-relationship" class="slide level2">
 <h2><em>The problem with linear relationship</em></h2>
 
 <img data-src="https://i.pinimg.com/originals/19/8a/7b/198a7be0157b1dc1224a0a50821b1ec0.gif" style="width:40.0%" class="r-stretch"></section>
-<section id="terima-kasih-banyak" class="slide level2 center">
-<h2>Terima kasih banyak! 😉</h2>
+<section id="ada-pertanyaan" class="slide level2">
+<h2>Ada pertanyaan❓</h2>
 
-<img data-src="https://media.giphy.com/media/hrBSJ2So6iTo4/giphy.gif" class="r-stretch"><p>Paparan disusun dengan menggunakan <a href="https://quarto.org">Quarto</a> dengan tema <strong>Universitas Airlangga</strong>.</p>
-<p>Materi dalam paparan ini berlisensi <i class="fab fa-creative-commons"></i> 4.0 dan tersedia di <strong>(https://rameliaz.github.io/mlm-lme-workshop/)</strong>.</p>
+<img data-src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExMDFtaDh5ZjZ2eXJ3dmJmZmFmYzBtNHEwdzlqZmZtdGtmbnE0bXZidiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/igB2Th9e4nW6s/giphy.gif" class="quarto-figure quarto-figure-center r-stretch"><div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Note</strong></p>
+</div>
+<div class="callout-content">
+<ul>
+<li>Paparan disusun dengan menggunakan <i class="fa-brands fa-r-project"></i> dan <a href="https://quarto.org"><strong>Quarto</strong></a> dengan <em>template</em> dari <a href="https://github.com/rameliaz/quarto-unair-theme">UNAIR Theme</a>.</li>
+<li>Kontak saya via <i class="fas fa-paper-plane"></i> <a href="mailto:amelia.zein@psikologi.unair.ac.id">amelia.zein@psikologi.unair.ac.id</a></li>
+</ul>
+</div>
+</div>
+</div>
 
 
 </section>

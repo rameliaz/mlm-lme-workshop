@@ -8,6 +8,7 @@ project:
     - index.qmd
     - materi-lme1.qmd
     - materi-lme2.qmd
+    - materi-lme3.qmd
 
 website:
   title: "LME Workshop"
@@ -25,12 +26,18 @@ website:
             href: materi-lme1.html
           - text: "Bagian 2 (html)"
             href: materi-lme2.html
+          - text: "Bagian 3 (html)"
+            href: materi-lme3.html
       - text: "Dataset"
         menu:
           - text: "Dataset1-Sekolah"
             href: dataset-sekolah.omv
           - text: "Dataset2-Organisasi"
             href: dataset-organisasi.omv
+          - text: "Dataset Repeated Measures"
+            href: dataset-rm.omv
+          - text: "Dataset ESM"
+            href: dataset-esm.omv
       - text: "Survei"
         menu:
           - text: "Evaluasi Workshop"

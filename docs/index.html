@@ -280,6 +280,10 @@ ul.task-list li input[type="checkbox"] {
     <a class="dropdown-item" href="./materi-lme2.html">
  <span class="dropdown-text">Bagian 2 (html)</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="./materi-lme3.html">
+ <span class="dropdown-text">Bagian 3 (html)</span></a>
+  </li>  
     </ul>
   </li>
   <li class="nav-item dropdown ">
@@ -294,6 +298,14 @@ ul.task-list li input[type="checkbox"] {
         <li>
     <a class="dropdown-item" href="./dataset-organisasi.omv">
  <span class="dropdown-text">Dataset2-Organisasi</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./dataset-rm.omv">
+ <span class="dropdown-text">Dataset Repeated Measures</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./dataset-esm.omv">
+ <span class="dropdown-text">Dataset ESM</span></a>
   </li>  
     </ul>
   </li>
@@ -343,10 +355,12 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#waktu-dan-tempat" id="toc-waktu-dan-tempat" class="nav-link active" data-scroll-target="#waktu-dan-tempat">Waktu dan tempat</a></li>
   <li><a href="#outline-materi" id="toc-outline-materi" class="nav-link" data-scroll-target="#outline-materi"><em>Outline</em> materi</a>
   <ul class="collapse">
-  <li><a href="#bagian-1-untuk-belajar-mandiri" id="toc-bagian-1-untuk-belajar-mandiri" class="nav-link" data-scroll-target="#bagian-1-untuk-belajar-mandiri"><strong>Bagian 1</strong> untuk Belajar Mandiri</a></li>
-  <li><a href="#bagian-2-materi-inti" id="toc-bagian-2-materi-inti" class="nav-link" data-scroll-target="#bagian-2-materi-inti"><strong>Bagian 2</strong> Materi Inti</a></li>
+  <li><a href="#bagian-1-ordinary-least-square-regression" id="toc-bagian-1-ordinary-least-square-regression" class="nav-link" data-scroll-target="#bagian-1-ordinary-least-square-regression"><strong>Bagian 1️⃣</strong>: <em>Ordinary Least Square Regression</em></a></li>
+  <li><a href="#bagian-2-linear-mixed-effects-model" id="toc-bagian-2-linear-mixed-effects-model" class="nav-link" data-scroll-target="#bagian-2-linear-mixed-effects-model"><strong>Bagian 2️⃣</strong>: <em>Linear Mixed Effects Model</em></a></li>
+  <li><a href="#bagian-3-lme-untuk-pengukuran-berulang-dan-experience-sampling" id="toc-bagian-3-lme-untuk-pengukuran-berulang-dan-experience-sampling" class="nav-link" data-scroll-target="#bagian-3-lme-untuk-pengukuran-berulang-dan-experience-sampling"><strong>Bagian 3️⃣</strong>: <code>lme</code> untuk Pengukuran Berulang dan <em>Experience Sampling</em></a></li>
   </ul></li>
   <li><a href="#referensi" id="toc-referensi" class="nav-link" data-scroll-target="#referensi">Referensi</a></li>
+  <li><a href="#referensi-tambahan-untuk-repeated-measures-dan-expeience-sampling" id="toc-referensi-tambahan-untuk-repeated-measures-dan-expeience-sampling" class="nav-link" data-scroll-target="#referensi-tambahan-untuk-repeated-measures-dan-expeience-sampling">Referensi tambahan untuk <em>repeated measures</em> dan <em>expeience sampling</em></a></li>
   <li><a href="#contoh-penelitian-dengan-lme" id="toc-contoh-penelitian-dengan-lme" class="nav-link" data-scroll-target="#contoh-penelitian-dengan-lme">Contoh penelitian dengan <code>lme</code></a></li>
   <li><a href="#sumber-belajar-lainnya" id="toc-sumber-belajar-lainnya" class="nav-link" data-scroll-target="#sumber-belajar-lainnya">Sumber belajar lainnya</a></li>
   <li><a href="#sebelum-mulai-workshop" id="toc-sebelum-mulai-workshop" class="nav-link" data-scroll-target="#sebelum-mulai-workshop">Sebelum mulai workshop</a></li>
@@ -432,13 +446,13 @@ Important
 </div>
 <p>Peserta juga akan diminta untuk menganalisis data dengan menggunakan <code>lme</code> dan melaporkannya dengan format yang biasa digunakan dalam artikel penelitian.</p>
 <p>Berikut adalah <em>outline</em> materi yang tersedia di laman web ini:</p>
-<section id="bagian-1-untuk-belajar-mandiri" class="level3">
-<h3 class="anchored" data-anchor-id="bagian-1-untuk-belajar-mandiri"><strong>Bagian 1</strong> untuk Belajar Mandiri</h3>
+<section id="bagian-1-ordinary-least-square-regression" class="level3">
+<h3 class="anchored" data-anchor-id="bagian-1-ordinary-least-square-regression"><strong>Bagian 1️⃣</strong>: <em>Ordinary Least Square Regression</em></h3>
 <ul>
 <li>Berlatih menginspeksi data secara visual dengan <em>scatterplot</em></li>
 <li>Model regresi linier (<em>ordinary least square</em>)</li>
 <li>Menarik garis regresi (<em>fitted regression line</em>)</li>
-<li>Varians yang dapat dan yang tidak dapat dijelaskan oleh model (R*<sup>2</sup>)</li>
+<li>Varians yang dapat dan yang tidak dapat dijelaskan oleh model (<em>R</em><sup>2</sup>)</li>
 <li>Menguji hipotesis</li>
 <li>Mengecek kecocokan model dengan data (<em>model fit</em>)</li>
 <li>Mengecek asumsi
@@ -452,17 +466,17 @@ Important
 <li>Menulis hasil analisis regresi linier dengan <em>interaction terms</em> dalam manuskrip</li>
 </ul>
 </section>
-<section id="bagian-2-materi-inti" class="level3">
-<h3 class="anchored" data-anchor-id="bagian-2-materi-inti"><strong>Bagian 2</strong> Materi Inti</h3>
+<section id="bagian-2-linear-mixed-effects-model" class="level3">
+<h3 class="anchored" data-anchor-id="bagian-2-linear-mixed-effects-model"><strong>Bagian 2️⃣</strong>: <em>Linear Mixed Effects Model</em></h3>
 <ul>
 <li>Struktur data berjenjang/bersarang (<em>hierarchical/nested data</em>)</li>
-<li><em>Within</em> dan <em>between group variances</em></li>
+<li><em>Within-</em> dan <em>between-group variances</em></li>
 <li>Pengantar <em>linear mixed-effect</em> (<code>lme</code>)</li>
 <li><em>Intra-class correlation</em> dan <em>likelihood ratio test</em> (LRT)</li>
 <li>Membandingkan garis regresi antar kelompok dengan <code>lme</code></li>
 <li><code>lme</code> dengan prediktor level 1 (<em>random coefficients model</em>)
 <ul>
-<li>Mengidentifikasi <em>intercept</em> (konstanta) yang berbeda antar kelompok (<em>random intercept model</em>)</li>
+<li>Mengidentifikasi <em>intercept</em> (konstanta) yang berbeda antar kelompok (<em>random-intercept model</em>)</li>
 <li>Mengidentifikasi <em>slopes</em> (gradien/kemiringan garis) yang berbeda antar kelompok (<em>random slopes model</em>)</li>
 </ul></li>
 <li>“<em>Explained variances</em>” (<a href="https://besjournals.onlinelibrary.wiley.com/doi/full/10.1111/j.2041-210x.2012.00261.x">Nakagawa &amp; Schielzeth, 2012</a>)
@@ -471,9 +485,42 @@ Important
 <li><em>Conditional R</em><sup>2</sup></li>
 </ul></li>
 <li><em>Contextual effect</em> dan <em>partitioning/centering</em></li>
-<li><code>lme</code> untuk pengukuran berulang (<em>repeated measures</em>)</li>
 <li>Melaporkan analisis dengan <code>lme</code> dalam manuskrip</li>
+<li>Pengukuran berulang (<em>repeated measures</em>) dan <em>experience sampling</em></li>
 </ul>
+</section>
+<section id="bagian-3-lme-untuk-pengukuran-berulang-dan-experience-sampling" class="level3">
+<h3 class="anchored" data-anchor-id="bagian-3-lme-untuk-pengukuran-berulang-dan-experience-sampling"><strong>Bagian 3️⃣</strong>: <code>lme</code> untuk Pengukuran Berulang dan <em>Experience Sampling</em></h3>
+<ul>
+<li>Keterbatasan <code>lme</code> biasa untuk data berulang</li>
+<li><em>Repeated measures</em> dengan <code>lme</code>
+<ul>
+<li>Struktur kovarians residual: <em>Identity</em>, <em>Compound Symmetry</em>, <em>Unstructured</em></li>
+<li>Membandingkan model dengan struktur residual berbeda</li>
+</ul></li>
+<li><em>Experience Sampling Method</em> (ESM)
+<ul>
+<li>Apa itu ESM dan pada saat seperti apa ESM dilakukan?</li>
+<li><em>Temporal autocorrelation</em> dan struktur AR(1) &amp; ARMA(1,1)</li>
+<li><em>Person-mean centering</em>: efek <em>within-</em> vs.&nbsp;<em>between-person</em></li>
+<li><em>Cross-level interaction</em> dalam data ESM</li>
+</ul></li>
+<li><em>Setup</em> di jamovi GAMLj</li>
+<li>Melaporkan hasil dalam manuskrip</li>
+</ul>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Karena keterbatasan waktu, bagian 3️⃣ <strong><em>tidak diajarkan</em></strong> di <em>workshop</em>. Materi tersedia di laman web ini dan dapat dipelajari secara mandiri.</p>
+</div>
+</div>
 </section>
 </section>
 <section id="referensi" class="level2">
@@ -486,6 +533,15 @@ Important
 <li>Nakagawa, S. and Schielzeth, H. (2013), A general and simple method for obtaining <em>R</em><sup>2</sup> from generalized linear mixed‐effects models. <em>Methods in Ecology and Evolution</em>, 4: 133-142. doi: <a href="https://doi.org/10.1111/j.2041-210x.2012.00261.x">10.1111/j.2041-210x.2012.00261.x</a></li>
 <li>Peugh, James L. (2010). A practical guide to multilevel modeling. Journal of School Psychology, 48, 85-112. doi: <a href="https://doi.org/10.1016/j.jsp.2009.09.002">10.1016/j.jsp.2009.09.002</a></li>
 <li>Winter, B. (2013). Linear models and linear mixed effects models in R with linguistic applications. <a href="https://web.stanford.edu/class/psych252/section/Mixed_models_tutorial.html">arXiv:1308.5499</a>.</li>
+</ul>
+</section>
+<section id="referensi-tambahan-untuk-repeated-measures-dan-expeience-sampling" class="level2">
+<h2 class="anchored" data-anchor-id="referensi-tambahan-untuk-repeated-measures-dan-expeience-sampling">Referensi tambahan untuk <em>repeated measures</em> dan <em>expeience sampling</em></h2>
+<ul>
+<li>Bolger, N., &amp; Laurenceau, J-P. (2013). <em>Intensive longitudinal methods: An introduction to diary and experience sampling research</em>. Guilford Press.</li>
+<li>Hamaker, E.L., Kuiper, R.M., &amp; Grasman, R.P.P.P. (2015). A critique of the cross-lagged panel model. <em>Psychological Methods</em>, <em>20</em>(1), 102-116. doi: <a href="https://doi.org/10.1037/a0038889">10.1037/a0038889</a></li>
+<li>Nezlek, J.B. (2012). Multilevel modeling analyses of diary-style data. In M.R. Mehl &amp; T.S. Conner (Eds.), <em>Handbook of Research Methods for Studying Daily Life</em> (pp.&nbsp;384-410). Guilford Press.</li>
+<li>Trull, T.J. &amp; Ebner-Priemer, U. (2014). The role of ambulatory assessment in psychological science. <em>Current Directions in Psychological Science</em>, <em>23</em>(6), 466-470. doi: <a href="https://doi.org/10.1177/0963721414550706">10.1177/0963721414550706</a></li>
 </ul>
 </section>
 <section id="contoh-penelitian-dengan-lme" class="level2">

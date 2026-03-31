@@ -1,0 +1,720 @@
+---
+title: "LME untuk Pengukuran Berulang dan *Experience Sampling*"
+subtitle: "Menggunakan `jamovi` (GAMLj)"
+author: "Rizqy Amelia Zein"
+institute:
+  - "Departemen Psikologi, Universitas Airlangga"
+date: today
+format:
+  unair-revealjs:
+    slide-number: true
+    progress: true
+    transition: slide
+    center: false
+execute:
+  eval: false
+  echo: true
+---
+
+## _Outline_
+
+* Keterbatasan `lme` biasa untuk data berulang
+* *Repeated measures* dengan `lme`
+  - Struktur kovarians residual: *Identity*, *Compound Symmetry*, *Unstructured*
+  - Membandingkan model dengan struktur residual berbeda
+* *Experience Sampling Method* (ESM)
+  - Apa itu ESM dan pada saat seperti apa ESM dilakukan?
+  - *Temporal autocorrelation* dan struktur AR(1) & ARMA(1,1)
+  - *Person-mean centering*: efek *within-* vs. *between-person*
+  - *Cross-level interaction* dalam data ESM
+* _Setup_ di jamovi GAMLj
+* Melaporkan hasil dalam manuskrip
+
+## Mengapa pengukuran berulang dan ESM punya fitur berbeda?
+
+:::: {.columns}
+::: {.column width="55%"}
+
+* Dalam materi sebelumnya, kita sudah belajar bahwa `lme` sangat berguna ketika struktur data kita **berjenjang** (murid dalam sekolah, karyawan dalam organisasi).
+* Dalam kasus ini, residual Level-1 **independen** satu sama lain.
+
+**Tapi apa jadinya jika orang yang sama diukur berkali-kali?**
+
+:::
+::: {.column width="45%"}
+
+![](https://media.giphy.com/media/3oKIPtjElfqwMOTbH2/giphy.gif){width="100%"}
+
+:::
+::::
+
+## Masalah dependensi temporal
+
+:::: {.columns}
+::: {.column width="55%"}
+
+* Bayangkan kita mengukur **tingkat kecemasan** menteri pada:
+  - Sebelum BBM naik (T1)
+  - Saat kebijakan BBM naik diumumkan (T2)
+  - Seminggu sesudah BBM dinyatakan naik (T3)
+
+* Kecemasan Dadan di T1 dan T2 **sangat mungkin berkorelasi**, karena **Dadan yang sama** yang diukur dua kali.
+
+* Ini melanggar asumsi **independensi residual** dari `lme` biasa.
+
+* Kalau kita abaikan, *standard error* akan **terlalu kecil** → risiko *Type I error* meningkat.
+
+:::
+::: {.column width="45%"}
+
+<br>
+
+| Waktu | Kecemasan Dadan | Kecemasan Bahlil |
+|-------|----------------|----------------|
+| T1    | 72             | 55             |
+| T2    | 85             | 61             |
+| T3    | 58             | 48             |
+
+Observasi **dalam** satu orang tidak independen!
+
+:::
+::::
+
+## Solusi: menspesifikasi **struktur kovarians residual**
+
+Kita perlu memberitahu model, **bagaimana pola korelasi** antara residual dari pengukuran berulang pada orang yang sama.
+
+Di GAMLj, ini diatur melalui menu **_Residuals Options_**.
+
+---
+
+## Matriks kovarians residual
+
+:::: {.columns}
+::: {.column width="55%"}
+
+* Bayangkan satu orang diukur sebanyak **4 kali** (T1–T4). Matriks **R** menggambarkan varians (garis diagonal) dan kovariansi (luar garis diagonal) antar pengukuran.
+
+* **Pertanyaan kuncinya:** apakah kita asumsikan kovariansi antar waktu itu nol, sama semua, atau berbeda-beda?
+
+* Jawaban atas pertanyaan ini menentukan **struktur varians-kovarians** yang kita pilih.
+
+:::
+::: {.column width="45%"}
+
+$$\mathbf{R} = \begin{bmatrix} \sigma^2_{T1} & \sigma_{12} & \sigma_{13} & \sigma_{14} \\ \sigma_{12} & \sigma^2_{T2} & \sigma_{23} & \sigma_{24} \\ \sigma_{13} & \sigma_{23} & \sigma^2_{T3} & \sigma_{34} \\ \sigma_{14} & \sigma_{24} & \sigma_{34} & \sigma^2_{T4} \end{bmatrix}$$
+
+:::
+::::
+
+## Struktur 1: *Identity* (diagonal)
+
+$$\mathbf{R} = \sigma^2 \begin{bmatrix} 1 & 0 & 0 & 0 \\ 0 & 1 & 0 & 0 \\ 0 & 0 & 1 & 0 \\ 0 & 0 & 0 & 1 \end{bmatrix}$$
+
+* Semua varians sama (σ²), semua kovariansi = 0
+* Artinya: pengukuran berulang **dianggap independen**
+* Ini adalah asumsi OLS biasa
+* **Kapan pakai:** asumsi jarang terpenuhi; hanya jika ada alasan kuat bahwa tidak ada korelasi antar waktu
+* **Jumlah parameter:** 1
+
+::: {.callout-warning}
+#### Hati-hati
+*Identity* adalah *default* yang **paling sering keliru dipakai** untuk data berulang. Jika tidak ada alasan teoritis yang kuat, hindari opsi ini untuk *repeated measures*.
+:::
+
+## Struktur 2: *Compound Symmetry* (CS)
+
+$$\mathbf{R} = \begin{bmatrix} \sigma^2 & \sigma_c & \sigma_c & \sigma_c \\ \sigma_c & \sigma^2 & \sigma_c & \sigma_c \\ \sigma_c & \sigma_c & \sigma^2 & \sigma_c \\ \sigma_c & \sigma_c & \sigma_c & \sigma^2 \end{bmatrix}$$
+
+* Semua varians sama (σ²), semua kovariansi sama (σ_c)
+* Korelasi antara T1–T2 = korelasi T1–T4: **jarak waktu tidak berpengaruh**
+* Ini adalah asumsi di balik *Repeated Measures ANOVA* klasik (disebut **sphericity**)
+* **Kapan pakai:** desain _pre-post_, kondisi eksperimen yang tidak berurutan
+* **Jumlah parameter:** 2
+
+::: {.callout-note}
+#### Mirip dengan ANOVA _repeated measures_
+*Compound symmetry* adalah asumsi yang diuji oleh **_Mauchly's test_** dalam ANOVA _repeated measures_. Jika _Mauchly's_ test signifikan, _sphericity_ dilanggar dan CS bukan pilihan terbaik.
+:::
+
+## Struktur 3: *Unstructured* (UN) 
+
+$$\mathbf{R} = \begin{bmatrix} \sigma^2_1 & \sigma_{12} & \sigma_{13} & \sigma_{14} \\ \sigma_{12} & \sigma^2_2 & \sigma_{23} & \sigma_{24} \\ \sigma_{13} & \sigma_{23} & \sigma^2_3 & \sigma_{34} \\ \sigma_{14} & \sigma_{24} & \sigma_{34} & \sigma^2_4 \end{bmatrix}$$
+
+* Setiap varians dan kovariansi diestimasi **secara bebas**
+* Paling fleksibel, tidak ada asumsi tentang pola korelasi
+* **Kapan pakai:** sebagai *baseline* pembanding; time points sedikit (≤5) dan sampel besar
+* **Perhatian:** dengan p time points → p(p+1)/2 parameter — cepat boros, rentan tidak konvergen
+* **Jumlah parameter:** p(p+1)/2
+
+::: {.callout-tip}
+**Tips praktis**: Gunakan UN untuk **menguji** apakah struktur yang lebih sederhana (CS) sudah cukup. Jika AIC/BIC UN dan CS tidak jauh berbeda, pilih CS karena lebih _parsimonious_.
+:::
+
+## Membandingkan struktur kovarians {.center}
+
+<br>
+
+| Struktur | Parameter | Kapan pakai |
+|----------|-----------|-------------|
+| Identity | 1 | Tidak ada korelasi temporal (jarang tepat) |
+| Compound Symmetry | 2 | Korelasi sama untuk semua jarak waktu |
+| Unstructured | p(p+1)/2 | Baseline; time points sedikit, N besar |
+| AR(1) | 2 | Korelasi meluruh seiring jarak waktu |
+| ARMA(1,1) | 3 | AR(1) + efek lokal antar pengukuran berdekatan |
+
+<br>
+
+**Gunakan AIC/BIC** untuk memilih: model dengan AIC/BIC lebih kecil = lebih baik.
+
+## *Repeated Measures* dengan `lme` {background-color="#14497F" .center}
+
+## Mengapa `lme` lebih baik dari RM-ANOVA?
+
+:::: {.columns}
+::: {.column width="55%"}
+
+**Keterbatasan RM-ANOVA:**
+
+* Mengharuskan data **lengkap** di semua time point (tidak boleh ada *missing data*)
+* Interval waktu harus **sama** (*equally spaced*)
+* Hanya bisa mengestimasi efek *fixed* dari waktu
+* Tidak bisa memasukkan prediktor level-1 yang bervariasi antar waktu (*time-varying covariates*)
+
+**Keunggulan `lme`:**
+
+* Menangani *missing data* dengan baik (ML/REML estimation)
+* Bisa digunakan untuk interval waktu yang tidak sama
+* Bisa memasukkan waktu sebagai variabel **kontinu**
+* Bisa memperkirakan perbedaan *trajectory* antar individu (*random slopes*)
+
+:::
+::: {.column width="45%"}
+
+![](https://media.giphy.com/media/3oriO6qJiXajN0TovO/giphy.gif){width="100%"}
+
+:::
+::::
+
+## Skenario: Kecemasan selama masa ujian
+
+:::: {.columns}
+::: {.column width="55%"}
+
+Nisa adalah seorang mahasiswa psikologi yang penasaran apakah tingkat kecemasan teman-temannya berubah selama masa ujian.
+
+Ia melakukan survei pada **120 mahasiswa** dari **4 fakultas berbeda** di dua universitas, sebanyak **4 kali pengukuran**:
+
+* **T1** — 2 minggu sebelum UAS
+* **T2** — 1 minggu sebelum UAS
+* **T3** — Saat UAS berlangsung
+* **T4** — 2 minggu setelah UAS
+
+:::
+::: {.column width="45%"}
+
+[*dataset-rm.omv*](/materials/dataset-rm.omv)
+
+**Variabel:**
+
+* **id** — ID mahasiswa
+* **fakultas** — Asal fakultas (1–4)
+* **t** — Waktu (1–4)
+* **cemas** — Skor kecemasan (0–100)
+* **neuro** — *Neuroticism* (trait)
+
+:::
+::::
+
+
+## Data *repeated measures* terlihat seperti ini
+
+<br>
+
+**Format *long*** (format yang dibutuhkan untuk `lme`):
+
+| id  | t | cemas | neuro |
+|-----|---|-------|-------|
+| 001 | 1 | 52    | 68    |
+| 001 | 2 | 61    | 68    |
+| 001 | 3 | 78    | 68    |
+| 001 | 4 | 49    | 68    |
+| 002 | 1 | 44    | 55    |
+| 002 | 2 | 50    | 55    |
+| ... | ...| ...  | ...   |
+
+Perhatikan: **neuro** tidak berubah antar waktu (variabel Level-2), sedangkan **cemas** berubah antar waktu (variabel Level-1).
+
+## Latihan (5): Setup *repeated measures* di GAMLj {background-color="#14497F" .center}
+
+Buka [*dataset-rm.omv*](/materials/dataset-rm.omv)
+
+---
+
+## Latihan (5): Langkah-langkah
+
+**Langkah 1 — Model kosong (_null model_):**
+
+* Klik **Linear Models** → **Mixed Models**
+* Masukkan **cemas** dalam **Dependent Variable**
+* Masukkan **id** dalam **Cluster Variables**
+* Pada **Random Effects**, masukkan **intercept|id**
+* Catat AIC
+
+::: {.callout-note}
+**Catatan penting:** Belum ada struktur kovarians khusus — ini berarti kita masih menggunakan *Identity* (asumsi independensi). Kita akan ubah di langkah berikutnya.
+:::
+
+## Latihan (5): Membandingkan struktur kovarians
+
+**Langkah 2 — Tambahkan waktu sebagai prediktor:**
+
+* Masukkan **t** dalam **Covariates** (jika ingin memperlakukan waktu sebagai kontinu) atau **Factors** (jika ingin diperlakukan sebagai kategoris)
+* Pada **Random Effects**, pertimbangkan apakah perlu menambahkan **t|id** (*random slopes*)
+
+**Langkah 3 — Ubah struktur kovarians residual:**
+
+* Klik menu **Residuals** (atau **Variances**)
+* Coba satu per satu: **Identity** → **Compound Symmetry** → **Unstructured**
+* Catat AIC dan BIC untuk masing-masing
+* Pilih struktur dengan **AIC/BIC terkecil**
+
+::: {.callout-tip}
+#### Tips
+Urutkan dari yang paling sederhana ke yang paling kompleks: Identity → CS → UN. Jika CS sudah cukup baik (AIC/BIC tidak jauh lebih buruk dari UN), gunakan CS.
+:::
+
+## Contoh output: membandingkan model
+
+* **Model dengan waktu + CS** biasanya sudah jauh lebih baik daripada model dengan Identity
+
+* Lihat tabel **Model Info** (AIC) dan **Fixed Coefficients** (efek waktu terhadap kecemasan)
+
+* Jika efek waktu signifikan: ada perubahan rata-rata kecemasan yang bermakna antar time point
+
+* Periksa juga **Random Coefficients**: apakah varians *random intercept* besar? Ini menunjukkan bahwa ada perbedaan tingkat kecemasan dasar yang besar antar individu.
+
+::: {.callout-note}
+#### Interpretasi
+Misalnya, *B*(waktu) = 8.5, artinya setiap bertambah 1 unit waktu (1 time point), skor kecemasan rata-rata meningkat 8.5 poin — mengontrol perbedaan antar individu.
+:::
+
+
+## *Experience Sampling Method* (ESM) {background-color="#14497F"}
+
+## Apa itu ESM?
+
+* **ESM** (*Experience Sampling Method*) adalah metode pengumpulan data di mana peserta **mengisi survei singkat berkali-kali** dalam kehidupan sehari-hari, biasanya melalui aplikasi di smartphone.
+
+* Tujuannya: menangkap **pengalaman, perasaan, dan perilaku** seseorang *in the moment*, dalam konteks kehidupan nyata, bukan hanya retrospektif.
+
+* Ada tiga jenis:
+  - **Signal-contingent** — alarm acak (mis. 5x/hari di jam berbeda)
+  - **Interval-contingent** — setiap X jam (mis. setiap 2 jam)
+  - **Event-contingent** — setiap kali kejadian tertentu terjadi
+
+::: {.callout-note}
+#### Nama lain ESM
+* *Daily diary study* (jika 1x/hari)
+* *Ecological momentary assessment* (EMA, lebih umum di konteks klinis)
+* *Ambulatory assessment*
+:::
+
+## Mengapa ESM?
+
+* **Validitas ekologis tinggi** — data dikumpulkan dalam kehidupan nyata, bukan di laboratorium
+
+* **Mengurangi bias retrospektif** — orang tidak selalu akurat mengingat bagaimana perasaannya kemarin
+
+* **Mengungkap dinamika temporal** — perubahan mood dari jam ke jam, bukan hanya rata-rata
+
+* **Memisahkan efek *within-person* dan *between-person*** secara lebih bersih
+
+* **Mendeteksi *intra-individual variability*** — seberapa fluktuatif seseorang dari waktu ke waktu
+
+## Struktur data ESM
+
+<br>
+
+Data ESM adalah data **bersarang 3 level** yang kita sederhanakan menjadi 2 level:
+
+<br>
+
+```
+Level 3: Orang (N = 80)
+    └── Level 2 (disederhanakan): Hari (7 hari/orang)
+            └── Level 1: Pengukuran/beep (5x/hari → 35 beep/orang)
+```
+
+<br>
+
+Total observasi: 80 × 35 = **2.800 baris**
+
+Dalam GAMLj 2-level: **_beep_** bersarang dalam **orang**.
+
+## Fitur khusus data ESM: *Temporal autocorrelation*
+
+Misalnya: _mood_ Dani jam 10 pagi **sangat berkorelasi** dengan _mood_ Dani jam 10.30, **cukup berkorelasi** dengan _mood_ Dani jam 12, dan **hampir tidak berkorelasi** dengan _mood_ Dani jam 10 malam.
+
+**Korelasi meluruh (_decay_) seiring bertambahnya jarak waktu.**
+
+Ini disebut ***temporal autocorrelation*** — dan tidak bisa ditangani dengan struktur *Identity* atau *Compound Symmetry*, karena:
+
+* CS mengasumsikan korelasi **sama** untuk semua jarak waktu
+* Kenyataannya, korelasi **lebih besar** untuk waktu yang berdekatan
+
+## Struktur 4: AR(1) — *Autoregressive order 1*
+
+$$\mathbf{R} = \sigma^2 \begin{bmatrix} 1 & \rho & \rho^2 & \rho^3 \\ \rho & 1 & \rho & \rho^2 \\ \rho^2 & \rho & 1 & \rho \\ \rho^3 & \rho^2 & \rho & 1 \end{bmatrix}$$
+
+* Korelasi antara pengukuran yang berjarak k = ρᵏ (|ρ| < 1)
+* Korelasi **meluruh secara eksponensial** seiring bertambahnya jarak
+* **Kapan pakai:** ESM, *daily diary*, longitudinal dengan pengukuran regular — ini pilihan paling natural untuk ESM
+* **Asumsi:** interval antar pengukuran **harus sama** (*equally spaced*)
+* **Jumlah parameter:** 2 (σ² dan ρ)
+
+::: {.callout-tip}
+#### Intuisi AR(1)
+Jika ρ = 0.5: korelasi beep berturutan = 0.5, dua beep terpisah = 0.25, tiga beep terpisah = 0.125. Semakin jauh jarak waktunya, korelasi makin melemah.
+:::
+
+## Struktur 5: ARMA(1,1) — *Autoregressive Moving Average*
+
+* Menggabungkan AR(1) dengan komponen ***moving average*** (MA)
+* Komponen MA (λ) menangkap "lonjakan korelasi lokal" antara **dua pengukuran yang sangat berdekatan** yang tidak sepenuhnya ditangkap oleh AR(1)
+* **Kapan pakai:** ESM dengan pengukuran sangat sering (mis. setiap 30 menit), ketika ada efek carry-over yang kuat di satu langkah berikutnya — atau ketika AR(1) masih menyisakan pola autokorelasi
+* **Jumlah parameter:** 3 (σ², ρ, λ)
+
+::: {.callout-note}
+**Contoh ARMA(1,1)**: Bayangkan ada kejadian mendadak (telepon penting jam 2 siang) yang meningkatkan kecemasan Anda. Efeknya sangat terasa di pengukuran jam 2.30, tapi mulai memudar setelahnya. Komponen MA menangkap "lonjakan lokal" ini — di luar pola meluruh reguler dari AR(1).
+:::
+
+## *Person-mean centering* dalam ESM
+
+Dalam data ESM, kita menangani dua pertanyaan penelitian yang **sangat berbeda**:
+
+1. **Efek *within-person*** (*Level 1*): ketika Dadan *saat ini* lebih stres dari biasanya, apakah afek negatifnya juga lebih tinggi dari biasanya?
+
+2. **Efek *between-person*** (*Level 2*): apakah orang yang *secara umum* lebih stres juga *secara umum* memiliki afek negatif yang lebih tinggi?
+
+Tanpa *centering*, kedua efek ini **tercampur** dan koefisien yang dihasilkan tidak dapat diinterpretasikan secara bermakna.
+
+**Formula:**
+$$\text{stres\_centered}_{ij} = \text{stres}_{ij} - \bar{\text{stres}}_j$$
+
+di mana $\bar{\text{stres}}_j$ adalah rata-rata stres orang $j$ di semua beep-nya.
+
+<br>
+
+Ini **mirip** dengan *group-mean centering* di materi sebelumnya, tapi unit pengelompokannya adalah **individu**, bukan sekolah/organisasi.
+
+## Efek *within-* vs. *between-person*: ilustrasi
+
+:::: {.columns}
+::: {.column width="55%"}
+
+| Orang | _Beep_ | Stres | M_stres | _Stres_centered_ |
+|-------|------|-------|---------|----------------|
+| Dadan  | 1    | 60    | 55      | **+5**         |
+| Dadan  | 2    | 50    | 55      | **-5**         |
+| Bahlil  | 1    | 40    | 45      | **-5**         |
+| Bahlil  | 2    | 50    | 45      | **+5**         |
+
+<br>
+
+Dadan dan Bahlil pada _beep_ 2 sama-sama stres = 50, **tetapi artinya berbeda**: Dadan lebih rendah dari biasanya, Bahlil lebih tinggi dari biasanya.
+
+:::
+::: {.column width="45%"}
+
+::: {.callout-important}
+#### Penting
+Rata-rata individu (**M_stres**) dimasukkan sebagai **prediktor Level-2** yang terpisah untuk mengestimasi _between-person effect_ secara eksplisit — sama seperti _grand-mean centering_ dalam materi sebelumnya.
+:::
+
+:::
+::::
+
+## *Cross-level interaction* dalam ESM
+
+:::: {.columns}
+::: {.column width="55%"}
+
+Pertanyaan yang paling menarik dalam banyak studi ESM: **apakah hubungan *within-person* berbeda antar individu?**
+
+Misalnya: apakah hubungan antara stres sesaat dengan afek negatif sesaat **lebih kuat** pada orang dengan *neuroticism* tinggi?
+
+Ini adalah ***cross-level interaction***: interaksi antara prediktor Level-1 (*stres_centered*) dengan prediktor Level-2 (*neuroticism*).
+
+:::
+::: {.column width="45%"}
+
+**Cara setup di GAMLj:**
+
+1. Masukkan **stres_centered** dan **neuroticism** dalam *Fixed Effects*
+2. Klik **Model** → tambahkan **stres_centered × neuroticism**
+3. Masukkan **stres_centered|id** dalam *Random Effects* (estimasi *random slopes* untuk stres_centered)
+
+:::
+::::
+
+## Skenario ESM: Afek dan regulasi emosi
+
+:::: {.columns}
+::: {.column width="55%"}
+
+Joko adalah seorang mahasiswa S3 yang ingin tahu apakah **strategi regulasi emosi** seseorang mempengaruhi **dinamika afek harian** mereka.
+
+Ia merekrut **80 mahasiswa** dan meminta mereka mengisi survei singkat **5 kali sehari selama 7 hari** melalui aplikasi smartphone.
+
+Setiap *beep*, partisipan diminta menilai:
+
+* **pa** — afek positif saat ini (0–100)
+* **stres** — tingkat stres saat ini (0–100)
+
+Sebelum studi dimulai, partisipan mengisi:
+
+* **er** — strategi regulasi emosi (*emotion regulation*, skor kontinu)
+
+:::
+::: {.column width="45%"}
+
+[*dataset-esm.omv*](/materials/dataset-esm.omv)
+
+**Variabel Level-1 (_beep_):**
+
+* id, hari, beep, pa, stres
+
+**Variabel Level-2 (_person_):**
+
+* er (regulasi emosi)
+
+:::
+::::
+
+## Latihan (6): Setup ESM di GAMLj {background-color="#14497F" .center}
+
+[Buka *dataset-esm.omv*](/materials/dataset-esm.omv)
+
+---
+
+## Latihan (6): Langkah-langkah (1)
+
+:::: {.columns}
+::: {.column width="55%"}
+
+**Persiapan data:**
+
+* Sebelum analisis, kita perlu membuat variabel **stres_centered** (stres yang sudah di-*person-mean centered*)
+  - Dalam jamovi: **Data** → **Add Computed Variable**
+  - Formula: `stres - VMEAN(stres, id)` (mengurangi dengan rata-rata dalam kelompok id)
+
+* Buat juga variabel **stres_mean** (rata-rata stres per orang):
+  - Formula: `VMEAN(stres, id)` → variabel ini mewakili *between-person effect*
+
+:::
+::: {.column width="45%"}
+
+::: {.callout-note}
+#### Tips
+Dalam jamovi, fungsi `VMEAN(var, group)` menghitung rata-rata variabel `var` untuk setiap nilai `group`. Ini setara dengan *group-mean* yang kita gunakan di materi sebelumnya.
+:::
+
+:::
+::::
+
+---
+
+## Latihan (6): Langkah-langkah (2)
+
+:::: {.columns}
+::: {.column width="55%"}
+
+**Langkah 1 — Model null:**
+
+* Klik **Linear Models** → **Mixed Models**
+* **Dependent Variable:** pa
+* **Cluster Variables:** id
+* **Random Effects:** intercept|id
+* Catat ICC dan AIC
+
+**Langkah 2 — Tambahkan prediktor Level-1:**
+
+* **Covariates:** stres_centered
+* **Random Effects:** tambahkan **stres_centered|id** (random slopes)
+* **Residuals → pilih AR(1)** untuk menangkap temporal autocorrelation
+
+:::
+::: {.column width="45%"}
+
+**Langkah 3 — Tambahkan prediktor Level-2:**
+
+* **Covariates:** stres_mean (between-person), er (regulasi emosi)
+
+**Langkah 4 — Cross-level interaction:**
+
+* Klik **Model** → tambahkan interaksi **stres_centered × er**
+
+**Bandingkan AIC** antar model!
+
+:::
+::::
+
+---
+
+## Apa yang kita estimasi?
+
+:::: {.columns}
+::: {.column width="55%"}
+
+Dari model ESM lengkap, kita mendapatkan estimasi:
+
+**Fixed effects:**
+* *Intercept*: rata-rata afek positif keseluruhan
+* **stres_centered** (*B₁*): efek *within-person* — ketika seseorang lebih stres dari biasanya, seberapa besar afek positifnya menurun?
+* **stres_mean** (*B₂*): efek *between-person* — apakah orang yang lebih stres secara umum juga lebih rendah afek positifnya?
+* **er** (*B₃*): efek regulasi emosi antar individu
+* **stres_centered × er** (*B₄*): *cross-level interaction*
+
+:::
+::: {.column width="45%"}
+
+**Random effects:**
+* σ²_U0: varians *random intercept* (perbedaan baseline afek antar orang)
+* σ²_U1: varians *random slopes* (seberapa bervariasi reaktivitas stres antar orang)
+* σ²_e: varians residual Level-1
+
+**AR(1) parameters:**
+* ρ: koefisien autokorelasi (besarnya korelasi antar beep berturutan)
+
+:::
+::::
+
+---
+
+## Bagaimana melaporkannya? (1) {background-color="#14497F"}
+
+"...untuk menguji hipotesis penelitian, kami melakukan analisis *linear mixed effects* (LME) dengan menggunakan REML (*Restricted Maximum Likelihood*) di jamovi (GAMLj). Data bersarang dalam dua level: pengukuran sesaat (*beep*, N=2.800) bersarang dalam individu (N=80).
+
+Sebelum analisis, variabel stres sesaat di-*person-mean centered* dengan cara mengurangi skor stres setiap *beep* dengan rata-rata skor stres individu tersebut di seluruh *beep*-nya. Rata-rata stres individu dimasukkan sebagai prediktor Level-2 yang terpisah untuk mengestimasi efek *between-person* secara eksplisit.
+
+Struktur kovarians residual AR(1) dipilih untuk menangkap *temporal autocorrelation* antar pengukuran, yang diperkuat oleh estimasi koefisien autokorelasi ρ=XX, menunjukkan korelasi yang moderat antara pengukuran berturutan..."
+
+---
+
+## Bagaimana melaporkannya? (2) {background-color="#14497F"}
+
+"...model null menunjukkan bahwa XX.X% varians afek positif sesaat berada di level individu (ICC=X.XX), mengindikasikan bahwa penggunaan LME lebih sesuai daripada regresi OLS.
+
+Efek *within-person* stres sesaat terhadap afek positif sesaat signifikan negatif (*B*=XX 95% CI [XX, XX], *SE*=XX, *t*=XX, *p*=.0XX), artinya ketika seseorang **saat ini lebih stres dari biasanya**, afek positifnya juga lebih rendah dari biasanya sebesar XX poin.
+
+Efek *between-person* stres juga signifikan (*B*=XX 95% CI [XX, XX]), artinya orang yang secara umum lebih stres memiliki afek positif rata-rata yang lebih rendah sebesar XX poin, dibanding orang yang lebih tidak stres — bahkan ketika perbedaan fluktuasi sesaat sudah dikontrol.
+
+*Cross-level interaction* antara stres sesaat dan regulasi emosi signifikan (*B*=XX), menunjukkan bahwa orang dengan regulasi emosi yang lebih baik menunjukkan reaktivitas stres-afek yang lebih lemah..."
+
+---
+
+## Rangkuman: kapan pakai struktur apa?
+
+:::: {.columns}
+::: {.column width="55%"}
+
+**Repeated measures (sedikit time points, ≤ 5):**
+
+1. Mulai dengan *Unstructured* sebagai baseline
+2. Bandingkan dengan *Compound Symmetry*
+3. Jika AIC/BIC CS tidak jauh lebih buruk → pilih CS
+
+**ESM / *daily diary* (banyak time points, interval regular):**
+
+1. Mulai dengan **AR(1)** sebagai pilihan utama
+2. Jika masih ada pola residual → coba **ARMA(1,1)**
+3. Jangan gunakan *Identity* atau *Compound Symmetry* tanpa alasan teoritis yang kuat
+
+:::
+::: {.column width="45%"}
+
+**Selalu lakukan:**
+
+* Cek ICC di model null
+* Bandingkan AIC/BIC antar struktur
+* Lakukan *person-mean centering* untuk prediktor Level-1 dalam ESM
+* Estimasi *random slopes* untuk prediktor Level-1 yang menjadi fokus penelitian
+
+:::
+::::
+
+---
+
+## Latihan mandiri (3)
+
+:::: {.columns}
+::: {.column width="55%"}
+
+Menggunakan *dataset-esm.omv*, jawab pertanyaan berikut:
+
+1. Seberapa besar proporsi varians afek positif sesaat yang ada di level individu? (ICC)
+
+2. Apakah ada efek *within-person* dari stres sesaat terhadap afek positif sesaat? Seberapa besar?
+
+3. Apakah hubungan tersebut berbeda antar individu? (Lihat varians *random slopes*)
+
+4. Apakah regulasi emosi memoderasi hubungan antara stres sesaat dengan afek positif sesaat? (*cross-level interaction*)
+
+5. Bandingkan model dengan struktur AR(1) vs. Identity. Mana yang lebih baik?
+
+:::
+::: {.column width="45%"}
+
+### [Klik disini untuk mengakses lembar kerja](#)
+
+![](https://media.giphy.com/media/l1KVaj5UcbHwrBMqI/giphy.gif){width="100%"}
+
+:::
+::::
+
+---
+
+## Yang belum dibahas...
+
+:::: {.columns}
+::: {.column width="55%"}
+
+* **Data ESM 3-level**: pengukuran bersarang dalam hari, bersarang dalam individu
+  - Dalam R: `lme4` dengan dua cluster variables
+  - Dalam jamovi GAMLj saat ini: belum didukung penuh
+
+* ***Lagged predictors***: apakah stres *sebelumnya* memprediksi afek *sekarang*?
+
+* ***Intra-individual variability*** sebagai outcome (bukan hanya rata-rata)
+
+* ***Intensive longitudinal data***: ketika jumlah beep sangat banyak (>100/orang)
+
+* **ESM dengan variabel kategoris** (mis. afek diukur dengan *item* nominal)
+  - Perlu *generalized* LME (*GLMM*)
+
+:::
+::: {.column width="45%"}
+
+![](https://media.giphy.com/media/wMvESGxZ0Cqd2/giphy.gif){width="100%"}
+
+:::
+::::
+
+---
+
+## Referensi tambahan
+
+* Bolger, N., & Laurenceau, J-P. (2013). *Intensive longitudinal methods: An introduction to diary and experience sampling research*. Guilford Press.
+* Hamaker, E.L., Kuiper, R.M., & Grasman, R.P.P.P. (2015). A critique of the cross-lagged panel model. *Psychological Methods*, *20*(1), 102-116. doi: [10.1037/a0038889](https://doi.org/10.1037/a0038889)
+* Nezlek, J.B. (2012). Multilevel modeling analyses of diary-style data. In M.R. Mehl & T.S. Conner (Eds.), *Handbook of Research Methods for Studying Daily Life* (pp. 384-410). Guilford Press.
+* Trull, T.J. & Ebner-Priemer, U. (2014). The role of ambulatory assessment in psychological science. *Current Directions in Psychological Science*, *23*(6), 466-470. doi: [10.1177/0963721414550706](https://doi.org/10.1177/0963721414550706)
+
+## Ada pertanyaan❓
+
+![](https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExMDFtaDh5ZjZ2eXJ3dmJmZmFmYzBtNHEwdzlqZmZtdGtmbnE0bXZidiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/igB2Th9e4nW6s/giphy.gif){fig-align="center"}
+
+::: {.callout-note}
+* Paparan disusun dengan menggunakan <i class="fa-brands fa-r-project"></i> dan [**Quarto**](https://quarto.org) dengan *template* dari [UNAIR Theme](https://github.com/rameliaz/quarto-unair-theme).
+* Kontak saya via <i class="fas fa-paper-plane"></i> <a href="mailto:amelia.zein@psikologi.unair.ac.id">amelia.zein@psikologi.unair.ac.id</a>
+:::
