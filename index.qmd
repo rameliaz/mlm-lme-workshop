@@ -27,10 +27,6 @@ Namun, apabila peserta ingin menyimpan atau mengakses _history chat_ setelah _wo
 
 Materi yang tersedia di laman web ini juga mencakup konsep dasar *ordinary least square regression* selain pengenalan `lme`. 
 
-::: {.callout-important}
-Karena asumsinya mahasiswa S3 sudah memiliki pengetahuan statistik dasar, maka _workshop_ **hanya mencakup Bagian 2 saja**. Bagian 1 **harus dikuasai** oleh peserta terlebih dahulu sebelum memulai _workshop_ dan dapat dipelajari secara mandiri.
-:::
-
 Peserta juga akan diminta untuk menganalisis data dengan menggunakan `lme` dan melaporkannya dengan format yang biasa digunakan dalam artikel penelitian.
 
 Berikut adalah *outline* materi yang tersedia di laman web ini:
@@ -51,6 +47,10 @@ Berikut adalah *outline* materi yang tersedia di laman web ini:
 * Menguji _interaction effects_ dan _model change_
 * Menulis hasil analisis regresi linier dengan _interaction terms_ dalam manuskrip
 
+::: {.callout-important}
+Karena asumsinya mahasiswa S3 sudah memiliki pengetahuan statistik dasar, maka  **Bagian 1 tidak diajarkan** di _workshop_. Bagian 1 **harus dikuasai** oleh peserta terlebih dahulu sebelum memulai _workshop_ dan dapat dipelajari secara mandiri.
+:::
+
 ### **Bagian 2️⃣**: _Linear Mixed Effects Model_ 
 
 * Struktur data berjenjang/bersarang (*hierarchical/nested data*)
@@ -70,7 +70,7 @@ Berikut adalah *outline* materi yang tersedia di laman web ini:
 
 ### **Bagian 3️⃣**: `lme` untuk Pengukuran Berulang dan *Experience Sampling*
 
-* Keterbatasan `lme` biasa untuk data berulang
+* Keterbatasan `lme` biasa untuk data pengukuran berulang
 * *Repeated measures* dengan `lme`
   - Struktur kovarians residual: *Identity*, *Compound Symmetry*, *Unstructured*
   - Membandingkan model dengan struktur residual berbeda
@@ -83,7 +83,7 @@ Berikut adalah *outline* materi yang tersedia di laman web ini:
 * Melaporkan hasil dalam manuskrip
 
 ::: {.callout-important}
-Karena keterbatasan waktu, bagian 3️⃣ **_tidak diajarkan_** di _workshop_. Materi tersedia di laman web ini dan dapat dipelajari secara mandiri.
+Karena keterbatasan waktu, bagian 3️⃣ **tidak diajarkan** di _workshop_. Materi tersedia di laman web ini dan dapat dipelajari peserta secara mandiri.
 :::
 
 ## Referensi

@@ -4,6 +4,7 @@ project:
   resources:
     - libs/
     - img/
+    - materials/
   render:
     - index.qmd
     - materi-lme1.qmd

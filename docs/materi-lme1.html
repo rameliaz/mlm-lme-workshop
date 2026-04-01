@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.8.14">
 
   <meta name="author" content="Rizqy Amelia Zein">
-  <meta name="dcterms.date" content="2026-03-31">
+  <meta name="dcterms.date" content="2026-04-01">
   <title>LME Workshop – Regresi Linier (Ordinary Least Square)</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -137,15 +137,15 @@
 Rizqy Amelia Zein 
 </div>
         <p class="quarto-title-affiliation">
-            <em>Departemen Psikologi, Universitas Airlangga</em>
+            <a href="https://psikologi.unair.ac.id/dosen-rizqy-amelia-zein/"><em>Departemen Psikologi, Universitas Airlangga</em></a>
           </p>
         <p class="quarto-title-affiliation">
-            Research Data &amp; Methods Team, Center for Advanced Internet Studies
+            <a href="https://www.cais-research.de/team/rizqy-amelia-zein/">Research Data &amp; Methods Team, Center for Advanced Internet Studies</a>
           </p>
     </div>
 </div>
 
-  <p class="date">2026-03-31</p>
+  <p class="date">2026-04-01</p>
 </section>
 <section id="outline" class="slide level2">
 <h2><em>Outline</em></h2>
@@ -153,7 +153,7 @@ Rizqy Amelia Zein
 <li>Berlatih menginspeksi data secara visual dengan <em>scatterplot</em></li>
 <li>Model regresi linier (<em>ordinary least square</em>)</li>
 <li>Menarik garis regresi (<em>fitted regression lines</em>)</li>
-<li>Varians yang dapat dan yang tidak dapat dijelaskan oleh model (<em>R^2</em>)</li>
+<li>Varians yang dapat dan yang tidak dapat dijelaskan oleh model (<em>R</em><sup>2</sup>)</li>
 <li>Menguji hipotesis</li>
 <li>Mengecek kecocokan model dengan data (<em>model fit</em>)</li>
 <li>Mengecek asumsi
@@ -167,20 +167,26 @@ Rizqy Amelia Zein
 <li>Menulis hasil analisis regresi linier dengan <em>interaction terms</em> dalam manuskrip</li>
 </ul>
 </section>
-<section id="skenario" class="slide level2">
-<h2>Skenario</h2>
+<section id="ilustrasi-kasus" class="slide level2">
+<h2>Ilustrasi Kasus</h2>
+<div class="columns">
+<div class="column" style="width:70%;">
 <p>Marimar adalah seorang wali murid di sebuah PAUD di Kota Surabaya. Pada suatu hari, ia mengamati seorang anak (dan orangtua) yang perilakunya menarik perhatiannya.</p>
-<p>Ibu anak tersebut <em>ngotot</em> untuk menunggui anaknya di sekolah, padahal guru kelas meminta agar Ibu pulang saja, mempercayakan anak pada guru, dengan tujuan melatih kemandirian anaknya.</p>
+<p>Ibu anak tersebut bersikeras untuk menunggui anaknya di sekolah, padahal guru kelas meminta agar Ibu pulang saja, mempercayakan anak pada guru, dengan tujuan melatih kemandirian anaknya.</p>
 <p>Melihat ibunya yang menggerutu karena diminta bu Guru pulang, si anak menangis meraung-raung tidak mau ditinggalkan. Akhirnya, terpaksa bu Guru membiarkan si Ibu menunggu di sekolah.</p>
 <p>Marimar heran sekaligus penasaran, mengapa tiap anak <strong>memberikan respon yang berbeda</strong> ketika ditinggal orangtuanya di sekolah. Ada yang menangis meraung-raung, ada yang lebih santai dengan langsung bermain. Apakah ada kaitan antara kemandirian anak dengan karakteristik orangtuanya?</p>
+</div><div class="column" style="width:30%;">
+<p><img data-src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExZW5kdDlocmllN3dscTl6N2Yyd2pvdjNqZGZ4OW5xZzIzdXowc2o2ayZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/lv86aOL3XkZC0EadmR/giphy.gif"></p>
+</div></div>
+<!-- end columns -->
 </section>
 <section id="eksplorasi-dataset" class="slide level2">
 <h2>Eksplorasi dataset</h2>
 <h3 id="dataset-1-dataset-sekolah.omv">Dataset 1: dataset-sekolah.omv</h3>
 <ul>
 <li>Marimar yang penasaran akhirnya melakukan survei di 5 PAUD di Kota Surabaya, dengan ukuran sampel sebesar total 400 orang</li>
-<li>Buka laman repositori (http://bit.ly/mlm-dies-psi)</li>
-<li>Klik menu <strong>Dataset</strong> di pojok kanan dan unduh dataset-sekolah.omv</li>
+<li>Buka <a href="https://rameliaz.github.io/mlm-lme-workshop/">laman web <em>workshop</em></a></li>
+<li>Klik menu <strong>Dataset</strong> di pojok kanan dan unduh <a href="https://rameliaz.github.io/mlm-lme-workshop/dataset-sekolah.omv">dataset-sekolah.omv</a></li>
 <li>Dalam dataset tersebut ada beberapa variabel
 <ul>
 <li><strong>neu</strong> = Kecenderungan <em>Neuroticism</em> ibu (<em>five factor model</em>). Makin tinggi skor, Ibu makin mudah cemas, frustasi, cemburu, rasa bersalah, dan ketakutan berlebihan.</li>
@@ -209,7 +215,7 @@ Rizqy Amelia Zein
 <section id="membuat-scatterplot" class="slide level2">
 <h2>Membuat <em>scatterplot</em></h2>
 <div class="columns">
-<div class="column" style="width:50%;">
+<div class="column" style="width:60%;">
 <ul>
 <li>Merupakan teknik inspeksi visual kemungkinan terjadinya korelasi antara variabel.</li>
 <li>Setelah melakukan analisis deskriptif, sepertinya akan menarik membandingkan kaitan antara:
@@ -225,8 +231,8 @@ Rizqy Amelia Zein
 <li>Pada opsi <strong>regression line</strong>, pilih <strong>linear</strong> dan centang kotak <strong>standard error</strong></li>
 </ul></li>
 </ul>
-</div><div class="column" style="width:50%;">
-<p><img src="libs/scatplot.jpg" style="width:100%;" class="fancyimage"></p>
+</div><div class="column" style="width:40%;">
+<p><img src="libs/scatplot.jpg" style="width:90%;" class="fancyimage"></p>
 </div></div>
 </section>
 <section id="scatterplot" class="slide level2">
@@ -240,22 +246,22 @@ Rizqy Amelia Zein
 <p><em>Scatterplot</em> 2. <em>Trust</em> dan Kemandirian</p>
 </div></div>
 <div class="footnote">
-<p>Bagaimana kekuatan dan arah hubungan pada <em>scatterplot</em> 1 dan 2?</p>
+<p><strong>Bagaimana kekuatan dan arah hubungan pada <em>scatterplot</em> 1 dan 2?</strong></p>
 </div>
 </section>
-<section id="ayo-main" class="slide level2">
+<section id="ayo-main" class="slide level2 center">
 <h2>Ayo main!! 📢</h2>
-<h3 id="guess-the-correlation"><a href="http://guessthecorrelation.com/"><strong>Guess the correlation</strong></a></h3>
+<h3 id="guess-the-correlation">🔗 <a href="http://guessthecorrelation.com/"><strong>Guess the correlation</strong></a> 🔗</h3>
 
-<img data-src="https://media.giphy.com/media/YJ5OlVLZ2QNl6/giphy.gif" class="r-stretch"></section>
+<img data-src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExc2RyMGtvYWg2OXY4ZXE1bGM2ZWc2azl6ajF3NXZnaG4yNjkzMTYzcCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/P8FQaEJsjFq5lHu4Za/giphy.gif" class="r-stretch"></section>
 <section id="kekuatan-dan-arah-korelasi-1" class="slide level2">
 <h2>Kekuatan dan arah korelasi 1️⃣</h2>
 <p>Korelasi yang tampak pada <em>scatterplot</em> tadi dapat dikonseptualisasikan dengan lebih jelas dengan menghitung <strong>koefisien korelasi</strong>, yang mengimplikasikan kekuatan hubungan.</p>
 <ul>
-<li><em>Pearson’s</em> r misalnya, biasanya ditulis dengan rxy, sedangkan <em>Spearman’s</em> rho ditulis rs.</li>
+<li><em>Pearson’s</em> r misalnya, biasanya ditulis dengan <em>r</em><sub>xy</sub>, sedangkan <em>Spearman’s</em> ρ ditulis <em>r</em><sub>s</sub>.</li>
 <li>Berkisar antara -1 s/d 1</li>
 <li>-1 artinya korelasi negatif sempurna, 1 artinya korelasi positif sempurna</li>
-<li>Koefisien korelasi <em>Pearson’s</em> r atau <em>Spearman’s</em> rho dihitung dari kovarians (<em>covariance</em>/<em>average cross product</em> dari dua variabel).
+<li>Koefisien korelasi <em>Pearson’s</em> <em>r</em> atau <em>Spearman’s</em> ρ dihitung dari kovarians (<em>covariance</em>/<em>average cross product</em> dari dua variabel).
 <ul>
 <li>Dua variabel yang sama sekali tak berkorelasi, maka kovarians nol.</li>
 </ul></li>
@@ -266,8 +272,8 @@ Rizqy Amelia Zein
 <div class="columns">
 <div class="column" style="width:55%;">
 <ul>
-<li>Kovarians sulit diinterpretasi, sehingga formula <em>Pearson’s</em> r dan <em>Spearman’s</em> rho menstandardisasi kovarians agar lebih mudah diinterpretasi</li>
-<li>Fungsi <em>Pearson’s</em> r dan <em>Spearman’s</em> rho mirip <em>z-score</em></li>
+<li>Kovarians sulit diinterpretasi, sehingga formula <em>Pearson’s</em> r dan <em>Spearman’s</em> ρ menstandardisasi kovarians agar lebih mudah diinterpretasi</li>
+<li>Fungsi <em>Pearson’s r</em> dan <em>Spearman’s</em> ρ mirip <em>z-score</em></li>
 <li>Kuat &gt;&lt; lemahnya koefisien korelasi sebenarnya sangat tergantung konteks penelitiannya.
 <ul>
 <li>Pada fenomena yang multifaktor, misalnya mencari variabel yang berkaitan dengan kecenderungan Skizofrenia, korelasi 0.3 aja sudah bermakna sangat besar.</li>
@@ -280,7 +286,7 @@ Rizqy Amelia Zein
 <section id="regresi-linier-ordinary-least-square-regressionols" class="slide level2">
 <h2>Regresi linier (<em>ordinary least square regression</em>/OLS)</h2>
 <div class="columns">
-<div class="column" style="width:55%;">
+<div class="column" style="width:60%;">
 <ul>
 <li>Merupakan kelanjutan yang lebih kompleks dari <em>Pearson’s</em> r</li>
 <li>Ide dasarnya adalah menyusun persamaan garis yang dapat digunakan untuk <strong>memperkirakan</strong> nilai Y ketika nilai X diketahui
@@ -290,11 +296,11 @@ Rizqy Amelia Zein
 </ul></li>
 <li>OLS bekerja dengan pendekatan <em>least square</em>, artinya mencari <strong>jumlah kuadrat terkecil</strong> antara garis regresi (nilai Y yang diperkirakan oleh model) dengan nilai Y yang diobservasi.</li>
 </ul>
-</div><div class="column" style="width:45%;">
+</div><div class="column" style="width:40%;">
 <p><img src="libs/corr-meme.jpg" style="width:100%;" class="fancyimage"></p>
 </div></div>
 </section>
-<section id="persamaan-garis-regresi" class="slide level2">
+<section id="persamaan-garis-regresi" class="slide level2 center">
 <h2>Persamaan garis regresi</h2>
 
 <img src="libs/reg-equation.jpg" style="width:40%;" class="fancyimage r-stretch"></section>
@@ -305,11 +311,11 @@ Rizqy Amelia Zein
 <section id="asumsi-yang-harus-dipenuhi" class="slide level2">
 <h2>Asumsi yang harus dipenuhi</h2>
 <ul>
-<li>Variabel X dan Y <strong>berkorelasi secara linier</strong>
+<li>Prediktor dan variabel dependen <strong>berkorelasi secara linier</strong>
 <ul>
 <li>Lakukan analisis korelasi sebelum melakukan regresi untuk memastikan asumsi ini terpenuhi</li>
 </ul></li>
-<li>Residual/<em>error</em>/varians variabel Y yang tidak dapat dijelaskan oleh model
+<li>Residual (varians <em>error</em>) variabel dependen yang tidak dapat dijelaskan oleh model
 <ul>
 <li>Berdistribusi normal</li>
 <li>Variansnya homogen (<strong>homoskedasdisitas</strong>)</li>
@@ -330,7 +336,7 @@ Rizqy Amelia Zein
 <li>Klik menu <strong>regression</strong>, pilih <strong>linear regression</strong>.</li>
 <li>Masukkan <strong>mandiri</strong> dalam kolom <strong>dependent variable</strong> dan <strong>neu</strong> pada <strong>covariates</strong>.</li>
 <li>Pada opsi <strong>assumption checks</strong>, centang <strong>Q-Q plot of residuals</strong>, <strong>residual plots</strong> dan <strong>Cook’s distance</strong>.</li>
-<li>Pada opsi <strong>model fit</strong>, centang <strong>R</strong>, <strong>R^2</strong>, dan <strong>F test</strong>.</li>
+<li>Pada opsi <strong>model fit</strong>, centang <strong>R</strong>, <strong>R<sup>2</sup></strong>, dan <strong>F test</strong>.</li>
 <li>Pada opsi <strong>model coefficients</strong>, centang <strong>ANOVA test</strong>, <strong>confidence interval</strong>, dan <strong>standardized estimates</strong>.</li>
 </ul>
 </section>
@@ -345,15 +351,25 @@ Rizqy Amelia Zein
 <ul>
 <li>Manakah yang lebih banyak; varians yang <strong>dapat</strong>, atau yang <strong>tidak dapat dijelaskan</strong> oleh model?</li>
 </ul></li>
-<li>Statistical grand prize ❗: <strong>menjelaskan varians variabel dependen</strong>.
-<ul>
-<li>Hampir semua teknik statistik intinya adalah membandingkan varians yang dapat dengan yang tidak dapat dijelaskan (residual) oleh model</li>
-</ul></li>
 </ul>
 </div><div class="column" style="width:45%;">
 <p><img src="libs/mfit-1.jpg" style="width:100%;" class="fancyimage"></p>
 <p><img src="libs/ftest-1.jpg" style="width:100%;" class="fancyimage"></p>
 </div></div>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Note</strong></p>
+</div>
+<div class="callout-content">
+<p><strong>Statistical grand prize ❗: menjelaskan varians variabel dependen</strong></p>
+<p>Hampir semua teknik statistik intinya adalah membandingkan varians yang dapat dengan yang tidak dapat dijelaskan (residual) oleh model</p>
+</div>
+</div>
+</div>
 </section>
 <section id="koefisien-model" class="slide level2">
 <h2>Koefisien model</h2>
@@ -417,11 +433,11 @@ Rizqy Amelia Zein
 <div class="columns">
 <div class="column" style="width:55%;">
 <ul>
-<li>Plot disamping kanan menunjukkan kondisi <em>heteroskedastik</em></li>
+<li>Plot disamping kanan menunjukkan kondisi <strong>heteroskedastik</strong></li>
 <li>Contoh heteroskedasdisitas: pendapatan personal dan usia
 <ul>
 <li>Pada usia <strong>anak-anak, remaja dan dewasa awal</strong>, variasi tingkat pendapatan sangat kecil, sedangkan yang <strong>usianya lebih tua</strong>, variasi tingkat pendapatan <strong>lebih besar</strong>.</li>
-<li>Kok bisa?</li>
+<li>Apa kira-kira alasannya?</li>
 </ul></li>
 </ul>
 </div><div class="column" style="width:45%;">
@@ -447,16 +463,18 @@ Rizqy Amelia Zein
 <section id="diagnostik-model-deteksi-outliers-2" class="slide level2">
 <h2>Diagnostik model: deteksi <em>outliers</em> 2️⃣</h2>
 <div class="columns">
-<div class="column" style="width:55%;">
+<div class="column" style="width:60%;">
 <ul>
 <li>Kalau diatas 1 bagaimana?
 <ul>
-<li>Coba bikin lagi garis regresi tanpa <em>outlier</em> tersebut, cari tahu kenapa nilainya bisa se-ekstrim itu</li>
-<li>Kalau sangat mendesak, <em>outlier</em> dapat dikeluarkan dari model. Tetapi ini tidak terlalu disarankan dan kalaupun dilakukan, harus ditulis dengan jelas di manuskrip/laporan.</li>
+<li>Coba buat lagi garis regresi tanpa <em>outlier</em> tersebut, cari tahu kenapa nilainya bisa se-ekstrim itu</li>
+<li><em>Outlier</em> umumnya tidak boleh dihapus dari dataset tanpa justifikasi yang jelas, karena ini termasuk <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC4114807/"><em>questionable research practices</em></a>.</li>
+<li>Kalau sangat mendesak, <em>outlier</em> dapat dikeluarkan dari model. Tetapi ini tidak disarankan dan kalaupun dilakukan, analisis <strong>harus dilaporkan dua versi; dengan dan tanpa <em>outlier</em>.</strong></li>
+<li>Daripada dihapus, sebaiknya pakai regresi dengan <a href="https://forum.jamovi.org/viewtopic.php?t=4067"><em>robust estimator</em></a> yang dapat mengurangi efek <em>outlier</em>.</li>
 </ul></li>
 <li>Dari <em>output</em> di samping, dapat disimpulkan bahwa apabila <em>outlier</em> tidak disertakan dalam analisis, maka perubahan rerata, median, dan standar deviasi keseluruhan sampel kurang dari 1 dari nilai asalnya.</li>
 </ul>
-</div><div class="column" style="width:45%;">
+</div><div class="column" style="width:40%;">
 <p><img src="libs/cook-1.jpg" style="width:100%;" class="fancyimage"></p>
 </div></div>
 </section>
@@ -503,10 +521,10 @@ Rizqy Amelia Zein
 <div class="columns">
 <div class="column" style="width:55%;">
 <p>Model 2 (<em>F</em>(2,397)=58.2, p&lt;.001, R<sup>2</sup>=.226) dapat menjelaskan varians tingkat kemandirian anak lebih baik daripada Model 1 (<em>F</em>(1,398)=10.2, p=.002, R<sup>2</sup>=.025), dengan <em>overlapping variances</em> sebesar 22.6% dibanding 2.5%.</p>
-<p><strong>Information criteria (AIC &amp; BIC)</strong></p>
+<p><strong><em>Information criteria</em> (AIC &amp; BIC)</strong></p>
 <ul>
-<li>Digunakan untuk mengakomodasi kelemahan dari R<sup>2</sup> (apabila prediktor dalam model ditambah terus, maka nilai R<sup>2</sup> akan terus naik)</li>
-<li>Kelemahan R<sup>2</sup> ini serupa dengan prinsip reliabilitas dan jumlah aitem</li>
+<li>Digunakan untuk mengakomodasi kelemahan dari <em>R</em><sup>2</sup> (apabila prediktor dalam model ditambah terus, maka nilai <em>R</em><sup>2</sup> akan terus naik)</li>
+<li>Kelemahan <em>R</em><sup>2</sup> ini serupa dengan prinsip reliabilitas dan jumlah aitem</li>
 <li>Rumus dari <em>information criteria</em> memberi “penalti” kepada model yang mengandung lebih banyak variabel prediktor</li>
 <li>Pilih model dengan AIC dan BIC yang terkecil (Model 2)</li>
 </ul>
@@ -518,7 +536,7 @@ Rizqy Amelia Zein
 <h2><em>Model comparison</em></h2>
 <div class="columns">
 <div class="column" style="width:55%;">
-<p>Ketika dibandingkan, Model 1 dan Model 2 berbeda signifikan (<em>F</em>(1,397)=104, p&lt;.001). ΔR<sup>2</sup>=.202, artinya selisih R<sup>2</sup> Model 1 dan Model 2=.202 atau R<sup>2</sup> naik sebesar 20.2%</p>
+<p>Ketika dibandingkan, Model 1 dan Model 2 berbeda signifikan (<em>F</em>(1,397)=104, <em>p</em>&lt;.001). Δ_R_<sup>2</sup>=.202, artinya selisih <em>R</em><sup>2</sup> Model 1 dan Model 2=.202 atau <em>R</em><sup>2</sup> naik sebesar 20.2%</p>
 <p><strong>Coba perhatikan Residuals Model 1 dengan Model 2</strong></p>
 </div><div class="column" style="width:45%;">
 <p><img src="libs/ftest-2a.jpg" style="width:100%;" class="fancyimage"></p>
@@ -576,17 +594,23 @@ Rizqy Amelia Zein
 </section>
 <section id="latihan-mandiri-1" class="slide level2">
 <h2>Latihan mandiri 1️⃣</h2>
+<div class="columns">
+<div class="column" style="width:70%;">
 <p>Fernando Jose sebal sekali karena ia kembali kehilangan pengokotnya dan ini kali ketiga ia kehilangan pengokot yang baru dibelinya seminggu yang lalu.</p>
 <p>Teman-teman kerjanya memang punya kebiasaan buruk meminjam barang tanpa seijinnya. Ia akhirnya bertanya, apa ya yang menyebabkan teman-temannya berperilaku seperti itu?</p>
 <p>Akhirnya ia menduga, mungkin ada kaitannya dengan faktor kepribadian (<em>conscientiousness</em>) dan faktor situasional di tempat kerjanya.</p>
 <p>Untuk faktor situasi, ia mengamati sepertinya persepsi atas kondisi kerja yang informal dan relasi formal antara senior-junior mungkin juga berkaitan dengan timbulnya perilaku tersebut.</p>
+</div><div class="column" style="width:30%;">
+<p><img data-src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExNmE4MG9zbW0wcGhzOHZ6YmV2NzdleWtwaW1mcHo3amZ2ODV2NnQ5OSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/ggsPCNJznX7nX2RC6i/giphy.gif"></p>
+</div></div>
+<!-- end columns -->
 </section>
 <section id="eksplorasi-dataset-2" class="slide level2">
 <h2>Eksplorasi dataset 2️⃣</h2>
 <h3 id="dataset-2-dataset-organisasi.omv">Dataset 2: dataset-organisasi.omv</h3>
 <ul>
 <li>Fernando Jose akhirnya melakukan penelitian survei pada 450 karyawan di 3 perusahaan yang berbeda</li>
-<li>Buka laman repositori (http://bit.ly/mlm-dies-psi) dan unduh dataset-organisasi.omv</li>
+<li>Buka <a href="https://rameliaz.github.io/mlm-lme-workshop/">laman web <em>workshop</em></a> dan unduh <a href="https://rameliaz.github.io/mlm-lme-workshop/dataset-organisasi.omv">dataset-organisasi.omv</a></li>
 <li>Dalam dataset tersebut ada beberapa variabel
 <ul>
 <li><strong>con</strong> = Kecenderungan <em>conscientiousness</em> karyawan. Makin tinggi skornya, karyawan lebih mungkin menunjukkan kehati-hatian dan keteraturan dalam bekerja, efisien, dan bertanggung jawab.</li>

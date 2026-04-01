@@ -3,14 +3,14 @@ title: "LME untuk Pengukuran Berulang dan *Experience Sampling*"
 subtitle: "Menggunakan `jamovi` (GAMLj)"
 author: "Rizqy Amelia Zein"
 institute:
-  - "Departemen Psikologi, Universitas Airlangga"
+  - "[*Departemen Psikologi, Universitas Airlangga*](https://psikologi.unair.ac.id/dosen-rizqy-amelia-zein/)"
+  - "[Research Data & Methods Team, Center for Advanced Internet Studies](https://www.cais-research.de/team/rizqy-amelia-zein/)"
 date: today
 format:
   unair-revealjs:
     slide-number: true
     progress: true
     transition: slide
-    center: false
 execute:
   eval: false
   echo: true
@@ -36,9 +36,9 @@ execute:
 ::: {.column width="55%"}
 
 * Dalam materi sebelumnya, kita sudah belajar bahwa `lme` sangat berguna ketika struktur data kita **berjenjang** (murid dalam sekolah, karyawan dalam organisasi).
-* Dalam kasus ini, residual Level-1 **independen** satu sama lain.
+* Dalam kasus ini, residual Level-1 diasumsikan **independen** satu sama lain.
 
-**Tapi apa jadinya jika orang yang sama diukur berkali-kali?**
+**Tapi apa yang terjadi jika orang yang sama diukur berkali-kali?**
 
 :::
 ::: {.column width="45%"}

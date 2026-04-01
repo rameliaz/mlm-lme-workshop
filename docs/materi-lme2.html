@@ -10,8 +10,8 @@
   <meta name="generator" content="quarto-1.8.14">
 
   <meta name="author" content="Rizqy Amelia Zein">
-  <meta name="dcterms.date" content="2026-03-31">
-  <title>LME Workshop – Linear Mixed Models (Multi-Level Modeling)</title>
+  <meta name="dcterms.date" content="2026-04-01">
+  <title>LME Workshop – Linear Mixed Models</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -128,8 +128,8 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Linear Mixed Models (Multi-Level Modeling)</h1>
-  <p class="subtitle">Menggunakan <code>jamovi</code> (GAMLj)</p>
+  <h1 class="title"><em>Linear Mixed Models</em></h1>
+  <p class="subtitle">Menggunakan <code>jamovi</code> (<em>Module</em> GAMLj)</p>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -137,18 +137,18 @@
 Rizqy Amelia Zein 
 </div>
         <p class="quarto-title-affiliation">
-            Departemen Psikologi, Universitas Airlangga
+            <a href="https://psikologi.unair.ac.id/dosen-rizqy-amelia-zein/"><em>Departemen Psikologi, Universitas Airlangga</em></a>
           </p>
         <p class="quarto-title-affiliation">
-            Research Data &amp; Methods Team, Center for Advanced Internet Studies
+            <a href="https://www.cais-research.de/team/rizqy-amelia-zein/">Research Data &amp; Methods Team, Center for Advanced Internet Studies</a>
           </p>
     </div>
 </div>
 
-  <p class="date">2026-03-31</p>
+  <p class="date">2026-04-01</p>
 </section>
-<section id="outline-1" class="slide level2">
-<h2><em>Outline</em> 1️⃣</h2>
+<section id="outline" class="slide level2">
+<h2><em>Outline</em></h2>
 <ul>
 <li>Struktur data berjenjang/bersarang (<em>hierarchical/nested data</em>)</li>
 <li><em>Within</em> dan <em>between group variance</em></li>
@@ -160,15 +160,10 @@ Rizqy Amelia Zein
 <li>Mengidentifikasi <em>intercept</em> (konstanta) yang berbeda antar kelompok (<em>random intercept model</em>)</li>
 <li>Mengidentifikasi <em>slopes</em> (gradien/kemiringan garis) yang berbeda antar kelompok (<em>random slopes model</em>)</li>
 </ul></li>
-</ul>
-</section>
-<section id="outline-2" class="slide level2">
-<h2><em>Outline</em> 2️⃣</h2>
-<ul>
 <li><em>Explained variances</em> (<a href="https://besjournals.onlinelibrary.wiley.com/doi/full/10.1111/j.2041-210x.2012.00261.x">Nakagawa &amp; Schielzeth, 2012</a>)
 <ul>
-<li><em>Marginal R^2</em></li>
-<li><em>Conditional R^2</em></li>
+<li><em>Marginal R<sup>2</sup></em></li>
+<li><em>Conditional R<sup>2</sup></em></li>
 </ul></li>
 <li><em>Contextual effect</em> dan <em>partitioning/centering</em></li>
 <li>Melaporkan analisis dengan <code>lme</code> dalam manuskrip</li>
@@ -177,7 +172,11 @@ Rizqy Amelia Zein
 <section id="coba-kita-lihat-lebih-dekat" class="slide level2">
 <h2>Coba kita lihat lebih dekat…</h2>
 <ul>
-<li><p>Coba kita lakukan inspeksi visual sekali lagi <strong>dataset-sekolah.omv</strong></p></li>
+<li><p>Di sesi sebelumnya, kita telah melakukan analisis regresi OLS dengan <a href="materials/dataset-sekolah.omv"><strong>dataset-sekolah.omv</strong></a></p>
+<ul>
+<li><a href="https://rameliaz.github.io/mlm-lme-workshop/materi-lme1.html#/ilustrasi-kasus">Baca ilustrasi kasusnya disini</a></li>
+</ul></li>
+<li><p>Coba kita lakukan inspeksi visual sekali lagi pada dataset yang sama</p></li>
 <li><p>Buat <em>scatterplot</em> dimana <strong>mandiri</strong> menjadi <strong>Y-Axis</strong>, sedangkan <strong>neu</strong>, <strong>hi</strong>, <strong>trust</strong> sebagai <strong>X-Axis</strong></p></li>
 <li><p>Kemudian masukkan <strong>idsekolah</strong> pada kolom <strong>Group</strong></p>
 <ul>
@@ -186,35 +185,35 @@ Rizqy Amelia Zein
 <li><p>Apa yang terjadi?</p></li>
 </ul>
 </section>
-<section id="scatterplot" class="slide level2">
+<section id="scatterplot" class="slide level2 center">
 <h2><em>Scatterplot</em></h2>
 <p><img src="libs/scat-neu.jpg" style="width:35%;" class="fancyimage"> <img src="libs/scat-hi.jpg" style="width:35%;" class="fancyimage"></p>
 <p><img src="libs/scat-trust.jpg" style="width:35%;" class="fancyimage"></p>
 </section>
-<section id="ternyata-covariance-nya-bervariasi-di-tiap-kelompok" class="slide level2">
-<h2>Ternyata <em>covariance</em>-nya bervariasi di tiap kelompok! 😱</h2>
+<section id="ternyata-covariance-nya-berbeda-di-tiap-sekolah" class="slide level2">
+<h2>Ternyata <em>covariance</em>-nya berbeda di tiap sekolah! 😱</h2>
 <div class="columns">
 <div class="column" style="width:55%;">
 <ul>
 <li><p><em>Intercept</em> <em>neuroticism</em> dan <em>trust</em> ternyata bervariasi di setiap sekolah</p></li>
 <li><p>Yang menarik, tidak hanya <em>intercept</em>, <em>slope</em> pendapatan personal juga bervariasi di setiap sekolah</p>
 <ul>
-<li>Berdasarkan analisis yang kita lakukan pagi tadi, disimpulkan bahwa <strong>pendapatan keluarga dan kemandirian anak korelasinya negatif</strong></li>
+<li>Berdasarkan analisis yang kita lakukan di sesi sebelumnya, disimpulkan bahwa <strong>pendapatan keluarga dan kemandirian anak korelasinya negatif</strong></li>
 <li>Tapi bisakah <strong>kesimpulan yang sama</strong> kita tarik untuk Sekolah B dan D?</li>
 </ul></li>
 <li><p>Hati-hati <em>ecological fallacy</em>!</p>
 <ul>
-<li>Terjadi ketika kita salah menyimpulkan suatu gejala yang skalanya individual, padahal yang dianalisis oleh peneliti sesungguhnya fenomena yang berlaku pada skala yang lebih besar (kelompok atau sub-kelompok)</li>
+<li>Terjadi ketika kita salah menyimpulkan suatu gejala yang skalanya individual, padahal yang dianalisis oleh peneliti sesungguhnya fenomena di level yang lebih besar (kelompok atau sub-kelompok)</li>
 </ul></li>
 </ul>
 </div><div class="column" style="width:45%;">
-<p><img src="https://pbs.twimg.com/media/DcUJpGUW0AAHG8Y.jpg" style="width:100%;" class="fancyimage"></p>
+<p><img data-src="libs/ecological-fallacy.jpg"></p>
 </div></div>
 </section>
 <section id="struktur-sampel-bersarangberjenjang" class="slide level2">
 <h2>Struktur sampel bersarang/berjenjang</h2>
 
-<img src="libs/hierarchical-data.jpg" style="width:60%;" class="fancyimage r-stretch"></section>
+<img data-src="libs/hierarchical-data.png" class="r-stretch"></section>
 <section id="apa-yang-harus-dilakukan" class="slide level2">
 <h2>Apa yang harus dilakukan?</h2>
 <ul>
@@ -231,7 +230,7 @@ Rizqy Amelia Zein
 <li class="fragment">Dengan begitu, estimasi <em>standard error</em> disesuaikan dengan menggunakan <em>marginal model</em></li>
 <li class="fragment">Estimasi <em>standard error</em> akan lebih presisi, <strong>tetapi</strong> kita tetap tidak bisa mengestimasi <em>between-group variance</em></li>
 </ul></li>
-<li class="fragment">Kalo di agregat? Jadi unit analisis yang tadinya individual, menjadi kelompok.
+<li class="fragment">Kalau diagregat? Jadi, unit analisis yang tadinya individual, menjadi kelompok.
 <ul>
 <li class="fragment">Ukuran sampel menjadi lebih sedikit, sehingga <em>statistical power</em> menjadi lebih rendah ❗</li>
 </ul></li>
@@ -276,10 +275,10 @@ Rizqy Amelia Zein
 <h2>Yuk kita coba! 💪</h2>
 <p>Pastikan <em>module</em> <code>GAMLj</code> sudah terpasang di <code>jamovi</code></p>
 </section>
-<section id="latihan-3-kembali-ke-sekolah" class="slide level2">
-<h2>Latihan 3️⃣: Kembali ke sekolah 🏫</h2>
+<section id="latihan-3-kembali-ke-dataset-sekolah" class="slide level2">
+<h2>Latihan 3️⃣: Kembali ke dataset sekolah 🏫</h2>
 <p>Setelah menginspeksi data secara visual, kita tahu bahwa korelasi antara <strong>pendapatan keluarga</strong> dengan <strong>tingkat kemandirian anak</strong> adalah yang paling bervariasi. Kita akan membuat <em>linear mixed model</em> dengan <strong>pendapatan keluarga</strong> sebagai prediktor, dan <strong>tingkat kemandirian anak</strong> sebagai variabel dependen.</p>
-<h3 id="bikin-model-kosong-null-model">Bikin “model kosong” (<em>null model</em>)</h3>
+<h3 id="buat-model-kosong-null-model">Buat “model kosong” (<em>null model</em>)</h3>
 <ul>
 <li><p>Yaitu model yang isinya hanya <em>intercept</em> saja, tidak ada prediktornya (<em>slopes</em>)</p></li>
 <li><p>Pada <em>menu bar</em>, klik <strong>Linear Models</strong>, pilih <strong>mixed models</strong></p>
@@ -289,7 +288,7 @@ Rizqy Amelia Zein
 <li>Pada menu <strong>random effects</strong> masukkan <strong>intercept|idsekolah</strong> dalam kolom <strong>random coefficients</strong></li>
 </ul></li>
 <li><p>Catat nilai AIC yang tersedia dalam tabel <strong>model info</strong></p></li>
-<li><p>Yuk ingat-ingat lagi, AIC fungsinya untuk apa ya? 🤔</p></li>
+<li><p>Di sesi sebelumnya, sudah dijelaskan tentang <a href="https://rameliaz.github.io/mlm-lme-workshop/materi-lme1.html#/model-fit-1">fungsi AIC dan BIC</a></p></li>
 </ul>
 </section>
 <section id="latihan-3-model-dengan-prediktor" class="slide level2">
@@ -397,15 +396,17 @@ Rizqy Amelia Zein
 <li><strong><em>Within-group effect</em></strong>
 <ul>
 <li>Seberapa besar selisih Y dari 2 orang yang berada di <strong>kelompok yang sama</strong>, ketika <strong>selisih X</strong>-nya sebesar 1 poin?</li>
-<li>Seberapa besar perbedaan tingkat kemandirian dua orang anak yang berada dalam <strong>sekolah yang sama</strong>, ketika selisih <strong>tingkat pendapatan keluarga</strong> mereka berbeda sebesar 1 poin?</li>
+<li>Seberapa besar perbedaan BB dua orang anak yang berada dalam <strong>sekolah yang sama</strong>, ketika selisih <strong>tingkat pendapatan keluarga</strong> mereka berbeda sebesar 1 poin?</li>
 </ul></li>
 <li><strong><em>Between-group effect</em></strong>
 <ul>
 <li>Seberapa besar selisih Y dari 2 orang yang berbeda (dari 2 kelompok yang berbeda), namun berada dalam <strong>posisi relatif yang sama</strong> (dibandingkan dengan rerata kelompok), ketika <strong>selisih X</strong> mereka sebesar 1 poin?</li>
+<li>Seberapa besar perbedaan <strong>tingkat kemandirian</strong> dua siswa dari <strong>dua sekolah yang berbeda</strong>, ketika posisi <strong>tingkat pendapatan keluarga</strong> mereka relatif sama di sekolah masing-masing, tetapi selisihnya berbeda sebesar 1 poin?</li>
 </ul></li>
 <li><strong><em>Contextual effect</em></strong>
 <ul>
 <li>Seberapa besar selisih Y dua orang dari kelompok yang berbeda, namun dengan <strong>X yang sama</strong>, ketika <strong>rerata X kelompoknya</strong> berbeda sebesar 1 poin.</li>
+<li>Seberapa besar perbedaan <strong>tingkat kemandirian</strong> dua siswa dari <strong>dua sekolah yang berbeda</strong>, ketika rerata <strong>tingkat pendapatan keluarga</strong> di sekolah mereka berbeda sebesar 1 poin?</li>
 </ul></li>
 </ul>
 </section>

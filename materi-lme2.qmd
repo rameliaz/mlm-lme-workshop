@@ -1,23 +1,22 @@
 ---
-title: "Linear Mixed Models (Multi-Level Modeling)"
-subtitle: "Menggunakan `jamovi` (GAMLj)"
+title: "_Linear Mixed Models_"
+subtitle: "Menggunakan `jamovi` (_Module_ GAMLj)"
 author: "Rizqy Amelia Zein"
 institute:
-  - "Departemen Psikologi, Universitas Airlangga"
-  - "Research Data & Methods Team, Center for Advanced Internet Studies"
+  - "[*Departemen Psikologi, Universitas Airlangga*](https://psikologi.unair.ac.id/dosen-rizqy-amelia-zein/)"
+  - "[Research Data & Methods Team, Center for Advanced Internet Studies](https://www.cais-research.de/team/rizqy-amelia-zein/)"
 date: today
 format:
   unair-revealjs:
     slide-number: true
     progress: true
     transition: slide
-    center: false
 execute:
   eval: false
   echo: true
 ---
 
-## _Outline_ 1️⃣
+## _Outline_
 
 * Struktur data berjenjang/bersarang (*hierarchical/nested data*)
 * *Within* dan *between group variance*
@@ -27,18 +26,18 @@ execute:
 * `lme` dengan prediktor level 1 (*random coefficients model*)
   - Mengidentifikasi *intercept* (konstanta) yang berbeda antar kelompok (*random intercept model*)
   - Mengidentifikasi *slopes* (gradien/kemiringan garis) yang berbeda antar kelompok (*random slopes model*)
-
-## _Outline_ 2️⃣ 
-
 * *Explained variances* ([Nakagawa & Schielzeth, 2012](https://besjournals.onlinelibrary.wiley.com/doi/full/10.1111/j.2041-210x.2012.00261.x))
-  - *Marginal R^2*
-  - *Conditional R^2*
+  - *Marginal R^2^*
+  - *Conditional R^2^*
 * *Contextual effect* dan *partitioning/centering*
 * Melaporkan analisis dengan `lme` dalam manuskrip
 
 ## Coba kita lihat lebih dekat...
 
-* Coba kita lakukan inspeksi visual sekali lagi **dataset-sekolah.omv**
+* Di sesi sebelumnya, kita telah melakukan analisis regresi OLS dengan [**dataset-sekolah.omv**](materials/dataset-sekolah.omv)
+  - [Baca ilustrasi kasusnya disini](https://rameliaz.github.io/mlm-lme-workshop/materi-lme1.html#/ilustrasi-kasus)
+
+* Coba kita lakukan inspeksi visual sekali lagi pada dataset yang sama
 
 * Buat *scatterplot* dimana **mandiri** menjadi **Y-Axis**, sedangkan **neu**, **hi**, **trust** sebagai **X-Axis**
 
@@ -47,13 +46,13 @@ execute:
 
 * Apa yang terjadi?
 
-## _Scatterplot_
+## _Scatterplot_ {.center}
 
 <img src="libs/scat-neu.jpg" style="width:35%;" class="fancyimage"/> <img src="libs/scat-hi.jpg" style="width:35%;" class="fancyimage"/>
 
 <img src="libs/scat-trust.jpg" style="width:35%;" class="fancyimage"/>
 
-## Ternyata *covariance*-nya bervariasi di tiap kelompok! 😱
+## Ternyata *covariance*-nya berbeda di tiap sekolah! 😱
 
 :::: {.columns}
 ::: {.column width="55%"}
@@ -61,23 +60,22 @@ execute:
 * *Intercept* *neuroticism* dan *trust* ternyata bervariasi di setiap sekolah
 
 * Yang menarik, tidak hanya *intercept*, *slope* pendapatan personal juga bervariasi di setiap sekolah
-  - Berdasarkan analisis yang kita lakukan pagi tadi, disimpulkan bahwa **pendapatan keluarga dan kemandirian anak korelasinya negatif**
+  - Berdasarkan analisis yang kita lakukan di sesi sebelumnya, disimpulkan bahwa **pendapatan keluarga dan kemandirian anak korelasinya negatif**
   - Tapi bisakah **kesimpulan yang sama** kita tarik untuk Sekolah B dan D?
 
 * Hati-hati *ecological fallacy*!
-  - Terjadi ketika kita salah menyimpulkan suatu gejala yang skalanya individual, padahal yang dianalisis oleh peneliti sesungguhnya fenomena yang berlaku pada skala yang lebih besar (kelompok atau sub-kelompok)
-
+  - Terjadi ketika kita salah menyimpulkan suatu gejala yang skalanya individual, padahal yang dianalisis oleh peneliti sesungguhnya fenomena di level yang lebih besar (kelompok atau sub-kelompok)
 :::
 ::: {.column width="45%"}
 
-<img src="https://pbs.twimg.com/media/DcUJpGUW0AAHG8Y.jpg" style="width:100%;" class="fancyimage"/>
+![](libs/ecological-fallacy.jpg)
 
 :::
 ::::
 
 ## Struktur sampel bersarang/berjenjang
 
-<img src="libs/hierarchical-data.jpg" style="width:60%;" class="fancyimage"/>
+![](libs/hierarchical-data.png)
 
 ## Apa yang harus dilakukan?
 
@@ -94,7 +92,7 @@ execute:
   - Dengan begitu, estimasi *standard error* disesuaikan dengan menggunakan *marginal model*
   - Estimasi *standard error* akan lebih presisi, **tetapi** kita tetap tidak bisa mengestimasi *between-group variance*
 
-* Kalo di agregat? Jadi unit analisis yang tadinya individual, menjadi kelompok.
+* Kalau diagregat? Jadi, unit analisis yang tadinya individual, menjadi kelompok.
   - Ukuran sampel menjadi lebih sedikit, sehingga *statistical power* menjadi lebih rendah ❗
 
 :::
@@ -150,11 +148,11 @@ execute:
 
 Pastikan *module* `GAMLj` sudah terpasang di `jamovi`
 
-## Latihan 3️⃣: Kembali ke sekolah 🏫
+## Latihan 3️⃣: Kembali ke dataset sekolah 🏫
 
 Setelah menginspeksi data secara visual, kita tahu bahwa korelasi antara **pendapatan keluarga** dengan **tingkat kemandirian anak** adalah yang paling bervariasi. Kita akan membuat *linear mixed model* dengan **pendapatan keluarga** sebagai prediktor, dan **tingkat kemandirian anak** sebagai variabel dependen.
 
-### Bikin "model kosong" (_null model_)
+### Buat "model kosong" (_null model_)
 
 * Yaitu model yang isinya hanya *intercept* saja, tidak ada prediktornya (*slopes*)
 
@@ -165,7 +163,7 @@ Setelah menginspeksi data secara visual, kita tahu bahwa korelasi antara **penda
 
 * Catat nilai AIC yang tersedia dalam tabel **model info**
 
-* Yuk ingat-ingat lagi, AIC fungsinya untuk apa ya? 🤔
+* Di sesi sebelumnya, sudah dijelaskan tentang [fungsi AIC dan BIC](https://rameliaz.github.io/mlm-lme-workshop/materi-lme1.html#/model-fit-1) 
 
 ## Latihan (3): Model dengan prediktor
 
@@ -291,13 +289,15 @@ Setelah menginspeksi data secara visual, kita tahu bahwa korelasi antara **penda
 
 * ***Within-group effect***
   - Seberapa besar selisih Y dari 2 orang yang berada di **kelompok yang sama**, ketika **selisih X**-nya sebesar 1 poin?
-  - Seberapa besar perbedaan tingkat kemandirian dua orang anak yang berada dalam **sekolah yang sama**, ketika selisih **tingkat pendapatan keluarga** mereka berbeda sebesar 1 poin?
+  - Seberapa besar perbedaan BB dua orang anak yang berada dalam **sekolah yang sama**, ketika selisih **tingkat pendapatan keluarga** mereka berbeda sebesar 1 poin?
 
 * ***Between-group effect***
   - Seberapa besar selisih Y dari 2 orang yang berbeda (dari 2 kelompok yang berbeda), namun berada dalam **posisi relatif yang sama** (dibandingkan dengan rerata kelompok), ketika **selisih X** mereka sebesar 1 poin?
+  - Seberapa besar perbedaan **tingkat kemandirian** dua siswa dari **dua sekolah yang berbeda**, ketika posisi **tingkat pendapatan keluarga** mereka relatif sama di sekolah masing-masing, tetapi selisihnya berbeda sebesar 1 poin?
 
 * ***Contextual effect***
   - Seberapa besar selisih Y dua orang dari kelompok yang berbeda, namun dengan **X yang sama**, ketika **rerata X kelompoknya** berbeda sebesar 1 poin.
+  - Seberapa besar perbedaan **tingkat kemandirian** dua siswa dari **dua sekolah yang berbeda**, ketika rerata **tingkat pendapatan keluarga** di sekolah mereka berbeda sebesar 1 poin?
 
 ## *Contextual effects* & *partitioning* 2️⃣
 
