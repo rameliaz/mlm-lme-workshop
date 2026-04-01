@@ -3,7 +3,7 @@ title: "Regresi Linier (_Ordinary Least Square_)"
 subtitle: "Menggunakan `jamovi`"
 author: "Rizqy Amelia Zein"
 institute:
-  - "[*Departemen Psikologi, Universitas Airlangga*](https://psikologi.unair.ac.id/dosen-rizqy-amelia-zein/)"
+  - "[_Departemen Psikologi, Universitas Airlangga_](https://psikologi.unair.ac.id/dosen-rizqy-amelia-zein/)"
   - "[Research Data & Methods Team, Center for Advanced Internet Studies](https://www.cais-research.de/team/rizqy-amelia-zein/)"
 date: today
 format:
@@ -11,6 +11,7 @@ format:
     slide-number: true
     progress: true
     transition: slide
+    css: https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css
 execute:
   eval: false
   echo: true
@@ -21,7 +22,7 @@ execute:
 * Berlatih menginspeksi data secara visual dengan _scatterplot_
 * Model regresi linier (_ordinary least square_)
 * Menarik garis regresi (_fitted regression lines_)
-* Varians yang dapat dan yang tidak dapat dijelaskan oleh model (_R_^2^)
+* Varians yang dapat dan yang tidak dapat dijelaskan oleh model (_R_)^2^
 * Menguji hipotesis
 * Mengecek kecocokan model dengan data (_model fit_)
 * Mengecek asumsi
@@ -34,7 +35,7 @@ execute:
 
 ## Ilustrasi Kasus
 
-::: {.columns}
+:::: {.columns}
 ::: {.column width="70%"}
 Marimar adalah seorang wali murid di sebuah PAUD di Kota Surabaya. Pada suatu hari, ia mengamati seorang anak (dan orangtua) yang perilakunya menarik perhatiannya.
 
@@ -48,7 +49,7 @@ Marimar heran sekaligus penasaran, mengapa tiap anak **memberikan respon yang be
 ::: {.column width="30%"}
 ![](https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExZW5kdDlocmllN3dscTl6N2Yyd2pvdjNqZGZ4OW5xZzIzdXowc2o2ayZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/lv86aOL3XkZC0EadmR/giphy.gif)
 :::
-:::
+::::
 <!-- end columns -->
 
 ## Eksplorasi dataset
@@ -59,7 +60,7 @@ Marimar heran sekaligus penasaran, mengapa tiap anak **memberikan respon yang be
 * Buka [laman web _workshop_](https://rameliaz.github.io/mlm-lme-workshop/)
 * Klik menu **Dataset** di pojok kanan dan unduh [dataset-sekolah.omv](https://rameliaz.github.io/mlm-lme-workshop/dataset-sekolah.omv)
 * Dalam dataset tersebut ada beberapa variabel
-  - **neu** = Kecenderungan *Neuroticism* ibu (*five factor model*). Makin tinggi skor, Ibu makin mudah cemas, frustasi, cemburu, rasa bersalah, dan ketakutan berlebihan.
+  - **neu** = Kecenderungan _Neuroticism_ ibu (_five factor model_). Makin tinggi skor, Ibu makin mudah cemas, frustasi, cemburu, rasa bersalah, dan ketakutan berlebihan.
   - **trust** = Kepercayaan ibu bahwa perkembangan anak dapat berlangsung secara natural ([**trust in organismic development**](https://link.springer.com/article/10.1007/s11031-008-9092-2)). Makin tinggi skor, ibu makin percaya.
   - **hi** = Pendapatan seluruh anggota keluarga inti (**household income**). Skor makin tinggi, pendapatan makin banyak.
   - **mandiri** = Tingkat kemandirian anak. Makin tinggi skor, anak makin independen dan lebih santai ketika ditinggal orangtuanya di sekolah.
@@ -67,27 +68,27 @@ Marimar heran sekaligus penasaran, mengapa tiap anak **memberikan respon yang be
 ## Deskriptif
 
 * Coba eksplorasi keempat variabel diatas dengan pendekatan statistik deskriptif.
-  - Pada *menu bar*, klik **exploration** lalu **descriptives**. Setelah itu masukkan keempat variabel tersebut dalam kolom **variables**.
+  - Pada _menu bar_, klik **exploration** lalu **descriptives**. Setelah itu masukkan keempat variabel tersebut dalam kolom **variables**.
   - Klik opsi **Statistics** dan pada bagian **Dispersion** centang **Std. deviation**.
   - Klik opsi **plots**, di bagian **histograms**, centang **histograms** dan **density**.
 
 
-## _Output_ 
+## _Output_
 
 <img src="libs/desc-table.jpg" style="width:30%;" class="fancyimage"/> <img src="libs/hist-neu.jpg" style="width:30%;" class="fancyimage"/>
 
 <img src="libs/hist-mandiri.jpg" style="width:30%;" class="fancyimage"/> <img src="libs/hist-trust.jpg" style="width:30%;" class="fancyimage"/> <img src="libs/hist-hi.jpg" style="width:30%;" class="fancyimage"/>
 
-## Membuat *scatterplot*
+## Membuat _scatterplot_
 
 :::: {.columns}
 ::: {.column width="60%"}
 
 * Merupakan teknik inspeksi visual kemungkinan terjadinya korelasi antara variabel.
 * Setelah melakukan analisis deskriptif, sepertinya akan menarik membandingkan kaitan antara:
-  - *Neuroticism* (neu) dengan tingkat kemandirian (mandiri)
-  - kepercayaan ibu bahwa anak dapat berkembang secara natural (*trust*) dengan tingkat kemandirian (mandiri)
-* Ayo kita buat *scatterplot*nya!
+  - _Neuroticism_ (neu) dengan tingkat kemandirian (mandiri)
+  - kepercayaan ibu bahwa anak dapat berkembang secara natural (_trust_) dengan tingkat kemandirian (mandiri)
+* Ayo kita buat _scatterplot_nya!
   - Klik **exploration**, pilih **scatterplot**
   - Masukkan **mandiri** pada kolom **Y-axis**
   - Masukkan **neu** (scatterplot 1) dan **trust** (scatterplot 2) pada **kolom X-axis**
@@ -101,21 +102,21 @@ Marimar heran sekaligus penasaran, mengapa tiap anak **memberikan respon yang be
 :::
 ::::
 
-## _Scatterplot_ 
+## _Scatterplot_
 
 :::: {.columns}
 ::: {.column width="50%"}
 
 <img src="libs/scat-1.jpg" style="width:100%;" class="fancyimage"/>
 
-*Scatterplot* 1. *Neuroticism* dan Kemandirian
+_Scatterplot_ 1. _Neuroticism_ dan Kemandirian
 
 :::
 ::: {.column width="50%"}
 
 <img src="libs/scat-2.jpg" style="width:100%;" class="fancyimage"/>
 
-*Scatterplot* 2. *Trust* dan Kemandirian
+_Scatterplot_ 2. _Trust_ dan Kemandirian
 
 :::
 ::::
@@ -181,7 +182,7 @@ Korelasi yang tampak pada _scatterplot_ tadi dapat dikonseptualisasikan dengan l
 
 <img src="libs/reg-equation.jpg" style="width:40%;" class="fancyimage"/>
 
-## Contoh garis regresi 
+## Contoh garis regresi
 
 <img src="libs/reg-line.jpg" style="width:80%;" class="fancyimage"/>
 
@@ -213,9 +214,9 @@ Marimar ingin tahu apakah ada kaitan antara kecenderungan _neuroticism_ ibu terh
 :::: {.columns}
 ::: {.column width="55%"}
 
-* Model regresi kita cukup mampu menggambarkan data (*F*(1,398)=10.5, p=.001).
+* Model regresi kita cukup mampu menggambarkan data (_F_(1,398)=10.5, p=.001).
 * Namun model hanya mampu menjelaskan 2.58% varians kemandirian anak (R^2^=.0258).
-* Coba bandingkan *sum of squares* antara **neu** dengan **Residuals** (tabel ANOVA).
+* Coba bandingkan _sum of squares_ antara **neu** dengan **Residuals** (tabel ANOVA).
   - Manakah yang lebih banyak; varians yang **dapat**, atau yang **tidak dapat dijelaskan** oleh model?
 
 :::
@@ -238,15 +239,15 @@ Hampir semua teknik statistik intinya adalah membandingkan varians yang dapat de
 
 <center><img src="libs/mod-coef1.jpg" style="width:70%;" class="fancyimage"/></center>
 
-#### Kecenderungan *neuroticism* ibu dapat menjelaskan variasi kemandirian anak (*B*=0.430 95% CI [0.170, 0.691], *SE*=0.132, *t*=3.25, *p*=.001).
+#### Kecenderungan _neuroticism_ ibu dapat menjelaskan variasi kemandirian anak (_B_=0.430 95% CI [0.170, 0.691], _SE_=0.132, _t_=3.25, _p_=.001).
 
-#### Interpretasi *standardized* (*β*) dan *unstandardized* (*B*) *estimates*
+#### Interpretasi _standardized_ (_β_) dan _unstandardized_ (_B_) _estimates_
 
-* *Unstandardized* (*B*) *estimates*: Setiap perubahan *neuroticism* sebesar 1 poin, maka tingkat kemandirian juga berubah sebesar 0.43 poin.
-* *Standardized* (*β*) *estimates*: Setiap berubah *neuroticism* sebesar 1SD, maka tingkat kemandirian juga berubah sebesar 0.161SD.
+* _Unstandardized_ (_B_) _estimates_: Setiap perubahan _neuroticism_ sebesar 1 poin, maka tingkat kemandirian juga berubah sebesar 0.43 poin.
+* _Standardized_ (_β_) _estimates_: Setiap berubah _neuroticism_ sebesar 1SD, maka tingkat kemandirian juga berubah sebesar 0.161SD.
 
 ::: {.callout-tip}
-**Tips ❗**: Selalu laporkan *unstandardized estimates* dan *confidence interval*nya ([Appelbaum, et. al., 2018](http://dx.doi.org/10.1037/amp0000191)).
+**Tips ❗**: Selalu laporkan _unstandardized estimates_ dan _confidence interval_nya ([Appelbaum, et. al., 2018](http://dx.doi.org/10.1037/amp0000191)).
 :::
 
 ## Diagnostik model: distribusi residual
@@ -256,8 +257,8 @@ Hampir semua teknik statistik intinya adalah membandingkan varians yang dapat de
 
 * Salah satu asumsi penting yang harus dipenuhi ketika melakukan regresi OLS adalah **residual (bukan data)** harus berdistribusi normal.
 * Sebaran residual mengikuti garis diagonal dalam Q-Q Plot, tandanya residual berdistribusi normal.
-* Apabila residual tersebar secara acak atau makin menjauhi garis diagonal, berarti tidak berdistribusi normal dan ini melanggar asumsi *ordinary least square*.
-* Akibatnya, model tak dapat diinterpretasi dan koefisien model (*intercept* dan *slope*) bias.
+* Apabila residual tersebar secara acak atau makin menjauhi garis diagonal, berarti tidak berdistribusi normal dan ini melanggar asumsi _ordinary least square_.
+* Akibatnya, model tak dapat diinterpretasi dan koefisien model (_intercept_ dan _slope_) bias.
 
 :::
 ::: {.column width="45%"}
@@ -273,7 +274,7 @@ Hampir semua teknik statistik intinya adalah membandingkan varians yang dapat de
 ::: {.column width="55%"}
 
 * Asumsi lain yang harus dipenuhi adalah **homoskedasdisitas**.
-* Residual memenuhi asumsi homoskedasdisitas, apabila variansnya **uniform (sama)** meskipun nilai X dan *fitted* Y (nilai Y yang diestimasi oleh model) berubah-ubah.
+* Residual memenuhi asumsi homoskedasdisitas, apabila variansnya **uniform (sama)** meskipun nilai X dan _fitted_ Y (nilai Y yang diestimasi oleh model) berubah-ubah.
   - Hal ini ditunjukkan dari dua grafik disamping yang menunjukkan distribusi **varians residual uniformed**.
 * Apabila asumsi ini dilanggar, maka residual mengalami **heteroskedasdisitas**, dengan begitu, estimasi model akan bias.
 * Kalau residual menunjukkan karakteristik heterokedastik, maka distribusi residual akan terlihat seperti kerucut.
@@ -324,7 +325,7 @@ Hampir semua teknik statistik intinya adalah membandingkan varians yang dapat de
 :::
 ::::
 
-## Diagnostik model: deteksi _outliers_ 2️⃣ 
+## Diagnostik model: deteksi _outliers_ 2️⃣
 
 :::: {.columns}
 ::: {.column width="60%"}
@@ -346,27 +347,27 @@ Hampir semua teknik statistik intinya adalah membandingkan varians yang dapat de
 
 ## Cara melaporkannya dalam manuskrip
 
-"... untuk menguji hipotesis penelitian, peneliti melakukan analisis regresi *ordinary least square* (OLS). Hasil analisis menunjukkan bahwa model cocok menggambarkan data, namun hanya mampu menjelaskan kurang dari 3% varians tingkat kemandirian siswa (*F*(1,398)=10.5, p=.001, R^2^=.0258).
+"... untuk menguji hipotesis penelitian, peneliti melakukan analisis regresi _ordinary least square_ (OLS). Hasil analisis menunjukkan bahwa model cocok menggambarkan data, namun hanya mampu menjelaskan kurang dari 3% varians tingkat kemandirian siswa (_F_(1,398)=10.5, p=.001, R^2^=.0258).
 
-Kecenderungan *neuroticism* ibu berkontribusi berarti dalam menjelaskan varians tingkat kemandirian siswa, dimana perubahan kecenderungan *neuroticism* sebesar 1 poin diasosiasikan dengan perubahan tingkat kemandirian anak sebesar 0.43 (*B*=0.430 95% CI [0.170, 0.691], *SE*=0.132, *t*=3.25, *p*=001).
+Kecenderungan _neuroticism_ ibu berkontribusi berarti dalam menjelaskan varians tingkat kemandirian siswa, dimana perubahan kecenderungan _neuroticism_ sebesar 1 poin diasosiasikan dengan perubahan tingkat kemandirian anak sebesar 0.43 (_B_=0.430 95% CI [0.170, 0.691], _SE_=0.132, _t_=3.25, _p_=001).
 
-Setelah dilakukan diagnostik, varians yang tidak dapat dijelaskan oleh model berdistribusi normal dan ketika dikorelasikan dengan nilai prediktif tingkat kemandirian siswa dan kecenderungan *neuroticism* ibu, maka menghasilkan varians yang homogen (homoskedastik).
+Setelah dilakukan diagnostik, varians yang tidak dapat dijelaskan oleh model berdistribusi normal dan ketika dikorelasikan dengan nilai prediktif tingkat kemandirian siswa dan kecenderungan _neuroticism_ ibu, maka menghasilkan varians yang homogen (homoskedastik).
 
-Diagnostik *outlier* dilakukan dengan menggunakan *Cook's distance*, dan menghasilkan kesimpulan bahwa apabila *outlier* tidak disertakan dalam model, maka perubahan rerata, nilai tengah, dan simpangan baku kurang dari satu dari nilai awalnya, sehingga tidak berpotensi mendistorsi garis regresi..."
+Diagnostik _outlier_ dilakukan dengan menggunakan _Cook's distance_, dan menghasilkan kesimpulan bahwa apabila _outlier_ tidak disertakan dalam model, maka perubahan rerata, nilai tengah, dan simpangan baku kurang dari satu dari nilai awalnya, sehingga tidak berpotensi mendistorsi garis regresi..."
 
-## Latihan 2️⃣ 
+## Latihan 2️⃣
 
 * Marimar ingin menambahkan interaksi antara _neuroticism_ dengan _trust_
-  - Mungkin saja ibu yang percaya/kurang percaya bahwa anak dapat berkembang secara natural, korelasi antara *neuroticism* dengan kemandirian akan makin negatif.
+  - Mungkin saja ibu yang percaya/kurang percaya bahwa anak dapat berkembang secara natural, korelasi antara _neuroticism_ dengan kemandirian akan makin negatif.
   - Selain itu, bisa jadi ada kaitannya antara pendapatan keluarga dengan tingkat kemandirian anak.
 * Tambahkan variabel **trust**, **neu**, dan **hi** dalam kolom **covariates**.
 
-## Latihan 2️⃣ 
+## Latihan 2️⃣
 
 * Lakukan semua langkah yang sudah dilakukan di Latihan 1️⃣
 * Pada opsi **model builder**, klik **add new block**
-  - Klik **Block 1**, sampai keluar *shading* di pinggir kotak, lalu masukkan **hi**
-  - Klik **Block 2**, sampai keluar *shading* di pinggir kotak
+  - Klik **Block 1**, sampai keluar _shading_ di pinggir kotak, lalu masukkan **hi**
+  - Klik **Block 2**, sampai keluar _shading_ di pinggir kotak
   - Kemudian sambil menekan tombol `ctrl`, klik **neu** kemudian **trust**, lalu klik tanda panah yang kedua dan pilih **interaction**
 * Dengan begitu kita punya 2 model regresi
   - Model 1 prediktornya **hi**
@@ -380,7 +381,7 @@ Diagnostik *outlier* dilakukan dengan menggunakan *Cook's distance*, dan menghas
 :::: {.columns}
 ::: {.column width="55%"}
 
-Model 2 (*F*(2,397)=58.2, p\<.001, R^2^=.226) dapat menjelaskan varians tingkat kemandirian anak lebih baik daripada Model 1 (*F*(1,398)=10.2, p=.002, R^2^=.025), dengan *overlapping variances* sebesar 22.6% dibanding 2.5%.
+Model 2 (_F_(2,397)=58.2, p\<.001, R^2^=.226) dapat menjelaskan varians tingkat kemandirian anak lebih baik daripada Model 1 (_F_(1,398)=10.2, p=.002, R^2^=.025), dengan _overlapping variances_ sebesar 22.6% dibanding 2.5%.
 
 **_Information criteria_ (AIC & BIC)**
 
@@ -402,7 +403,7 @@ Model 2 (*F*(2,397)=58.2, p\<.001, R^2^=.226) dapat menjelaskan varians tingkat 
 :::: {.columns}
 ::: {.column width="55%"}
 
-Ketika dibandingkan, Model 1 dan Model 2 berbeda signifikan (*F*(1,397)=104, _p_\<.001). Δ_R_^2^=.202, artinya selisih _R_^2^ Model 1 dan Model 2=.202 atau _R_^2^ naik sebesar 20.2%
+Ketika dibandingkan, Model 1 dan Model 2 berbeda signifikan (_F_(1,397)=104, _p_\<.001). Δ_R_^2^=.202, artinya selisih _R_^2^ Model 1 dan Model 2=.202 atau _R_^2^ naik sebesar 20.2%
 
 **Coba perhatikan Residuals Model 1 dengan Model 2**
 
@@ -422,19 +423,17 @@ Ketika dibandingkan, Model 1 dan Model 2 berbeda signifikan (*F*(1,397)=104, _p_
 
 <center><img src="libs/mod-coef2.jpg" style="width:70%;" class="fancyimage"/></center>
 
-#### Pendapatan keluarga dapat menjelaskan variasi kemandirian anak (*B*=-0.943 95% CI [-1.164, -0.721], *SE*=0.112, *t*=-8.39, *p*\<.001).
+#### Pendapatan keluarga dapat menjelaskan variasi kemandirian anak (_B_=-0.943 95% CI [-1.164, -0.721], _SE_=0.112, _t_=-8.39, _p_\<.001).
 
-#### *Interaction terms* juga signifikan dalam menjelaskan varians kemandirian anak (*B*=0.054 95% CI [0.044, 0.065], *SE*=0.005, *t*=10.18, *p*\<.001).
+#### _Interaction terms_ juga signifikan dalam menjelaskan varians kemandirian anak (_B_=0.054 95% CI [0.044, 0.065], _SE_=0.005, _t_=10.18, _p_\<.001).
 
----
-
-## *Simple slope*
+## _Simple slope_
 
 :::: {.columns}
 ::: {.column width="55%"}
 
-* Interpretasi *slopes* pada *interaction terms*:
-  - *Unstandardized B* yang positif artinya, pada ibu dengan *trust* yang tinggi, korelasi antara kecenderungan *neuroticism* dengan kemandirian anak juga semakin positif/menguat.
+* Interpretasi _slopes_ pada _interaction terms_:
+  - _Unstandardized B_ yang positif artinya, pada ibu dengan _trust_ yang tinggi, korelasi antara kecenderungan _neuroticism_ dengan kemandirian anak juga semakin positif/menguat.
 
 :::
 ::: {.column width="45%"}
@@ -449,9 +448,9 @@ Ketika dibandingkan, Model 1 dan Model 2 berbeda signifikan (*F*(1,397)=104, _p_
 :::: {.columns}
 ::: {.column width="55%"}
 
-* Dapat dideteksi dengan melakukan analisis melihat *variance inflated factors* (VIF).
+* Dapat dideteksi dengan melakukan analisis melihat _variance inflated factors_ (VIF).
   - Bila VIF \< 2.5, maka multi-kolinearitas kemungkinan besar tidak terjadi.
-* Penelitian *longitudinal* punya potensi terjadinya autokorelasi (residual *time 1* dan *time 2* berkorelasi)
+* Penelitian _longitudinal_ punya potensi terjadinya autokorelasi (residual _time 1_ dan _time 2_ berkorelasi)
   - Dapat dicek dengan tes Durbin-Watson
   - Bila nilai p analisis autokorelasi \> 0.001, maka multi-kolinearitas tidak terjadi.
 
@@ -465,11 +464,11 @@ Ketika dibandingkan, Model 1 dan Model 2 berbeda signifikan (*F*(1,397)=104, _p_
 
 ## Bagaimana melaporkannya?
 
-"...untuk menginvestigasi keterkaitan antara pendapatan keluarga, kecenderungan *neuroticism* ibu, dan kepercayaan ibu bahwa perkembangan anak dapat terjadi secara natural dengan tingkat kemandirian anak, peneliti melakukan analisis regresi linier hirarkial dengan *interaction terms*. Peneliti menyusun dua model, dimana; model 1 mengestimasi varians tingkat kemandirian anak dengan pendapatan keluarga inti sebagai prediktor, sedangkan pada model 2 peneliti menambahkan prediktor berupa *interaction terms* antara *neuroticism* dengan *trust*.
+"...untuk menginvestigasi keterkaitan antara pendapatan keluarga, kecenderungan _neuroticism_ ibu, dan kepercayaan ibu bahwa perkembangan anak dapat terjadi secara natural dengan tingkat kemandirian anak, peneliti melakukan analisis regresi linier hirarkial dengan _interaction terms_. Peneliti menyusun dua model, dimana; model 1 mengestimasi varians tingkat kemandirian anak dengan pendapatan keluarga inti sebagai prediktor, sedangkan pada model 2 peneliti menambahkan prediktor berupa _interaction terms_ antara _neuroticism_ dengan _trust_.
 
-Ketika dibandingkan, Model 1 dan Model 2 berbeda signifikan (*F*(1,397)=104, p\<.001). R^2^ bertambah sebesar 20.2% (ΔR^2^=.202). Model 2 (*F*(2,397)=58.2, p\<.001, R^2^=.226, AIC=3237, BIC=3253) dapat menjelaskan varians tingkat kemandirian anak lebih baik daripada Model 1 (*F*(1,398)=10.2, p=.002, R^2^=.025, AIC=3327, BIC=3339).
+Ketika dibandingkan, Model 1 dan Model 2 berbeda signifikan (_F_(1,397)=104, p\<.001). R^2^ bertambah sebesar 20.2% (ΔR^2^=.202). Model 2 (_F_(2,397)=58.2, p\<.001, R^2^=.226, AIC=3237, BIC=3253) dapat menjelaskan varians tingkat kemandirian anak lebih baik daripada Model 1 (_F_(1,398)=10.2, p=.002, R^2^=.025, AIC=3327, BIC=3339).
 
-Pendapatan keluarga dapat menjelaskan variasi kemandirian anak (*B*=-0.943 95% CI [-1.164, -0.721], *SE*=0.112, *t*=-8.39, *p*\<.001). Interaksi antara *neuroticism* dengan *trust* juga signifikan (*B*=0.054 95% CI [0.044, 0.065], *SE*=0.005, *t*=10.18, *p*\<.001). Artinya, korelasi antara kecenderungan *neuroticism* ibu dengan kemandirian anak akan menguat pada ibu yang *trust*nya tinggi.
+Pendapatan keluarga dapat menjelaskan variasi kemandirian anak (_B_=-0.943 95% CI [-1.164, -0.721], _SE_=0.112, _t_=-8.39, _p_\<.001). Interaksi antara _neuroticism_ dengan _trust_ juga signifikan (_B_=0.054 95% CI [0.044, 0.065], _SE_=0.005, _t_=10.18, _p_\<.001). Artinya, korelasi antara kecenderungan _neuroticism_ ibu dengan kemandirian anak akan menguat pada ibu yang _trust_nya tinggi.
 
 Potensi multikolinieritas dideteksi dengan VIF dan hasil analisis menunjukkan multikolinieritas kemungkinan besar tidak terjadi (VIF=1.38)..."
 
@@ -481,7 +480,7 @@ Fernando Jose sebal sekali karena ia kembali kehilangan pengokotnya dan ini kali
 
 Teman-teman kerjanya memang punya kebiasaan buruk meminjam barang tanpa seijinnya. Ia akhirnya bertanya, apa ya yang menyebabkan teman-temannya berperilaku seperti itu?
 
-Akhirnya ia menduga, mungkin ada kaitannya dengan faktor kepribadian (*conscientiousness*) dan faktor situasional di tempat kerjanya.
+Akhirnya ia menduga, mungkin ada kaitannya dengan faktor kepribadian (_conscientiousness_) dan faktor situasional di tempat kerjanya.
 
 Untuk faktor situasi, ia mengamati sepertinya persepsi atas kondisi kerja yang informal dan relasi formal antara senior-junior mungkin juga berkaitan dengan timbulnya perilaku tersebut.
 :::
@@ -499,16 +498,16 @@ Untuk faktor situasi, ia mengamati sepertinya persepsi atas kondisi kerja yang i
 * Fernando Jose akhirnya melakukan penelitian survei pada 450 karyawan di 3 perusahaan yang berbeda
 * Buka [laman web _workshop_](https://rameliaz.github.io/mlm-lme-workshop/) dan unduh [dataset-organisasi.omv](https://rameliaz.github.io/mlm-lme-workshop/dataset-organisasi.omv)
 * Dalam dataset tersebut ada beberapa variabel
-  - **con** = Kecenderungan *conscientiousness* karyawan. Makin tinggi skornya, karyawan lebih mungkin menunjukkan kehati-hatian dan keteraturan dalam bekerja, efisien, dan bertanggung jawab.
+  - **con** = Kecenderungan _conscientiousness_ karyawan. Makin tinggi skornya, karyawan lebih mungkin menunjukkan kehati-hatian dan keteraturan dalam bekerja, efisien, dan bertanggung jawab.
   - **inf** = Persepsi atas nuansa informal dalam kantor. Makin tinggi, karyawan makin merasa situasi kantor lebih informal.
-  - **pow** = Jarak kuasa (*power distance*) dalam relasi antar-karyawan. Makin tinggi, budaya senioritas makin parah.
-  - **incivil** = Intensitas perilaku tidak beradab. Makin besar skornya, karyawan akan lebih mungkin *emotionally abusive*, suka mengambil barang teman tanpa ijin, dan perilaku tidak pantas yang lain.
+  - **pow** = Jarak kuasa (_power distance_) dalam relasi antar-karyawan. Makin tinggi, budaya senioritas makin parah.
+  - **incivil** = Intensitas perilaku tidak beradab. Makin besar skornya, karyawan akan lebih mungkin _emotionally abusive_, suka mengambil barang teman tanpa ijin, dan perilaku tidak pantas yang lain.
 
 ## Latihan mandiri 1️⃣
 
 * Buatlah 2 model untuk mengestimasi varians perilaku tidak beradab dimana:
   - Prediktor model 1: jarak kuasa
-  - Prediktor model 2: interaksi antara *conscientiousness* dengan persepsi situasi kerja yang informal
+  - Prediktor model 2: interaksi antara _conscientiousness_ dengan persepsi situasi kerja yang informal
 * Bagaimana hipotesisnya?
 * Laporkan hasil analisis datanya dan berikan penjelasan singkat apakah hasil analisis data menolak/gagal menolak hipotesis penelitian.
 
@@ -517,6 +516,6 @@ Untuk faktor situasi, ia mengamati sepertinya persepsi atas kondisi kerja yang i
 ![](https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExMDFtaDh5ZjZ2eXJ3dmJmZmFmYzBtNHEwdzlqZmZtdGtmbnE0bXZidiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/igB2Th9e4nW6s/giphy.gif){fig-align="center"}
 
 ::: {.callout-note}
-* Paparan disusun dengan menggunakan <i class="fa-brands fa-r-project"></i> dan [**Quarto**](https://quarto.org) dengan *template* dari [UNAIR Theme](https://github.com/rameliaz/quarto-unair-theme).
+* Paparan disusun dengan menggunakan <i class="fa-brands fa-r-project"></i> dan [**Quarto**](https://quarto.org) dengan _template_ dari [UNAIR Theme](https://github.com/rameliaz/quarto-unair-theme).
 * Kontak saya via <i class="fas fa-paper-plane"></i> <a href="mailto:amelia.zein@psikologi.unair.ac.id">amelia.zein@psikologi.unair.ac.id</a>
 :::

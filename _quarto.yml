@@ -25,10 +25,16 @@ website:
         menu:
           - text: "Bagian 1 (html)"
             href: materi-lme1.html
+          - text: "Bagian 1 (pdf)"
+            href: "materi-lme1.html?print-pdf"
           - text: "Bagian 2 (html)"
             href: materi-lme2.html
+          - text: "Bagian 2 (pdf)"
+            href: "materi-lme2.html?print-pdf"
           - text: "Bagian 3 (html)"
             href: materi-lme3.html
+          - text: "Bagian 3 (pdf)"
+            href: "materi-lme3.html?print-pdf"
       - text: "Dataset"
         menu:
           - text: "Dataset1-Sekolah"

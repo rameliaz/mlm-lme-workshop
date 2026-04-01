@@ -21,11 +21,11 @@
     "text": "Masalah dependensi temporal\n\n\n\nBayangkan kita mengukur tingkat kecemasan menteri pada:\n\nSebelum BBM naik (T1)\nSaat kebijakan BBM naik diumumkan (T2)\nSeminggu sesudah BBM dinyatakan naik (T3)\n\nKecemasan Dadan di T1 dan T2 sangat mungkin berkorelasi, karena Dadan yang sama yang diukur dua kali.\nIni melanggar asumsi independensi residual dari lme biasa.\nKalau kita abaikan, standard error akan terlalu kecil → risiko Type I error meningkat.\n\n\n\n\n\n\nWaktu\nKecemasan Dadan\nKecemasan Bahlil\n\n\n\n\nT1\n72\n55\n\n\nT2\n85\n61\n\n\nT3\n58\n48\n\n\n\nObservasi dalam satu orang tidak independen!"
   },
   {
-    "objectID": "materi-lme3.html#solusi-menspesifikasi-struktur-kovarians-residual",
-    "href": "materi-lme3.html#solusi-menspesifikasi-struktur-kovarians-residual",
+    "objectID": "materi-lme3.html#spesifikasi-struktur-kovarians-residual",
+    "href": "materi-lme3.html#spesifikasi-struktur-kovarians-residual",
     "title": "LME untuk Pengukuran Berulang dan Experience Sampling",
-    "section": "Solusi: menspesifikasi struktur kovarians residual",
-    "text": "Solusi: menspesifikasi struktur kovarians residual\nKita perlu memberitahu model, bagaimana pola korelasi antara residual dari pengukuran berulang pada orang yang sama.\nDi GAMLj, ini diatur melalui menu Residuals Options."
+    "section": "Spesifikasi struktur kovarians residual",
+    "text": "Spesifikasi struktur kovarians residual\nKita perlu menspesifikasi, bagaimana pola korelasi antara residual dari pengukuran berulang pada orang yang sama.\nDi GAMLj, ini diatur melalui menu Residuals Options."
   },
   {
     "objectID": "materi-lme3.html#matriks-kovarians-residual",
@@ -74,49 +74,49 @@
     "href": "materi-lme3.html#mengapa-lme-lebih-baik-dari-rm-anova",
     "title": "LME untuk Pengukuran Berulang dan Experience Sampling",
     "section": "Mengapa lme lebih baik dari RM-ANOVA?",
-    "text": "Mengapa lme lebih baik dari RM-ANOVA?\n\n\nKeterbatasan RM-ANOVA:\n\nMengharuskan data lengkap di semua time point (tidak boleh ada missing data)\nInterval waktu harus sama (equally spaced)\nHanya bisa mengestimasi efek fixed dari waktu\nTidak bisa memasukkan prediktor level-1 yang bervariasi antar waktu (time-varying covariates)\n\nKeunggulan lme:\n\nMenangani missing data dengan baik (ML/REML estimation)\nBisa digunakan untuk interval waktu yang tidak sama\nBisa memasukkan waktu sebagai variabel kontinu\nBisa memperkirakan perbedaan trajectory antar individu (random slopes)"
+    "text": "Mengapa lme lebih baik dari RM-ANOVA?\nKeterbatasan RM-ANOVA:\n\nMengharuskan data lengkap di semua time point (tidak boleh ada missing data)\nInterval waktu harus sama (equally spaced)\nHanya bisa mengestimasi efek fixed dari waktu\nTidak bisa memasukkan prediktor level-1 yang bervariasi antar waktu (time-varying covariates)\n\nKeunggulan lme:\n\nMenangani missing data dengan baik (ML/REML estimation)\nBisa digunakan untuk interval waktu yang tidak sama\nBisa memasukkan waktu sebagai variabel kontinu\nBisa memperkirakan perbedaan trajectory antar individu (random slopes)"
   },
   {
-    "objectID": "materi-lme3.html#skenario-kecemasan-selama-masa-ujian",
-    "href": "materi-lme3.html#skenario-kecemasan-selama-masa-ujian",
+    "objectID": "materi-lme3.html#ilustrasi-kasus-kecemasan-selama-masa-ujian",
+    "href": "materi-lme3.html#ilustrasi-kasus-kecemasan-selama-masa-ujian",
     "title": "LME untuk Pengukuran Berulang dan Experience Sampling",
-    "section": "Skenario: Kecemasan selama masa ujian",
-    "text": "Skenario: Kecemasan selama masa ujian\n\n\nNisa adalah seorang mahasiswa psikologi yang penasaran apakah tingkat kecemasan teman-temannya berubah selama masa ujian.\nIa melakukan survei pada 120 mahasiswa dari 4 fakultas berbeda di dua universitas, sebanyak 4 kali pengukuran:\n\nT1 — 2 minggu sebelum UAS\nT2 — 1 minggu sebelum UAS\nT3 — Saat UAS berlangsung\nT4 — 2 minggu setelah UAS\n\n\ndataset-rm.omv\nVariabel:\n\nid — ID mahasiswa\nfakultas — Asal fakultas (1–4)\nt — Waktu (1–4)\ncemas — Skor kecemasan (0–100)\nneuro — Neuroticism (trait)"
+    "section": "Ilustrasi Kasus: Kecemasan selama masa ujian",
+    "text": "Ilustrasi Kasus: Kecemasan selama masa ujian\n\n\nNisa adalah seorang mahasiswa psikologi yang penasaran apakah tingkat kecemasan teman-temannya berubah selama masa ujian.\nIa melakukan survei pada 120 mahasiswa dari 4 fakultas berbeda di dua universitas, sebanyak 4 kali pengukuran:\n\nT1 — 2 minggu sebelum UAS\nT2 — 1 minggu sebelum UAS\nT3 — Saat UAS berlangsung\nT4 — 2 minggu setelah UAS\n\n\nKlik datasetnya di bawah ini dataset-rm.omv\nVariabel:\n\nid — ID mahasiswa\nfakultas — Asal fakultas (1–4)\nt — Waktu (1–4)\ncemas — Skor kecemasan (0–100)\nneuro — Neuroticism (trait)"
   },
   {
     "objectID": "materi-lme3.html#data-repeated-measures-terlihat-seperti-ini",
     "href": "materi-lme3.html#data-repeated-measures-terlihat-seperti-ini",
     "title": "LME untuk Pengukuran Berulang dan Experience Sampling",
     "section": "Data repeated measures terlihat seperti ini",
-    "text": "Data repeated measures terlihat seperti ini\n\nFormat long (format yang dibutuhkan untuk lme):\n\n\n\nid\nt\ncemas\nneuro\n\n\n\n\n001\n1\n52\n68\n\n\n001\n2\n61\n68\n\n\n001\n3\n78\n68\n\n\n001\n4\n49\n68\n\n\n002\n1\n44\n55\n\n\n002\n2\n50\n55\n\n\n…\n…\n…\n…\n\n\n\nPerhatikan: neuro tidak berubah antar waktu (variabel Level-2), sedangkan cemas berubah antar waktu (variabel Level-1)."
+    "text": "Data repeated measures terlihat seperti ini\nFormat long (format yang dibutuhkan untuk lme):\n\n\n\nid\nt\ncemas\nneuro\n\n\n\n\n001\n1\n52\n68\n\n\n001\n2\n61\n68\n\n\n001\n3\n78\n68\n\n\n001\n4\n49\n68\n\n\n002\n1\n44\n55\n\n\n002\n2\n50\n55\n\n\n…\n…\n…\n…\n\n\n\nPerhatikan: neuro tidak berubah antar waktu (variabel Level-2), sedangkan cemas berubah antar waktu (variabel Level-1)."
   },
   {
     "objectID": "materi-lme3.html#latihan-5-setup-repeated-measures-di-gamlj",
     "href": "materi-lme3.html#latihan-5-setup-repeated-measures-di-gamlj",
     "title": "LME untuk Pengukuran Berulang dan Experience Sampling",
-    "section": "Latihan (5): Setup repeated measures di GAMLj",
-    "text": "Latihan (5): Setup repeated measures di GAMLj\nBuka dataset-rm.omv"
+    "section": "Latihan 5️⃣: Setup repeated measures di GAMLj",
+    "text": "Latihan 5️⃣: Setup repeated measures di GAMLj\nBuka dataset-rm.omv"
   },
   {
     "objectID": "materi-lme3.html#latihan-5-langkah-langkah",
     "href": "materi-lme3.html#latihan-5-langkah-langkah",
     "title": "LME untuk Pengukuran Berulang dan Experience Sampling",
-    "section": "Latihan (5): Langkah-langkah",
-    "text": "Latihan (5): Langkah-langkah\nLangkah 1 — Model kosong (null model):\n\nKlik Linear Models → Mixed Models\nMasukkan cemas dalam Dependent Variable\nMasukkan id dalam Cluster Variables\nPada Random Effects, masukkan intercept|id\nCatat AIC\n\n\n\n\n\n\n\nNote\n\n\nCatatan penting: Belum ada struktur kovarians khusus — ini berarti kita masih menggunakan Identity (asumsi independensi). Kita akan ubah di langkah berikutnya."
+    "section": "Latihan 5️⃣: Langkah-langkah",
+    "text": "Latihan 5️⃣: Langkah-langkah\nLangkah 1 — Model kosong (null model):\n\nKlik Linear Models → Mixed Models\nMasukkan cemas dalam Dependent Variable\nMasukkan id dalam Cluster Variables\nPada Random Effects, masukkan intercept|id\nCatat AIC\n\n\n\n\n\n\n\nNote\n\n\nCatatan penting: Belum ada struktur kovarians khusus — ini berarti kita masih menggunakan Identity (asumsi independensi). Kita akan ubah di langkah berikutnya."
   },
   {
     "objectID": "materi-lme3.html#latihan-5-membandingkan-struktur-kovarians",
     "href": "materi-lme3.html#latihan-5-membandingkan-struktur-kovarians",
     "title": "LME untuk Pengukuran Berulang dan Experience Sampling",
-    "section": "Latihan (5): Membandingkan struktur kovarians",
-    "text": "Latihan (5): Membandingkan struktur kovarians\nLangkah 2 — Tambahkan waktu sebagai prediktor:\n\nMasukkan t dalam Covariates (jika ingin memperlakukan waktu sebagai kontinu) atau Factors (jika ingin diperlakukan sebagai kategoris)\nPada Random Effects, pertimbangkan apakah perlu menambahkan t|id (random slopes)\n\nLangkah 3 — Ubah struktur kovarians residual:\n\nKlik menu Residuals (atau Variances)\nCoba satu per satu: Identity → Compound Symmetry → Unstructured\nCatat AIC dan BIC untuk masing-masing\nPilih struktur dengan AIC/BIC terkecil\n\n\n\n\n\n\n\nTips\n\n\nUrutkan dari yang paling sederhana ke yang paling kompleks: Identity → CS → UN. Jika CS sudah cukup baik (AIC/BIC tidak jauh lebih buruk dari UN), gunakan CS."
+    "section": "Latihan 5️⃣: Membandingkan struktur kovarians",
+    "text": "Latihan 5️⃣: Membandingkan struktur kovarians\nLangkah 2 — Tambahkan waktu sebagai prediktor:\n\nMasukkan t dalam Covariates (jika ingin memperlakukan waktu sebagai kontinu) atau Factors (jika ingin diperlakukan sebagai kategoris)\nPada Random Effects, pertimbangkan apakah perlu menambahkan t|id (random slopes)\n\nLangkah 3 — Ubah struktur kovarians residual:\n\nKlik menu Residuals (atau Variances)\nCoba satu per satu: Identity → Compound Symmetry → Unstructured\nCatat AIC dan BIC untuk masing-masing\nPilih struktur dengan AIC/BIC terkecil\n\n\n\n\n\n\n\nTips\n\n\nUrutkan dari yang paling sederhana ke yang paling kompleks: Identity → CS → UN. Jika CS sudah cukup baik (AIC/BIC tidak jauh lebih kecil dari UN), gunakan CS."
   },
   {
     "objectID": "materi-lme3.html#contoh-output-membandingkan-model",
     "href": "materi-lme3.html#contoh-output-membandingkan-model",
     "title": "LME untuk Pengukuran Berulang dan Experience Sampling",
     "section": "Contoh output: membandingkan model",
-    "text": "Contoh output: membandingkan model\n\nModel dengan waktu + CS biasanya sudah jauh lebih baik daripada model dengan Identity\nLihat tabel Model Info (AIC) dan Fixed Coefficients (efek waktu terhadap kecemasan)\nJika efek waktu signifikan: ada perubahan rata-rata kecemasan yang bermakna antar time point\nPeriksa juga Random Coefficients: apakah varians random intercept besar? Ini menunjukkan bahwa ada perbedaan tingkat kecemasan dasar yang besar antar individu.\n\n\n\n\n\n\n\nInterpretasi\n\n\nMisalnya, B(waktu) = 8.5, artinya setiap bertambah 1 unit waktu (1 time point), skor kecemasan rata-rata meningkat 8.5 poin — mengontrol perbedaan antar individu."
+    "text": "Contoh output: membandingkan model\n\nModel dengan waktu + CS biasanya sudah jauh lebih baik daripada model dengan Identity\nLihat tabel Model Info (AIC) dan Fixed Coefficients (efek waktu terhadap kecemasan)\nJika efek waktu signifikan: ada perubahan rata-rata kecemasan yang bermakna antar time point\nPeriksa juga Random Coefficients: apakah varians random intercept besar? Ini menunjukkan bahwa ada perbedaan tingkat kecemasan dasar yang besar antar individu.\n\n\n\n\n\n\n\nInterpretasi\n\n\nMisalnya, B(waktu) = 8.5, artinya setiap bertambah 1 unit waktu (1 time point), skor kecemasan rata-rata meningkat 8.5 poin, dengan mengontrol perbedaan antar individu."
   },
   {
     "objectID": "materi-lme3.html#experience-sampling-method-esm",
@@ -147,11 +147,11 @@
     "text": "Struktur data ESM\n\nData ESM adalah data bersarang 3 level yang kita sederhanakan menjadi 2 level:\n\nLevel 3: Orang (N = 80)\n    └── Level 2 (disederhanakan): Hari (7 hari/orang)\n            └── Level 1: Pengukuran/beep (5x/hari → 35 beep/orang)\n\nTotal observasi: 80 × 35 = 2.800 baris\nDalam GAMLj 2-level: beep bersarang dalam orang."
   },
   {
-    "objectID": "materi-lme3.html#fitur-khusus-data-esm-temporal-autocorrelation",
-    "href": "materi-lme3.html#fitur-khusus-data-esm-temporal-autocorrelation",
+    "objectID": "materi-lme3.html#temporal-autocorrelation",
+    "href": "materi-lme3.html#temporal-autocorrelation",
     "title": "LME untuk Pengukuran Berulang dan Experience Sampling",
-    "section": "Fitur khusus data ESM: Temporal autocorrelation",
-    "text": "Fitur khusus data ESM: Temporal autocorrelation\nMisalnya: mood Dani jam 10 pagi sangat berkorelasi dengan mood Dani jam 10.30, cukup berkorelasi dengan mood Dani jam 12, dan hampir tidak berkorelasi dengan mood Dani jam 10 malam.\nKorelasi meluruh (decay) seiring bertambahnya jarak waktu.\nIni disebut temporal autocorrelation — dan tidak bisa ditangani dengan struktur Identity atau Compound Symmetry, karena:\n\nCS mengasumsikan korelasi sama untuk semua jarak waktu\nKenyataannya, korelasi lebih besar untuk waktu yang berdekatan"
+    "section": "Temporal autocorrelation",
+    "text": "Temporal autocorrelation\nMisalnya: mood Dani jam 10 pagi sangat berkorelasi dengan mood Dani jam 10.30, cukup berkorelasi dengan mood Dani jam 12, dan hampir tidak berkorelasi dengan mood Dani jam 10 malam.\nKorelasi meluruh (decay) seiring bertambahnya jarak waktu.\nIni disebut temporal autocorrelation — dan tidak bisa ditangani dengan struktur Identity atau Compound Symmetry, karena:\n\nCS mengasumsikan korelasi sama untuk semua jarak waktu\nKenyataannya, korelasi lebih besar untuk waktu yang berdekatan"
   },
   {
     "objectID": "materi-lme3.html#struktur-4-ar1-autoregressive-order-1",
@@ -179,7 +179,7 @@
     "href": "materi-lme3.html#efek-within--vs.-between-person-ilustrasi",
     "title": "LME untuk Pengukuran Berulang dan Experience Sampling",
     "section": "Efek within- vs. between-person: ilustrasi",
-    "text": "Efek within- vs. between-person: ilustrasi\n\n\n\n\n\nOrang\nBeep\nStres\nM_stres\nStres_centered\n\n\n\n\nDadan\n1\n60\n55\n+5\n\n\nDadan\n2\n50\n55\n-5\n\n\nBahlil\n1\n40\n45\n-5\n\n\nBahlil\n2\n50\n45\n+5\n\n\n\n\nDadan dan Bahlil pada beep 2 sama-sama stres = 50, tetapi artinya berbeda: Dadan lebih rendah dari biasanya, Bahlil lebih tinggi dari biasanya.\n\n\n\n\n\n\n\nPenting\n\n\nRata-rata individu (M_stres) dimasukkan sebagai prediktor Level-2 yang terpisah untuk mengestimasi between-person effect secara eksplisit — sama seperti grand-mean centering dalam materi sebelumnya."
+    "text": "Efek within- vs. between-person: ilustrasi\n\n\n\n\n\nOrang\nBeep\nStres\nM_stres\nStres_centered\n\n\n\n\nDadan\n1\n60\n55\n+5\n\n\nDadan\n2\n50\n55\n-5\n\n\nBahlil\n1\n40\n45\n-5\n\n\nBahlil\n2\n50\n45\n+5\n\n\n\nDadan dan Bahlil pada beep 2 sama-sama stres = 50, tetapi artinya berbeda: Dadan lebih rendah dari biasanya, Bahlil lebih tinggi dari biasanya.\n\n\n\n\n\n\n\nPenting\n\n\nRata-rata individu (M_stres) dimasukkan sebagai prediktor Level-2 yang terpisah untuk mengestimasi between-person effect secara eksplisit — sama seperti grand-mean centering dalam materi sebelumnya."
   },
   {
     "objectID": "materi-lme3.html#cross-level-interaction-dalam-esm",
@@ -189,74 +189,74 @@
     "text": "Cross-level interaction dalam ESM\n\n\nPertanyaan yang paling menarik dalam banyak studi ESM: apakah hubungan within-person berbeda antar individu?\nMisalnya: apakah hubungan antara stres sesaat dengan afek negatif sesaat lebih kuat pada orang dengan neuroticism tinggi?\nIni adalah cross-level interaction: interaksi antara prediktor Level-1 (stres_centered) dengan prediktor Level-2 (neuroticism).\n\nCara setup di GAMLj:\n\nMasukkan stres_centered dan neuroticism dalam Fixed Effects\nKlik Model → tambahkan stres_centered × neuroticism\nMasukkan stres_centered|id dalam Random Effects (estimasi random slopes untuk stres_centered)"
   },
   {
-    "objectID": "materi-lme3.html#skenario-esm-afek-dan-regulasi-emosi",
-    "href": "materi-lme3.html#skenario-esm-afek-dan-regulasi-emosi",
+    "objectID": "materi-lme3.html#ilustrasi-kasus-esm-afek-dan-regulasi-emosi",
+    "href": "materi-lme3.html#ilustrasi-kasus-esm-afek-dan-regulasi-emosi",
     "title": "LME untuk Pengukuran Berulang dan Experience Sampling",
-    "section": "Skenario ESM: Afek dan regulasi emosi",
-    "text": "Skenario ESM: Afek dan regulasi emosi\n\n\nJoko adalah seorang mahasiswa S3 yang ingin tahu apakah strategi regulasi emosi seseorang mempengaruhi dinamika afek harian mereka.\nIa merekrut 80 mahasiswa dan meminta mereka mengisi survei singkat 5 kali sehari selama 7 hari melalui aplikasi smartphone.\nSetiap beep, partisipan diminta menilai:\n\npa — afek positif saat ini (0–100)\nstres — tingkat stres saat ini (0–100)\n\nSebelum studi dimulai, partisipan mengisi:\n\ner — strategi regulasi emosi (emotion regulation, skor kontinu)\n\n\ndataset-esm.omv\nVariabel Level-1 (beep):\n\nid, hari, beep, pa, stres\n\nVariabel Level-2 (person):\n\ner (regulasi emosi)"
+    "section": "Ilustrasi Kasus ESM: Afek dan regulasi emosi",
+    "text": "Ilustrasi Kasus ESM: Afek dan regulasi emosi\n\n\nJoko adalah seorang mahasiswa S3 yang ingin tahu apakah strategi regulasi emosi seseorang mempengaruhi dinamika afek harian mereka.\nIa merekrut 80 mahasiswa dan meminta mereka mengisi survei singkat 5 kali sehari selama 7 hari melalui aplikasi smartphone.\nSetiap beep, partisipan diminta menilai:\n\npa — afek positif saat ini (0–100)\nstres — tingkat stres saat ini (0–100)\n\nSebelum studi dimulai, partisipan mengisi:\n\ner — strategi regulasi emosi (emotion regulation, skor kontinu)\n\n\nKlik teks di bawah ini untuk mengunduh dataset dataset-esm.omv\nVariabel Level-1 (beep):\n\nid, hari, beep, pa, stres\n\nVariabel Level-2 (person):\n\ner (regulasi emosi)"
   },
   {
     "objectID": "materi-lme3.html#latihan-6-setup-esm-di-gamlj",
     "href": "materi-lme3.html#latihan-6-setup-esm-di-gamlj",
     "title": "LME untuk Pengukuran Berulang dan Experience Sampling",
-    "section": "Latihan (6): Setup ESM di GAMLj",
-    "text": "Latihan (6): Setup ESM di GAMLj\nBuka dataset-esm.omv"
+    "section": "Latihan 6️⃣: Setup ESM di GAMLj",
+    "text": "Latihan 6️⃣: Setup ESM di GAMLj\nBuka dataset-esm.omv"
   },
   {
     "objectID": "materi-lme3.html#latihan-6-langkah-langkah-1",
     "href": "materi-lme3.html#latihan-6-langkah-langkah-1",
     "title": "LME untuk Pengukuran Berulang dan Experience Sampling",
-    "section": "Latihan (6): Langkah-langkah (1)",
-    "text": "Latihan (6): Langkah-langkah (1)\n\n\nPersiapan data:\n\nSebelum analisis, kita perlu membuat variabel stres_centered (stres yang sudah di-person-mean centered)\n\nDalam jamovi: Data → Add Computed Variable\nFormula: stres - VMEAN(stres, id) (mengurangi dengan rata-rata dalam kelompok id)\n\nBuat juga variabel stres_mean (rata-rata stres per orang):\n\nFormula: VMEAN(stres, id) → variabel ini mewakili between-person effect\n\n\n\n\n\n\n\n\n\nTips\n\n\nDalam jamovi, fungsi VMEAN(var, group) menghitung rata-rata variabel var untuk setiap nilai group. Ini setara dengan group-mean yang kita gunakan di materi sebelumnya."
+    "section": "Latihan 6️⃣: Langkah-langkah (1)",
+    "text": "Latihan 6️⃣: Langkah-langkah (1)\n\n\nPersiapan data:\n\nSebelum analisis, kita perlu membuat variabel stres_centered (stres yang sudah di-person-mean centered)\n\nDalam jamovi: Data → Add Computed Variable\nFormula: stres - VMEAN(stres, id) (mengurangi dengan rata-rata dalam kelompok id)\n\nBuat juga variabel stres_mean (rata-rata stres per orang):\n\nFormula: VMEAN(stres, id) → variabel ini mewakili between-person effect\n\n\n\n\n\n\n\n\nNote\n\n\nTips: dalam jamovi, fungsi VMEAN(var, group) menghitung rata-rata variabel var untuk setiap nilai group. Ini setara dengan group-mean yang kita gunakan di materi sebelumnya."
   },
   {
     "objectID": "materi-lme3.html#latihan-6-langkah-langkah-2",
     "href": "materi-lme3.html#latihan-6-langkah-langkah-2",
     "title": "LME untuk Pengukuran Berulang dan Experience Sampling",
-    "section": "Latihan (6): Langkah-langkah (2)",
-    "text": "Latihan (6): Langkah-langkah (2)\n\n\nLangkah 1 — Model null:\n\nKlik Linear Models → Mixed Models\nDependent Variable: pa\nCluster Variables: id\nRandom Effects: intercept|id\nCatat ICC dan AIC\n\nLangkah 2 — Tambahkan prediktor Level-1:\n\nCovariates: stres_centered\nRandom Effects: tambahkan stres_centered|id (random slopes)\nResiduals → pilih AR(1) untuk menangkap temporal autocorrelation\n\n\nLangkah 3 — Tambahkan prediktor Level-2:\n\nCovariates: stres_mean (between-person), er (regulasi emosi)\n\nLangkah 4 — Cross-level interaction:\n\nKlik Model → tambahkan interaksi stres_centered × er\n\nBandingkan AIC antar model!"
+    "section": "Latihan 6️⃣: Langkah-langkah (2)",
+    "text": "Latihan 6️⃣: Langkah-langkah (2)\n\n\nLangkah 1 — Model null:\n\nKlik Linear Models → Mixed Models\nDependent Variable: pa\nCluster Variables: id\nRandom Effects: intercept|id\nCatat ICC dan AIC\n\nLangkah 2 — Tambahkan prediktor Level-1:\n\nCovariates: stres_centered\nRandom Effects: tambahkan stres_centered|id (random slopes)\nResiduals → pilih AR(1) untuk menangkap temporal autocorrelation\n\n\nLangkah 3 — Tambahkan prediktor Level-2:\n\nCovariates: stres_mean (between-person), er (regulasi emosi)\n\nLangkah 4 — Cross-level interaction:\n\nKlik Model → tambahkan interaksi stres_centered × er\n\nBandingkan AIC antar model!"
   },
   {
     "objectID": "materi-lme3.html#apa-yang-kita-estimasi",
     "href": "materi-lme3.html#apa-yang-kita-estimasi",
     "title": "LME untuk Pengukuran Berulang dan Experience Sampling",
     "section": "Apa yang kita estimasi?",
-    "text": "Apa yang kita estimasi?\n\n\nDari model ESM lengkap, kita mendapatkan estimasi:\nFixed effects: * Intercept: rata-rata afek positif keseluruhan * stres_centered (B₁): efek within-person — ketika seseorang lebih stres dari biasanya, seberapa besar afek positifnya menurun? * stres_mean (B₂): efek between-person — apakah orang yang lebih stres secara umum juga lebih rendah afek positifnya? * er (B₃): efek regulasi emosi antar individu * stres_centered × er (B₄): cross-level interaction\n\nRandom effects: * σ²_U0: varians random intercept (perbedaan baseline afek antar orang) * σ²_U1: varians random slopes (seberapa bervariasi reaktivitas stres antar orang) * σ²_e: varians residual Level-1\nAR(1) parameters: * ρ: koefisien autokorelasi (besarnya korelasi antar beep berturutan)"
+    "text": "Apa yang kita estimasi?\n\n\nDari model ESM lengkap, kita mendapatkan estimasi:\nFixed effects:\n\nIntercept: rata-rata afek positif keseluruhan\nstres_centered (B₁): efek within-person — ketika seseorang lebih stres dari biasanya, seberapa besar afek positifnya menurun?\nstres_mean (B₂): efek between-person — apakah orang yang lebih stres secara umum juga lebih rendah afek positifnya?\ner (B₃): efek regulasi emosi antar individu\nstres_centered × er (B₄): cross-level interaction\n\n\nRandom effects:\n\nσ²_U0: varians random intercept (perbedaan baseline afek antar orang)\nσ²_U1: varians random slopes (seberapa bervariasi reaktivitas stres antar orang)\nσ²_e: varians residual Level-1\n\nAR(1) parameter:\n\nρ: koefisien autokorelasi (besarnya korelasi antar beep yang berturutan)"
   },
   {
     "objectID": "materi-lme3.html#bagaimana-melaporkannya-1",
     "href": "materi-lme3.html#bagaimana-melaporkannya-1",
     "title": "LME untuk Pengukuran Berulang dan Experience Sampling",
-    "section": "Bagaimana melaporkannya? (1)",
-    "text": "Bagaimana melaporkannya? (1)\n“…untuk menguji hipotesis penelitian, kami melakukan analisis linear mixed effects (LME) dengan menggunakan REML (Restricted Maximum Likelihood) di jamovi (GAMLj). Data bersarang dalam dua level: pengukuran sesaat (beep, N=2.800) bersarang dalam individu (N=80).\nSebelum analisis, variabel stres sesaat di-person-mean centered dengan cara mengurangi skor stres setiap beep dengan rata-rata skor stres individu tersebut di seluruh beep-nya. Rata-rata stres individu dimasukkan sebagai prediktor Level-2 yang terpisah untuk mengestimasi efek between-person secara eksplisit.\nStruktur kovarians residual AR(1) dipilih untuk menangkap temporal autocorrelation antar pengukuran, yang diperkuat oleh estimasi koefisien autokorelasi ρ=XX, menunjukkan korelasi yang moderat antara pengukuran berturutan…”"
+    "section": "Bagaimana melaporkannya? 1️⃣",
+    "text": "Bagaimana melaporkannya? 1️⃣\n“…untuk menguji hipotesis penelitian, kami melakukan analisis linear mixed effects (LME) dengan menggunakan REML (Restricted Maximum Likelihood) di jamovi (GAMLj). Data bersarang dalam dua level: pengukuran sesaat (beep, N=2.800) bersarang dalam individu (N=80).\nSebelum analisis, variabel stres sesaat di-person-mean centered dengan cara mengurangi skor stres setiap beep dengan rata-rata skor stres individu tersebut di seluruh beep-nya. Rata-rata stres individu dimasukkan sebagai prediktor Level-2 yang terpisah untuk mengestimasi efek between-person secara eksplisit.\nStruktur kovarians residual AR(1) dipilih untuk menangkap temporal autocorrelation antar pengukuran, yang diperkuat oleh estimasi koefisien autokorelasi ρ=XX, menunjukkan korelasi yang moderat antara pengukuran berturutan…”"
   },
   {
     "objectID": "materi-lme3.html#bagaimana-melaporkannya-2",
     "href": "materi-lme3.html#bagaimana-melaporkannya-2",
     "title": "LME untuk Pengukuran Berulang dan Experience Sampling",
-    "section": "Bagaimana melaporkannya? (2)",
-    "text": "Bagaimana melaporkannya? (2)\n“…model null menunjukkan bahwa XX.X% varians afek positif sesaat berada di level individu (ICC=X.XX), mengindikasikan bahwa penggunaan LME lebih sesuai daripada regresi OLS.\nEfek within-person stres sesaat terhadap afek positif sesaat signifikan negatif (B=XX 95% CI [XX, XX], SE=XX, t=XX, p=.0XX), artinya ketika seseorang saat ini lebih stres dari biasanya, afek positifnya juga lebih rendah dari biasanya sebesar XX poin.\nEfek between-person stres juga signifikan (B=XX 95% CI [XX, XX]), artinya orang yang secara umum lebih stres memiliki afek positif rata-rata yang lebih rendah sebesar XX poin, dibanding orang yang lebih tidak stres — bahkan ketika perbedaan fluktuasi sesaat sudah dikontrol.\nCross-level interaction antara stres sesaat dan regulasi emosi signifikan (B=XX), menunjukkan bahwa orang dengan regulasi emosi yang lebih baik menunjukkan reaktivitas stres-afek yang lebih lemah…”"
+    "section": "Bagaimana melaporkannya? 2️⃣",
+    "text": "Bagaimana melaporkannya? 2️⃣\n“…model null menunjukkan bahwa XX.X% varians afek positif sesaat berada di level individu (ICC=X.XX), mengindikasikan bahwa penggunaan LME lebih sesuai daripada regresi OLS.\nEfek within-person stres sesaat terhadap afek positif sesaat signifikan negatif (B=XX 95% CI [XX, XX], SE=XX, t=XX, p=.0XX), artinya ketika seseorang saat ini lebih stres dari biasanya, afek positifnya juga lebih rendah dari biasanya sebesar XX poin.\nEfek between-person stres juga signifikan (B=XX 95% CI [XX, XX]), artinya orang yang secara umum lebih stres memiliki afek positif rata-rata yang lebih rendah sebesar XX poin, dibanding orang yang lebih tidak stres — bahkan ketika perbedaan fluktuasi sesaat sudah dikontrol.\nCross-level interaction antara stres sesaat dan regulasi emosi signifikan (B=XX), menunjukkan bahwa orang dengan regulasi emosi yang lebih baik menunjukkan reaktivitas stres-afek yang lebih lemah…”"
   },
   {
-    "objectID": "materi-lme3.html#rangkuman-kapan-pakai-struktur-apa",
-    "href": "materi-lme3.html#rangkuman-kapan-pakai-struktur-apa",
+    "objectID": "materi-lme3.html#rangkuman-kapan-pakai-struktur-kovarians-residual-yang-mana",
+    "href": "materi-lme3.html#rangkuman-kapan-pakai-struktur-kovarians-residual-yang-mana",
     "title": "LME untuk Pengukuran Berulang dan Experience Sampling",
-    "section": "Rangkuman: kapan pakai struktur apa?",
-    "text": "Rangkuman: kapan pakai struktur apa?\n\n\nRepeated measures (sedikit time points, ≤ 5):\n\nMulai dengan Unstructured sebagai baseline\nBandingkan dengan Compound Symmetry\nJika AIC/BIC CS tidak jauh lebih buruk → pilih CS\n\nESM / daily diary (banyak time points, interval regular):\n\nMulai dengan AR(1) sebagai pilihan utama\nJika masih ada pola residual → coba ARMA(1,1)\nJangan gunakan Identity atau Compound Symmetry tanpa alasan teoritis yang kuat\n\n\nSelalu lakukan:\n\nCek ICC di model null\nBandingkan AIC/BIC antar struktur\nLakukan person-mean centering untuk prediktor Level-1 dalam ESM\nEstimasi random slopes untuk prediktor Level-1 yang menjadi fokus penelitian"
+    "section": "Rangkuman: kapan pakai struktur kovarians residual yang mana?",
+    "text": "Rangkuman: kapan pakai struktur kovarians residual yang mana?\n\n\nRepeated measures (sedikit time points, ≤ 5):\n\nMulai dengan Unstructured sebagai baseline\nBandingkan dengan Compound Symmetry\nJika AIC/BIC CS tidak jauh lebih buruk → pilih CS\n\nESM / daily diary (banyak time points, interval regular):\n\nMulai dengan AR(1) sebagai pilihan utama\nJika masih ada pola residual → coba ARMA(1,1)\nJangan gunakan Identity atau Compound Symmetry tanpa alasan teoritis yang kuat\n\n\nSelalu lakukan:\n\nCek ICC di model null\nBandingkan AIC/BIC antar struktur\nLakukan person-mean centering untuk prediktor Level-1 dalam ESM\nEstimasi random slopes untuk prediktor Level-1 yang menjadi fokus penelitian"
   },
   {
     "objectID": "materi-lme3.html#latihan-mandiri-3",
     "href": "materi-lme3.html#latihan-mandiri-3",
     "title": "LME untuk Pengukuran Berulang dan Experience Sampling",
-    "section": "Latihan mandiri (3)",
-    "text": "Latihan mandiri (3)\n\n\nMenggunakan dataset-esm.omv, jawab pertanyaan berikut:\n\nSeberapa besar proporsi varians afek positif sesaat yang ada di level individu? (ICC)\nApakah ada efek within-person dari stres sesaat terhadap afek positif sesaat? Seberapa besar?\nApakah hubungan tersebut berbeda antar individu? (Lihat varians random slopes)\nApakah regulasi emosi memoderasi hubungan antara stres sesaat dengan afek positif sesaat? (cross-level interaction)\nBandingkan model dengan struktur AR(1) vs. Identity. Mana yang lebih baik?\n\n\nKlik disini untuk mengakses lembar kerja"
+    "section": "Latihan mandiri 3️⃣",
+    "text": "Latihan mandiri 3️⃣\n\n\nMenggunakan dataset-esm.omv, jawab pertanyaan berikut:\n\nSeberapa besar proporsi varians afek positif sesaat yang ada di level individu? (ICC)\nApakah ada efek within-person dari stres sesaat terhadap afek positif sesaat? Seberapa besar?\nApakah hubungan tersebut berbeda antar individu? (Lihat varians random slopes)\nApakah regulasi emosi memoderasi hubungan antara stres sesaat dengan afek positif sesaat? (cross-level interaction)\nBandingkan model dengan struktur AR(1) vs. Identity. Mana yang lebih baik?"
   },
   {
     "objectID": "materi-lme3.html#yang-belum-dibahas",
     "href": "materi-lme3.html#yang-belum-dibahas",
     "title": "LME untuk Pengukuran Berulang dan Experience Sampling",
     "section": "Yang belum dibahas…",
-    "text": "Yang belum dibahas…\n\n\n\nData ESM 3-level: pengukuran bersarang dalam hari, bersarang dalam individu\n\nDalam R: lme4 dengan dua cluster variables\nDalam jamovi GAMLj saat ini: belum didukung penuh\n\nLagged predictors: apakah stres sebelumnya memprediksi afek sekarang?\nIntra-individual variability sebagai outcome (bukan hanya rata-rata)\nIntensive longitudinal data: ketika jumlah beep sangat banyak (&gt;100/orang)\nESM dengan variabel kategoris (mis. afek diukur dengan item nominal)\n\nPerlu generalized LME (GLMM)"
+    "text": "Yang belum dibahas…\n\nData ESM 3-level: pengukuran bersarang dalam hari, bersarang dalam individu\n\nDalam R: lme4 dengan dua cluster variables\nDalam jamovi GAMLj saat ini: belum didukung penuh\n\nLagged predictors: apakah stres sebelumnya memprediksi afek sekarang?\nIntra-individual variability sebagai outcome (bukan hanya rata-rata)\nIntensive longitudinal data: ketika jumlah beep sangat banyak (&gt;100/orang)\nESM dengan variabel kategoris (mis. afek diukur dengan item nominal)\n\nPerlu generalized LME (GLMM)"
   },
   {
     "objectID": "materi-lme3.html#referensi-tambahan",
@@ -277,7 +277,7 @@
     "href": "materi-lme1.html#outline",
     "title": "Regresi Linier (Ordinary Least Square)",
     "section": "Outline",
-    "text": "Outline\n\nBerlatih menginspeksi data secara visual dengan scatterplot\nModel regresi linier (ordinary least square)\nMenarik garis regresi (fitted regression lines)\nVarians yang dapat dan yang tidak dapat dijelaskan oleh model (R2)\nMenguji hipotesis\nMengecek kecocokan model dengan data (model fit)\nMengecek asumsi\n\nDistribusi (normalitas) residual\nHomoskedastisitas\nMultikolinearitas\n\nMendeteksi outliers\nMenguji interaction effects dan model change\nMenulis hasil analisis regresi linier dengan interaction terms dalam manuskrip"
+    "text": "Outline\n\nBerlatih menginspeksi data secara visual dengan scatterplot\nModel regresi linier (ordinary least square)\nMenarik garis regresi (fitted regression lines)\nVarians yang dapat dan yang tidak dapat dijelaskan oleh model (R)2\nMenguji hipotesis\nMengecek kecocokan model dengan data (model fit)\nMengecek asumsi\n\nDistribusi (normalitas) residual\nHomoskedastisitas\nMultikolinearitas\n\nMendeteksi outliers\nMenguji interaction effects dan model change\nMenulis hasil analisis regresi linier dengan interaction terms dalam manuskrip"
   },
   {
     "objectID": "materi-lme1.html#ilustrasi-kasus",
@@ -312,7 +312,7 @@
     "href": "materi-lme1.html#membuat-scatterplot",
     "title": "Regresi Linier (Ordinary Least Square)",
     "section": "Membuat scatterplot",
-    "text": "Membuat scatterplot\n\n\n\nMerupakan teknik inspeksi visual kemungkinan terjadinya korelasi antara variabel.\nSetelah melakukan analisis deskriptif, sepertinya akan menarik membandingkan kaitan antara:\n\nNeuroticism (neu) dengan tingkat kemandirian (mandiri)\nkepercayaan ibu bahwa anak dapat berkembang secara natural (trust) dengan tingkat kemandirian (mandiri)\n\nAyo kita buat scatterplotnya!\n\nKlik exploration, pilih scatterplot\nMasukkan mandiri pada kolom Y-axis\nMasukkan neu (scatterplot 1) dan trust (scatterplot 2) pada kolom X-axis\nPada opsi regression line, pilih linear dan centang kotak standard error"
+    "text": "Membuat scatterplot\n\n\n\nMerupakan teknik inspeksi visual kemungkinan terjadinya korelasi antara variabel.\nSetelah melakukan analisis deskriptif, sepertinya akan menarik membandingkan kaitan antara:\n\nNeuroticism (neu) dengan tingkat kemandirian (mandiri)\nkepercayaan ibu bahwa anak dapat berkembang secara natural (trust) dengan tingkat kemandirian (mandiri)\n\nAyo kita buat _scatterplot_nya!\n\nKlik exploration, pilih scatterplot\nMasukkan mandiri pada kolom Y-axis\nMasukkan neu (scatterplot 1) dan trust (scatterplot 2) pada kolom X-axis\nPada opsi regression line, pilih linear dan centang kotak standard error"
   },
   {
     "objectID": "materi-lme1.html#scatterplot",
@@ -389,7 +389,7 @@
     "href": "materi-lme1.html#koefisien-model",
     "title": "Regresi Linier (Ordinary Least Square)",
     "section": "Koefisien model",
-    "text": "Koefisien model\n\n\n\nKecenderungan neuroticism ibu dapat menjelaskan variasi kemandirian anak (B=0.430 95% CI [0.170, 0.691], SE=0.132, t=3.25, p=.001).\nInterpretasi standardized (β) dan unstandardized (B) estimates\n\nUnstandardized (B) estimates: Setiap perubahan neuroticism sebesar 1 poin, maka tingkat kemandirian juga berubah sebesar 0.43 poin.\nStandardized (β) estimates: Setiap berubah neuroticism sebesar 1SD, maka tingkat kemandirian juga berubah sebesar 0.161SD.\n\n\n\n\n\n\n\nTip\n\n\nTips ❗: Selalu laporkan unstandardized estimates dan confidence intervalnya (Appelbaum, et. al., 2018)."
+    "text": "Koefisien model\n\n\n\nKecenderungan neuroticism ibu dapat menjelaskan variasi kemandirian anak (B=0.430 95% CI [0.170, 0.691], SE=0.132, t=3.25, p=.001).\nInterpretasi standardized (β) dan unstandardized (B) estimates\n\nUnstandardized (B) estimates: Setiap perubahan neuroticism sebesar 1 poin, maka tingkat kemandirian juga berubah sebesar 0.43 poin.\nStandardized (β) estimates: Setiap berubah neuroticism sebesar 1SD, maka tingkat kemandirian juga berubah sebesar 0.161SD.\n\n\n\n\n\n\n\nTip\n\n\nTips ❗: Selalu laporkan unstandardized estimates dan _confidence interval_nya (Appelbaum, et. al., 2018)."
   },
   {
     "objectID": "materi-lme1.html#diagnostik-model-distribusi-residual",
@@ -487,7 +487,7 @@
     "href": "materi-lme1.html#bagaimana-melaporkannya",
     "title": "Regresi Linier (Ordinary Least Square)",
     "section": "Bagaimana melaporkannya?",
-    "text": "Bagaimana melaporkannya?\n“…untuk menginvestigasi keterkaitan antara pendapatan keluarga, kecenderungan neuroticism ibu, dan kepercayaan ibu bahwa perkembangan anak dapat terjadi secara natural dengan tingkat kemandirian anak, peneliti melakukan analisis regresi linier hirarkial dengan interaction terms. Peneliti menyusun dua model, dimana; model 1 mengestimasi varians tingkat kemandirian anak dengan pendapatan keluarga inti sebagai prediktor, sedangkan pada model 2 peneliti menambahkan prediktor berupa interaction terms antara neuroticism dengan trust.\nKetika dibandingkan, Model 1 dan Model 2 berbeda signifikan (F(1,397)=104, p&lt;.001). R2 bertambah sebesar 20.2% (ΔR2=.202). Model 2 (F(2,397)=58.2, p&lt;.001, R2=.226, AIC=3237, BIC=3253) dapat menjelaskan varians tingkat kemandirian anak lebih baik daripada Model 1 (F(1,398)=10.2, p=.002, R2=.025, AIC=3327, BIC=3339).\nPendapatan keluarga dapat menjelaskan variasi kemandirian anak (B=-0.943 95% CI [-1.164, -0.721], SE=0.112, t=-8.39, p&lt;.001). Interaksi antara neuroticism dengan trust juga signifikan (B=0.054 95% CI [0.044, 0.065], SE=0.005, t=10.18, p&lt;.001). Artinya, korelasi antara kecenderungan neuroticism ibu dengan kemandirian anak akan menguat pada ibu yang trustnya tinggi.\nPotensi multikolinieritas dideteksi dengan VIF dan hasil analisis menunjukkan multikolinieritas kemungkinan besar tidak terjadi (VIF=1.38)…”"
+    "text": "Bagaimana melaporkannya?\n“…untuk menginvestigasi keterkaitan antara pendapatan keluarga, kecenderungan neuroticism ibu, dan kepercayaan ibu bahwa perkembangan anak dapat terjadi secara natural dengan tingkat kemandirian anak, peneliti melakukan analisis regresi linier hirarkial dengan interaction terms. Peneliti menyusun dua model, dimana; model 1 mengestimasi varians tingkat kemandirian anak dengan pendapatan keluarga inti sebagai prediktor, sedangkan pada model 2 peneliti menambahkan prediktor berupa interaction terms antara neuroticism dengan trust.\nKetika dibandingkan, Model 1 dan Model 2 berbeda signifikan (F(1,397)=104, p&lt;.001). R2 bertambah sebesar 20.2% (ΔR2=.202). Model 2 (F(2,397)=58.2, p&lt;.001, R2=.226, AIC=3237, BIC=3253) dapat menjelaskan varians tingkat kemandirian anak lebih baik daripada Model 1 (F(1,398)=10.2, p=.002, R2=.025, AIC=3327, BIC=3339).\nPendapatan keluarga dapat menjelaskan variasi kemandirian anak (B=-0.943 95% CI [-1.164, -0.721], SE=0.112, t=-8.39, p&lt;.001). Interaksi antara neuroticism dengan trust juga signifikan (B=0.054 95% CI [0.044, 0.065], SE=0.005, t=10.18, p&lt;.001). Artinya, korelasi antara kecenderungan neuroticism ibu dengan kemandirian anak akan menguat pada ibu yang _trust_nya tinggi.\nPotensi multikolinieritas dideteksi dengan VIF dan hasil analisis menunjukkan multikolinieritas kemungkinan besar tidak terjadi (VIF=1.38)…”"
   },
   {
     "objectID": "materi-lme1.html#latihan-mandiri-1",
@@ -536,7 +536,7 @@
     "href": "index.html#outline-materi",
     "title": "Linear Mixed Models (LME) Workshop",
     "section": "Outline materi",
-    "text": "Outline materi\nMateri yang tersedia di laman web ini juga mencakup konsep dasar ordinary least square regression selain pengenalan lme.\nPeserta juga akan diminta untuk menganalisis data dengan menggunakan lme dan melaporkannya dengan format yang biasa digunakan dalam artikel penelitian.\nBerikut adalah outline materi yang tersedia di laman web ini:\n\nBagian 1️⃣: Ordinary Least Square Regression\n\nBerlatih menginspeksi data secara visual dengan scatterplot\nModel regresi linier (ordinary least square)\nMenarik garis regresi (fitted regression line)\nVarians yang dapat dan yang tidak dapat dijelaskan oleh model (R2)\nMenguji hipotesis\nMengecek kecocokan model dengan data (model fit)\nMengecek asumsi\n\nDistribusi (normalitas) residual\nHomoskedastisitas\nMultikolinearitas\n\nMendeteksi outliers\nMenguji interaction effects dan model change\nMenulis hasil analisis regresi linier dengan interaction terms dalam manuskrip\n\n\n\n\n\n\n\nImportant\n\n\n\nKarena asumsinya mahasiswa S3 sudah memiliki pengetahuan statistik dasar, maka Bagian 1 tidak diajarkan di workshop. Bagian 1 harus dikuasai oleh peserta terlebih dahulu sebelum memulai workshop dan dapat dipelajari secara mandiri.\n\n\n\n\nBagian 2️⃣: Linear Mixed Effects Model\n\nStruktur data berjenjang/bersarang (hierarchical/nested data)\nWithin- dan between-group variances\nPengantar linear mixed-effect (lme)\nIntra-class correlation dan likelihood ratio test (LRT)\nMembandingkan garis regresi antar kelompok dengan lme\nlme dengan prediktor level 1 (random coefficients model)\n\nMengidentifikasi intercept (konstanta) yang berbeda antar kelompok (random-intercept model)\nMengidentifikasi slopes (gradien/kemiringan garis) yang berbeda antar kelompok (random slopes model)\n\n“Explained variances” (Nakagawa & Schielzeth, 2012)\n\nMarginal R2\nConditional R2\n\nContextual effect dan partitioning/centering\nMelaporkan analisis dengan lme dalam manuskrip\nPengukuran berulang (repeated measures) dan experience sampling\n\n\n\nBagian 3️⃣: lme untuk Pengukuran Berulang dan Experience Sampling\n\nKeterbatasan lme biasa untuk data pengukuran berulang\nRepeated measures dengan lme\n\nStruktur kovarians residual: Identity, Compound Symmetry, Unstructured\nMembandingkan model dengan struktur residual berbeda\n\nExperience Sampling Method (ESM)\n\nApa itu ESM dan pada saat seperti apa ESM dilakukan?\nTemporal autocorrelation dan struktur AR(1) & ARMA(1,1)\nPerson-mean centering: efek within- vs. between-person\nCross-level interaction dalam data ESM\n\nSetup di jamovi GAMLj\nMelaporkan hasil dalam manuskrip\n\n\n\n\n\n\n\nImportant\n\n\n\nKarena keterbatasan waktu, bagian 3️⃣ tidak diajarkan di workshop. Materi tersedia di laman web ini dan dapat dipelajari peserta secara mandiri."
+    "text": "Outline materi\nMateri yang tersedia di laman web ini juga mencakup konsep dasar ordinary least square regression selain pengenalan lme.\nPeserta juga akan diminta untuk menganalisis data dengan menggunakan lme dan melaporkannya dengan format yang biasa digunakan dalam artikel penelitian.\nBerikut adalah outline materi yang tersedia di laman web ini:\n\nBagian 1️⃣: Ordinary Least Square Regression\n\nBerlatih menginspeksi data secara visual dengan scatterplot\nModel regresi linier (ordinary least square)\nMenarik garis regresi (fitted regression line)\nVarians yang dapat dan yang tidak dapat dijelaskan oleh model (R2)\nMenguji hipotesis\nMengecek kecocokan model dengan data (model fit)\nMengecek asumsi\n\nDistribusi (normalitas) residual\nHomoskedastisitas\nMultikolinearitas\n\nMendeteksi outliers\nMenguji interaction effects dan model change\nMenulis hasil analisis regresi linier dengan interaction terms dalam manuskrip\n\n\n\n\n\n\n\nImportant\n\n\n\nKarena asumsinya mahasiswa S3 sudah memiliki pengetahuan statistik dasar, maka Bagian 1 tidak diajarkan di workshop. Bagian 1 harus dikuasai oleh peserta terlebih dahulu sebelum memulai workshop dan dapat dipelajari secara mandiri.\n\n\n\n\nBagian 2️⃣: Linear Mixed Effects Model\n\nStruktur data berjenjang/bersarang (hierarchical/nested data)\nWithin- dan between-group variances\nPengantar linear mixed-effect (lme)\nIntra-class correlation dan likelihood ratio test (LRT)\nMembandingkan garis regresi antar kelompok dengan lme\nlme dengan prediktor level 1 (random coefficients model)\n\nMengidentifikasi intercept (konstanta) yang berbeda antar kelompok (random-intercept model)\nMengidentifikasi slopes (gradien/kemiringan garis) yang berbeda antar kelompok (random slopes model)\n\n“Explained variances” (Nakagawa & Schielzeth, 2012)\n\nMarginal R2\nConditional R2\n\nContextual effect dan partitioning/centering\nMelaporkan analisis dengan lme dalam manuskrip\nPengukuran berulang (repeated measures) dan experience sampling\n\n\n\nBagian 3️⃣: lme untuk Pengukuran Berulang dan Experience Sampling\n\nKeterbatasan lme biasa untuk data pengukuran berulang\nRepeated measures dengan lme\n\nStruktur kovarians residual: Identity, Compound Symmetry, Unstructured\nMembandingkan model dengan struktur residual berbeda\n\nExperience Sampling Method (ESM)\n\nApa itu ESM dan pada saat seperti apa ESM dilakukan?\nTemporal autocorrelation dan struktur AR(1) & ARMA(1,1)\nPerson-mean centering: efek within- vs. between-person\nCross-level interaction dalam data ESM\n\nSetup di jamovi GAMLj\nMelaporkan hasil dalam manuskrip\n\n\n\n\n\n\n\nImportant\n\n\n\nKarena keterbatasan waktu, bagian 3️⃣ tidak diajarkan di workshop. Materi tersedia di laman web ini dan dapat dipelajari peserta secara mandiri.\n\n\n\n\n\n\n\n\nNote\n\n\n\nUnduh materi dalam bentuk PDF: Klik navigation bar yang mengarah pada PDF materi, kemudian tekan ctrl dan p bersamaan. Setelah window untuk print muncul, pilih Save to PDF dan klik Save."
   },
   {
     "objectID": "index.html#referensi",

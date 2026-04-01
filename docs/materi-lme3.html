@@ -31,6 +31,7 @@
     }
   </style>
   <link rel="stylesheet" href="site_libs/revealjs/dist/theme/quarto-359b3f973654781cc3f2110baed9e69c.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
   <link href="site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -226,9 +227,9 @@ Rizqy Amelia Zein
 <p>Observasi <strong>dalam</strong> satu orang tidak independen!</p>
 </div></div>
 </section>
-<section id="solusi-menspesifikasi-struktur-kovarians-residual" class="slide level2">
-<h2>Solusi: menspesifikasi <strong>struktur kovarians residual</strong></h2>
-<p>Kita perlu memberitahu model, <strong>bagaimana pola korelasi</strong> antara residual dari pengukuran berulang pada orang yang sama.</p>
+<section id="spesifikasi-struktur-kovarians-residual" class="slide level2">
+<h2>Spesifikasi <strong>struktur kovarians residual</strong></h2>
+<p>Kita perlu menspesifikasi, <strong>bagaimana pola korelasi</strong> antara residual dari pengukuran berulang pada orang yang sama.</p>
 <p>Di GAMLj, ini diatur melalui menu <strong><em>Residuals Options</em></strong>.</p>
 </section>
 <section id="matriks-kovarians-residual" class="slide level2">
@@ -358,13 +359,11 @@ Rizqy Amelia Zein
 <p><br></p>
 <p><strong>Gunakan AIC/BIC</strong> untuk memilih: model dengan AIC/BIC lebih kecil = lebih baik.</p>
 </section>
-<section id="repeated-measures-dengan-lme" class="slide level2 center" data-background-color="#14497F">
+<section id="repeated-measures-dengan-lme" class="slide level2" data-background-color="#14497F">
 <h2><em>Repeated Measures</em> dengan <code>lme</code></h2>
 </section>
 <section id="mengapa-lme-lebih-baik-dari-rm-anova" class="slide level2">
 <h2>Mengapa <code>lme</code> lebih baik dari RM-ANOVA?</h2>
-<div class="columns">
-<div class="column" style="width:55%;">
 <p><strong>Keterbatasan RM-ANOVA:</strong></p>
 <ul>
 <li>Mengharuskan data <strong>lengkap</strong> di semua time point (tidak boleh ada <em>missing data</em>)</li>
@@ -379,12 +378,9 @@ Rizqy Amelia Zein
 <li>Bisa memasukkan waktu sebagai variabel <strong>kontinu</strong></li>
 <li>Bisa memperkirakan perbedaan <em>trajectory</em> antar individu (<em>random slopes</em>)</li>
 </ul>
-</div><div class="column" style="width:45%;">
-<p><img data-src="https://media.giphy.com/media/3oriO6qJiXajN0TovO/giphy.gif" style="width:100.0%"></p>
-</div></div>
 </section>
-<section id="skenario-kecemasan-selama-masa-ujian" class="slide level2">
-<h2>Skenario: Kecemasan selama masa ujian</h2>
+<section id="ilustrasi-kasus-kecemasan-selama-masa-ujian" class="slide level2">
+<h2>Ilustrasi Kasus: Kecemasan selama masa ujian</h2>
 <div class="columns">
 <div class="column" style="width:55%;">
 <p>Nisa adalah seorang mahasiswa psikologi yang penasaran apakah tingkat kecemasan teman-temannya berubah selama masa ujian.</p>
@@ -396,7 +392,7 @@ Rizqy Amelia Zein
 <li><strong>T4</strong> — 2 minggu setelah UAS</li>
 </ul>
 </div><div class="column" style="width:45%;">
-<p><a href=".\materials/dataset-rm.omv"><em>dataset-rm.omv</em></a></p>
+<p><strong>Klik datasetnya di bawah ini</strong> <a href=".\materials/dataset-rm.omv"><em>dataset-rm.omv</em></a></p>
 <p><strong>Variabel:</strong></p>
 <ul>
 <li><strong>id</strong> — ID mahasiswa</li>
@@ -409,7 +405,6 @@ Rizqy Amelia Zein
 </section>
 <section id="data-repeated-measures-terlihat-seperti-ini" class="slide level2">
 <h2>Data <em>repeated measures</em> terlihat seperti ini</h2>
-<p><br></p>
 <p><strong>Format <em>long</em></strong> (format yang dibutuhkan untuk <code>lme</code>):</p>
 <table class="caption-top">
 <thead>
@@ -467,12 +462,12 @@ Rizqy Amelia Zein
 </table>
 <p>Perhatikan: <strong>neuro</strong> tidak berubah antar waktu (variabel Level-2), sedangkan <strong>cemas</strong> berubah antar waktu (variabel Level-1).</p>
 </section>
-<section id="latihan-5-setup-repeated-measures-di-gamlj" class="slide level2 center" data-background-color="#14497F">
-<h2>Latihan (5): Setup <em>repeated measures</em> di GAMLj</h2>
+<section id="latihan-5-setup-repeated-measures-di-gamlj" class="slide level2" data-background-color="#14497F">
+<h2>Latihan 5️⃣: Setup <em>repeated measures</em> di GAMLj</h2>
 <p>Buka <a href=".\materials/dataset-rm.omv"><em>dataset-rm.omv</em></a></p>
 </section>
 <section id="latihan-5-langkah-langkah" class="slide level2">
-<h2>Latihan (5): Langkah-langkah</h2>
+<h2>Latihan 5️⃣: Langkah-langkah</h2>
 <p><strong>Langkah 1 — Model kosong (<em>null model</em>):</strong></p>
 <ul>
 <li>Klik <strong>Linear Models</strong> → <strong>Mixed Models</strong></li>
@@ -496,7 +491,7 @@ Rizqy Amelia Zein
 </div>
 </section>
 <section id="latihan-5-membandingkan-struktur-kovarians" class="slide level2">
-<h2>Latihan (5): Membandingkan struktur kovarians</h2>
+<h2>Latihan 5️⃣: Membandingkan struktur kovarians</h2>
 <p><strong>Langkah 2 — Tambahkan waktu sebagai prediktor:</strong></p>
 <ul>
 <li>Masukkan <strong>t</strong> dalam <strong>Covariates</strong> (jika ingin memperlakukan waktu sebagai kontinu) atau <strong>Factors</strong> (jika ingin diperlakukan sebagai kategoris)</li>
@@ -518,7 +513,7 @@ Rizqy Amelia Zein
 <p><strong>Tips</strong></p>
 </div>
 <div class="callout-content">
-<p>Urutkan dari yang paling sederhana ke yang paling kompleks: Identity → CS → UN. Jika CS sudah cukup baik (AIC/BIC tidak jauh lebih buruk dari UN), gunakan CS.</p>
+<p>Urutkan dari yang paling sederhana ke yang paling kompleks: Identity → CS → UN. Jika CS sudah cukup baik (AIC/BIC tidak jauh lebih kecil dari UN), gunakan CS.</p>
 </div>
 </div>
 </div>
@@ -540,13 +535,13 @@ Rizqy Amelia Zein
 <p><strong>Interpretasi</strong></p>
 </div>
 <div class="callout-content">
-<p>Misalnya, <em>B</em>(waktu) = 8.5, artinya setiap bertambah 1 unit waktu (1 time point), skor kecemasan rata-rata meningkat 8.5 poin — mengontrol perbedaan antar individu.</p>
+<p>Misalnya, <em>B</em>(waktu) = 8.5, artinya setiap bertambah 1 unit waktu (1 <em>time point</em>), skor kecemasan rata-rata meningkat 8.5 poin, <strong>dengan mengontrol perbedaan antar individu</strong>.</p>
 </div>
 </div>
 </div>
 </section>
 <section id="experience-sampling-method-esm" class="slide level2" data-background-color="#14497F">
-<h2><em>Experience Sampling Method</em> (ESM)</h2>
+<h2>Experience Sampling Method (ESM)</h2>
 </section>
 <section id="apa-itu-esm" class="slide level2">
 <h2>Apa itu ESM?</h2>
@@ -600,8 +595,8 @@ Rizqy Amelia Zein
 <p>Total observasi: 80 × 35 = <strong>2.800 baris</strong></p>
 <p>Dalam GAMLj 2-level: <strong><em>beep</em></strong> bersarang dalam <strong>orang</strong>.</p>
 </section>
-<section id="fitur-khusus-data-esm-temporal-autocorrelation" class="slide level2">
-<h2>Fitur khusus data ESM: <em>Temporal autocorrelation</em></h2>
+<section id="temporal-autocorrelation" class="slide level2">
+<h2><em>Temporal autocorrelation</em></h2>
 <p>Misalnya: <em>mood</em> Dani jam 10 pagi <strong>sangat berkorelasi</strong> dengan <em>mood</em> Dani jam 10.30, <strong>cukup berkorelasi</strong> dengan <em>mood</em> Dani jam 12, dan <strong>hampir tidak berkorelasi</strong> dengan <em>mood</em> Dani jam 10 malam.</p>
 <p><strong>Korelasi meluruh (<em>decay</em>) seiring bertambahnya jarak waktu.</strong></p>
 <p>Ini disebut <strong><em>temporal autocorrelation</em></strong> — dan tidak bisa ditangani dengan struktur <em>Identity</em> atau <em>Compound Symmetry</em>, karena:</p>
@@ -677,10 +672,10 @@ Rizqy Amelia Zein
 <thead>
 <tr class="header">
 <th>Orang</th>
-<th><em>Beep</em></th>
+<th>Beep</th>
 <th>Stres</th>
 <th>M_stres</th>
-<th><em>Stres_centered</em></th>
+<th>Stres_centered</th>
 </tr>
 </thead>
 <tbody>
@@ -714,7 +709,6 @@ Rizqy Amelia Zein
 </tr>
 </tbody>
 </table>
-<p><br></p>
 <p>Dadan dan Bahlil pada <em>beep</em> 2 sama-sama stres = 50, <strong>tetapi artinya berbeda</strong>: Dadan lebih rendah dari biasanya, Bahlil lebih tinggi dari biasanya.</p>
 </div><div class="column" style="width:45%;">
 <div class="callout callout-important callout-titled callout-style-default">
@@ -748,8 +742,8 @@ Rizqy Amelia Zein
 </ol>
 </div></div>
 </section>
-<section id="skenario-esm-afek-dan-regulasi-emosi" class="slide level2">
-<h2>Skenario ESM: Afek dan regulasi emosi</h2>
+<section id="ilustrasi-kasus-esm-afek-dan-regulasi-emosi" class="slide level2">
+<h2>Ilustrasi Kasus ESM: Afek dan regulasi emosi</h2>
 <div class="columns">
 <div class="column" style="width:55%;">
 <p>Joko adalah seorang mahasiswa S3 yang ingin tahu apakah <strong>strategi regulasi emosi</strong> seseorang mempengaruhi <strong>dinamika afek harian</strong> mereka.</p>
@@ -764,7 +758,7 @@ Rizqy Amelia Zein
 <li><strong>er</strong> — strategi regulasi emosi (<em>emotion regulation</em>, skor kontinu)</li>
 </ul>
 </div><div class="column" style="width:45%;">
-<p><a href=".\materials/dataset-esm.omv"><em>dataset-esm.omv</em></a></p>
+<p><strong>Klik teks di bawah ini untuk mengunduh dataset</strong> <a href=".\materials/dataset-esm.omv"><em>dataset-esm.omv</em></a></p>
 <p><strong>Variabel Level-1 (<em>beep</em>):</strong></p>
 <ul>
 <li>id, hari, beep, pa, stres</li>
@@ -775,12 +769,12 @@ Rizqy Amelia Zein
 </ul>
 </div></div>
 </section>
-<section id="latihan-6-setup-esm-di-gamlj" class="slide level2 center" data-background-color="#14497F">
-<h2>Latihan (6): Setup ESM di GAMLj</h2>
+<section id="latihan-6-setup-esm-di-gamlj" class="slide level2" data-background-color="#14497F">
+<h2>Latihan 6️⃣: Setup ESM di GAMLj</h2>
 <p><a href=".\materials/dataset-esm.omv">Buka <em>dataset-esm.omv</em></a></p>
 </section>
 <section id="latihan-6-langkah-langkah-1" class="slide level2">
-<h2>Latihan (6): Langkah-langkah (1)</h2>
+<h2>Latihan 6️⃣: Langkah-langkah (1)</h2>
 <div class="columns">
 <div class="column" style="width:55%;">
 <p><strong>Persiapan data:</strong></p>
@@ -795,24 +789,23 @@ Rizqy Amelia Zein
 <li>Formula: <code>VMEAN(stres, id)</code> → variabel ini mewakili <em>between-person effect</em></li>
 </ul></li>
 </ul>
-</div><div class="column" style="width:45%;">
 <div class="callout callout-note callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<p><strong>Tips</strong></p>
+<p><strong>Note</strong></p>
 </div>
 <div class="callout-content">
-<p>Dalam jamovi, fungsi <code>VMEAN(var, group)</code> menghitung rata-rata variabel <code>var</code> untuk setiap nilai <code>group</code>. Ini setara dengan <em>group-mean</em> yang kita gunakan di materi sebelumnya.</p>
+<p><strong>Tips</strong>: dalam jamovi, fungsi <code>VMEAN(var, group)</code> menghitung rata-rata variabel <code>var</code> untuk setiap nilai <code>group</code>. Ini setara dengan <em>group-mean</em> yang kita gunakan di materi sebelumnya.</p>
 </div>
 </div>
 </div>
 </div></div>
 </section>
 <section id="latihan-6-langkah-langkah-2" class="slide level2">
-<h2>Latihan (6): Langkah-langkah (2)</h2>
+<h2>Latihan 6️⃣: Langkah-langkah (2)</h2>
 <div class="columns">
 <div class="column" style="width:55%;">
 <p><strong>Langkah 1 — Model null:</strong></p>
@@ -846,27 +839,42 @@ Rizqy Amelia Zein
 <div class="columns">
 <div class="column" style="width:55%;">
 <p>Dari model ESM lengkap, kita mendapatkan estimasi:</p>
-<p><strong>Fixed effects:</strong> * <em>Intercept</em>: rata-rata afek positif keseluruhan * <strong>stres_centered</strong> (<em>B₁</em>): efek <em>within-person</em> — ketika seseorang lebih stres dari biasanya, seberapa besar afek positifnya menurun? * <strong>stres_mean</strong> (<em>B₂</em>): efek <em>between-person</em> — apakah orang yang lebih stres secara umum juga lebih rendah afek positifnya? * <strong>er</strong> (<em>B₃</em>): efek regulasi emosi antar individu * <strong>stres_centered × er</strong> (<em>B₄</em>): <em>cross-level interaction</em></p>
+<p><strong>Fixed effects:</strong></p>
+<ul>
+<li><em>Intercept</em>: rata-rata afek positif keseluruhan</li>
+<li><strong>stres_centered</strong> (<em>B₁</em>): efek <em>within-person</em> — ketika seseorang lebih stres dari biasanya, seberapa besar afek positifnya menurun?</li>
+<li><strong>stres_mean</strong> (<em>B₂</em>): efek <em>between-person</em> — apakah orang yang lebih stres secara umum juga lebih rendah afek positifnya?</li>
+<li><strong>er</strong> (<em>B₃</em>): efek regulasi emosi antar individu</li>
+<li><strong>stres_centered × er</strong> (<em>B₄</em>): <em>cross-level interaction</em></li>
+</ul>
 </div><div class="column" style="width:45%;">
-<p><strong>Random effects:</strong> * σ²_U0: varians <em>random intercept</em> (perbedaan baseline afek antar orang) * σ²_U1: varians <em>random slopes</em> (seberapa bervariasi reaktivitas stres antar orang) * σ²_e: varians residual Level-1</p>
-<p><strong>AR(1) parameters:</strong> * ρ: koefisien autokorelasi (besarnya korelasi antar beep berturutan)</p>
+<p><strong>Random effects:</strong></p>
+<ul>
+<li>σ²_U0: varians <em>random intercept</em> (perbedaan baseline afek antar orang)</li>
+<li>σ²_U1: varians <em>random slopes</em> (seberapa bervariasi reaktivitas stres antar orang)</li>
+<li>σ²_e: varians residual Level-1</li>
+</ul>
+<p><strong>AR(1) parameter:</strong></p>
+<ul>
+<li>ρ: koefisien autokorelasi (besarnya korelasi antar <em>beep</em> yang berturutan)</li>
+</ul>
 </div></div>
 </section>
-<section id="bagaimana-melaporkannya-1" class="slide level2" data-background-color="#14497F">
-<h2>Bagaimana melaporkannya? (1)</h2>
+<section id="bagaimana-melaporkannya-1" class="slide level2">
+<h2>Bagaimana melaporkannya? 1️⃣</h2>
 <p>“…untuk menguji hipotesis penelitian, kami melakukan analisis <em>linear mixed effects</em> (LME) dengan menggunakan REML (<em>Restricted Maximum Likelihood</em>) di jamovi (GAMLj). Data bersarang dalam dua level: pengukuran sesaat (<em>beep</em>, N=2.800) bersarang dalam individu (N=80).</p>
 <p>Sebelum analisis, variabel stres sesaat di-<em>person-mean centered</em> dengan cara mengurangi skor stres setiap <em>beep</em> dengan rata-rata skor stres individu tersebut di seluruh <em>beep</em>-nya. Rata-rata stres individu dimasukkan sebagai prediktor Level-2 yang terpisah untuk mengestimasi efek <em>between-person</em> secara eksplisit.</p>
 <p>Struktur kovarians residual AR(1) dipilih untuk menangkap <em>temporal autocorrelation</em> antar pengukuran, yang diperkuat oleh estimasi koefisien autokorelasi ρ=XX, menunjukkan korelasi yang moderat antara pengukuran berturutan…”</p>
 </section>
-<section id="bagaimana-melaporkannya-2" class="slide level2" data-background-color="#14497F">
-<h2>Bagaimana melaporkannya? (2)</h2>
+<section id="bagaimana-melaporkannya-2" class="slide level2">
+<h2>Bagaimana melaporkannya? 2️⃣</h2>
 <p>“…model null menunjukkan bahwa XX.X% varians afek positif sesaat berada di level individu (ICC=X.XX), mengindikasikan bahwa penggunaan LME lebih sesuai daripada regresi OLS.</p>
 <p>Efek <em>within-person</em> stres sesaat terhadap afek positif sesaat signifikan negatif (<em>B</em>=XX 95% CI [XX, XX], <em>SE</em>=XX, <em>t</em>=XX, <em>p</em>=.0XX), artinya ketika seseorang <strong>saat ini lebih stres dari biasanya</strong>, afek positifnya juga lebih rendah dari biasanya sebesar XX poin.</p>
 <p>Efek <em>between-person</em> stres juga signifikan (<em>B</em>=XX 95% CI [XX, XX]), artinya orang yang secara umum lebih stres memiliki afek positif rata-rata yang lebih rendah sebesar XX poin, dibanding orang yang lebih tidak stres — bahkan ketika perbedaan fluktuasi sesaat sudah dikontrol.</p>
 <p><em>Cross-level interaction</em> antara stres sesaat dan regulasi emosi signifikan (<em>B</em>=XX), menunjukkan bahwa orang dengan regulasi emosi yang lebih baik menunjukkan reaktivitas stres-afek yang lebih lemah…”</p>
 </section>
-<section id="rangkuman-kapan-pakai-struktur-apa" class="slide level2">
-<h2>Rangkuman: kapan pakai struktur apa?</h2>
+<section id="rangkuman-kapan-pakai-struktur-kovarians-residual-yang-mana" class="slide level2">
+<h2>Rangkuman: kapan pakai struktur kovarians residual yang mana?</h2>
 <div class="columns">
 <div class="column" style="width:55%;">
 <p><strong>Repeated measures (sedikit time points, ≤ 5):</strong></p>
@@ -892,10 +900,10 @@ Rizqy Amelia Zein
 </div></div>
 </section>
 <section id="latihan-mandiri-3" class="slide level2">
-<h2>Latihan mandiri (3)</h2>
+<h2>Latihan mandiri 3️⃣</h2>
 <div class="columns">
 <div class="column" style="width:55%;">
-<p>Menggunakan <em>dataset-esm.omv</em>, jawab pertanyaan berikut:</p>
+<p>Menggunakan <a href="materials/dataset-esm.omv"><em>dataset-esm.omv</em></a>, jawab pertanyaan berikut:</p>
 <ol type="1">
 <li><p>Seberapa besar proporsi varians afek positif sesaat yang ada di level individu? (ICC)</p></li>
 <li><p>Apakah ada efek <em>within-person</em> dari stres sesaat terhadap afek positif sesaat? Seberapa besar?</p></li>
@@ -904,14 +912,11 @@ Rizqy Amelia Zein
 <li><p>Bandingkan model dengan struktur AR(1) vs.&nbsp;Identity. Mana yang lebih baik?</p></li>
 </ol>
 </div><div class="column" style="width:45%;">
-<h3 id="klik-disini-untuk-mengakses-lembar-kerja"><a href="#/">Klik disini untuk mengakses lembar kerja</a></h3>
 <p><img data-src="https://media.giphy.com/media/l1KVaj5UcbHwrBMqI/giphy.gif" style="width:100.0%"></p>
 </div></div>
 </section>
 <section id="yang-belum-dibahas" class="slide level2">
 <h2>Yang belum dibahas…</h2>
-<div class="columns">
-<div class="column" style="width:55%;">
 <ul>
 <li><p><strong>Data ESM 3-level</strong>: pengukuran bersarang dalam hari, bersarang dalam individu</p>
 <ul>
@@ -926,9 +931,6 @@ Rizqy Amelia Zein
 <li>Perlu <em>generalized</em> LME (<em>GLMM</em>)</li>
 </ul></li>
 </ul>
-</div><div class="column" style="width:45%;">
-<p><img data-src="https://media.giphy.com/media/wMvESGxZ0Cqd2/giphy.gif" style="width:100.0%"></p>
-</div></div>
 </section>
 <section id="referensi-tambahan" class="slide level2">
 <h2>Referensi tambahan</h2>

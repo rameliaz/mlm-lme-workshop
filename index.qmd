@@ -86,6 +86,10 @@ Karena asumsinya mahasiswa S3 sudah memiliki pengetahuan statistik dasar, maka  
 Karena keterbatasan waktu, bagian 3️⃣ **tidak diajarkan** di _workshop_. Materi tersedia di laman web ini dan dapat dipelajari peserta secara mandiri.
 :::
 
+::: {.callout-note}
+**Unduh materi dalam bentuk PDF**: Klik _navigation bar_ yang mengarah pada PDF materi, kemudian tekan `ctrl` dan `p` bersamaan. Setelah _window_ untuk _print_ muncul, pilih `Save to PDF` dan klik `Save`.
+:::
+
 ## Referensi
 
 * Brown, V.A. (2021). An Introduction to Linear Mixed-Effects Modeling in R. _Advances in Methods and Practices in Psychological Science, 4_(1), 1-19. doi: [10.1177/2515245920960351](https://doi.org/10.1177/2515245920960351) 
