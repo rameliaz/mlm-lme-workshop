@@ -39,7 +39,7 @@
     "href": "materi-lme3.html#struktur-1-identity-diagonal",
     "title": "LME untuk Pengukuran Berulang dan Experience Sampling",
     "section": "Struktur 1: Identity (diagonal)",
-    "text": "Struktur 1: Identity (diagonal)\n\\[\\mathbf{R} = \\sigma^2 \\begin{bmatrix} 1 & 0 & 0 & 0 \\\\ 0 & 1 & 0 & 0 \\\\ 0 & 0 & 1 & 0 \\\\ 0 & 0 & 0 & 1 \\end{bmatrix}\\]\n\nSemua varians sama (σ²), semua kovariansi = 0\nArtinya: pengukuran berulang dianggap independen\nIni adalah asumsi OLS biasa\nKapan pakai: asumsi jarang terpenuhi; hanya jika ada alasan kuat bahwa tidak ada korelasi antar waktu\nJumlah parameter: 1\n\n\n\n\n\n\n\nHati-hati\n\n\nIdentity adalah default yang paling sering keliru dipakai untuk data berulang. Jika tidak ada alasan teoritis yang kuat, hindari opsi ini untuk repeated measures."
+    "text": "Struktur 1: Identity (diagonal)\n\\[\\mathbf{R} = \\sigma^2 \\begin{bmatrix} 1 & 0 & 0 & 0 \\\\ 0 & 1 & 0 & 0 \\\\ 0 & 0 & 1 & 0 \\\\ 0 & 0 & 0 & 1 \\end{bmatrix}\\]\n\nSemua varians sama (σ²), semua kovariansi = 0\nArtinya: pengukuran berulang dianggap independen\nIni adalah asumsi OLS biasa\nKapan pakai: asumsi jarang terpenuhi; hanya jika ada alasan kuat bahwa tidak ada korelasi antar waktu\nJumlah parameter: 1\n\n\n\n\n\n\n\nHati-hati\n\n\nIdentity adalah opsi default yang paling sering keliru apabila dipakai untuk data berulang. Jika tidak ada alasan teoritis yang kuat, hindari opsi ini untuk repeated measures."
   },
   {
     "objectID": "materi-lme3.html#struktur-2-compound-symmetry-cs",
@@ -63,13 +63,6 @@
     "text": "Membandingkan struktur kovarians\n\n\n\n\nStruktur\nParameter\nKapan pakai\n\n\n\n\nIdentity\n1\nTidak ada korelasi temporal (jarang tepat)\n\n\nCompound Symmetry\n2\nKorelasi sama untuk semua jarak waktu\n\n\nUnstructured\np(p+1)/2\nBaseline; time points sedikit, N besar\n\n\nAR(1)\n2\nKorelasi meluruh seiring jarak waktu\n\n\nARMA(1,1)\n3\nAR(1) + efek lokal antar pengukuran berdekatan\n\n\n\n\nGunakan AIC/BIC untuk memilih: model dengan AIC/BIC lebih kecil = lebih baik."
   },
   {
-    "objectID": "materi-lme3.html#repeated-measures-dengan-lme",
-    "href": "materi-lme3.html#repeated-measures-dengan-lme",
-    "title": "LME untuk Pengukuran Berulang dan Experience Sampling",
-    "section": "Repeated Measures dengan lme",
-    "text": "Repeated Measures dengan lme"
-  },
-  {
     "objectID": "materi-lme3.html#mengapa-lme-lebih-baik-dari-rm-anova",
     "href": "materi-lme3.html#mengapa-lme-lebih-baik-dari-rm-anova",
     "title": "LME untuk Pengukuran Berulang dan Experience Sampling",
@@ -89,13 +82,6 @@
     "title": "LME untuk Pengukuran Berulang dan Experience Sampling",
     "section": "Data repeated measures terlihat seperti ini",
     "text": "Data repeated measures terlihat seperti ini\nFormat long (format yang dibutuhkan untuk lme):\n\n\n\nid\nt\ncemas\nneuro\n\n\n\n\n001\n1\n52\n68\n\n\n001\n2\n61\n68\n\n\n001\n3\n78\n68\n\n\n001\n4\n49\n68\n\n\n002\n1\n44\n55\n\n\n002\n2\n50\n55\n\n\n…\n…\n…\n…\n\n\n\nPerhatikan: neuro tidak berubah antar waktu (variabel Level-2), sedangkan cemas berubah antar waktu (variabel Level-1)."
-  },
-  {
-    "objectID": "materi-lme3.html#latihan-5-setup-repeated-measures-di-gamlj",
-    "href": "materi-lme3.html#latihan-5-setup-repeated-measures-di-gamlj",
-    "title": "LME untuk Pengukuran Berulang dan Experience Sampling",
-    "section": "Latihan 5️⃣: Setup repeated measures di GAMLj",
-    "text": "Latihan 5️⃣: Setup repeated measures di GAMLj\nBuka dataset-rm.omv"
   },
   {
     "objectID": "materi-lme3.html#latihan-5-langkah-langkah",
@@ -119,13 +105,6 @@
     "text": "Contoh output: membandingkan model\n\nModel dengan waktu + CS biasanya sudah jauh lebih baik daripada model dengan Identity\nLihat tabel Model Info (AIC) dan Fixed Coefficients (efek waktu terhadap kecemasan)\nJika efek waktu signifikan: ada perubahan rata-rata kecemasan yang bermakna antar time point\nPeriksa juga Random Coefficients: apakah varians random intercept besar? Ini menunjukkan bahwa ada perbedaan tingkat kecemasan dasar yang besar antar individu.\n\n\n\n\n\n\n\nInterpretasi\n\n\nMisalnya, B(waktu) = 8.5, artinya setiap bertambah 1 unit waktu (1 time point), skor kecemasan rata-rata meningkat 8.5 poin, dengan mengontrol perbedaan antar individu."
   },
   {
-    "objectID": "materi-lme3.html#experience-sampling-method-esm",
-    "href": "materi-lme3.html#experience-sampling-method-esm",
-    "title": "LME untuk Pengukuran Berulang dan Experience Sampling",
-    "section": "Experience Sampling Method (ESM)",
-    "text": "Experience Sampling Method (ESM)"
-  },
-  {
     "objectID": "materi-lme3.html#apa-itu-esm",
     "href": "materi-lme3.html#apa-itu-esm",
     "title": "LME untuk Pengukuran Berulang dan Experience Sampling",
@@ -137,7 +116,7 @@
     "href": "materi-lme3.html#mengapa-esm",
     "title": "LME untuk Pengukuran Berulang dan Experience Sampling",
     "section": "Mengapa ESM?",
-    "text": "Mengapa ESM?\n\nValiditas ekologis tinggi — data dikumpulkan dalam kehidupan nyata, bukan di laboratorium\nMengurangi bias retrospektif — orang tidak selalu akurat mengingat bagaimana perasaannya kemarin\nMengungkap dinamika temporal — perubahan mood dari jam ke jam, bukan hanya rata-rata\nMemisahkan efek within-person dan between-person secara lebih bersih\nMendeteksi intra-individual variability — seberapa fluktuatif seseorang dari waktu ke waktu"
+    "text": "Mengapa ESM?\n\nValiditas ekologis tinggi — data dikumpulkan dalam kehidupan nyata, bukan di laboratorium\nMengurangi bias retrospektif — orang tidak selalu akurat mengingat bagaimana perasaannya kemarin\nMengungkap dinamika temporal — perubahan mood dari jam ke jam, bukan hanya rata-rata\nMemisahkan efek within-person dan between-person secara lebih jelas\nMendeteksi intra-individual variability — seberapa fluktuatif seseorang dari waktu ke waktu"
   },
   {
     "objectID": "materi-lme3.html#struktur-data-esm",
@@ -194,13 +173,6 @@
     "title": "LME untuk Pengukuran Berulang dan Experience Sampling",
     "section": "Ilustrasi Kasus ESM: Afek dan regulasi emosi",
     "text": "Ilustrasi Kasus ESM: Afek dan regulasi emosi\n\n\nJoko adalah seorang mahasiswa S3 yang ingin tahu apakah strategi regulasi emosi seseorang mempengaruhi dinamika afek harian mereka.\nIa merekrut 80 mahasiswa dan meminta mereka mengisi survei singkat 5 kali sehari selama 7 hari melalui aplikasi smartphone.\nSetiap beep, partisipan diminta menilai:\n\npa — afek positif saat ini (0–100)\nstres — tingkat stres saat ini (0–100)\n\nSebelum studi dimulai, partisipan mengisi:\n\ner — strategi regulasi emosi (emotion regulation, skor kontinu)\n\n\nKlik teks di bawah ini untuk mengunduh dataset dataset-esm.omv\nVariabel Level-1 (beep):\n\nid, hari, beep, pa, stres\n\nVariabel Level-2 (person):\n\ner (regulasi emosi)"
-  },
-  {
-    "objectID": "materi-lme3.html#latihan-6-setup-esm-di-gamlj",
-    "href": "materi-lme3.html#latihan-6-setup-esm-di-gamlj",
-    "title": "LME untuk Pengukuran Berulang dan Experience Sampling",
-    "section": "Latihan 6️⃣: Setup ESM di GAMLj",
-    "text": "Latihan 6️⃣: Setup ESM di GAMLj\nBuka dataset-esm.omv"
   },
   {
     "objectID": "materi-lme3.html#latihan-6-langkah-langkah-1",
@@ -277,7 +249,7 @@
     "href": "materi-lme1.html#outline",
     "title": "Regresi Linier (Ordinary Least Square)",
     "section": "Outline",
-    "text": "Outline\n\nBerlatih menginspeksi data secara visual dengan scatterplot\nModel regresi linier (ordinary least square)\nMenarik garis regresi (fitted regression lines)\nVarians yang dapat dan yang tidak dapat dijelaskan oleh model (R)2\nMenguji hipotesis\nMengecek kecocokan model dengan data (model fit)\nMengecek asumsi\n\nDistribusi (normalitas) residual\nHomoskedastisitas\nMultikolinearitas\n\nMendeteksi outliers\nMenguji interaction effects dan model change\nMenulis hasil analisis regresi linier dengan interaction terms dalam manuskrip"
+    "text": "Outline\n\nBerlatih menginspeksi data secara visual dengan scatterplot\nModel regresi linear (ordinary least square)\nMenarik garis regresi (fitted regression lines)\nVarians yang dapat dan yang tidak dapat dijelaskan oleh model (R)2\nMenguji hipotesis\nMengecek kecocokan model dengan data (model fit)\nMengecek asumsi\n\nDistribusi (normalitas) residual\nHomoskedastisitas\nMultikolinearitas\n\nMendeteksi outliers\nMenguji interaction effects dan model change\nMenulis hasil analisis regresi linear dengan interaction terms dalam manuskrip"
   },
   {
     "objectID": "materi-lme1.html#ilustrasi-kasus",
@@ -343,11 +315,11 @@
     "text": "Kekuatan dan arah korelasi 2️⃣\n\n\n\nKovarians sulit diinterpretasi, sehingga formula Pearson’s r dan Spearman’s ρ menstandardisasi kovarians agar lebih mudah diinterpretasi\nFungsi Pearson’s r dan Spearman’s ρ mirip z-score\nKuat &gt;&lt; lemahnya koefisien korelasi sebenarnya sangat tergantung konteks penelitiannya.\n\nPada fenomena yang multifaktor, misalnya mencari variabel yang berkaitan dengan kecenderungan Skizofrenia, korelasi 0.3 aja sudah bermakna sangat besar."
   },
   {
-    "objectID": "materi-lme1.html#regresi-linier-ordinary-least-square-regressionols",
-    "href": "materi-lme1.html#regresi-linier-ordinary-least-square-regressionols",
+    "objectID": "materi-lme1.html#regresi-linear-ordinary-least-square-regressionols",
+    "href": "materi-lme1.html#regresi-linear-ordinary-least-square-regressionols",
     "title": "Regresi Linier (Ordinary Least Square)",
-    "section": "Regresi linier (ordinary least square regression/OLS)",
-    "text": "Regresi linier (ordinary least square regression/OLS)\n\n\n\nMerupakan kelanjutan yang lebih kompleks dari Pearson’s r\nIde dasarnya adalah menyusun persamaan garis yang dapat digunakan untuk memperkirakan nilai Y ketika nilai X diketahui\n\nContohnya, kita tahu bahwa kemandirian berkorelasi positif dan sedang dengan neuroticism dan trust\nNamun dengan regresi, kita bisa mengestimasi tingkat kemandirian anak, ketika hanya informasi mengenai neuroticism dan trust yang tersedia.\n\nOLS bekerja dengan pendekatan least square, artinya mencari jumlah kuadrat terkecil antara garis regresi (nilai Y yang diperkirakan oleh model) dengan nilai Y yang diobservasi."
+    "section": "Regresi linear (ordinary least square regression/OLS)",
+    "text": "Regresi linear (ordinary least square regression/OLS)\n\n\n\nMerupakan kelanjutan yang lebih kompleks dari Pearson’s r\nIde dasarnya adalah menyusun persamaan garis yang dapat digunakan untuk memperkirakan nilai Y ketika nilai X diketahui\n\nContohnya, kita tahu bahwa kemandirian berkorelasi positif dan sedang dengan neuroticism dan trust\nNamun dengan regresi, kita bisa mengestimasi tingkat kemandirian anak, ketika hanya informasi mengenai neuroticism dan trust yang tersedia.\n\nOLS bekerja dengan pendekatan least square, artinya mencari jumlah kuadrat terkecil antara garis regresi (nilai Y yang diperkirakan oleh model) dengan nilai Y yang diobservasi."
   },
   {
     "objectID": "materi-lme1.html#persamaan-garis-regresi",
@@ -368,7 +340,7 @@
     "href": "materi-lme1.html#asumsi-yang-harus-dipenuhi",
     "title": "Regresi Linier (Ordinary Least Square)",
     "section": "Asumsi yang harus dipenuhi",
-    "text": "Asumsi yang harus dipenuhi\n\nPrediktor dan variabel dependen berkorelasi secara linier\n\nLakukan analisis korelasi sebelum melakukan regresi untuk memastikan asumsi ini terpenuhi\n\nResidual (varians error) variabel dependen yang tidak dapat dijelaskan oleh model\n\nBerdistribusi normal\nVariansnya homogen (homoskedasdisitas)\nTidak dipengaruhi oleh prediktor lain diluar model\n\nPrediktor dalam model independen satu sama lain (tidak berkorelasi)\n\nBerlaku ketika ada dua atau lebih prediktor dalam satu model regresi\nKalau prediktor berkorelasi satu sama lain maka telah terjadi multi-kolinearitas\n\nData/observasi dan residual harus independen"
+    "text": "Asumsi yang harus dipenuhi\n\nPrediktor dan variabel dependen berkorelasi secara linear\n\nLakukan analisis korelasi sebelum melakukan regresi untuk memastikan asumsi ini terpenuhi\n\nResidual (varians error) variabel dependen yang tidak dapat dijelaskan oleh model\n\nBerdistribusi normal\nVariansnya homogen (homoskedasdisitas)\nTidak dipengaruhi oleh prediktor lain diluar model\n\nPrediktor dalam model independen satu sama lain (tidak berkorelasi)\n\nBerlaku ketika ada dua atau lebih prediktor dalam satu model regresi\nKalau prediktor berkorelasi satu sama lain maka telah terjadi multi-kolinearitas\n\nData/observasi dan residual harus independen"
   },
   {
     "objectID": "materi-lme1.html#latihan-1",
@@ -476,18 +448,18 @@
     "text": "Simple slope\n\n\n\nInterpretasi slopes pada interaction terms:\n\nUnstandardized B yang positif artinya, pada ibu dengan trust yang tinggi, korelasi antara kecenderungan neuroticism dengan kemandirian anak juga semakin positif/menguat."
   },
   {
-    "objectID": "materi-lme1.html#diagnostik-kolinieritas",
-    "href": "materi-lme1.html#diagnostik-kolinieritas",
+    "objectID": "materi-lme1.html#diagnostik-kolinearitas",
+    "href": "materi-lme1.html#diagnostik-kolinearitas",
     "title": "Regresi Linier (Ordinary Least Square)",
-    "section": "Diagnostik kolinieritas",
-    "text": "Diagnostik kolinieritas\n\n\n\nDapat dideteksi dengan melakukan analisis melihat variance inflated factors (VIF).\n\nBila VIF &lt; 2.5, maka multi-kolinearitas kemungkinan besar tidak terjadi.\n\nPenelitian longitudinal punya potensi terjadinya autokorelasi (residual time 1 dan time 2 berkorelasi)\n\nDapat dicek dengan tes Durbin-Watson\nBila nilai p analisis autokorelasi &gt; 0.001, maka multi-kolinearitas tidak terjadi."
+    "section": "Diagnostik kolinearitas",
+    "text": "Diagnostik kolinearitas\n\n\n\nDapat dideteksi dengan melakukan analisis melihat variance inflated factors (VIF).\n\nBila VIF &lt; 2.5, maka multi-kolinearitas kemungkinan besar tidak terjadi.\n\nPenelitian longitudinal punya potensi terjadinya autokorelasi (residual time 1 dan time 2 berkorelasi)\n\nDapat dicek dengan tes Durbin-Watson\nBila nilai p analisis autokorelasi &gt; 0.001, maka multi-kolinearitas tidak terjadi."
   },
   {
     "objectID": "materi-lme1.html#bagaimana-melaporkannya",
     "href": "materi-lme1.html#bagaimana-melaporkannya",
     "title": "Regresi Linier (Ordinary Least Square)",
     "section": "Bagaimana melaporkannya?",
-    "text": "Bagaimana melaporkannya?\n“…untuk menginvestigasi keterkaitan antara pendapatan keluarga, kecenderungan neuroticism ibu, dan kepercayaan ibu bahwa perkembangan anak dapat terjadi secara natural dengan tingkat kemandirian anak, peneliti melakukan analisis regresi linier hirarkial dengan interaction terms. Peneliti menyusun dua model, dimana; model 1 mengestimasi varians tingkat kemandirian anak dengan pendapatan keluarga inti sebagai prediktor, sedangkan pada model 2 peneliti menambahkan prediktor berupa interaction terms antara neuroticism dengan trust.\nKetika dibandingkan, Model 1 dan Model 2 berbeda signifikan (F(1,397)=104, p&lt;.001). R2 bertambah sebesar 20.2% (ΔR2=.202). Model 2 (F(2,397)=58.2, p&lt;.001, R2=.226, AIC=3237, BIC=3253) dapat menjelaskan varians tingkat kemandirian anak lebih baik daripada Model 1 (F(1,398)=10.2, p=.002, R2=.025, AIC=3327, BIC=3339).\nPendapatan keluarga dapat menjelaskan variasi kemandirian anak (B=-0.943 95% CI [-1.164, -0.721], SE=0.112, t=-8.39, p&lt;.001). Interaksi antara neuroticism dengan trust juga signifikan (B=0.054 95% CI [0.044, 0.065], SE=0.005, t=10.18, p&lt;.001). Artinya, korelasi antara kecenderungan neuroticism ibu dengan kemandirian anak akan menguat pada ibu yang _trust_nya tinggi.\nPotensi multikolinieritas dideteksi dengan VIF dan hasil analisis menunjukkan multikolinieritas kemungkinan besar tidak terjadi (VIF=1.38)…”"
+    "text": "Bagaimana melaporkannya?\n“…untuk menginvestigasi keterkaitan antara pendapatan keluarga, kecenderungan neuroticism ibu, dan kepercayaan ibu bahwa perkembangan anak dapat terjadi secara natural dengan tingkat kemandirian anak, peneliti melakukan analisis regresi linear hirarkial dengan interaction terms. Peneliti menyusun dua model, dimana; model 1 mengestimasi varians tingkat kemandirian anak dengan pendapatan keluarga inti sebagai prediktor, sedangkan pada model 2 peneliti menambahkan prediktor berupa interaction terms antara neuroticism dengan trust.\nKetika dibandingkan, Model 1 dan Model 2 berbeda signifikan (F(1,397)=104, p&lt;.001). R2 bertambah sebesar 20.2% (ΔR2=.202). Model 2 (F(2,397)=58.2, p&lt;.001, R2=.226, AIC=3237, BIC=3253) dapat menjelaskan varians tingkat kemandirian anak lebih baik daripada Model 1 (F(1,398)=10.2, p=.002, R2=.025, AIC=3327, BIC=3339).\nPendapatan keluarga dapat menjelaskan variasi kemandirian anak (B=-0.943 95% CI [-1.164, -0.721], SE=0.112, t=-8.39, p&lt;.001). Interaksi antara neuroticism dengan trust juga signifikan (B=0.054 95% CI [0.044, 0.065], SE=0.005, t=10.18, p&lt;.001). Artinya, korelasi antara kecenderungan neuroticism ibu dengan kemandirian anak akan menguat pada ibu yang _trust_nya tinggi.\nPotensi multikolinearitas dideteksi dengan VIF dan hasil analisis menunjukkan multikolinearitas kemungkinan besar tidak terjadi (VIF=1.38)…”"
   },
   {
     "objectID": "materi-lme1.html#latihan-mandiri-1",
@@ -536,7 +508,7 @@
     "href": "index.html#outline-materi",
     "title": "Linear Mixed Models (LME) Workshop",
     "section": "Outline materi",
-    "text": "Outline materi\nMateri yang tersedia di laman web ini juga mencakup konsep dasar ordinary least square regression selain pengenalan lme.\nPeserta juga akan diminta untuk menganalisis data dengan menggunakan lme dan melaporkannya dengan format yang biasa digunakan dalam artikel penelitian.\nBerikut adalah outline materi yang tersedia di laman web ini:\n\nBagian 1️⃣: Ordinary Least Square Regression\n\nBerlatih menginspeksi data secara visual dengan scatterplot\nModel regresi linier (ordinary least square)\nMenarik garis regresi (fitted regression line)\nVarians yang dapat dan yang tidak dapat dijelaskan oleh model (R2)\nMenguji hipotesis\nMengecek kecocokan model dengan data (model fit)\nMengecek asumsi\n\nDistribusi (normalitas) residual\nHomoskedastisitas\nMultikolinearitas\n\nMendeteksi outliers\nMenguji interaction effects dan model change\nMenulis hasil analisis regresi linier dengan interaction terms dalam manuskrip\n\n\n\n\n\n\n\nImportant\n\n\n\nKarena asumsinya mahasiswa S3 sudah memiliki pengetahuan statistik dasar, maka Bagian 1 tidak diajarkan di workshop. Bagian 1 harus dikuasai oleh peserta terlebih dahulu sebelum memulai workshop dan dapat dipelajari secara mandiri.\n\n\n\n\nBagian 2️⃣: Linear Mixed Effects Model\n\nStruktur data berjenjang/bersarang (hierarchical/nested data)\nWithin- dan between-group variances\nPengantar linear mixed-effect (lme)\nIntra-class correlation dan likelihood ratio test (LRT)\nMembandingkan garis regresi antar kelompok dengan lme\nlme dengan prediktor level 1 (random coefficients model)\n\nMengidentifikasi intercept (konstanta) yang berbeda antar kelompok (random-intercept model)\nMengidentifikasi slopes (gradien/kemiringan garis) yang berbeda antar kelompok (random slopes model)\n\n“Explained variances” (Nakagawa & Schielzeth, 2012)\n\nMarginal R2\nConditional R2\n\nContextual effect dan partitioning/centering\nMelaporkan analisis dengan lme dalam manuskrip\nPengukuran berulang (repeated measures) dan experience sampling\n\n\n\nBagian 3️⃣: lme untuk Pengukuran Berulang dan Experience Sampling\n\nKeterbatasan lme biasa untuk data pengukuran berulang\nRepeated measures dengan lme\n\nStruktur kovarians residual: Identity, Compound Symmetry, Unstructured\nMembandingkan model dengan struktur residual berbeda\n\nExperience Sampling Method (ESM)\n\nApa itu ESM dan pada saat seperti apa ESM dilakukan?\nTemporal autocorrelation dan struktur AR(1) & ARMA(1,1)\nPerson-mean centering: efek within- vs. between-person\nCross-level interaction dalam data ESM\n\nSetup di jamovi GAMLj\nMelaporkan hasil dalam manuskrip\n\n\n\n\n\n\n\nImportant\n\n\n\nKarena keterbatasan waktu, bagian 3️⃣ tidak diajarkan di workshop. Materi tersedia di laman web ini dan dapat dipelajari peserta secara mandiri.\n\n\n\n\n\n\n\n\nNote\n\n\n\nUnduh materi dalam bentuk PDF: Klik navigation bar yang mengarah pada PDF materi, kemudian tekan ctrl dan p bersamaan. Setelah window untuk print muncul, pilih Save to PDF dan klik Save."
+    "text": "Outline materi\nMateri yang tersedia di laman web ini juga mencakup konsep dasar ordinary least square regression selain pengenalan lme.\nPeserta juga akan diminta untuk menganalisis data dengan menggunakan lme dan melaporkannya dengan format yang biasa digunakan dalam artikel penelitian.\nBerikut adalah outline materi yang tersedia di laman web ini:\n\nBagian 1️⃣: Ordinary Least Square Regression\n\nBerlatih menginspeksi data secara visual dengan scatterplot\nModel regresi linear (ordinary least square)\nMenarik garis regresi (fitted regression line)\nVarians yang dapat dan yang tidak dapat dijelaskan oleh model (R2)\nMenguji hipotesis\nMengecek kecocokan model dengan data (model fit)\nMengecek asumsi\n\nDistribusi (normalitas) residual\nHomoskedastisitas\nMultikolinearitas\n\nMendeteksi outliers\nMenguji interaction effects dan model change\nMenulis hasil analisis regresi linear dengan interaction terms dalam manuskrip\n\n\n\n\n\n\n\nImportant\n\n\n\nKarena asumsinya mahasiswa S3 sudah memiliki pengetahuan statistik dasar, maka Bagian 1 tidak diajarkan di workshop. Bagian 1 harus dikuasai oleh peserta terlebih dahulu sebelum memulai workshop dan dapat dipelajari secara mandiri.\n\n\n\n\nBagian 2️⃣: Linear Mixed Effects Model\n\nStruktur data berjenjang/bersarang (hierarchical/nested data)\nWithin- dan between-group variances\nPengantar linear mixed-effect (lme)\nIntra-class correlation dan likelihood ratio test (LRT)\nMembandingkan garis regresi antar kelompok dengan lme\nlme dengan prediktor level 1 (random coefficients model)\n\nMengidentifikasi intercept (konstanta) yang berbeda antar kelompok (random-intercept model)\nMengidentifikasi slopes (gradien/kemiringan garis) yang berbeda antar kelompok (random slopes model)\n\n“Explained variances” (Nakagawa & Schielzeth, 2012)\n\nMarginal R2\nConditional R2\n\nContextual effect dan partitioning/centering\nMelaporkan analisis dengan lme dalam manuskrip\nPengukuran berulang (repeated measures) dan experience sampling\n\n\n\nBagian 3️⃣: lme untuk Pengukuran Berulang dan Experience Sampling\n\nKeterbatasan lme biasa untuk data pengukuran berulang\nRepeated measures dengan lme\n\nStruktur kovarians residual: Identity, Compound Symmetry, Unstructured\nMembandingkan model dengan struktur residual berbeda\n\nExperience Sampling Method (ESM)\n\nApa itu ESM dan pada saat seperti apa ESM dilakukan?\nTemporal autocorrelation dan struktur AR(1) & ARMA(1,1)\nPerson-mean centering: efek within- vs. between-person\nCross-level interaction dalam data ESM\n\nSetup di jamovi GAMLj\nMelaporkan hasil dalam manuskrip\n\n\n\n\n\n\n\nImportant\n\n\n\nKarena keterbatasan waktu, bagian 3️⃣ tidak diajarkan di workshop. Materi tersedia di laman web ini dan dapat dipelajari peserta secara mandiri.\n\n\n\n\n\n\n\n\nNote\n\n\n\nUnduh materi dalam bentuk PDF: Klik navigation bar yang mengarah pada PDF materi, kemudian tekan ctrl dan p bersamaan. Setelah window untuk print muncul, pilih Save to PDF dan klik Save."
   },
   {
     "objectID": "index.html#referensi",
@@ -546,11 +518,11 @@
     "text": "Referensi\n\nBrown, V.A. (2021). An Introduction to Linear Mixed-Effects Modeling in R. Advances in Methods and Practices in Psychological Science, 4(1), 1-19. doi: 10.1177/2515245920960351\nGalucci, M. (2025). GAMLj: General analysis for the linear model in jamovi. https://gamlj.github.io/index.html\nGalucci, M. (2025). Mixed models module. https://gamlj.github.io/mixed.html\nHajduk, G.K. (2017). Introduction to linear mixed models. https://ourcodingclub.github.io/2017/03/15/mixed-models.html\nNakagawa, S. and Schielzeth, H. (2013), A general and simple method for obtaining R2 from generalized linear mixed‐effects models. Methods in Ecology and Evolution, 4: 133-142. doi: 10.1111/j.2041-210x.2012.00261.x\nPeugh, James L. (2010). A practical guide to multilevel modeling. Journal of School Psychology, 48, 85-112. doi: 10.1016/j.jsp.2009.09.002\nWinter, B. (2013). Linear models and linear mixed effects models in R with linguistic applications. arXiv:1308.5499."
   },
   {
-    "objectID": "index.html#referensi-tambahan-untuk-repeated-measures-dan-expeience-sampling",
-    "href": "index.html#referensi-tambahan-untuk-repeated-measures-dan-expeience-sampling",
+    "objectID": "index.html#referensi-tambahan-untuk-repeated-measures-dan-experience-sampling",
+    "href": "index.html#referensi-tambahan-untuk-repeated-measures-dan-experience-sampling",
     "title": "Linear Mixed Models (LME) Workshop",
-    "section": "Referensi tambahan untuk repeated measures dan expeience sampling",
-    "text": "Referensi tambahan untuk repeated measures dan expeience sampling\n\nBolger, N., & Laurenceau, J-P. (2013). Intensive longitudinal methods: An introduction to diary and experience sampling research. Guilford Press.\nHamaker, E.L., Kuiper, R.M., & Grasman, R.P.P.P. (2015). A critique of the cross-lagged panel model. Psychological Methods, 20(1), 102-116. doi: 10.1037/a0038889\nNezlek, J.B. (2012). Multilevel modeling analyses of diary-style data. In M.R. Mehl & T.S. Conner (Eds.), Handbook of Research Methods for Studying Daily Life (pp. 384-410). Guilford Press.\nTrull, T.J. & Ebner-Priemer, U. (2014). The role of ambulatory assessment in psychological science. Current Directions in Psychological Science, 23(6), 466-470. doi: 10.1177/0963721414550706"
+    "section": "Referensi tambahan untuk repeated measures dan experience sampling",
+    "text": "Referensi tambahan untuk repeated measures dan experience sampling\n\nBolger, N., & Laurenceau, J-P. (2013). Intensive longitudinal methods: An introduction to diary and experience sampling research. Guilford Press.\nHamaker, E.L., Kuiper, R.M., & Grasman, R.P.P.P. (2015). A critique of the cross-lagged panel model. Psychological Methods, 20(1), 102-116. doi: 10.1037/a0038889\nNezlek, J.B. (2012). Multilevel modeling analyses of diary-style data. In M.R. Mehl & T.S. Conner (Eds.), Handbook of Research Methods for Studying Daily Life (pp. 384-410). Guilford Press.\nTrull, T.J. & Ebner-Priemer, U. (2014). The role of ambulatory assessment in psychological science. Current Directions in Psychological Science, 23(6), 466-470. doi: 10.1177/0963721414550706"
   },
   {
     "objectID": "index.html#contoh-penelitian-dengan-lme",
@@ -623,6 +595,13 @@
     "text": "Ternyata covariance-nya berbeda di tiap sekolah! 😱\n\n\n\nIntercept neuroticism dan trust ternyata bervariasi di setiap sekolah\nYang menarik, tidak hanya intercept, slope pendapatan personal juga bervariasi di setiap sekolah\n\nBerdasarkan analisis yang kita lakukan di sesi sebelumnya, disimpulkan bahwa pendapatan keluarga dan kemandirian anak korelasinya negatif\nTapi bisakah kesimpulan yang sama kita tarik untuk Sekolah B dan D?\n\nHati-hati ecological fallacy!\n\nTerjadi ketika kita salah menyimpulkan suatu gejala yang skalanya individual, padahal yang dianalisis oleh peneliti sesungguhnya fenomena di level yang lebih besar (kelompok atau sub-kelompok)"
   },
   {
+    "objectID": "materi-lme2.html#ternyata-covariance-nya-berbeda-di-tiap-sekolah-1",
+    "href": "materi-lme2.html#ternyata-covariance-nya-berbeda-di-tiap-sekolah-1",
+    "title": "Linear Mixed Models",
+    "section": "Ternyata covariance-nya berbeda di tiap sekolah! 😱",
+    "text": "Ternyata covariance-nya berbeda di tiap sekolah! 😱\n\n\n\nHati-hati ecological fallacy!\n\nTerjadi ketika kita salah menyimpulkan suatu gejala yang skalanya individual, padahal yang dianalisis oleh peneliti sesungguhnya fenomena di level yang lebih besar (kelompok atau sub-kelompok)"
+  },
+  {
     "objectID": "materi-lme2.html#struktur-sampel-bersarangberjenjang",
     "href": "materi-lme2.html#struktur-sampel-bersarangberjenjang",
     "title": "Linear Mixed Models",
@@ -634,7 +613,14 @@
     "href": "materi-lme2.html#apa-yang-harus-dilakukan",
     "title": "Linear Mixed Models",
     "section": "Apa yang harus dilakukan?",
-    "text": "Apa yang harus dilakukan?\n\nKita abaikan saja dan langsung menggunakan regresi OLS, dengan atau tanpa informasi mengenai pengelompokan data sebagai variabel kontrol.\n\nMasalahnya, data/observasi kita sangat bergantung pada pengelompokan unit analisis\nNah, lalu melanggar asumsi OLS? (data/observasi dan residual harus independen)\nEfeknya, standard error yang diestimasi oleh model terlalu kecil (karena mengabaikan varians dependen variabel yang ditentukan oleh kelompok)\nVarians variabel dependen yang tidak bisa dijelaskan (residual) akan makin besar\nKesimpulan/inferensi yang ditarik menjadi tidak tepat, sehingga risiko terjadinya type I error meningkat.\n\nBagaimana kalau pengelompokan (group status) dimasukkan aja dalam regresi OLS sebagai variabel moderator\n\nDengan begitu, estimasi standard error disesuaikan dengan menggunakan marginal model\nEstimasi standard error akan lebih presisi, tetapi kita tetap tidak bisa mengestimasi between-group variance\n\nKalau diagregat? Jadi, unit analisis yang tadinya individual, menjadi kelompok.\n\nUkuran sampel menjadi lebih sedikit, sehingga statistical power menjadi lebih rendah ❗"
+    "text": "Apa yang harus dilakukan?\n\nKita abaikan saja dan langsung menggunakan regresi OLS, dengan atau tanpa informasi mengenai pengelompokan data sebagai variabel kontrol.\n\nMasalahnya, data/observasi kita sangat bergantung pada pengelompokan unit analisis\nNah, lalu melanggar asumsi OLS? (data/observasi dan residual harus independen)\nEfeknya, standard error yang diestimasi oleh model terlalu kecil (karena mengabaikan varians dependen variabel yang ditentukan oleh kelompok)\nVarians variabel dependen yang tidak bisa dijelaskan (residual) akan makin besar\nKesimpulan/inferensi yang ditarik menjadi tidak tepat, sehingga risiko terjadinya type I error meningkat."
+  },
+  {
+    "objectID": "materi-lme2.html#apa-yang-harus-dilakukan-1",
+    "href": "materi-lme2.html#apa-yang-harus-dilakukan-1",
+    "title": "Linear Mixed Models",
+    "section": "Apa yang harus dilakukan?",
+    "text": "Apa yang harus dilakukan?\n\nBagaimana kalau pengelompokan (group status) dimasukkan aja dalam regresi OLS sebagai variabel moderator\n\nDengan begitu, estimasi standard error disesuaikan dengan menggunakan marginal model\nEstimasi standard error akan lebih presisi, tetapi kita tetap tidak bisa mengestimasi between-group variance\n\nKalau diagregat? Jadi, unit analisis yang tadinya individual, menjadi kelompok.\n\nUkuran sampel menjadi lebih sedikit, sehingga statistical power menjadi lebih rendah ❗"
   },
   {
     "objectID": "materi-lme2.html#fixed-dan-random-effects",
@@ -665,13 +651,6 @@
     "text": "Parameter yang diestimasi dalam linear mixed effects\n\nFixed intercept (c00)\nFixed slopes (c10)\nVarians random intercept (σ2U0)\nVarians random slopes (σ2U1)\nKovarians antara random intercept dan random slopes (σU0U1)\nVarians residual level-1 (σ2e)"
   },
   {
-    "objectID": "materi-lme2.html#yuk-kita-coba",
-    "href": "materi-lme2.html#yuk-kita-coba",
-    "title": "Linear Mixed Models",
-    "section": "Yuk kita coba! 💪",
-    "text": "Yuk kita coba! 💪\nPastikan module GAMLj sudah terpasang di jamovi"
-  },
-  {
     "objectID": "materi-lme2.html#latihan-3-kembali-ke-dataset-sekolah",
     "href": "materi-lme2.html#latihan-3-kembali-ke-dataset-sekolah",
     "title": "Linear Mixed Models",
@@ -682,15 +661,15 @@
     "objectID": "materi-lme2.html#latihan-3-model-dengan-prediktor",
     "href": "materi-lme2.html#latihan-3-model-dengan-prediktor",
     "title": "Linear Mixed Models",
-    "section": "Latihan (3): Model dengan prediktor",
-    "text": "Latihan (3): Model dengan prediktor\nBikin linear mixed model dengan prediktor\n\nMasukkan hi dalam kolom covariates\nPada menu random effects, masukkan juga hi|idsekolah, karena kita akan mengestimasi random slopes-nya juga\n\nCentang opsi LRT for Random Test\n\nPada menu covariates scaling, ubah centered menjadi cluster-based centered\n\nBerkaitan dengan partitioning (akan dijelaskan di bagian selanjutnya)"
+    "section": "Latihan 3️⃣: Model dengan prediktor",
+    "text": "Latihan 3️⃣: Model dengan prediktor\nBikin linear mixed model dengan prediktor\n\nMasukkan hi dalam kolom covariates\nPada menu random effects, masukkan juga hi|idsekolah, karena kita akan mengestimasi random slopes-nya juga\n\nCentang opsi LRT for Random Test\n\nPada menu covariates scaling, ubah centered menjadi cluster-based centered\n\nBerkaitan dengan partitioning (akan dijelaskan di bagian selanjutnya)"
   },
   {
     "objectID": "materi-lme2.html#fixed-coefficients",
     "href": "materi-lme2.html#fixed-coefficients",
     "title": "Linear Mixed Models",
     "section": "Fixed coefficients",
-    "text": "Fixed coefficients\n\n\n\nTes kecocokan model (Omnibus Test) tidak signifikan (F(1,3.98)=0.309, p=.608)\n\nBerbeda sekali dengan hasil OLS\nKemungkinan besar korelasi antara pendapatan keluarga per bulan dengan kemandirian tidak linier\n\nKita tidak punya cukup bukti untuk menolak hipotesis nol, bahwa pendapatan keluarga per bulan dengan kemandirian tidak berkaitan (B=-0.207 95% CI [-0.937, 0.523], SE=0.372, t=-0.556, p=.608).\n\nSekali lagi, berbeda sekali dengan hasil OLS"
+    "text": "Fixed coefficients\n\n\n\nTes kecocokan model (Omnibus Test) tidak signifikan (F(1,3.98)=0.309, p=.608)\n\nBerbeda sekali dengan hasil OLS\nKemungkinan besar korelasi antara pendapatan keluarga per bulan dengan kemandirian tidak linear\n\nKita tidak punya cukup bukti untuk menolak hipotesis nol, bahwa pendapatan keluarga per bulan dengan kemandirian tidak berkaitan (B=-0.207 95% CI [-0.937, 0.523], SE=0.372, t=-0.556, p=.608).\n\nSekali lagi, berbeda sekali dengan hasil OLS"
   },
   {
     "objectID": "materi-lme2.html#random-coefficients-1",
@@ -725,7 +704,14 @@
     "href": "materi-lme2.html#contextual-effects-partitioning-1",
     "title": "Linear Mixed Models",
     "section": "Contextual effects & partitioning 1️⃣",
-    "text": "Contextual effects & partitioning 1️⃣\n\nWithin-group effect\n\nSeberapa besar selisih Y dari 2 orang yang berada di kelompok yang sama, ketika selisih X-nya sebesar 1 poin?\nSeberapa besar perbedaan BB dua orang anak yang berada dalam sekolah yang sama, ketika selisih tingkat pendapatan keluarga mereka berbeda sebesar 1 poin?\n\nBetween-group effect\n\nSeberapa besar selisih Y dari 2 orang yang berbeda (dari 2 kelompok yang berbeda), namun berada dalam posisi relatif yang sama (dibandingkan dengan rerata kelompok), ketika selisih X mereka sebesar 1 poin?\nSeberapa besar perbedaan tingkat kemandirian dua siswa dari dua sekolah yang berbeda, ketika posisi tingkat pendapatan keluarga mereka relatif sama di sekolah masing-masing, tetapi selisihnya berbeda sebesar 1 poin?\n\nContextual effect\n\nSeberapa besar selisih Y dua orang dari kelompok yang berbeda, namun dengan X yang sama, ketika rerata X kelompoknya berbeda sebesar 1 poin.\nSeberapa besar perbedaan tingkat kemandirian dua siswa dari dua sekolah yang berbeda, ketika rerata tingkat pendapatan keluarga di sekolah mereka berbeda sebesar 1 poin?"
+    "text": "Contextual effects & partitioning 1️⃣\n\nWithin-group effect\n\nSeberapa besar selisih Y dari 2 orang yang berada di kelompok yang sama, ketika selisih X-nya sebesar 1 poin?\nSeberapa besar perbedaan BB dua orang anak yang berada dalam sekolah yang sama, ketika selisih tingkat pendapatan keluarga mereka berbeda sebesar 1 poin?\n\nBetween-group effect\n\nSeberapa besar selisih Y dari 2 orang yang berbeda (dari 2 kelompok yang berbeda), namun berada dalam posisi relatif yang sama (dibandingkan dengan rerata kelompok), ketika selisih X mereka sebesar 1 poin?\nSeberapa besar perbedaan tingkat kemandirian dua siswa dari dua sekolah yang berbeda, ketika posisi tingkat pendapatan keluarga mereka relatif sama di sekolah masing-masing, tetapi selisihnya berbeda sebesar 1 poin?"
+  },
+  {
+    "objectID": "materi-lme2.html#contextual-effects-partitioning-1-1",
+    "href": "materi-lme2.html#contextual-effects-partitioning-1-1",
+    "title": "Linear Mixed Models",
+    "section": "Contextual effects & partitioning 1️⃣",
+    "text": "Contextual effects & partitioning 1️⃣\n\nContextual effect\n\nSeberapa besar selisih Y dua orang dari kelompok yang berbeda, namun dengan X yang sama, ketika rerata X kelompoknya berbeda sebesar 1 poin.\nSeberapa besar perbedaan tingkat kemandirian dua siswa dari dua sekolah yang berbeda, ketika rerata tingkat pendapatan keluarga di sekolah mereka berbeda sebesar 1 poin?"
   },
   {
     "objectID": "materi-lme2.html#contextual-effects-partitioning-2",
@@ -774,7 +760,7 @@
     "href": "materi-lme2.html#yang-belum-dibahas",
     "title": "Linear Mixed Models",
     "section": "Yang belum dibahas…",
-    "text": "Yang belum dibahas…\n\nKalau korelasi antara X dan Y tidak linier, pakai apa dong?\n\nJelas tidak bisa menggunakan lme. Alternatifnya, bisa menggunakan generalized additive model (GAM).\n\nKalau prediktornya level-2, bagaimana?\nBagaimana cara merencanakan jumlah sampelnya?\nBagaimana kalau sampelnya bersarang/berjenjang level-3, bahkan lebih?\nBagaimana kalo terjadi interaksi antara variabel prediktor level-1 dengan level-2 (cross-level interactions)?"
+    "text": "Yang belum dibahas…\n\nKalau korelasi antara X dan Y tidak linear, pakai apa dong?\n\nJelas tidak bisa menggunakan lme. Alternatifnya, bisa menggunakan generalized additive model (GAM).\n\nKalau prediktornya level-2, bagaimana?\nBagaimana cara merencanakan jumlah sampelnya?\nBagaimana kalau sampelnya bersarang/berjenjang level-3, bahkan lebih?\nBagaimana kalo terjadi interaksi antara variabel prediktor level-1 dengan level-2 (cross-level interactions)?"
   },
   {
     "objectID": "materi-lme2.html#the-problem-with-linear-relationship",

@@ -20,7 +20,7 @@ execute:
 ## _Outline_
 
 * Berlatih menginspeksi data secara visual dengan _scatterplot_
-* Model regresi linier (_ordinary least square_)
+* Model regresi linear (_ordinary least square_)
 * Menarik garis regresi (_fitted regression lines_)
 * Varians yang dapat dan yang tidak dapat dijelaskan oleh model (_R_)^2^
 * Menguji hipotesis
@@ -31,7 +31,7 @@ execute:
   - Multikolinearitas
 * Mendeteksi _outliers_
 * Menguji _interaction effects_ dan _model change_
-* Menulis hasil analisis regresi linier dengan _interaction terms_ dalam manuskrip
+* Menulis hasil analisis regresi linear dengan _interaction terms_ dalam manuskrip
 
 ## Ilustrasi Kasus
 
@@ -159,7 +159,7 @@ Korelasi yang tampak pada _scatterplot_ tadi dapat dikonseptualisasikan dengan l
 :::
 ::::
 
-## Regresi linier (_ordinary least square regression_/OLS)
+## Regresi linear (_ordinary least square regression_/OLS)
 
 :::: {.columns}
 ::: {.column width="60%"}
@@ -188,7 +188,7 @@ Korelasi yang tampak pada _scatterplot_ tadi dapat dikonseptualisasikan dengan l
 
 ## Asumsi yang harus dipenuhi
 
-* Prediktor dan variabel dependen **berkorelasi secara linier**
+* Prediktor dan variabel dependen **berkorelasi secara linear**
   - Lakukan analisis korelasi sebelum melakukan regresi untuk memastikan asumsi ini terpenuhi
 * Residual (varians _error_) variabel dependen yang tidak dapat dijelaskan oleh model
   - Berdistribusi normal
@@ -443,7 +443,7 @@ Ketika dibandingkan, Model 1 dan Model 2 berbeda signifikan (_F_(1,397)=104, _p_
 :::
 ::::
 
-## Diagnostik kolinieritas
+## Diagnostik kolinearitas
 
 :::: {.columns}
 ::: {.column width="55%"}
@@ -464,13 +464,13 @@ Ketika dibandingkan, Model 1 dan Model 2 berbeda signifikan (_F_(1,397)=104, _p_
 
 ## Bagaimana melaporkannya?
 
-"...untuk menginvestigasi keterkaitan antara pendapatan keluarga, kecenderungan _neuroticism_ ibu, dan kepercayaan ibu bahwa perkembangan anak dapat terjadi secara natural dengan tingkat kemandirian anak, peneliti melakukan analisis regresi linier hirarkial dengan _interaction terms_. Peneliti menyusun dua model, dimana; model 1 mengestimasi varians tingkat kemandirian anak dengan pendapatan keluarga inti sebagai prediktor, sedangkan pada model 2 peneliti menambahkan prediktor berupa _interaction terms_ antara _neuroticism_ dengan _trust_.
+"...untuk menginvestigasi keterkaitan antara pendapatan keluarga, kecenderungan _neuroticism_ ibu, dan kepercayaan ibu bahwa perkembangan anak dapat terjadi secara natural dengan tingkat kemandirian anak, peneliti melakukan analisis regresi linear hirarkial dengan _interaction terms_. Peneliti menyusun dua model, dimana; model 1 mengestimasi varians tingkat kemandirian anak dengan pendapatan keluarga inti sebagai prediktor, sedangkan pada model 2 peneliti menambahkan prediktor berupa _interaction terms_ antara _neuroticism_ dengan _trust_.
 
 Ketika dibandingkan, Model 1 dan Model 2 berbeda signifikan (_F_(1,397)=104, p\<.001). R^2^ bertambah sebesar 20.2% (ΔR^2^=.202). Model 2 (_F_(2,397)=58.2, p\<.001, R^2^=.226, AIC=3237, BIC=3253) dapat menjelaskan varians tingkat kemandirian anak lebih baik daripada Model 1 (_F_(1,398)=10.2, p=.002, R^2^=.025, AIC=3327, BIC=3339).
 
 Pendapatan keluarga dapat menjelaskan variasi kemandirian anak (_B_=-0.943 95% CI [-1.164, -0.721], _SE_=0.112, _t_=-8.39, _p_\<.001). Interaksi antara _neuroticism_ dengan _trust_ juga signifikan (_B_=0.054 95% CI [0.044, 0.065], _SE_=0.005, _t_=10.18, _p_\<.001). Artinya, korelasi antara kecenderungan _neuroticism_ ibu dengan kemandirian anak akan menguat pada ibu yang _trust_nya tinggi.
 
-Potensi multikolinieritas dideteksi dengan VIF dan hasil analisis menunjukkan multikolinieritas kemungkinan besar tidak terjadi (VIF=1.38)..."
+Potensi multikolinearitas dideteksi dengan VIF dan hasil analisis menunjukkan multikolinearitas kemungkinan besar tidak terjadi (VIF=1.38)..."
 
 ## Latihan mandiri 1️⃣
 

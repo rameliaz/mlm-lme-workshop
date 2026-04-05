@@ -34,7 +34,7 @@ Berikut adalah *outline* materi yang tersedia di laman web ini:
 ### **Bagian 1️⃣**: _Ordinary Least Square Regression_  
 
 * Berlatih menginspeksi data secara visual dengan _scatterplot_
-* Model regresi linier (_ordinary least square_)
+* Model regresi linear (_ordinary least square_)
 * Menarik garis regresi (_fitted regression line_)
 * Varians yang dapat dan yang tidak dapat dijelaskan oleh model (_R_^2^)
 * Menguji hipotesis
@@ -45,7 +45,7 @@ Berikut adalah *outline* materi yang tersedia di laman web ini:
   - Multikolinearitas
 * Mendeteksi _outliers_
 * Menguji _interaction effects_ dan _model change_
-* Menulis hasil analisis regresi linier dengan _interaction terms_ dalam manuskrip
+* Menulis hasil analisis regresi linear dengan _interaction terms_ dalam manuskrip
 
 ::: {.callout-important}
 Karena asumsinya mahasiswa S3 sudah memiliki pengetahuan statistik dasar, maka  **Bagian 1 tidak diajarkan** di _workshop_. Bagian 1 **harus dikuasai** oleh peserta terlebih dahulu sebelum memulai _workshop_ dan dapat dipelajari secara mandiri.
@@ -100,7 +100,7 @@ Karena keterbatasan waktu, bagian 3️⃣ **tidak diajarkan** di _workshop_. Mat
 * Peugh, James L. (2010). A practical guide to multilevel modeling. Journal of School Psychology, 48, 85-112. doi: [10.1016/j.jsp.2009.09.002](https://doi.org/10.1016/j.jsp.2009.09.002)
 * Winter, B. (2013). Linear models and linear mixed effects models in R with linguistic applications. [arXiv:1308.5499](https://web.stanford.edu/class/psych252/section/Mixed_models_tutorial.html).
 
-## Referensi tambahan untuk _repeated measures_ dan _expeience sampling_
+## Referensi tambahan untuk _repeated measures_ dan _experience sampling_
 
 * Bolger, N., & Laurenceau, J-P. (2013). *Intensive longitudinal methods: An introduction to diary and experience sampling research*. Guilford Press.
 * Hamaker, E.L., Kuiper, R.M., & Grasman, R.P.P.P. (2015). A critique of the cross-lagged panel model. *Psychological Methods*, *20*(1), 102-116. doi: [10.1037/a0038889](https://doi.org/10.1037/a0038889)

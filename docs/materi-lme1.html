@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.8.14">
 
   <meta name="author" content="Rizqy Amelia Zein">
-  <meta name="dcterms.date" content="2026-04-01">
+  <meta name="dcterms.date" content="2026-04-05">
   <title>LME Workshop – Regresi Linier (Ordinary Least Square)</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -146,13 +146,13 @@ Rizqy Amelia Zein
     </div>
 </div>
 
-  <p class="date">2026-04-01</p>
+  <p class="date">2026-04-05</p>
 </section>
 <section id="outline" class="slide level2">
 <h2><em>Outline</em></h2>
 <ul>
 <li>Berlatih menginspeksi data secara visual dengan <em>scatterplot</em></li>
-<li>Model regresi linier (<em>ordinary least square</em>)</li>
+<li>Model regresi linear (<em>ordinary least square</em>)</li>
 <li>Menarik garis regresi (<em>fitted regression lines</em>)</li>
 <li>Varians yang dapat dan yang tidak dapat dijelaskan oleh model (<em>R</em>)<sup>2</sup></li>
 <li>Menguji hipotesis</li>
@@ -165,7 +165,7 @@ Rizqy Amelia Zein
 </ul></li>
 <li>Mendeteksi <em>outliers</em></li>
 <li>Menguji <em>interaction effects</em> dan <em>model change</em></li>
-<li>Menulis hasil analisis regresi linier dengan <em>interaction terms</em> dalam manuskrip</li>
+<li>Menulis hasil analisis regresi linear dengan <em>interaction terms</em> dalam manuskrip</li>
 </ul>
 </section>
 <section id="ilustrasi-kasus" class="slide level2">
@@ -284,8 +284,8 @@ Rizqy Amelia Zein
 <p><img src="libs/corr.jpg" style="width:80%;" class="fancyimage"></p>
 </div></div>
 </section>
-<section id="regresi-linier-ordinary-least-square-regressionols" class="slide level2">
-<h2>Regresi linier (<em>ordinary least square regression</em>/OLS)</h2>
+<section id="regresi-linear-ordinary-least-square-regressionols" class="slide level2">
+<h2>Regresi linear (<em>ordinary least square regression</em>/OLS)</h2>
 <div class="columns">
 <div class="column" style="width:60%;">
 <ul>
@@ -312,7 +312,7 @@ Rizqy Amelia Zein
 <section id="asumsi-yang-harus-dipenuhi" class="slide level2">
 <h2>Asumsi yang harus dipenuhi</h2>
 <ul>
-<li>Prediktor dan variabel dependen <strong>berkorelasi secara linier</strong>
+<li>Prediktor dan variabel dependen <strong>berkorelasi secara linear</strong>
 <ul>
 <li>Lakukan analisis korelasi sebelum melakukan regresi untuk memastikan asumsi ini terpenuhi</li>
 </ul></li>
@@ -567,8 +567,8 @@ Rizqy Amelia Zein
 <p><img src="libs/simple-slopes.jpg" style="width:100%;" class="fancyimage"></p>
 </div></div>
 </section>
-<section id="diagnostik-kolinieritas" class="slide level2">
-<h2>Diagnostik kolinieritas</h2>
+<section id="diagnostik-kolinearitas" class="slide level2">
+<h2>Diagnostik kolinearitas</h2>
 <div class="columns">
 <div class="column" style="width:55%;">
 <ul>
@@ -588,10 +588,10 @@ Rizqy Amelia Zein
 </section>
 <section id="bagaimana-melaporkannya" class="slide level2">
 <h2>Bagaimana melaporkannya?</h2>
-<p>“…untuk menginvestigasi keterkaitan antara pendapatan keluarga, kecenderungan <em>neuroticism</em> ibu, dan kepercayaan ibu bahwa perkembangan anak dapat terjadi secara natural dengan tingkat kemandirian anak, peneliti melakukan analisis regresi linier hirarkial dengan <em>interaction terms</em>. Peneliti menyusun dua model, dimana; model 1 mengestimasi varians tingkat kemandirian anak dengan pendapatan keluarga inti sebagai prediktor, sedangkan pada model 2 peneliti menambahkan prediktor berupa <em>interaction terms</em> antara <em>neuroticism</em> dengan <em>trust</em>.</p>
+<p>“…untuk menginvestigasi keterkaitan antara pendapatan keluarga, kecenderungan <em>neuroticism</em> ibu, dan kepercayaan ibu bahwa perkembangan anak dapat terjadi secara natural dengan tingkat kemandirian anak, peneliti melakukan analisis regresi linear hirarkial dengan <em>interaction terms</em>. Peneliti menyusun dua model, dimana; model 1 mengestimasi varians tingkat kemandirian anak dengan pendapatan keluarga inti sebagai prediktor, sedangkan pada model 2 peneliti menambahkan prediktor berupa <em>interaction terms</em> antara <em>neuroticism</em> dengan <em>trust</em>.</p>
 <p>Ketika dibandingkan, Model 1 dan Model 2 berbeda signifikan (<em>F</em>(1,397)=104, p&lt;.001). R<sup>2</sup> bertambah sebesar 20.2% (ΔR<sup>2</sup>=.202). Model 2 (<em>F</em>(2,397)=58.2, p&lt;.001, R<sup>2</sup>=.226, AIC=3237, BIC=3253) dapat menjelaskan varians tingkat kemandirian anak lebih baik daripada Model 1 (<em>F</em>(1,398)=10.2, p=.002, R<sup>2</sup>=.025, AIC=3327, BIC=3339).</p>
 <p>Pendapatan keluarga dapat menjelaskan variasi kemandirian anak (<em>B</em>=-0.943 95% CI [-1.164, -0.721], <em>SE</em>=0.112, <em>t</em>=-8.39, <em>p</em>&lt;.001). Interaksi antara <em>neuroticism</em> dengan <em>trust</em> juga signifikan (<em>B</em>=0.054 95% CI [0.044, 0.065], <em>SE</em>=0.005, <em>t</em>=10.18, <em>p</em>&lt;.001). Artinya, korelasi antara kecenderungan <em>neuroticism</em> ibu dengan kemandirian anak akan menguat pada ibu yang _trust_nya tinggi.</p>
-<p>Potensi multikolinieritas dideteksi dengan VIF dan hasil analisis menunjukkan multikolinieritas kemungkinan besar tidak terjadi (VIF=1.38)…”</p>
+<p>Potensi multikolinearitas dideteksi dengan VIF dan hasil analisis menunjukkan multikolinearitas kemungkinan besar tidak terjadi (VIF=1.38)…”</p>
 </section>
 <section id="latihan-mandiri-1" class="slide level2">
 <h2>Latihan mandiri 1️⃣</h2>

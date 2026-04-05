@@ -118,7 +118,7 @@ $$\mathbf{R} = \sigma^2 \begin{bmatrix} 1 & 0 & 0 & 0 \\ 0 & 1 & 0 & 0 \\ 0 & 0 
 
 ::: {.callout-warning}
 #### Hati-hati
-_Identity_ adalah _default_ yang **paling sering keliru dipakai** untuk data berulang. Jika tidak ada alasan teoritis yang kuat, hindari opsi ini untuk _repeated measures_.
+_Identity_ adalah opsi _default_ yang **paling sering keliru apabila dipakai** untuk data berulang. Jika tidak ada alasan teoritis yang kuat, hindari opsi ini untuk _repeated measures_.
 :::
 
 ## Struktur 2: _Compound Symmetry_ (CS)
@@ -166,7 +166,7 @@ $$\mathbf{R} = \begin{bmatrix} \sigma^2_1 & \sigma_{12} & \sigma_{13} & \sigma_{
 
 **Gunakan AIC/BIC** untuk memilih: model dengan AIC/BIC lebih kecil = lebih baik.
 
-## _Repeated Measures_ dengan `lme` {background-color="#14497F"}
+# _Repeated Measures_ dengan `lme` {background-color="#14497F"}
 
 ## Mengapa `lme` lebih baik dari RM-ANOVA?
 
@@ -231,7 +231,7 @@ Ia melakukan survei pada **120 mahasiswa** dari **4 fakultas berbeda** di dua un
 
 Perhatikan: **neuro** tidak berubah antar waktu (variabel Level-2), sedangkan **cemas** berubah antar waktu (variabel Level-1).
 
-## Latihan 5️⃣: Setup _repeated measures_ di GAMLj {background-color="#14497F"}
+# Latihan 5️⃣: Setup _repeated measures_ di GAMLj {background-color="#14497F"}
 
 Buka [_dataset-rm.omv_](/materials/dataset-rm.omv)
 
@@ -283,7 +283,7 @@ Urutkan dari yang paling sederhana ke yang paling kompleks: Identity → CS → 
 Misalnya, _B_(waktu) = 8.5, artinya setiap bertambah 1 unit waktu (1 _time point_), skor kecemasan rata-rata meningkat 8.5 poin, **dengan mengontrol perbedaan antar individu**.
 :::
 
-## Experience Sampling Method (ESM) {background-color="#14497F"}
+# Experience Sampling Method (ESM) {background-color="#14497F"}
 
 ## Apa itu ESM?
 
@@ -311,7 +311,7 @@ Misalnya, _B_(waktu) = 8.5, artinya setiap bertambah 1 unit waktu (1 _time point
 
 * **Mengungkap dinamika temporal** — perubahan mood dari jam ke jam, bukan hanya rata-rata
 
-* **Memisahkan efek _within-person_ dan _between-person_** secara lebih bersih
+* **Memisahkan efek _within-person_ dan _between-person_** secara lebih jelas
 
 * **Mendeteksi _intra-individual variability_** — seberapa fluktuatif seseorang dari waktu ke waktu
 
@@ -474,7 +474,7 @@ Sebelum studi dimulai, partisipan mengisi:
 :::
 ::::
 
-## Latihan 6️⃣: Setup ESM di GAMLj {background-color="#14497F"}
+# Latihan 6️⃣: Setup ESM di GAMLj {background-color="#14497F"}
 
 [Buka _dataset-esm.omv_](/materials/dataset-esm.omv)
 

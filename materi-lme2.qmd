@@ -74,6 +74,21 @@ execute:
 :::
 ::::
 
+## Ternyata _covariance_-nya berbeda di tiap sekolah! 😱
+
+:::: {.columns}
+::: {.column width="55%"}
+
+* Hati-hati _ecological fallacy_!
+  - Terjadi ketika kita salah menyimpulkan suatu gejala yang skalanya individual, padahal yang dianalisis oleh peneliti sesungguhnya fenomena di level yang lebih besar (kelompok atau sub-kelompok)
+:::
+::: {.column width="45%"}
+
+![](libs/ecological-fallacy.jpg)
+
+:::
+::::
+
 ## Struktur sampel bersarang/berjenjang
 
 ![](libs/hierarchical-data.png)
@@ -88,6 +103,12 @@ execute:
   - Efeknya, _standard error_ yang diestimasi oleh model terlalu kecil (karena mengabaikan varians dependen variabel yang ditentukan oleh kelompok)
   - Varians variabel dependen yang tidak bisa dijelaskan (residual) akan makin besar
   - Kesimpulan/inferensi yang ditarik menjadi tidak tepat, sehingga risiko terjadinya _type I error_ meningkat.
+
+:::
+
+## Apa yang harus dilakukan?
+
+::: {.incremental}
 
 * Bagaimana kalau pengelompokan (_group status_) dimasukkan aja dalam regresi OLS sebagai variabel moderator
   - Dengan begitu, estimasi _standard error_ disesuaikan dengan menggunakan _marginal model_
@@ -145,7 +166,7 @@ execute:
 
 * Varians residual level-1 (σ^2^~e~)
 
-## Yuk kita coba! 💪 {background-color="#14497F"}
+# Yuk kita coba! 💪 {background-color="#14497F"}
 
 Pastikan _module_ `GAMLj` sudah terpasang di `jamovi`
 
@@ -166,7 +187,7 @@ Setelah menginspeksi data secara visual, kita tahu bahwa korelasi antara **penda
 
 * Di sesi sebelumnya, sudah dijelaskan tentang [fungsi AIC dan BIC](https://rameliaz.github.io/mlm-lme-workshop/materi-lme1.html#/model-fit-1)
 
-## Latihan (3): Model dengan prediktor
+## Latihan 3️⃣: Model dengan prediktor
 
 ### Bikin _linear mixed model_ dengan prediktor
 
@@ -185,7 +206,7 @@ Setelah menginspeksi data secara visual, kita tahu bahwa korelasi antara **penda
 
 * Tes kecocokan model (_Omnibus Test_) tidak signifikan (_F_(1,3.98)=0.309, p=.608)
   - Berbeda sekali dengan hasil OLS
-  - **Kemungkinan besar** korelasi antara pendapatan keluarga per bulan dengan kemandirian **tidak linier**
+  - **Kemungkinan besar** korelasi antara pendapatan keluarga per bulan dengan kemandirian **tidak linear**
 
 * Kita tidak punya cukup bukti untuk menolak hipotesis nol, bahwa pendapatan keluarga per bulan dengan kemandirian tidak berkaitan (_B_=-0.207 95% CI [-0.937, 0.523], _SE_=0.372, _t_=-0.556, _p_=.608).
   - Sekali lagi, berbeda sekali dengan hasil OLS
@@ -296,6 +317,8 @@ Setelah menginspeksi data secara visual, kita tahu bahwa korelasi antara **penda
   - Seberapa besar selisih Y dari 2 orang yang berbeda (dari 2 kelompok yang berbeda), namun berada dalam **posisi relatif yang sama** (dibandingkan dengan rerata kelompok), ketika **selisih X** mereka sebesar 1 poin?
   - Seberapa besar perbedaan **tingkat kemandirian** dua siswa dari **dua sekolah yang berbeda**, ketika posisi **tingkat pendapatan keluarga** mereka relatif sama di sekolah masing-masing, tetapi selisihnya berbeda sebesar 1 poin?
 
+## _Contextual effects_ & _partitioning_ 1️⃣
+
 * **_Contextual effect_**
   - Seberapa besar selisih Y dua orang dari kelompok yang berbeda, namun dengan **X yang sama**, ketika **rerata X kelompoknya** berbeda sebesar 1 poin.
   - Seberapa besar perbedaan **tingkat kemandirian** dua siswa dari **dua sekolah yang berbeda**, ketika rerata **tingkat pendapatan keluarga** di sekolah mereka berbeda sebesar 1 poin?
@@ -384,7 +407,7 @@ _Contextual effects_ ditemukan sebesar -0.711, artinya, anak yang bersekolah di 
 
 ## Yang belum dibahas...
 
-* Kalau korelasi antara X dan Y tidak linier, pakai apa _dong_?
+* Kalau korelasi antara X dan Y tidak linear, pakai apa _dong_?
   - Jelas tidak bisa menggunakan `lme`. Alternatifnya, bisa menggunakan [_generalized additive model_ (GAM)](https://en.wikipedia.org/wiki/Generalized_additive_model).
 
 * Kalau prediktornya level-2, bagaimana?
@@ -397,7 +420,7 @@ _Contextual effects_ ditemukan sebesar -0.711, artinya, anak yang bersekolah di 
 
 ## _The problem with linear relationship_
 
-![](https://i.pinimg.com/originals/19/8a/7b/198a7be0157b1dc1224a0a50821b1ec0.gif){width="40%"}
+![](https://i.pinimg.com/originals/19/8a/7b/198a7be0157b1dc1224a0a50821b1ec0.gif){width="40%" fig-align="center"}
 
 ## Ada pertanyaan❓
 

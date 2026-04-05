@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.8.14">
 
   <meta name="author" content="Rizqy Amelia Zein">
-  <meta name="dcterms.date" content="2026-04-01">
+  <meta name="dcterms.date" content="2026-04-05">
   <title>LME Workshop – Linear Mixed Models</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -146,7 +146,7 @@ Rizqy Amelia Zein
     </div>
 </div>
 
-  <p class="date">2026-04-01</p>
+  <p class="date">2026-04-05</p>
 </section>
 <section id="outline" class="slide level2">
 <h2><em>Outline</em></h2>
@@ -211,6 +211,20 @@ Rizqy Amelia Zein
 <p><img data-src="libs/ecological-fallacy.jpg"></p>
 </div></div>
 </section>
+<section id="ternyata-covariance-nya-berbeda-di-tiap-sekolah-1" class="slide level2">
+<h2>Ternyata <em>covariance</em>-nya berbeda di tiap sekolah! 😱</h2>
+<div class="columns">
+<div class="column" style="width:55%;">
+<ul>
+<li>Hati-hati <em>ecological fallacy</em>!
+<ul>
+<li>Terjadi ketika kita salah menyimpulkan suatu gejala yang skalanya individual, padahal yang dianalisis oleh peneliti sesungguhnya fenomena di level yang lebih besar (kelompok atau sub-kelompok)</li>
+</ul></li>
+</ul>
+</div><div class="column" style="width:45%;">
+<p><img data-src="libs/ecological-fallacy.jpg"></p>
+</div></div>
+</section>
 <section id="struktur-sampel-bersarangberjenjang" class="slide level2">
 <h2>Struktur sampel bersarang/berjenjang</h2>
 
@@ -226,6 +240,11 @@ Rizqy Amelia Zein
 <li class="fragment">Varians variabel dependen yang tidak bisa dijelaskan (residual) akan makin besar</li>
 <li class="fragment">Kesimpulan/inferensi yang ditarik menjadi tidak tepat, sehingga risiko terjadinya <em>type I error</em> meningkat.</li>
 </ul></li>
+</ul>
+</section>
+<section id="apa-yang-harus-dilakukan-1" class="slide level2">
+<h2>Apa yang harus dilakukan?</h2>
+<ul>
 <li class="fragment">Bagaimana kalau pengelompokan (<em>group status</em>) dimasukkan aja dalam regresi OLS sebagai variabel moderator
 <ul>
 <li class="fragment">Dengan begitu, estimasi <em>standard error</em> disesuaikan dengan menggunakan <em>marginal model</em></li>
@@ -272,8 +291,9 @@ Rizqy Amelia Zein
 <li><p>Varians residual level-1 (σ<sup>2</sup><sub>e</sub>)</p></li>
 </ul>
 </section>
-<section id="yuk-kita-coba" class="slide level2" data-background-color="#14497F">
-<h2>Yuk kita coba! 💪</h2>
+<section>
+<section id="yuk-kita-coba" class="title-slide slide level1 center" data-background-color="#14497F">
+<h1>Yuk kita coba! 💪</h1>
 <p>Pastikan <em>module</em> <code>GAMLj</code> sudah terpasang di <code>jamovi</code></p>
 </section>
 <section id="latihan-3-kembali-ke-dataset-sekolah" class="slide level2">
@@ -293,7 +313,7 @@ Rizqy Amelia Zein
 </ul>
 </section>
 <section id="latihan-3-model-dengan-prediktor" class="slide level2">
-<h2>Latihan (3): Model dengan prediktor</h2>
+<h2>Latihan 3️⃣: Model dengan prediktor</h2>
 <h3 id="bikin-linear-mixed-model-dengan-prediktor">Bikin <em>linear mixed model</em> dengan prediktor</h3>
 <ul>
 <li><p>Masukkan <strong>hi</strong> dalam kolom <strong>covariates</strong></p></li>
@@ -315,7 +335,7 @@ Rizqy Amelia Zein
 <li>Tes kecocokan model (<em>Omnibus Test</em>) tidak signifikan (<em>F</em>(1,3.98)=0.309, p=.608)
 <ul>
 <li>Berbeda sekali dengan hasil OLS</li>
-<li><strong>Kemungkinan besar</strong> korelasi antara pendapatan keluarga per bulan dengan kemandirian <strong>tidak linier</strong></li>
+<li><strong>Kemungkinan besar</strong> korelasi antara pendapatan keluarga per bulan dengan kemandirian <strong>tidak linear</strong></li>
 </ul></li>
 <li>Kita tidak punya cukup bukti untuk menolak hipotesis nol, bahwa pendapatan keluarga per bulan dengan kemandirian tidak berkaitan (<em>B</em>=-0.207 95% CI [-0.937, 0.523], <em>SE</em>=0.372, <em>t</em>=-0.556, <em>p</em>=.608).
 <ul>
@@ -404,6 +424,11 @@ Rizqy Amelia Zein
 <li>Seberapa besar selisih Y dari 2 orang yang berbeda (dari 2 kelompok yang berbeda), namun berada dalam <strong>posisi relatif yang sama</strong> (dibandingkan dengan rerata kelompok), ketika <strong>selisih X</strong> mereka sebesar 1 poin?</li>
 <li>Seberapa besar perbedaan <strong>tingkat kemandirian</strong> dua siswa dari <strong>dua sekolah yang berbeda</strong>, ketika posisi <strong>tingkat pendapatan keluarga</strong> mereka relatif sama di sekolah masing-masing, tetapi selisihnya berbeda sebesar 1 poin?</li>
 </ul></li>
+</ul>
+</section>
+<section id="contextual-effects-partitioning-1-1" class="slide level2">
+<h2><em>Contextual effects</em> &amp; <em>partitioning</em> 1️⃣</h2>
+<ul>
 <li><strong><em>Contextual effect</em></strong>
 <ul>
 <li>Seberapa besar selisih Y dua orang dari kelompok yang berbeda, namun dengan <strong>X yang sama</strong>, ketika <strong>rerata X kelompoknya</strong> berbeda sebesar 1 poin.</li>
@@ -485,7 +510,7 @@ Rizqy Amelia Zein
 <section id="yang-belum-dibahas" class="slide level2">
 <h2>Yang belum dibahas…</h2>
 <ul>
-<li><p>Kalau korelasi antara X dan Y tidak linier, pakai apa <em>dong</em>?</p>
+<li><p>Kalau korelasi antara X dan Y tidak linear, pakai apa <em>dong</em>?</p>
 <ul>
 <li>Jelas tidak bisa menggunakan <code>lme</code>. Alternatifnya, bisa menggunakan <a href="https://en.wikipedia.org/wiki/Generalized_additive_model"><em>generalized additive model</em> (GAM)</a>.</li>
 </ul></li>
@@ -498,7 +523,7 @@ Rizqy Amelia Zein
 <section id="the-problem-with-linear-relationship" class="slide level2">
 <h2><em>The problem with linear relationship</em></h2>
 
-<img data-src="https://i.pinimg.com/originals/19/8a/7b/198a7be0157b1dc1224a0a50821b1ec0.gif" style="width:40.0%" class="r-stretch"></section>
+<img data-src="https://i.pinimg.com/originals/19/8a/7b/198a7be0157b1dc1224a0a50821b1ec0.gif" class="quarto-figure quarto-figure-center r-stretch" style="width:40.0%"></section>
 <section id="ada-pertanyaan" class="slide level2">
 <h2>Ada pertanyaan❓</h2>
 
@@ -520,7 +545,7 @@ Rizqy Amelia Zein
 </div>
 
 
-</section>
+</section></section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">
