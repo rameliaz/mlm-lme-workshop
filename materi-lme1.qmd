@@ -1,5 +1,5 @@
 ---
-title: "Regresi Linier (_Ordinary Least Square_)"
+title: "Regresi Linear (_Ordinary Least Square_)"
 subtitle: "Menggunakan `jamovi`"
 author: "Rizqy Amelia Zein"
 institute:
@@ -22,7 +22,7 @@ execute:
 * Berlatih menginspeksi data secara visual dengan _scatterplot_
 * Model regresi linear (_ordinary least square_)
 * Menarik garis regresi (_fitted regression lines_)
-* Varians yang dapat dan yang tidak dapat dijelaskan oleh model (_R_)^2^
+* Varians yang dapat dan yang tidak dapat dijelaskan oleh model (_R_^2^)
 * Menguji hipotesis
 * Mengecek kecocokan model dengan data (_model fit_)
 * Mengecek asumsi
@@ -60,10 +60,35 @@ Marimar heran sekaligus penasaran, mengapa tiap anak **memberikan respon yang be
 * Buka [laman web _workshop_](https://rameliaz.github.io/mlm-lme-workshop/)
 * Klik menu **Dataset** di pojok kanan dan unduh [dataset-sekolah.omv](https://rameliaz.github.io/mlm-lme-workshop/dataset-sekolah.omv)
 * Dalam dataset tersebut ada beberapa variabel
-  - **neu** = Kecenderungan _Neuroticism_ ibu (_five factor model_). Makin tinggi skor, Ibu makin mudah cemas, frustasi, cemburu, rasa bersalah, dan ketakutan berlebihan.
-  - **trust** = Kepercayaan ibu bahwa perkembangan anak dapat berlangsung secara natural ([**trust in organismic development**](https://link.springer.com/article/10.1007/s11031-008-9092-2)). Makin tinggi skor, ibu makin percaya.
-  - **hi** = Pendapatan seluruh anggota keluarga inti (**household income**). Skor makin tinggi, pendapatan makin banyak.
+  - **neu** = Kecenderungan _neuroticism_ ibu (_five factor model_). Makin tinggi skor, Ibu makin mudah cemas, frustasi, cemburu, rasa bersalah, dan ketakutan berlebihan.
+  - **trust** = Kepercayaan ibu bahwa perkembangan anak dapat berlangsung secara natural ([**trust in organismic development**](https://link.springer.com/article/10.1007/s11031-008-9092-2)). Makin tinggi skor, ibu makin percaya anaknya bisa berkembang natural.
+  - **hi** = Pendapatan seluruh anggota keluarga inti (**household income**). Skor makin tinggi, pendapatan total seluruh anggota keluarga yang bekerja semakin besar.
   - **mandiri** = Tingkat kemandirian anak. Makin tinggi skor, anak makin independen dan lebih santai ketika ditinggal orangtuanya di sekolah.
+
+## Hipotesis 1️⃣
+
+**H1 — _Neuroticism_ ibu (neu) → Kemandirian anak (mandiri): negatif**
+
+* Ibu dengan skor _neuroticism_ yang tinggi cenderung lebih mudah cemas dan takut berlebihan, sehingga lebih rentan menunjukkan pola pengasuhan "helikopter" yang _overprotective_ atau tidak konsisten. 
+* Pola ini menghambat anak untuk berlatih menghadapi situasi baru secara mandiri. 
+* Oleh karena itu, semakin tinggi _neuroticism_ ibu, semakin rendah kemandirian anak.
+
+## Hipotesis 2️⃣
+
+**H2 — _Trust in organismic development_ (trust) → Kemandirian anak (mandiri): positif**
+
+* Ibu yang mempercayai bahwa perkembangan anak berlangsung secara natural cenderung memberikan lebih banyak ruang dan otonomi bagi anak untuk mengeksplorasi lingkungannya sendiri, tanpa intervensi berlebihan. 
+* Pendekatan ini sejalan dengan prinsip _autonomy support_ dalam [*self-determination theory*](https://selfdeterminationtheory.org/wp-content/uploads/2020/09/2014_JenoDiseth_ASelfDetermination.pdf). 
+* Oleh karena itu, semakin tinggi kepercayaan ibu pada perkembangan natural anak, semakin tinggi kemandirian anak.
+
+## Hipotesis 3️⃣
+
+**H3 — _Household income_ (hi) → Kemandirian anak (mandiri): negatif**
+
+* Keluarga dengan pendapatan lebih tinggi umumnya memiliki lebih banyak sumber daya untuk memenuhi kebutuhan anak — mulai dari pengasuh, fasilitas, hingga keterlibatan langsung yang intensif. 
+* Ketika segala kebutuhan terpenuhi tanpa anak perlu berusaha sendiri, kesempatan untuk melatih kemandirian justru berkurang. 
+* Fenomena ini konsisten dengan literatur tentang _overparenting_ di keluarga berpenghasilan tinggi. 
+* Oleh karena itu, semakin tinggi pendapatan keluarga, semakin rendah kemandirian anak.
 
 ## Deskriptif
 
@@ -75,9 +100,7 @@ Marimar heran sekaligus penasaran, mengapa tiap anak **memberikan respon yang be
 
 ## _Output_
 
-<img src="libs/desc-table.jpg" style="width:30%;" class="fancyimage"/> <img src="libs/hist-neu.jpg" style="width:30%;" class="fancyimage"/>
-
-<img src="libs/hist-mandiri.jpg" style="width:30%;" class="fancyimage"/> <img src="libs/hist-trust.jpg" style="width:30%;" class="fancyimage"/> <img src="libs/hist-hi.jpg" style="width:30%;" class="fancyimage"/>
+![](libs/descriptive.png){fig-align="center"}
 
 ## Membuat _scatterplot_
 
@@ -87,17 +110,17 @@ Marimar heran sekaligus penasaran, mengapa tiap anak **memberikan respon yang be
 * Merupakan teknik inspeksi visual kemungkinan terjadinya korelasi antara variabel.
 * Setelah melakukan analisis deskriptif, sepertinya akan menarik membandingkan kaitan antara:
   - _Neuroticism_ (neu) dengan tingkat kemandirian (mandiri)
-  - kepercayaan ibu bahwa anak dapat berkembang secara natural (_trust_) dengan tingkat kemandirian (mandiri)
-* Ayo kita buat _scatterplot_nya!
+  - Kepercayaan ibu bahwa anak dapat berkembang secara natural (_trust_) dengan tingkat kemandirian (mandiri)
+* Ayo kita buat _scatterplot_!
   - Klik **exploration**, pilih **scatterplot**
   - Masukkan **mandiri** pada kolom **Y-axis**
   - Masukkan **neu** (scatterplot 1) dan **trust** (scatterplot 2) pada **kolom X-axis**
-  - Pada opsi **regression line**, pilih **linear** dan centang kotak **standard error**
+  - Pada opsi **regression line**, pilih **linear** dan centang kotak **confidence interval**
 
 :::
 ::: {.column width="40%"}
 
-<img src="libs/scatplot.jpg" style="width:90%;" class="fancyimage"/>
+![](libs/scatplot.jpg){fig-align="center"}
 
 :::
 ::::
@@ -107,14 +130,14 @@ Marimar heran sekaligus penasaran, mengapa tiap anak **memberikan respon yang be
 :::: {.columns}
 ::: {.column width="50%"}
 
-<img src="libs/scat-1.jpg" style="width:100%;" class="fancyimage"/>
+![](libs/scat-1.png){fig-align="center"}
 
 _Scatterplot_ 1. _Neuroticism_ dan Kemandirian
 
 :::
 ::: {.column width="50%"}
 
-<img src="libs/scat-2.jpg" style="width:100%;" class="fancyimage"/>
+![](libs/scat-2.png){fig-align="center"}
 
 _Scatterplot_ 2. _Trust_ dan Kemandirian
 
@@ -125,11 +148,20 @@ _Scatterplot_ 2. _Trust_ dan Kemandirian
 **Bagaimana kekuatan dan arah hubungan pada _scatterplot_ 1 dan 2?**
 :::
 
-## Ayo main!! 📢 {.center}
+## Menebak Korelasi 📢
+
+:::: {.columns}
+::: {.column width="50%"}
 
 ### 🔗 [**Guess the correlation**](http://guessthecorrelation.com/) 🔗
 
-![](https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExc2RyMGtvYWg2OXY4ZXE1bGM2ZWc2azl6ajF3NXZnaG4yNjkzMTYzcCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/P8FQaEJsjFq5lHu4Za/giphy.gif)
+:::
+::: {.column width="50%"}
+
+![](https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExc2RyMGtvYWg2OXY4ZXE1bGM2ZWc2azl6ajF3NXZnaG4yNjkzMTYzcCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/P8FQaEJsjFq5lHu4Za/giphy.gif){fig-align="center"}
+
+:::
+::::
 
 ## Kekuatan dan arah korelasi 1️⃣
 
@@ -154,12 +186,12 @@ Korelasi yang tampak pada _scatterplot_ tadi dapat dikonseptualisasikan dengan l
 :::
 ::: {.column width="45%"}
 
-<img src="libs/corr.jpg" style="width:80%;" class="fancyimage"/>
+![](libs/corr.jpg){fig-align="center" width="80%"}
 
 :::
 ::::
 
-## Regresi linear (_ordinary least square regression_/OLS)
+## Regresi linear
 
 :::: {.columns}
 ::: {.column width="60%"}
@@ -173,18 +205,18 @@ Korelasi yang tampak pada _scatterplot_ tadi dapat dikonseptualisasikan dengan l
 :::
 ::: {.column width="40%"}
 
-<img src="libs/corr-meme.jpg" style="width:100%;" class="fancyimage"/>
+![](libs/corr-meme.jpg){fig-align="center"}
 
 :::
 ::::
 
-## Persamaan garis regresi {.center}
+## Persamaan garis regresi
 
-<img src="libs/reg-equation.jpg" style="width:40%;" class="fancyimage"/>
+![](libs/reg-equation.jpg){fig-align="center"}
 
 ## Contoh garis regresi
 
-<img src="libs/reg-line.jpg" style="width:80%;" class="fancyimage"/>
+![](libs/reg-line.jpg){fig-align="center"}
 
 ## Asumsi yang harus dipenuhi
 
@@ -192,7 +224,7 @@ Korelasi yang tampak pada _scatterplot_ tadi dapat dikonseptualisasikan dengan l
   - Lakukan analisis korelasi sebelum melakukan regresi untuk memastikan asumsi ini terpenuhi
 * Residual (varians _error_) variabel dependen yang tidak dapat dijelaskan oleh model
   - Berdistribusi normal
-  - Variansnya homogen (**homoskedasdisitas**)
+  - Variansnya homogen (**homoskedastisitas**)
   - Tidak dipengaruhi oleh prediktor lain diluar model
 * Prediktor dalam model independen satu sama lain (tidak berkorelasi)
   - Berlaku ketika ada dua atau lebih prediktor dalam satu model regresi
@@ -206,54 +238,68 @@ Marimar ingin tahu apakah ada kaitan antara kecenderungan _neuroticism_ ibu terh
 * Klik menu **regression**, pilih **linear regression**.
 * Masukkan **mandiri** dalam kolom **dependent variable** dan **neu** pada **covariates**.
 * Pada opsi **assumption checks**, centang **Q-Q plot of residuals**, **residual plots** dan **Cook's distance**.
-* Pada opsi **model fit**, centang **R**, **R^2^**, dan **F test**.
+* Pada opsi **model fit**, centang **R**, **R^2^**, **Adjusted R^2^** dan **F test**.
 * Pada opsi **model coefficients**, centang **ANOVA test**, **confidence interval**, dan **standardized estimates**.
 
-## Model fit
+## _Model fit_
 
 :::: {.columns}
-::: {.column width="55%"}
+::: {.column}
 
-* Model regresi kita cukup mampu menggambarkan data (_F_(1,398)=10.5, p=.001).
-* Namun model hanya mampu menjelaskan 2.58% varians kemandirian anak (R^2^=.0258).
-* Coba bandingkan _sum of squares_ antara **neu** dengan **Residuals** (tabel ANOVA).
-  - Manakah yang lebih banyak; varians yang **dapat**, atau yang **tidak dapat dijelaskan** oleh model?
+* Model regresi kita cukup baik menggambarkan tren pada data (_F_(1,398) = 221, _p_ = .001).
+* Namun model hanya mampu menjelaskan 35.7% varians kemandirian anak (R^2^ = .357).
+  - Gunakan _adjusted_ R^2^ apabila ada lebih dari 1 prediktor dalam model.
+  - _Adjusted_ R^2^ dapat mengurangi bias R^2^ karena memberikan pinalti pada jumlah prediktor ➡️ semakin banyak prediktor, makin besar pinalti.
 
 :::
 ::: {.column width="45%"}
 
-<img src="libs/mfit-1.jpg" style="width:100%;" class="fancyimage"/>
+![](libs/mfit-ftest-1.png){fig-align="center" width="150%"}
 
-<img src="libs/ftest-1.jpg" style="width:100%;" class="fancyimage"/>
+:::
+::::
+
+## Model fit
+
+:::: {.columns}
+::: {.column}
+
+* Coba bandingkan _sum of squares_ antara **neu** dengan **Residuals** (tabel ANOVA).
+* Manakah yang lebih banyak; varians yang **dapat**, atau yang **tidak dapat dijelaskan** oleh model?
+
+:::
+::: {.column}
+
+![](libs/mfit-ftest-1.png){fig-align="center" width="120%"}
 
 :::
 ::::
 
 ::: {.callout-note}
-**Statistical grand prize ❗: menjelaskan varians variabel dependen**
-
-Hampir semua teknik statistik intinya adalah membandingkan varians yang dapat dengan yang tidak dapat dijelaskan (residual) oleh model
+#### Statistical grand prize 🎁🎁🎁
+Hampir semua teknik statistik intinya adalah membandingkan varians variabel _outcome_ yang dapat dengan yang tidak dapat dijelaskan (residual) oleh model
 :::
 
 ## Koefisien model
 
-<center><img src="libs/mod-coef1.jpg" style="width:70%;" class="fancyimage"/></center>
+![](libs/mod-coef1.png){fig-align="center"}
 
-#### Kecenderungan _neuroticism_ ibu dapat menjelaskan variasi kemandirian anak (_B_=0.430 95% CI [0.170, 0.691], _SE_=0.132, _t_=3.25, _p_=.001).
+#### Kecenderungan _neuroticism_ ibu dapat menjelaskan variasi kemandirian anak (_B_ = 0.544 95% CI [0.472, 0.616], _SE_ = 0.036, _t_ = 14.88, _p_ = .001).
 
 #### Interpretasi _standardized_ (_β_) dan _unstandardized_ (_B_) _estimates_
 
-* _Unstandardized_ (_B_) _estimates_: Setiap perubahan _neuroticism_ sebesar 1 poin, maka tingkat kemandirian juga berubah sebesar 0.43 poin.
+* _Unstandardized_ (_B_) _estimates_: Setiap perubahan _neuroticism_ sebesar 1 poin, maka tingkat kemandirian juga berubah sebesar 0.544 poin.
 * _Standardized_ (_β_) _estimates_: Setiap berubah _neuroticism_ sebesar 1SD, maka tingkat kemandirian juga berubah sebesar 0.161SD.
 
 ::: {.callout-tip}
-**Tips ❗**: Selalu laporkan _unstandardized estimates_ dan _confidence interval_nya ([Appelbaum, et. al., 2018](http://dx.doi.org/10.1037/amp0000191)).
+#### Tips 
+Selalu laporkan _unstandardized estimates_ dan _confidence interval_ ([Appelbaum et al., 2018](http://dx.doi.org/10.1037/amp0000191)).
 :::
 
 ## Diagnostik model: distribusi residual
 
 :::: {.columns}
-::: {.column width="55%"}
+::: {.column}
 
 * Salah satu asumsi penting yang harus dipenuhi ketika melakukan regresi OLS adalah **residual (bukan data)** harus berdistribusi normal.
 * Sebaran residual mengikuti garis diagonal dalam Q-Q Plot, tandanya residual berdistribusi normal.
@@ -261,9 +307,9 @@ Hampir semua teknik statistik intinya adalah membandingkan varians yang dapat de
 * Akibatnya, model tak dapat diinterpretasi dan koefisien model (_intercept_ dan _slope_) bias.
 
 :::
-::: {.column width="45%"}
+::: {.column}
 
-<img src="libs/resid-normal-1.jpg" style="width:100%;" class="fancyimage"/>
+![](libs/resid-normal-1.png){fig-align="center" width="80%"}
 
 :::
 ::::
@@ -271,20 +317,18 @@ Hampir semua teknik statistik intinya adalah membandingkan varians yang dapat de
 ## Diagnostik model: varians residual 1️⃣
 
 :::: {.columns}
-::: {.column width="55%"}
+::: {.column}
 
-* Asumsi lain yang harus dipenuhi adalah **homoskedasdisitas**.
-* Residual memenuhi asumsi homoskedasdisitas, apabila variansnya **uniform (sama)** meskipun nilai X dan _fitted_ Y (nilai Y yang diestimasi oleh model) berubah-ubah.
-  - Hal ini ditunjukkan dari dua grafik disamping yang menunjukkan distribusi **varians residual uniformed**.
-* Apabila asumsi ini dilanggar, maka residual mengalami **heteroskedasdisitas**, dengan begitu, estimasi model akan bias.
-* Kalau residual menunjukkan karakteristik heterokedastik, maka distribusi residual akan terlihat seperti kerucut.
+* Asumsi lain yang harus dipenuhi adalah **homoskedastisitas**.
+* Residual memenuhi asumsi homoskedastisitas, apabila variansnya **uniform (sama)** meskipun _fitted_ Y (nilai Y yang diestimasi oleh model, plot kanan atas) dan nilai X (plot kanan bawah) berubah-ubah.
+  - Hal ini ditunjukkan dari dua plot disamping yang menunjukkan distribusi **varians residual uniform**.
+* Apabila asumsi ini dilanggar, maka residual mengalami **heteroskedastisitas**, dengan begitu, estimasi model akan bias.
+* Kalau residual menunjukkan karakteristik **hetero**skedastik, maka distribusi residual akan terlihat seperti kerucut.
 
 :::
-::: {.column width="45%"}
+::: {.column}
 
-<img src="libs/resid-fit-1.jpg" style="width:60%;" class="fancyimage"/>
-
-<img src="libs/resid-pred-1.jpg" style="width:60%;" class="fancyimage"/>
+![](libs/resid-1.png){fig-align="center" width="70%"}
 
 :::
 ::::
@@ -295,14 +339,14 @@ Hampir semua teknik statistik intinya adalah membandingkan varians yang dapat de
 ::: {.column width="55%"}
 
 * Plot disamping kanan menunjukkan kondisi **heteroskedastik**
-* Contoh heteroskedasdisitas: pendapatan personal dan usia
+* Contoh heteroskedastisitas: pendapatan personal dan usia
   - Pada usia **anak-anak, remaja dan dewasa awal**, variasi tingkat pendapatan sangat kecil, sedangkan yang **usianya lebih tua**, variasi tingkat pendapatan **lebih besar**.
   - Apa kira-kira alasannya?
 
 :::
 ::: {.column width="45%"}
 
-<img src="libs/heteroskedastik.jpg" style="width:100%;" class="fancyimage"/>
+![](libs/heteroskedastik.jpg){fig-align="center"}
 
 :::
 ::::
@@ -315,41 +359,45 @@ Hampir semua teknik statistik intinya adalah membandingkan varians yang dapat de
 * Gerak-gerik data _outlier_ penting untuk diperhatikan.
   - Seperti grafik di sebelah kanan, penambahan data _outlier_ dapat merubah garis regresi secara drastis.
 * Untuk melihat seberapa 'mengkhawatirkan' data _outlier_ ini dalam mengganggu garis regresi, kita dapat menggunakan _Cook's distance_.
-* Umumnya, apabila _outlier_ dibuang dan perubahan rata-rata, median, dan standar deviasi kurang dari 1, dapat diabaikan. Artinya _outlier_ tersebut tidak terlalu mengganggu garis regresi.
+* Umumnya, apabila _outlier_ dibuang dan perubahan rata-rata, median, dan standar deviasi kurang dari 1, dapat diabaikan. 
+* Artinya _outlier_ tersebut tidak terlalu mengganggu garis regresi.
 
 :::
 ::: {.column width="45%"}
 
-<img src="libs/cook-ilus.jpg" style="width:100%;" class="fancyimage"/>
+![](libs/cook-ilus.jpg){fig-align="center"}
 
 :::
 ::::
 
 ## Diagnostik model: deteksi _outliers_ 2️⃣
 
-:::: {.columns}
-::: {.column width="60%"}
-
-* Kalau diatas 1 bagaimana?
+* Kalau _Cook's distance_ diatas 1 bagaimana?
   - Coba buat lagi garis regresi tanpa _outlier_ tersebut, cari tahu kenapa nilainya bisa se-ekstrim itu
   - _Outlier_ umumnya tidak boleh dihapus dari dataset tanpa justifikasi yang jelas, karena ini termasuk [_questionable research practices_](https://pmc.ncbi.nlm.nih.gov/articles/PMC4114807/).
   - Kalau sangat mendesak, _outlier_ dapat dikeluarkan dari model. Tetapi ini tidak disarankan dan kalaupun dilakukan, analisis **harus dilaporkan dua versi; dengan dan tanpa _outlier_.**
   - Daripada dihapus, sebaiknya pakai regresi dengan [_robust estimator_](https://forum.jamovi.org/viewtopic.php?t=4067) yang dapat mengurangi efek _outlier_.
+
+## Diagnostik model: deteksi _outliers_ 3️⃣ 
+
+:::: {.columns}
+::: {.column}
+
 * Dari _output_ di samping, dapat disimpulkan bahwa apabila _outlier_ tidak disertakan dalam analisis, maka perubahan rerata, median, dan standar deviasi keseluruhan sampel kurang dari 1 dari nilai asalnya.
 
 :::
-::: {.column width="40%"}
+::: {.column}
 
-<img src="libs/cook-1.jpg" style="width:100%;" class="fancyimage"/>
+![](libs/cook-1.png){fig-align="center" width="150%"}
 
 :::
 ::::
 
 ## Cara melaporkannya dalam manuskrip
 
-"... untuk menguji hipotesis penelitian, peneliti melakukan analisis regresi _ordinary least square_ (OLS). Hasil analisis menunjukkan bahwa model cocok menggambarkan data, namun hanya mampu menjelaskan kurang dari 3% varians tingkat kemandirian siswa (_F_(1,398)=10.5, p=.001, R^2^=.0258).
+"... untuk menguji hipotesis penelitian, peneliti melakukan analisis regresi _ordinary least square_ (OLS). Hasil analisis menunjukkan bahwa model cocok menggambarkan data dan mampu menjelaskan kurang dari 40% varians tingkat kemandirian siswa (_F_(1,398) = 221, _p_ = .001, _R_^2^ = .357).
 
-Kecenderungan _neuroticism_ ibu berkontribusi berarti dalam menjelaskan varians tingkat kemandirian siswa, dimana perubahan kecenderungan _neuroticism_ sebesar 1 poin diasosiasikan dengan perubahan tingkat kemandirian anak sebesar 0.43 (_B_=0.430 95% CI [0.170, 0.691], _SE_=0.132, _t_=3.25, _p_=001).
+Kecenderungan _neuroticism_ ibu berkontribusi berarti dalam menjelaskan varians tingkat kemandirian siswa, dimana perubahan kecenderungan _neuroticism_ sebesar 1 poin diasosiasikan dengan perubahan tingkat kemandirian anak sebesar 0.544 (_B_ = 0.544 95% CI [0.472, 0.616], _SE_ = 0.036, _t_ = 14.88, _p_ = .001). Berbeda dengan yang dihipotesiskan sebelumnya, ibu dengan tingkat _neuroticism_ yang tinggi justru mengasuh anak dengan tingkat kemandirian yang juga tinggi.
 
 Setelah dilakukan diagnostik, varians yang tidak dapat dijelaskan oleh model berdistribusi normal dan ketika dikorelasikan dengan nilai prediktif tingkat kemandirian siswa dan kecenderungan _neuroticism_ ibu, maka menghasilkan varians yang homogen (homoskedastik).
 
@@ -357,9 +405,10 @@ Diagnostik _outlier_ dilakukan dengan menggunakan _Cook's distance_, dan menghas
 
 ## Latihan 2️⃣
 
-* Marimar ingin menambahkan interaksi antara _neuroticism_ dengan _trust_
-  - Mungkin saja ibu yang percaya/kurang percaya bahwa anak dapat berkembang secara natural, korelasi antara _neuroticism_ dengan kemandirian akan makin negatif.
-  - Selain itu, bisa jadi ada kaitannya antara pendapatan keluarga dengan tingkat kemandirian anak.
+* Ternyata, _neuroticism_ berkorelasi positif dengan tingkat kemandirian.
+* Marimar tidak menyerah - ia lalu menambahkan interaksi antara _neuroticism_ dengan _trust_
+  - Mungkin saja ibu yang percaya/kurang percaya bahwa anak dapat berkembang secara natural, korelasi antara _neuroticism_ dengan kemandirian akan negatif, sesuai.
+  - Selain itu, ia ingin tahu kaitan antara pendapatan keluarga dengan tingkat kemandirian anak.
 * Tambahkan variabel **trust**, **neu**, dan **hi** dalam kolom **covariates**.
 
 ## Latihan 2️⃣
@@ -379,9 +428,9 @@ Diagnostik _outlier_ dilakukan dengan menggunakan _Cook's distance_, dan menghas
 ## Model fit
 
 :::: {.columns}
-::: {.column width="55%"}
+::: {.column}
 
-Model 2 (_F_(2,397)=58.2, p\<.001, R^2^=.226) dapat menjelaskan varians tingkat kemandirian anak lebih baik daripada Model 1 (_F_(1,398)=10.2, p=.002, R^2^=.025), dengan _overlapping variances_ sebesar 22.6% dibanding 2.5%.
+Model 2 (_F_(2,397) = 146, _p_ = .001, _Adj. R_^2^ = .42) dapat menjelaskan varians tingkat kemandirian anak lebih baik daripada Model 1 (_F_(1,398) = 172, _p_ = .001, _Adj. R_^2^ = .30), dengan _overlapping variances_ sebesar 42% dibanding 30%.
 
 **_Information criteria_ (AIC & BIC)**
 
@@ -391,9 +440,9 @@ Model 2 (_F_(2,397)=58.2, p\<.001, R^2^=.226) dapat menjelaskan varians tingkat 
 * Pilih model dengan AIC dan BIC yang terkecil (Model 2)
 
 :::
-::: {.column width="45%"}
+::: {.column}
 
-<img src="libs/mfit-2.jpg" style="width:100%;" class="fancyimage"/>
+![](libs/mfit-2.png){fig-align="center" width="150%"}
 
 :::
 ::::
@@ -403,42 +452,40 @@ Model 2 (_F_(2,397)=58.2, p\<.001, R^2^=.226) dapat menjelaskan varians tingkat 
 :::: {.columns}
 ::: {.column width="55%"}
 
-Ketika dibandingkan, Model 1 dan Model 2 berbeda signifikan (_F_(1,397)=104, _p_\<.001). Δ_R_^2^=.202, artinya selisih _R_^2^ Model 1 dan Model 2=.202 atau _R_^2^ naik sebesar 20.2%
+Ketika dibandingkan, Model 1 dan Model 2 berbeda signifikan (_F_(1,397) = 83.7, _p_ = .001). ΔR^2^ = .122, artinya selisih _R_^2^ Model 1 dan Model 2 = .122 atau _R_^2^ naik sebesar 12.2%
 
 **Coba perhatikan Residuals Model 1 dengan Model 2**
 
 :::
 ::: {.column width="45%"}
 
-<img src="libs/ftest-2a.jpg" style="width:100%;" class="fancyimage"/>
-
-<img src="libs/ftest-2b.jpg" style="width:100%;" class="fancyimage"/>
-
-<img src="libs/moco-1.jpg" style="width:100%;" class="fancyimage"/>
+![](libs/model-comparison.png){fig-align="center"}
 
 :::
 ::::
 
 ## Koefisien model 2
 
-<center><img src="libs/mod-coef2.jpg" style="width:70%;" class="fancyimage"/></center>
+![](libs/mod-coef2.png){fig-align="center"}
 
-#### Pendapatan keluarga dapat menjelaskan variasi kemandirian anak (_B_=-0.943 95% CI [-1.164, -0.721], _SE_=0.112, _t_=-8.39, _p_\<.001).
+#### Pendapatan keluarga dapat menjelaskan variasi kemandirian anak (_B_ = 0.200 95% CI [0.103, 0.297], _SE_ = 0.04, _t_ = 4.06, _p_ = .001).
 
-#### _Interaction terms_ juga signifikan dalam menjelaskan varians kemandirian anak (_B_=0.054 95% CI [0.044, 0.065], _SE_=0.005, _t_=10.18, _p_\<.001).
+Artinya, anak yang dibesarkan di keluarga dengan tingkat pendapatan yang tinggi, maka cenderung lebih mandiri.
 
-## _Simple slope_
+#### Interaksi antara _neuroticism_ dengan _trust in organismic development_ juga signifikan dalam menjelaskan varians kemandirian anak (_B_ = 0.019 95% CI [0.015, 0.023], _SE_ = 0.002, _t_ = 9.15, _p_ = .001).
+
+## _Estimated Marginal Means_
 
 :::: {.columns}
-::: {.column width="55%"}
+::: {.column}
 
 * Interpretasi _slopes_ pada _interaction terms_:
-  - _Unstandardized B_ yang positif artinya, pada ibu dengan _trust_ yang tinggi, korelasi antara kecenderungan _neuroticism_ dengan kemandirian anak juga semakin positif/menguat.
+  - _Unstandardized B_ yang positif artinya, pada ibu dengan _trust in organismic development_ yang tinggi (+1SD), korelasi antara kecenderungan _neuroticism_ dengan kemandirian anak juga semakin positif/menguat.
 
 :::
-::: {.column width="45%"}
+::: {.column}
 
-<img src="libs/simple-slopes.jpg" style="width:100%;" class="fancyimage"/>
+![](libs/emm.png){fig-align="center"}
 
 :::
 ::::
@@ -446,18 +493,18 @@ Ketika dibandingkan, Model 1 dan Model 2 berbeda signifikan (_F_(1,397)=104, _p_
 ## Diagnostik kolinearitas
 
 :::: {.columns}
-::: {.column width="55%"}
+::: {.column}
 
 * Dapat dideteksi dengan melakukan analisis melihat _variance inflated factors_ (VIF).
   - Bila VIF \< 2.5, maka multi-kolinearitas kemungkinan besar tidak terjadi.
 * Penelitian _longitudinal_ punya potensi terjadinya autokorelasi (residual _time 1_ dan _time 2_ berkorelasi)
   - Dapat dicek dengan tes Durbin-Watson
-  - Bila nilai p analisis autokorelasi \> 0.001, maka multi-kolinearitas tidak terjadi.
+  - Bila nilai p analisis autokorelasi \> .05, maka autokorelasi residual tidak terjadi.
 
 :::
-::: {.column width="45%"}
+::: {.column}
 
-<img src="libs/multikol.jpg" style="width:100%;" class="fancyimage"/>
+![](libs/multikol.png){fig-align="center"}
 
 :::
 ::::
@@ -466,11 +513,11 @@ Ketika dibandingkan, Model 1 dan Model 2 berbeda signifikan (_F_(1,397)=104, _p_
 
 "...untuk menginvestigasi keterkaitan antara pendapatan keluarga, kecenderungan _neuroticism_ ibu, dan kepercayaan ibu bahwa perkembangan anak dapat terjadi secara natural dengan tingkat kemandirian anak, peneliti melakukan analisis regresi linear hirarkial dengan _interaction terms_. Peneliti menyusun dua model, dimana; model 1 mengestimasi varians tingkat kemandirian anak dengan pendapatan keluarga inti sebagai prediktor, sedangkan pada model 2 peneliti menambahkan prediktor berupa _interaction terms_ antara _neuroticism_ dengan _trust_.
 
-Ketika dibandingkan, Model 1 dan Model 2 berbeda signifikan (_F_(1,397)=104, p\<.001). R^2^ bertambah sebesar 20.2% (ΔR^2^=.202). Model 2 (_F_(2,397)=58.2, p\<.001, R^2^=.226, AIC=3237, BIC=3253) dapat menjelaskan varians tingkat kemandirian anak lebih baik daripada Model 1 (_F_(1,398)=10.2, p=.002, R^2^=.025, AIC=3327, BIC=3339).
+Ketika dibandingkan, Model 1 dan Model 2 berbeda signifikan (_F_(1,397) = 83.7, _p_ = .001). _R_^2^ bertambah sebesar 12.2% (ΔR^2^ = .122). Model 2 (_F_(2,397) = 146, _p_ = .001, _Adj. R_^2^ = .420, AIC = 2472, BIC = 2488) dapat menjelaskan varians tingkat kemandirian anak lebih baik daripada Model 1 (_F_(1,398) = 172, _p_ = .001, _Adj. R_^2^ = .300, AIC = 2547, BIC = 2559).
 
-Pendapatan keluarga dapat menjelaskan variasi kemandirian anak (_B_=-0.943 95% CI [-1.164, -0.721], _SE_=0.112, _t_=-8.39, _p_\<.001). Interaksi antara _neuroticism_ dengan _trust_ juga signifikan (_B_=0.054 95% CI [0.044, 0.065], _SE_=0.005, _t_=10.18, _p_\<.001). Artinya, korelasi antara kecenderungan _neuroticism_ ibu dengan kemandirian anak akan menguat pada ibu yang _trust_nya tinggi.
+Pendapatan keluarga dapat menjelaskan variasi kemandirian anak (_B_ = 0.200 95% CI [0.103, 0.297], _SE_ = 0.04, _t_ = 4.06, _p_ = .001). Interaksi antara _neuroticism_ dengan _trust_ juga signifikan (_B_ = 0.019 95% CI [0.015, 0.023], _SE_ = 0.002, _t_ = 9.15, _p_ = .001). Artinya, korelasi antara kecenderungan _neuroticism_ ibu dengan kemandirian anak akan menguat pada ibu yang _trust_ nya tinggi.
 
-Potensi multikolinearitas dideteksi dengan VIF dan hasil analisis menunjukkan multikolinearitas kemungkinan besar tidak terjadi (VIF=1.38)..."
+Potensi multikolinearitas dideteksi dengan VIF dan hasil analisis menunjukkan multikolinearitas kemungkinan besar tidak terjadi (VIF = 1.93)..."
 
 ## Latihan mandiri 1️⃣
 

@@ -6,12 +6,12 @@
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-8f1af79587c2686b78fe4e1fbadd71ab.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.8.14">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.8.27">
 
   <meta name="author" content="Rizqy Amelia Zein">
-  <meta name="dcterms.date" content="2026-04-05">
-  <title>LME Workshop – Regresi Linier (Ordinary Least Square)</title>
+  <meta name="dcterms.date" content="2026-04-06">
+  <title>LME Workshop – Regresi Linear (Ordinary Least Square)</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -30,7 +30,7 @@
       vertical-align: middle;
     }
   </style>
-  <link rel="stylesheet" href="site_libs/revealjs/dist/theme/quarto-359b3f973654781cc3f2110baed9e69c.css">
+  <link rel="stylesheet" href="site_libs/revealjs/dist/theme/quarto-e0aaf267860ce90d61f3a15fc5010e06.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
   <link href="site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
@@ -129,7 +129,7 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Regresi Linier (<em>Ordinary Least Square</em>)</h1>
+  <h1 class="title">Regresi Linear (<em>Ordinary Least Square</em>)</h1>
   <p class="subtitle">Menggunakan <code>jamovi</code></p>
 
 <div class="quarto-title-authors">
@@ -146,7 +146,7 @@ Rizqy Amelia Zein
     </div>
 </div>
 
-  <p class="date">2026-04-05</p>
+  <p class="date">2026-04-06</p>
 </section>
 <section id="outline" class="slide level2">
 <h2><em>Outline</em></h2>
@@ -154,7 +154,7 @@ Rizqy Amelia Zein
 <li>Berlatih menginspeksi data secara visual dengan <em>scatterplot</em></li>
 <li>Model regresi linear (<em>ordinary least square</em>)</li>
 <li>Menarik garis regresi (<em>fitted regression lines</em>)</li>
-<li>Varians yang dapat dan yang tidak dapat dijelaskan oleh model (<em>R</em>)<sup>2</sup></li>
+<li>Varians yang dapat dan yang tidak dapat dijelaskan oleh model (<em>R</em><sup>2</sup>)</li>
 <li>Menguji hipotesis</li>
 <li>Mengecek kecocokan model dengan data (<em>model fit</em>)</li>
 <li>Mengecek asumsi
@@ -190,11 +190,39 @@ Rizqy Amelia Zein
 <li>Klik menu <strong>Dataset</strong> di pojok kanan dan unduh <a href="https://rameliaz.github.io/mlm-lme-workshop/dataset-sekolah.omv">dataset-sekolah.omv</a></li>
 <li>Dalam dataset tersebut ada beberapa variabel
 <ul>
-<li><strong>neu</strong> = Kecenderungan <em>Neuroticism</em> ibu (<em>five factor model</em>). Makin tinggi skor, Ibu makin mudah cemas, frustasi, cemburu, rasa bersalah, dan ketakutan berlebihan.</li>
-<li><strong>trust</strong> = Kepercayaan ibu bahwa perkembangan anak dapat berlangsung secara natural (<a href="https://link.springer.com/article/10.1007/s11031-008-9092-2"><strong>trust in organismic development</strong></a>). Makin tinggi skor, ibu makin percaya.</li>
-<li><strong>hi</strong> = Pendapatan seluruh anggota keluarga inti (<strong>household income</strong>). Skor makin tinggi, pendapatan makin banyak.</li>
+<li><strong>neu</strong> = Kecenderungan <em>neuroticism</em> ibu (<em>five factor model</em>). Makin tinggi skor, Ibu makin mudah cemas, frustasi, cemburu, rasa bersalah, dan ketakutan berlebihan.</li>
+<li><strong>trust</strong> = Kepercayaan ibu bahwa perkembangan anak dapat berlangsung secara natural (<a href="https://link.springer.com/article/10.1007/s11031-008-9092-2"><strong>trust in organismic development</strong></a>). Makin tinggi skor, ibu makin percaya anaknya bisa berkembang natural.</li>
+<li><strong>hi</strong> = Pendapatan seluruh anggota keluarga inti (<strong>household income</strong>). Skor makin tinggi, pendapatan total seluruh anggota keluarga yang bekerja semakin besar.</li>
 <li><strong>mandiri</strong> = Tingkat kemandirian anak. Makin tinggi skor, anak makin independen dan lebih santai ketika ditinggal orangtuanya di sekolah.</li>
 </ul></li>
+</ul>
+</section>
+<section id="hipotesis-1" class="slide level2">
+<h2>Hipotesis 1️⃣</h2>
+<p><strong>H1 — <em>Neuroticism</em> ibu (neu) → Kemandirian anak (mandiri): negatif</strong></p>
+<ul>
+<li>Ibu dengan skor <em>neuroticism</em> yang tinggi cenderung lebih mudah cemas dan takut berlebihan, sehingga lebih rentan menunjukkan pola pengasuhan “helikopter” yang <em>overprotective</em> atau tidak konsisten.</li>
+<li>Pola ini menghambat anak untuk berlatih menghadapi situasi baru secara mandiri.</li>
+<li>Oleh karena itu, semakin tinggi <em>neuroticism</em> ibu, semakin rendah kemandirian anak.</li>
+</ul>
+</section>
+<section id="hipotesis-2" class="slide level2">
+<h2>Hipotesis 2️⃣</h2>
+<p><strong>H2 — <em>Trust in organismic development</em> (trust) → Kemandirian anak (mandiri): positif</strong></p>
+<ul>
+<li>Ibu yang mempercayai bahwa perkembangan anak berlangsung secara natural cenderung memberikan lebih banyak ruang dan otonomi bagi anak untuk mengeksplorasi lingkungannya sendiri, tanpa intervensi berlebihan.</li>
+<li>Pendekatan ini sejalan dengan prinsip <em>autonomy support</em> dalam <a href="https://selfdeterminationtheory.org/wp-content/uploads/2020/09/2014_JenoDiseth_ASelfDetermination.pdf"><em>self-determination theory</em></a>.</li>
+<li>Oleh karena itu, semakin tinggi kepercayaan ibu pada perkembangan natural anak, semakin tinggi kemandirian anak.</li>
+</ul>
+</section>
+<section id="hipotesis-3" class="slide level2">
+<h2>Hipotesis 3️⃣</h2>
+<p><strong>H3 — <em>Household income</em> (hi) → Kemandirian anak (mandiri): negatif</strong></p>
+<ul>
+<li>Keluarga dengan pendapatan lebih tinggi umumnya memiliki lebih banyak sumber daya untuk memenuhi kebutuhan anak — mulai dari pengasuh, fasilitas, hingga keterlibatan langsung yang intensif.</li>
+<li>Ketika segala kebutuhan terpenuhi tanpa anak perlu berusaha sendiri, kesempatan untuk melatih kemandirian justru berkurang.</li>
+<li>Fenomena ini konsisten dengan literatur tentang <em>overparenting</em> di keluarga berpenghasilan tinggi.</li>
+<li>Oleh karena itu, semakin tinggi pendapatan keluarga, semakin rendah kemandirian anak.</li>
 </ul>
 </section>
 <section id="deskriptif" class="slide level2">
@@ -210,9 +238,8 @@ Rizqy Amelia Zein
 </section>
 <section id="output" class="slide level2">
 <h2><em>Output</em></h2>
-<p><img src="libs/desc-table.jpg" style="width:30%;" class="fancyimage"> <img src="libs/hist-neu.jpg" style="width:30%;" class="fancyimage"></p>
-<p><img src="libs/hist-mandiri.jpg" style="width:30%;" class="fancyimage"> <img src="libs/hist-trust.jpg" style="width:30%;" class="fancyimage"> <img src="libs/hist-hi.jpg" style="width:30%;" class="fancyimage"></p>
-</section>
+
+<img data-src="libs/descriptive.png" class="quarto-figure quarto-figure-center r-stretch"></section>
 <section id="membuat-scatterplot" class="slide level2">
 <h2>Membuat <em>scatterplot</em></h2>
 <div class="columns">
@@ -222,39 +249,59 @@ Rizqy Amelia Zein
 <li>Setelah melakukan analisis deskriptif, sepertinya akan menarik membandingkan kaitan antara:
 <ul>
 <li><em>Neuroticism</em> (neu) dengan tingkat kemandirian (mandiri)</li>
-<li>kepercayaan ibu bahwa anak dapat berkembang secara natural (<em>trust</em>) dengan tingkat kemandirian (mandiri)</li>
+<li>Kepercayaan ibu bahwa anak dapat berkembang secara natural (<em>trust</em>) dengan tingkat kemandirian (mandiri)</li>
 </ul></li>
-<li>Ayo kita buat _scatterplot_nya!
+<li>Ayo kita buat <em>scatterplot</em>!
 <ul>
 <li>Klik <strong>exploration</strong>, pilih <strong>scatterplot</strong></li>
 <li>Masukkan <strong>mandiri</strong> pada kolom <strong>Y-axis</strong></li>
 <li>Masukkan <strong>neu</strong> (scatterplot 1) dan <strong>trust</strong> (scatterplot 2) pada <strong>kolom X-axis</strong></li>
-<li>Pada opsi <strong>regression line</strong>, pilih <strong>linear</strong> dan centang kotak <strong>standard error</strong></li>
+<li>Pada opsi <strong>regression line</strong>, pilih <strong>linear</strong> dan centang kotak <strong>confidence interval</strong></li>
 </ul></li>
 </ul>
 </div><div class="column" style="width:40%;">
-<p><img src="libs/scatplot.jpg" style="width:90%;" class="fancyimage"></p>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="libs/scatplot.jpg" class="quarto-figure quarto-figure-center"></p>
+</figure>
+</div>
 </div></div>
 </section>
 <section id="scatterplot" class="slide level2">
 <h2><em>Scatterplot</em></h2>
 <div class="columns">
 <div class="column" style="width:50%;">
-<p><img src="libs/scat-1.jpg" style="width:100%;" class="fancyimage"></p>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="libs/scat-1.png" class="quarto-figure quarto-figure-center"></p>
+</figure>
+</div>
 <p><em>Scatterplot</em> 1. <em>Neuroticism</em> dan Kemandirian</p>
 </div><div class="column" style="width:50%;">
-<p><img src="libs/scat-2.jpg" style="width:100%;" class="fancyimage"></p>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="libs/scat-2.png" class="quarto-figure quarto-figure-center"></p>
+</figure>
+</div>
 <p><em>Scatterplot</em> 2. <em>Trust</em> dan Kemandirian</p>
 </div></div>
 <div class="footnote">
 <p><strong>Bagaimana kekuatan dan arah hubungan pada <em>scatterplot</em> 1 dan 2?</strong></p>
 </div>
 </section>
-<section id="ayo-main" class="slide level2 center">
-<h2>Ayo main!! 📢</h2>
+<section id="menebak-korelasi" class="slide level2">
+<h2>Menebak Korelasi 📢</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
 <h3 id="guess-the-correlation">🔗 <a href="http://guessthecorrelation.com/"><strong>Guess the correlation</strong></a> 🔗</h3>
-
-<img data-src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExc2RyMGtvYWg2OXY4ZXE1bGM2ZWc2azl6ajF3NXZnaG4yNjkzMTYzcCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/P8FQaEJsjFq5lHu4Za/giphy.gif" class="r-stretch"></section>
+</div><div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExc2RyMGtvYWg2OXY4ZXE1bGM2ZWc2azl6ajF3NXZnaG4yNjkzMTYzcCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/P8FQaEJsjFq5lHu4Za/giphy.gif" class="quarto-figure quarto-figure-center"></p>
+</figure>
+</div>
+</div></div>
+</section>
 <section id="kekuatan-dan-arah-korelasi-1" class="slide level2">
 <h2>Kekuatan dan arah korelasi 1️⃣</h2>
 <p>Korelasi yang tampak pada <em>scatterplot</em> tadi dapat dikonseptualisasikan dengan lebih jelas dengan menghitung <strong>koefisien korelasi</strong>, yang mengimplikasikan kekuatan hubungan.</p>
@@ -281,11 +328,15 @@ Rizqy Amelia Zein
 </ul></li>
 </ul>
 </div><div class="column" style="width:45%;">
-<p><img src="libs/corr.jpg" style="width:80%;" class="fancyimage"></p>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="libs/corr.jpg" class="quarto-figure quarto-figure-center" style="width:80.0%"></p>
+</figure>
+</div>
 </div></div>
 </section>
-<section id="regresi-linear-ordinary-least-square-regressionols" class="slide level2">
-<h2>Regresi linear (<em>ordinary least square regression</em>/OLS)</h2>
+<section id="regresi-linear" class="slide level2">
+<h2>Regresi linear</h2>
 <div class="columns">
 <div class="column" style="width:60%;">
 <ul>
@@ -298,17 +349,21 @@ Rizqy Amelia Zein
 <li>OLS bekerja dengan pendekatan <em>least square</em>, artinya mencari <strong>jumlah kuadrat terkecil</strong> antara garis regresi (nilai Y yang diperkirakan oleh model) dengan nilai Y yang diobservasi.</li>
 </ul>
 </div><div class="column" style="width:40%;">
-<p><img src="libs/corr-meme.jpg" style="width:100%;" class="fancyimage"></p>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="libs/corr-meme.jpg" class="quarto-figure quarto-figure-center"></p>
+</figure>
+</div>
 </div></div>
 </section>
-<section id="persamaan-garis-regresi" class="slide level2 center">
+<section id="persamaan-garis-regresi" class="slide level2">
 <h2>Persamaan garis regresi</h2>
 
-<img src="libs/reg-equation.jpg" style="width:40%;" class="fancyimage r-stretch"></section>
+<img data-src="libs/reg-equation.jpg" class="quarto-figure quarto-figure-center r-stretch"></section>
 <section id="contoh-garis-regresi" class="slide level2">
 <h2>Contoh garis regresi</h2>
 
-<img src="libs/reg-line.jpg" style="width:80%;" class="fancyimage r-stretch"></section>
+<img data-src="libs/reg-line.jpg" class="quarto-figure quarto-figure-center r-stretch"></section>
 <section id="asumsi-yang-harus-dipenuhi" class="slide level2">
 <h2>Asumsi yang harus dipenuhi</h2>
 <ul>
@@ -319,7 +374,7 @@ Rizqy Amelia Zein
 <li>Residual (varians <em>error</em>) variabel dependen yang tidak dapat dijelaskan oleh model
 <ul>
 <li>Berdistribusi normal</li>
-<li>Variansnya homogen (<strong>homoskedasdisitas</strong>)</li>
+<li>Variansnya homogen (<strong>homoskedastisitas</strong>)</li>
 <li>Tidak dipengaruhi oleh prediktor lain diluar model</li>
 </ul></li>
 <li>Prediktor dalam model independen satu sama lain (tidak berkorelasi)
@@ -337,25 +392,44 @@ Rizqy Amelia Zein
 <li>Klik menu <strong>regression</strong>, pilih <strong>linear regression</strong>.</li>
 <li>Masukkan <strong>mandiri</strong> dalam kolom <strong>dependent variable</strong> dan <strong>neu</strong> pada <strong>covariates</strong>.</li>
 <li>Pada opsi <strong>assumption checks</strong>, centang <strong>Q-Q plot of residuals</strong>, <strong>residual plots</strong> dan <strong>Cook’s distance</strong>.</li>
-<li>Pada opsi <strong>model fit</strong>, centang <strong>R</strong>, <strong>R<sup>2</sup></strong>, dan <strong>F test</strong>.</li>
+<li>Pada opsi <strong>model fit</strong>, centang <strong>R</strong>, <strong>R<sup>2</sup></strong>, <strong>Adjusted R<sup>2</sup></strong> dan <strong>F test</strong>.</li>
 <li>Pada opsi <strong>model coefficients</strong>, centang <strong>ANOVA test</strong>, <strong>confidence interval</strong>, dan <strong>standardized estimates</strong>.</li>
 </ul>
 </section>
 <section id="model-fit" class="slide level2">
-<h2>Model fit</h2>
+<h2><em>Model fit</em></h2>
 <div class="columns">
-<div class="column" style="width:55%;">
+<div class="column">
 <ul>
-<li>Model regresi kita cukup mampu menggambarkan data (<em>F</em>(1,398)=10.5, p=.001).</li>
-<li>Namun model hanya mampu menjelaskan 2.58% varians kemandirian anak (R<sup>2</sup>=.0258).</li>
-<li>Coba bandingkan <em>sum of squares</em> antara <strong>neu</strong> dengan <strong>Residuals</strong> (tabel ANOVA).
+<li>Model regresi kita cukup baik menggambarkan tren pada data (<em>F</em>(1,398) = 221, <em>p</em> = .001).</li>
+<li>Namun model hanya mampu menjelaskan 35.7% varians kemandirian anak (R<sup>2</sup> = .357).
 <ul>
-<li>Manakah yang lebih banyak; varians yang <strong>dapat</strong>, atau yang <strong>tidak dapat dijelaskan</strong> oleh model?</li>
+<li>Gunakan <em>adjusted</em> R<sup>2</sup> apabila ada lebih dari 1 prediktor dalam model.</li>
+<li><em>Adjusted</em> R<sup>2</sup> dapat mengurangi bias R<sup>2</sup> karena memberikan pinalti pada jumlah prediktor ➡️ semakin banyak prediktor, makin besar pinalti.</li>
 </ul></li>
 </ul>
 </div><div class="column" style="width:45%;">
-<p><img src="libs/mfit-1.jpg" style="width:100%;" class="fancyimage"></p>
-<p><img src="libs/ftest-1.jpg" style="width:100%;" class="fancyimage"></p>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="libs/mfit-ftest-1.png" class="quarto-figure quarto-figure-center" style="width:150.0%"></p>
+</figure>
+</div>
+</div></div>
+</section>
+<section id="model-fit-1" class="slide level2">
+<h2>Model fit</h2>
+<div class="columns">
+<div class="column">
+<ul>
+<li>Coba bandingkan <em>sum of squares</em> antara <strong>neu</strong> dengan <strong>Residuals</strong> (tabel ANOVA).</li>
+<li>Manakah yang lebih banyak; varians yang <strong>dapat</strong>, atau yang <strong>tidak dapat dijelaskan</strong> oleh model?</li>
+</ul>
+</div><div class="column">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="libs/mfit-ftest-1.png" class="quarto-figure quarto-figure-center" style="width:120.0%"></p>
+</figure>
+</div>
 </div></div>
 <div class="callout callout-note callout-titled callout-style-default">
 <div class="callout-body">
@@ -363,24 +437,21 @@ Rizqy Amelia Zein
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<p><strong>Note</strong></p>
+<p><strong>Statistical grand prize 🎁🎁🎁</strong></p>
 </div>
 <div class="callout-content">
-<p><strong>Statistical grand prize ❗: menjelaskan varians variabel dependen</strong></p>
-<p>Hampir semua teknik statistik intinya adalah membandingkan varians yang dapat dengan yang tidak dapat dijelaskan (residual) oleh model</p>
+<p>Hampir semua teknik statistik intinya adalah membandingkan varians variabel <em>outcome</em> yang dapat dengan yang tidak dapat dijelaskan (residual) oleh model</p>
 </div>
 </div>
 </div>
 </section>
 <section id="koefisien-model" class="slide level2">
 <h2>Koefisien model</h2>
-<center>
-<img src="libs/mod-coef1.jpg" style="width:70%;" class="fancyimage">
-</center>
-<h4 id="kecenderungan-neuroticism-ibu-dapat-menjelaskan-variasi-kemandirian-anak-b0.430-95-ci-0.170-0.691-se0.132-t3.25-p.001.">Kecenderungan <em>neuroticism</em> ibu dapat menjelaskan variasi kemandirian anak (<em>B</em>=0.430 95% CI [0.170, 0.691], <em>SE</em>=0.132, <em>t</em>=3.25, <em>p</em>=.001).</h4>
+
+<img data-src="libs/mod-coef1.png" class="quarto-figure quarto-figure-center r-stretch"><h4 id="kecenderungan-neuroticism-ibu-dapat-menjelaskan-variasi-kemandirian-anak-b-0.544-95-ci-0.472-0.616-se-0.036-t-14.88-p-.001.">Kecenderungan <em>neuroticism</em> ibu dapat menjelaskan variasi kemandirian anak (<em>B</em> = 0.544 95% CI [0.472, 0.616], <em>SE</em> = 0.036, <em>t</em> = 14.88, <em>p</em> = .001).</h4>
 <h4 id="interpretasi-standardized-β-dan-unstandardized-b-estimates">Interpretasi <em>standardized</em> (<em>β</em>) dan <em>unstandardized</em> (<em>B</em>) <em>estimates</em></h4>
 <ul>
-<li><em>Unstandardized</em> (<em>B</em>) <em>estimates</em>: Setiap perubahan <em>neuroticism</em> sebesar 1 poin, maka tingkat kemandirian juga berubah sebesar 0.43 poin.</li>
+<li><em>Unstandardized</em> (<em>B</em>) <em>estimates</em>: Setiap perubahan <em>neuroticism</em> sebesar 1 poin, maka tingkat kemandirian juga berubah sebesar 0.544 poin.</li>
 <li><em>Standardized</em> (<em>β</em>) <em>estimates</em>: Setiap berubah <em>neuroticism</em> sebesar 1SD, maka tingkat kemandirian juga berubah sebesar 0.161SD.</li>
 </ul>
 <div class="callout callout-tip callout-titled callout-style-default">
@@ -389,10 +460,10 @@ Rizqy Amelia Zein
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<p><strong>Tip</strong></p>
+<p><strong>Tips</strong></p>
 </div>
 <div class="callout-content">
-<p><strong>Tips ❗</strong>: Selalu laporkan <em>unstandardized estimates</em> dan _confidence interval_nya (<a href="http://dx.doi.org/10.1037/amp0000191">Appelbaum, et. al., 2018</a>).</p>
+<p>Selalu laporkan <em>unstandardized estimates</em> dan <em>confidence interval</em> (<a href="http://dx.doi.org/10.1037/amp0000191">Appelbaum et al., 2018</a>).</p>
 </div>
 </div>
 </div>
@@ -400,33 +471,40 @@ Rizqy Amelia Zein
 <section id="diagnostik-model-distribusi-residual" class="slide level2">
 <h2>Diagnostik model: distribusi residual</h2>
 <div class="columns">
-<div class="column" style="width:55%;">
+<div class="column">
 <ul>
 <li>Salah satu asumsi penting yang harus dipenuhi ketika melakukan regresi OLS adalah <strong>residual (bukan data)</strong> harus berdistribusi normal.</li>
 <li>Sebaran residual mengikuti garis diagonal dalam Q-Q Plot, tandanya residual berdistribusi normal.</li>
 <li>Apabila residual tersebar secara acak atau makin menjauhi garis diagonal, berarti tidak berdistribusi normal dan ini melanggar asumsi <em>ordinary least square</em>.</li>
 <li>Akibatnya, model tak dapat diinterpretasi dan koefisien model (<em>intercept</em> dan <em>slope</em>) bias.</li>
 </ul>
-</div><div class="column" style="width:45%;">
-<p><img src="libs/resid-normal-1.jpg" style="width:100%;" class="fancyimage"></p>
+</div><div class="column">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="libs/resid-normal-1.png" class="quarto-figure quarto-figure-center" style="width:80.0%"></p>
+</figure>
+</div>
 </div></div>
 </section>
 <section id="diagnostik-model-varians-residual-1" class="slide level2">
 <h2>Diagnostik model: varians residual 1️⃣</h2>
 <div class="columns">
-<div class="column" style="width:55%;">
+<div class="column">
 <ul>
-<li>Asumsi lain yang harus dipenuhi adalah <strong>homoskedasdisitas</strong>.</li>
-<li>Residual memenuhi asumsi homoskedasdisitas, apabila variansnya <strong>uniform (sama)</strong> meskipun nilai X dan <em>fitted</em> Y (nilai Y yang diestimasi oleh model) berubah-ubah.
+<li>Asumsi lain yang harus dipenuhi adalah <strong>homoskedastisitas</strong>.</li>
+<li>Residual memenuhi asumsi homoskedastisitas, apabila variansnya <strong>uniform (sama)</strong> meskipun <em>fitted</em> Y (nilai Y yang diestimasi oleh model, plot kanan atas) dan nilai X (plot kanan bawah) berubah-ubah.
 <ul>
-<li>Hal ini ditunjukkan dari dua grafik disamping yang menunjukkan distribusi <strong>varians residual uniformed</strong>.</li>
+<li>Hal ini ditunjukkan dari dua plot disamping yang menunjukkan distribusi <strong>varians residual uniform</strong>.</li>
 </ul></li>
-<li>Apabila asumsi ini dilanggar, maka residual mengalami <strong>heteroskedasdisitas</strong>, dengan begitu, estimasi model akan bias.</li>
-<li>Kalau residual menunjukkan karakteristik heterokedastik, maka distribusi residual akan terlihat seperti kerucut.</li>
+<li>Apabila asumsi ini dilanggar, maka residual mengalami <strong>heteroskedastisitas</strong>, dengan begitu, estimasi model akan bias.</li>
+<li>Kalau residual menunjukkan karakteristik <strong>hetero</strong>skedastik, maka distribusi residual akan terlihat seperti kerucut.</li>
 </ul>
-</div><div class="column" style="width:45%;">
-<p><img src="libs/resid-fit-1.jpg" style="width:60%;" class="fancyimage"></p>
-<p><img src="libs/resid-pred-1.jpg" style="width:60%;" class="fancyimage"></p>
+</div><div class="column">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="libs/resid-1.png" class="quarto-figure quarto-figure-center" style="width:70.0%"></p>
+</figure>
+</div>
 </div></div>
 </section>
 <section id="diagnostik-model-varians-residual-2" class="slide level2">
@@ -435,14 +513,18 @@ Rizqy Amelia Zein
 <div class="column" style="width:55%;">
 <ul>
 <li>Plot disamping kanan menunjukkan kondisi <strong>heteroskedastik</strong></li>
-<li>Contoh heteroskedasdisitas: pendapatan personal dan usia
+<li>Contoh heteroskedastisitas: pendapatan personal dan usia
 <ul>
 <li>Pada usia <strong>anak-anak, remaja dan dewasa awal</strong>, variasi tingkat pendapatan sangat kecil, sedangkan yang <strong>usianya lebih tua</strong>, variasi tingkat pendapatan <strong>lebih besar</strong>.</li>
 <li>Apa kira-kira alasannya?</li>
 </ul></li>
 </ul>
 </div><div class="column" style="width:45%;">
-<p><img src="libs/heteroskedastik.jpg" style="width:100%;" class="fancyimage"></p>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="libs/heteroskedastik.jpg" class="quarto-figure quarto-figure-center"></p>
+</figure>
+</div>
 </div></div>
 </section>
 <section id="diagnostik-model-deteksi-outliers-1" class="slide level2">
@@ -455,44 +537,59 @@ Rizqy Amelia Zein
 <li>Seperti grafik di sebelah kanan, penambahan data <em>outlier</em> dapat merubah garis regresi secara drastis.</li>
 </ul></li>
 <li>Untuk melihat seberapa ‘mengkhawatirkan’ data <em>outlier</em> ini dalam mengganggu garis regresi, kita dapat menggunakan <em>Cook’s distance</em>.</li>
-<li>Umumnya, apabila <em>outlier</em> dibuang dan perubahan rata-rata, median, dan standar deviasi kurang dari 1, dapat diabaikan. Artinya <em>outlier</em> tersebut tidak terlalu mengganggu garis regresi.</li>
+<li>Umumnya, apabila <em>outlier</em> dibuang dan perubahan rata-rata, median, dan standar deviasi kurang dari 1, dapat diabaikan.</li>
+<li>Artinya <em>outlier</em> tersebut tidak terlalu mengganggu garis regresi.</li>
 </ul>
 </div><div class="column" style="width:45%;">
-<p><img src="libs/cook-ilus.jpg" style="width:100%;" class="fancyimage"></p>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="libs/cook-ilus.jpg" class="quarto-figure quarto-figure-center"></p>
+</figure>
+</div>
 </div></div>
 </section>
 <section id="diagnostik-model-deteksi-outliers-2" class="slide level2">
 <h2>Diagnostik model: deteksi <em>outliers</em> 2️⃣</h2>
-<div class="columns">
-<div class="column" style="width:60%;">
 <ul>
-<li>Kalau diatas 1 bagaimana?
+<li>Kalau <em>Cook’s distance</em> diatas 1 bagaimana?
 <ul>
 <li>Coba buat lagi garis regresi tanpa <em>outlier</em> tersebut, cari tahu kenapa nilainya bisa se-ekstrim itu</li>
 <li><em>Outlier</em> umumnya tidak boleh dihapus dari dataset tanpa justifikasi yang jelas, karena ini termasuk <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC4114807/"><em>questionable research practices</em></a>.</li>
 <li>Kalau sangat mendesak, <em>outlier</em> dapat dikeluarkan dari model. Tetapi ini tidak disarankan dan kalaupun dilakukan, analisis <strong>harus dilaporkan dua versi; dengan dan tanpa <em>outlier</em>.</strong></li>
 <li>Daripada dihapus, sebaiknya pakai regresi dengan <a href="https://forum.jamovi.org/viewtopic.php?t=4067"><em>robust estimator</em></a> yang dapat mengurangi efek <em>outlier</em>.</li>
 </ul></li>
+</ul>
+</section>
+<section id="diagnostik-model-deteksi-outliers-3" class="slide level2">
+<h2>Diagnostik model: deteksi <em>outliers</em> 3️⃣</h2>
+<div class="columns">
+<div class="column">
+<ul>
 <li>Dari <em>output</em> di samping, dapat disimpulkan bahwa apabila <em>outlier</em> tidak disertakan dalam analisis, maka perubahan rerata, median, dan standar deviasi keseluruhan sampel kurang dari 1 dari nilai asalnya.</li>
 </ul>
-</div><div class="column" style="width:40%;">
-<p><img src="libs/cook-1.jpg" style="width:100%;" class="fancyimage"></p>
+</div><div class="column">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="libs/cook-1.png" class="quarto-figure quarto-figure-center" style="width:150.0%"></p>
+</figure>
+</div>
 </div></div>
 </section>
 <section id="cara-melaporkannya-dalam-manuskrip" class="slide level2">
 <h2>Cara melaporkannya dalam manuskrip</h2>
-<p>“… untuk menguji hipotesis penelitian, peneliti melakukan analisis regresi <em>ordinary least square</em> (OLS). Hasil analisis menunjukkan bahwa model cocok menggambarkan data, namun hanya mampu menjelaskan kurang dari 3% varians tingkat kemandirian siswa (<em>F</em>(1,398)=10.5, p=.001, R<sup>2</sup>=.0258).</p>
-<p>Kecenderungan <em>neuroticism</em> ibu berkontribusi berarti dalam menjelaskan varians tingkat kemandirian siswa, dimana perubahan kecenderungan <em>neuroticism</em> sebesar 1 poin diasosiasikan dengan perubahan tingkat kemandirian anak sebesar 0.43 (<em>B</em>=0.430 95% CI [0.170, 0.691], <em>SE</em>=0.132, <em>t</em>=3.25, <em>p</em>=001).</p>
+<p>“… untuk menguji hipotesis penelitian, peneliti melakukan analisis regresi <em>ordinary least square</em> (OLS). Hasil analisis menunjukkan bahwa model cocok menggambarkan data dan mampu menjelaskan kurang dari 40% varians tingkat kemandirian siswa (<em>F</em>(1,398) = 221, <em>p</em> = .001, <em>R</em><sup>2</sup> = .357).</p>
+<p>Kecenderungan <em>neuroticism</em> ibu berkontribusi berarti dalam menjelaskan varians tingkat kemandirian siswa, dimana perubahan kecenderungan <em>neuroticism</em> sebesar 1 poin diasosiasikan dengan perubahan tingkat kemandirian anak sebesar 0.544 (<em>B</em> = 0.544 95% CI [0.472, 0.616], <em>SE</em> = 0.036, <em>t</em> = 14.88, <em>p</em> = .001). Berbeda dengan yang dihipotesiskan sebelumnya, ibu dengan tingkat <em>neuroticism</em> yang tinggi justru mengasuh anak dengan tingkat kemandirian yang juga tinggi.</p>
 <p>Setelah dilakukan diagnostik, varians yang tidak dapat dijelaskan oleh model berdistribusi normal dan ketika dikorelasikan dengan nilai prediktif tingkat kemandirian siswa dan kecenderungan <em>neuroticism</em> ibu, maka menghasilkan varians yang homogen (homoskedastik).</p>
 <p>Diagnostik <em>outlier</em> dilakukan dengan menggunakan <em>Cook’s distance</em>, dan menghasilkan kesimpulan bahwa apabila <em>outlier</em> tidak disertakan dalam model, maka perubahan rerata, nilai tengah, dan simpangan baku kurang dari satu dari nilai awalnya, sehingga tidak berpotensi mendistorsi garis regresi…”</p>
 </section>
 <section id="latihan-2" class="slide level2">
 <h2>Latihan 2️⃣</h2>
 <ul>
-<li>Marimar ingin menambahkan interaksi antara <em>neuroticism</em> dengan <em>trust</em>
+<li>Ternyata, <em>neuroticism</em> berkorelasi positif dengan tingkat kemandirian.</li>
+<li>Marimar tidak menyerah - ia lalu menambahkan interaksi antara <em>neuroticism</em> dengan <em>trust</em>
 <ul>
-<li>Mungkin saja ibu yang percaya/kurang percaya bahwa anak dapat berkembang secara natural, korelasi antara <em>neuroticism</em> dengan kemandirian akan makin negatif.</li>
-<li>Selain itu, bisa jadi ada kaitannya antara pendapatan keluarga dengan tingkat kemandirian anak.</li>
+<li>Mungkin saja ibu yang percaya/kurang percaya bahwa anak dapat berkembang secara natural, korelasi antara <em>neuroticism</em> dengan kemandirian akan negatif, sesuai.</li>
+<li>Selain itu, ia ingin tahu kaitan antara pendapatan keluarga dengan tingkat kemandirian anak.</li>
 </ul></li>
 <li>Tambahkan variabel <strong>trust</strong>, <strong>neu</strong>, dan <strong>hi</strong> dalam kolom <strong>covariates</strong>.</li>
 </ul>
@@ -517,11 +614,11 @@ Rizqy Amelia Zein
 <li>Pada opsi <strong>estimated marginal means</strong>, masukkan <strong>neu</strong> dan <strong>trust</strong> dalam <strong>terms 1</strong></li>
 </ul>
 </section>
-<section id="model-fit-1" class="slide level2">
+<section id="model-fit-2" class="slide level2">
 <h2>Model fit</h2>
 <div class="columns">
-<div class="column" style="width:55%;">
-<p>Model 2 (<em>F</em>(2,397)=58.2, p&lt;.001, R<sup>2</sup>=.226) dapat menjelaskan varians tingkat kemandirian anak lebih baik daripada Model 1 (<em>F</em>(1,398)=10.2, p=.002, R<sup>2</sup>=.025), dengan <em>overlapping variances</em> sebesar 22.6% dibanding 2.5%.</p>
+<div class="column">
+<p>Model 2 (<em>F</em>(2,397) = 146, <em>p</em> = .001, <em>Adj. R</em><sup>2</sup> = .42) dapat menjelaskan varians tingkat kemandirian anak lebih baik daripada Model 1 (<em>F</em>(1,398) = 172, <em>p</em> = .001, <em>Adj. R</em><sup>2</sup> = .30), dengan <em>overlapping variances</em> sebesar 42% dibanding 30%.</p>
 <p><strong><em>Information criteria</em> (AIC &amp; BIC)</strong></p>
 <ul>
 <li>Digunakan untuk mengakomodasi kelemahan dari <em>R</em><sup>2</sup> (apabila prediktor dalam model ditambah terus, maka nilai <em>R</em><sup>2</sup> akan terus naik)</li>
@@ -529,48 +626,57 @@ Rizqy Amelia Zein
 <li>Rumus dari <em>information criteria</em> memberi “penalti” kepada model yang mengandung lebih banyak variabel prediktor</li>
 <li>Pilih model dengan AIC dan BIC yang terkecil (Model 2)</li>
 </ul>
-</div><div class="column" style="width:45%;">
-<p><img src="libs/mfit-2.jpg" style="width:100%;" class="fancyimage"></p>
+</div><div class="column">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="libs/mfit-2.png" class="quarto-figure quarto-figure-center" style="width:150.0%"></p>
+</figure>
+</div>
 </div></div>
 </section>
 <section id="model-comparison" class="slide level2">
 <h2><em>Model comparison</em></h2>
 <div class="columns">
 <div class="column" style="width:55%;">
-<p>Ketika dibandingkan, Model 1 dan Model 2 berbeda signifikan (<em>F</em>(1,397)=104, <em>p</em>&lt;.001). Δ_R_<sup>2</sup>=.202, artinya selisih <em>R</em><sup>2</sup> Model 1 dan Model 2=.202 atau <em>R</em><sup>2</sup> naik sebesar 20.2%</p>
+<p>Ketika dibandingkan, Model 1 dan Model 2 berbeda signifikan (<em>F</em>(1,397) = 83.7, <em>p</em> = .001). ΔR<sup>2</sup> = .122, artinya selisih <em>R</em><sup>2</sup> Model 1 dan Model 2 = .122 atau <em>R</em><sup>2</sup> naik sebesar 12.2%</p>
 <p><strong>Coba perhatikan Residuals Model 1 dengan Model 2</strong></p>
 </div><div class="column" style="width:45%;">
-<p><img src="libs/ftest-2a.jpg" style="width:100%;" class="fancyimage"></p>
-<p><img src="libs/ftest-2b.jpg" style="width:100%;" class="fancyimage"></p>
-<p><img src="libs/moco-1.jpg" style="width:100%;" class="fancyimage"></p>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="libs/model-comparison.png" class="quarto-figure quarto-figure-center"></p>
+</figure>
+</div>
 </div></div>
 </section>
 <section id="koefisien-model-2" class="slide level2">
 <h2>Koefisien model 2</h2>
-<center>
-<img src="libs/mod-coef2.jpg" style="width:70%;" class="fancyimage">
-</center>
-<h4 id="pendapatan-keluarga-dapat-menjelaskan-variasi-kemandirian-anak-b-0.943-95-ci--1.164--0.721-se0.112-t-8.39-p.001.">Pendapatan keluarga dapat menjelaskan variasi kemandirian anak (<em>B</em>=-0.943 95% CI [-1.164, -0.721], <em>SE</em>=0.112, <em>t</em>=-8.39, <em>p</em>&lt;.001).</h4>
-<h4 id="interaction-terms-juga-signifikan-dalam-menjelaskan-varians-kemandirian-anak-b0.054-95-ci-0.044-0.065-se0.005-t10.18-p.001."><em>Interaction terms</em> juga signifikan dalam menjelaskan varians kemandirian anak (<em>B</em>=0.054 95% CI [0.044, 0.065], <em>SE</em>=0.005, <em>t</em>=10.18, <em>p</em>&lt;.001).</h4>
+
+<img data-src="libs/mod-coef2.png" class="quarto-figure quarto-figure-center r-stretch"><h4 id="pendapatan-keluarga-dapat-menjelaskan-variasi-kemandirian-anak-b-0.200-95-ci-0.103-0.297-se-0.04-t-4.06-p-.001.">Pendapatan keluarga dapat menjelaskan variasi kemandirian anak (<em>B</em> = 0.200 95% CI [0.103, 0.297], <em>SE</em> = 0.04, <em>t</em> = 4.06, <em>p</em> = .001).</h4>
+<p>Artinya, anak yang dibesarkan di keluarga dengan tingkat pendapatan yang tinggi, maka cenderung lebih mandiri.</p>
+<h4 id="interaksi-antara-neuroticism-dengan-trust-in-organismic-development-juga-signifikan-dalam-menjelaskan-varians-kemandirian-anak-b-0.019-95-ci-0.015-0.023-se-0.002-t-9.15-p-.001.">Interaksi antara <em>neuroticism</em> dengan <em>trust in organismic development</em> juga signifikan dalam menjelaskan varians kemandirian anak (<em>B</em> = 0.019 95% CI [0.015, 0.023], <em>SE</em> = 0.002, <em>t</em> = 9.15, <em>p</em> = .001).</h4>
 </section>
-<section id="simple-slope" class="slide level2">
-<h2><em>Simple slope</em></h2>
+<section id="estimated-marginal-means" class="slide level2">
+<h2><em>Estimated Marginal Means</em></h2>
 <div class="columns">
-<div class="column" style="width:55%;">
+<div class="column">
 <ul>
 <li>Interpretasi <em>slopes</em> pada <em>interaction terms</em>:
 <ul>
-<li><em>Unstandardized B</em> yang positif artinya, pada ibu dengan <em>trust</em> yang tinggi, korelasi antara kecenderungan <em>neuroticism</em> dengan kemandirian anak juga semakin positif/menguat.</li>
+<li><em>Unstandardized B</em> yang positif artinya, pada ibu dengan <em>trust in organismic development</em> yang tinggi (+1SD), korelasi antara kecenderungan <em>neuroticism</em> dengan kemandirian anak juga semakin positif/menguat.</li>
 </ul></li>
 </ul>
-</div><div class="column" style="width:45%;">
-<p><img src="libs/simple-slopes.jpg" style="width:100%;" class="fancyimage"></p>
+</div><div class="column">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="libs/emm.png" class="quarto-figure quarto-figure-center"></p>
+</figure>
+</div>
 </div></div>
 </section>
 <section id="diagnostik-kolinearitas" class="slide level2">
 <h2>Diagnostik kolinearitas</h2>
 <div class="columns">
-<div class="column" style="width:55%;">
+<div class="column">
 <ul>
 <li>Dapat dideteksi dengan melakukan analisis melihat <em>variance inflated factors</em> (VIF).
 <ul>
@@ -579,19 +685,23 @@ Rizqy Amelia Zein
 <li>Penelitian <em>longitudinal</em> punya potensi terjadinya autokorelasi (residual <em>time 1</em> dan <em>time 2</em> berkorelasi)
 <ul>
 <li>Dapat dicek dengan tes Durbin-Watson</li>
-<li>Bila nilai p analisis autokorelasi &gt; 0.001, maka multi-kolinearitas tidak terjadi.</li>
+<li>Bila nilai p analisis autokorelasi &gt; .05, maka autokorelasi residual tidak terjadi.</li>
 </ul></li>
 </ul>
-</div><div class="column" style="width:45%;">
-<p><img src="libs/multikol.jpg" style="width:100%;" class="fancyimage"></p>
+</div><div class="column">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="libs/multikol.png" class="quarto-figure quarto-figure-center"></p>
+</figure>
+</div>
 </div></div>
 </section>
 <section id="bagaimana-melaporkannya" class="slide level2">
 <h2>Bagaimana melaporkannya?</h2>
 <p>“…untuk menginvestigasi keterkaitan antara pendapatan keluarga, kecenderungan <em>neuroticism</em> ibu, dan kepercayaan ibu bahwa perkembangan anak dapat terjadi secara natural dengan tingkat kemandirian anak, peneliti melakukan analisis regresi linear hirarkial dengan <em>interaction terms</em>. Peneliti menyusun dua model, dimana; model 1 mengestimasi varians tingkat kemandirian anak dengan pendapatan keluarga inti sebagai prediktor, sedangkan pada model 2 peneliti menambahkan prediktor berupa <em>interaction terms</em> antara <em>neuroticism</em> dengan <em>trust</em>.</p>
-<p>Ketika dibandingkan, Model 1 dan Model 2 berbeda signifikan (<em>F</em>(1,397)=104, p&lt;.001). R<sup>2</sup> bertambah sebesar 20.2% (ΔR<sup>2</sup>=.202). Model 2 (<em>F</em>(2,397)=58.2, p&lt;.001, R<sup>2</sup>=.226, AIC=3237, BIC=3253) dapat menjelaskan varians tingkat kemandirian anak lebih baik daripada Model 1 (<em>F</em>(1,398)=10.2, p=.002, R<sup>2</sup>=.025, AIC=3327, BIC=3339).</p>
-<p>Pendapatan keluarga dapat menjelaskan variasi kemandirian anak (<em>B</em>=-0.943 95% CI [-1.164, -0.721], <em>SE</em>=0.112, <em>t</em>=-8.39, <em>p</em>&lt;.001). Interaksi antara <em>neuroticism</em> dengan <em>trust</em> juga signifikan (<em>B</em>=0.054 95% CI [0.044, 0.065], <em>SE</em>=0.005, <em>t</em>=10.18, <em>p</em>&lt;.001). Artinya, korelasi antara kecenderungan <em>neuroticism</em> ibu dengan kemandirian anak akan menguat pada ibu yang _trust_nya tinggi.</p>
-<p>Potensi multikolinearitas dideteksi dengan VIF dan hasil analisis menunjukkan multikolinearitas kemungkinan besar tidak terjadi (VIF=1.38)…”</p>
+<p>Ketika dibandingkan, Model 1 dan Model 2 berbeda signifikan (<em>F</em>(1,397) = 83.7, <em>p</em> = .001). <em>R</em><sup>2</sup> bertambah sebesar 12.2% (ΔR<sup>2</sup> = .122). Model 2 (<em>F</em>(2,397) = 146, <em>p</em> = .001, <em>Adj. R</em><sup>2</sup> = .420, AIC = 2472, BIC = 2488) dapat menjelaskan varians tingkat kemandirian anak lebih baik daripada Model 1 (<em>F</em>(1,398) = 172, <em>p</em> = .001, <em>Adj. R</em><sup>2</sup> = .300, AIC = 2547, BIC = 2559).</p>
+<p>Pendapatan keluarga dapat menjelaskan variasi kemandirian anak (<em>B</em> = 0.200 95% CI [0.103, 0.297], <em>SE</em> = 0.04, <em>t</em> = 4.06, <em>p</em> = .001). Interaksi antara <em>neuroticism</em> dengan <em>trust</em> juga signifikan (<em>B</em> = 0.019 95% CI [0.015, 0.023], <em>SE</em> = 0.002, <em>t</em> = 9.15, <em>p</em> = .001). Artinya, korelasi antara kecenderungan <em>neuroticism</em> ibu dengan kemandirian anak akan menguat pada ibu yang <em>trust</em> nya tinggi.</p>
+<p>Potensi multikolinearitas dideteksi dengan VIF dan hasil analisis menunjukkan multikolinearitas kemungkinan besar tidak terjadi (VIF = 1.93)…”</p>
 </section>
 <section id="latihan-mandiri-1" class="slide level2">
 <h2>Latihan mandiri 1️⃣</h2>
@@ -844,7 +954,7 @@ Rizqy Amelia Zein
         margin: 0.1,
 
         math: {
-          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js',
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
           config: 'TeX-AMS_HTML-full',
           tex2jax: {
             inlineMath: [['\\(','\\)']],
@@ -1012,13 +1122,14 @@ Rizqy Amelia Zein
           e.clearSelection();
         }
         const getTextToCopy = function(trigger) {
-            const codeEl = trigger.previousElementSibling.cloneNode(true);
-            for (const childEl of codeEl.children) {
-              if (isCodeAnnotation(childEl)) {
-                childEl.remove();
-              }
+          const outerScaffold = trigger.parentElement.cloneNode(true);
+          const codeEl = outerScaffold.querySelector('code');
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
             }
-            return codeEl.innerText;
+          }
+          return codeEl.innerText;
         }
         const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
           text: getTextToCopy

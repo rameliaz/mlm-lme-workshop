@@ -15,52 +15,66 @@ library(readr)
 #----
 # tentuin n masing-masing subgroup
 set.seed(334455)
-nwalmur=80
-
-
-#----
-# tentukan slope masing2 variabel prediktor
-
-neu=-0.52 # slope utk neuroticism
-trust=0.43 # slope utk trust in organismic development
-hi=-0.74 # slope utk household income
+nwalmur <- 80
 
 #----
-# tentukan parameter di masing2 sekolah
+# Mekanisme Simpson's Paradox untuk neu dan hi:
+# Intercept sekolah berkorelasi POSITIF dengan mean neu DAN mean hi di tiap sekolah.
+# Akibatnya, OLS pooled menunjukkan korelasi positif untuk kedua prediktor tsb
+# (karena sekolah dengan neu/hi tinggi juga punya baseline mandiri tinggi).
+# MLM yang memperhitungkan struktur nested memulihkan slope negatif yang sebenarnya.
+#
+# trust: konsisten — slope positif baik dalam OLS maupun MLM.
 
-# Sekolah 1
-a1 <- rnorm(nwalmur, 20, 4)
+#----
+# Slope within-school per prediktor (= efek yang dipulihkan MLM)
+# neu dan hi: negatif, bervariasi antar sekolah (random slopes)
+# trust: positif, konsisten di semua sekolah
+
+neu_slopes  <- c(-0.4, -0.6, -0.3, -0.7, -0.5)
+hi_slopes   <- c(-0.6, -0.4, -0.8, -0.5, -0.7)
+trust_slope <- 0.43
+
+# Intercept sekolah — semakin tinggi nomor sekolah, semakin tinggi intercept
+# (berkorelasi positif dengan mean neu dan mean hi di sekolah tsb)
+int <- c(10, 20, 30, 40, 50)
+
+#----
+# Tentukan parameter di masing-masing sekolah
+# Sekolah 1: neu rendah (10), hi rendah (10), intercept rendah (10)
+a1 <- rnorm(nwalmur, 10, 3)
 b1 <- rnorm(nwalmur, 17, 5)
-c1 <- rnorm(nwalmur, 25, 3)
+c1 <- rnorm(nwalmur, 10, 3)
 
-# Sekolah 2
-a2 <- rnorm(nwalmur, 13, 2)
+# Sekolah 2: neu sedang-rendah (15), hi sedang-rendah (15), intercept 20
+a2 <- rnorm(nwalmur, 15, 3)
 b2 <- rnorm(nwalmur, 16, 3)
-c2 <- rnorm(nwalmur, 10, 3)
+c2 <- rnorm(nwalmur, 15, 3)
 
-# Sekolah 3
-a3 <- rnorm(nwalmur, 15, 4)
+# Sekolah 3: neu sedang (20), hi sedang (20), intercept 30
+a3 <- rnorm(nwalmur, 20, 3)
 b3 <- rnorm(nwalmur, 18, 3)
-c3 <- rnorm(nwalmur, 17, 3)
+c3 <- rnorm(nwalmur, 20, 3)
 
-# Sekolah 4
-a4 <- rnorm(nwalmur, 25, 5)
+# Sekolah 4: neu sedang-tinggi (25), hi sedang-tinggi (25), intercept 40
+a4 <- rnorm(nwalmur, 25, 3)
 b4 <- rnorm(nwalmur, 21, 6)
-c4 <- rnorm(nwalmur, 28, 3)
+c4 <- rnorm(nwalmur, 25, 3)
 
-# Sekolah 5
-a5 <- rnorm(nwalmur, 15, 3)
+# Sekolah 5: neu tinggi (30), hi tinggi (30), intercept tinggi (50)
+a5 <- rnorm(nwalmur, 30, 3)
 b5 <- rnorm(nwalmur, 16, 2)
-c5 <- rnorm(nwalmur, 22, 3)
+c5 <- rnorm(nwalmur, 30, 3)
 
 #----
 # Bikin persamaan regresinya
+# mandiri = intercept_sekolah + neu*slope_neu + trust*slope_trust + hi*slope_hi + error
 
-sekolah1 <- a1*neu + b1*trust + c1*hi + rnorm(nwalmur, sd=3) # persamaan garis regresi di sekolah 1
-sekolah2 <- a2*neu + b2*trust - c2*hi + rnorm(nwalmur, sd=4) # persamaan garis regresi di sekolah 2
-sekolah3 <- a3*neu + b3*trust + c3*hi + rnorm(nwalmur, sd=2) # persamaan garis regresi di sekolah 3
-sekolah4 <- a4*neu + b4*trust - c4*hi + rnorm(nwalmur, sd=5) # persamaan garis regresi di sekolah 4
-sekolah5 <- a5*neu + b5*trust + c5*hi + rnorm(nwalmur, sd=3) # persamaan garis regresi di sekolah 5
+sekolah1 <- int[1] + a1*neu_slopes[1] + b1*trust_slope + c1*hi_slopes[1] + rnorm(nwalmur, sd=3)
+sekolah2 <- int[2] + a2*neu_slopes[2] + b2*trust_slope + c2*hi_slopes[2] + rnorm(nwalmur, sd=4)
+sekolah3 <- int[3] + a3*neu_slopes[3] + b3*trust_slope + c3*hi_slopes[3] + rnorm(nwalmur, sd=2)
+sekolah4 <- int[4] + a4*neu_slopes[4] + b4*trust_slope + c4*hi_slopes[4] + rnorm(nwalmur, sd=5)
+sekolah5 <- int[5] + a5*neu_slopes[5] + b5*trust_slope + c5*hi_slopes[5] + rnorm(nwalmur, sd=3)
 
 #----
 # Bikin dataframe
@@ -71,13 +85,13 @@ sekolah3 <- data.frame(neu=a3, trust=b3, hi=c3, mandiri=sekolah3)
 sekolah4 <- data.frame(neu=a4, trust=b4, hi=c4, mandiri=sekolah4)
 sekolah5 <- data.frame(neu=a5, trust=b5, hi=c5, mandiri=sekolah5)
 
-rm(a1,a2,a3,a4,a5,b1,b2,b3,b4,b5,c1,c2,c3,c4,c5,hi,neu,trust)
+rm(a1,a2,a3,a4,a5,b1,b2,b3,b4,b5,c1,c2,c3,c4,c5,
+   int,neu_slopes,hi_slopes,trust_slope)
 
 #----
 # Disatukan dalam satu dataset
 
 datasekolah <- rbind(sekolah1,sekolah2,sekolah3,sekolah4,sekolah5)
-View(datasekolah)
 
 #----
 # Tambahkan variabel id
@@ -85,14 +99,12 @@ datasekolah$id <- seq(1:nrow(datasekolah)) # kasih nomor urut partisipan
 datasekolah$idsekolah <- c(rep(1, nwalmur), rep(2, nwalmur), rep(3, nwalmur),
                            rep(4, nwalmur), rep(5, nwalmur)) # kasih nomor urut sekolah
 
-
 #----
 # Cek scatterplot per sekolah
 
 theme_set(theme_bw(base_size = 12, base_family = "")) # set tema ggplot2
 
-# neuroticsm
-
+# neuroticism
 neu.plot <- ggplot(data=datasekolah, aes(x=neu, y=mandiri, group=idsekolah)) +
   facet_grid( ~ idsekolah) +
   geom_point(aes(colour=idsekolah)) +
@@ -102,7 +114,6 @@ neu.plot <- ggplot(data=datasekolah, aes(x=neu, y=mandiri, group=idsekolah)) +
 neu.plot
 
 # trust in organismic development
-
 trust.plot <- ggplot(data=datasekolah, aes(x=trust, y=mandiri, group=idsekolah)) +
   facet_grid( ~ idsekolah) +
   geom_point(aes(colour=idsekolah)) +
@@ -112,7 +123,6 @@ trust.plot <- ggplot(data=datasekolah, aes(x=trust, y=mandiri, group=idsekolah))
 trust.plot
 
 # household income
-
 hi.plot <- ggplot(data=datasekolah, aes(x=hi, y=mandiri, group=idsekolah)) +
   facet_grid( ~ idsekolah) +
   geom_point(aes(colour=idsekolah)) +
@@ -124,7 +134,7 @@ hi.plot
 #----
 # simpan dalam bentuk csv
 
-write_csv(datasekolah, path="dataset-sekolah.csv")
+write_csv(datasekolah, file="dataset-sekolah.csv")
 rm(nwalmur,datasekolah,hi.plot,neu.plot,trust.plot,sekolah1,sekolah2,sekolah3,sekolah4,sekolah5)
 
 # Dataset 2: Perilaku tidak beradab di kantor ---------------------------------------
