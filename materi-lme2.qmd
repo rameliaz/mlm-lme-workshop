@@ -54,7 +54,7 @@ execute:
 
 ::: {.center}
 
-![](libs/scat-group.png)
+![](libs/scat-group.png){width="60%" fig-align="center"}
 
 :::
 
@@ -85,8 +85,27 @@ execute:
 :::: {.columns}
 ::: {.column width="55%"}
 
-* Hati-hati _ecological fallacy_!
-  - Terjadi ketika kita salah menyimpulkan suatu gejala yang skalanya individual, padahal yang dianalisis oleh peneliti sesungguhnya fenomena di level yang lebih besar (kelompok atau sub-kelompok)
+* Kalau _Simpson's paradox_ diabaikan, kesimpulan bisa terkontaminasi _ecological fallacy_
+  - Terjadi ketika peneliti salah menyimpulkan suatu gejala yang skalanya individual, padahal yang dianalisis sesungguhnya fenomena di level yang lebih besar (kelompok atau sub-kelompok)
+
+:::
+::: {.column width="45%"}
+
+![](libs/ecological-fallacy.jpg)
+
+:::
+::::
+
+## Ada yang janggal.. 🤔
+
+:::: {.columns}
+::: {.column width="55%"}
+
+* "Saya _ga_ percaya kalau ada yang _bilang_ [7 dari 10 laki-laki dewasa di Indonesia adalah perokok](https://rri.co.id/bogor/kesehatan/1501636/indonesia-peringkat-satu-pria-perokok-tertinggi-dunia). _lha_, suami saya, kakek saya, adik-adik saya, semuanya laki-laki dewasa dan tidak ada yang merokok, _tuh_".
+  - Kalau kebanyakan pria dewasa adalah perokok, bukan berarti _tidak ada pria_ yang bukan perokok.
+  - Atau sebalinya, kalau orang terdekat saya bukan perokok, tidak bisa menggugurkan fakta bahwa mayoritas pria dewasa di Indonesia adalah perokok.
+  - Oleh karena itu, perlu dipisahkan, mana fenomena yang terjadi di level kelompok, mana yang terjadi di level individual.
+
 :::
 ::: {.column width="45%"}
 
@@ -242,12 +261,21 @@ Setelah menginspeksi data secara visual, kita tidak bisa mempertahankan kesimpul
 
 ## Interpretasi _random intercept_ dan _random slopes_ (vs. residual)
 
-| Varians _Random Intercept_ | Varians _Random Slope_ | Interpretasi |
+| Varians<br>Random<br>Intercept | Varians<br>Random<br>Slope | Interpretasi |
 |---|---|---|
 | Besar | Kecil | Kelompok berbeda secara substansial dalam rata-rata *outcome*, tetapi hubungan antara prediktor dan *outcome* relatif seragam di semua kelompok |
 | Kecil | Besar | Kelompok memiliki rata-rata *outcome* yang serupa, tetapi kekuatan (dan/atau arah) hubungan antara prediktor dan *outcome* sangat bervariasi antar kelompok |
+
+: {tbl-colwidths="[16,16,68]"}
+
+## Interpretasi _random intercept_ dan _random slopes_ (vs. residual)
+
+| Varians<br>Random<br>Intercept | Varians<br>Random<br>Slope | Interpretasi |
+|---|---|---|
 | Besar | Besar | Kelompok berbeda baik dalam rata-rata *outcome* maupun dalam hubungan prediktor–*outcome* — periksa kovarians *intercept-slope* (σ~U0~~U1~) untuk melihat apakah kelompok dengan rata-rata tinggi juga memiliki _slope_ yang lebih besar atau lebih kecil |
 | Kecil | Kecil | Sedikit variasi antar kelompok — struktur *multilevel* mungkin tidak diperlukan, pertimbangkan model regresi OLS |
+
+: {tbl-colwidths="[16,16,68]"}
 
 ## _Random coefficients_ 2️⃣
 
@@ -308,12 +336,13 @@ Setelah menginspeksi data secara visual, kita tidak bisa mempertahankan kesimpul
 * Jadi pendapatan keluarga justru lebih "menonjol" sebagai penjelas variasi kemandirian yang tersisa di sekolah dengan rata-rata kemandirian yang tinggi. Efek negatifnya lebih kuat.
 
 * Apakah artinya lingkungan sekolah tidak berdampak pada kemandirian anak?
-  - Akan kita eksplorasi di bagian selanjutnya (*contextual effect*)
+  - Belum tentu😉 Periksa dulu _contextual effect_
+  - Akan kita eksplorasi di bagian selanjutnya
 
 :::
 ::: {.column}
 
-![](libs/corr-random.png)
+![](libs/corr-random.png){fig-align="center"}
 
 :::
 ::::
@@ -454,7 +483,7 @@ Setelah menginspeksi data secara visual, kita tidak bisa mempertahankan kesimpul
 ## Latihan 4️⃣: _Contextual effects_
 
 :::: {.columns}
-::: {.column width="55%"}
+::: {.column width="60%"}
 
 * Lakukan `lme` dengan memasukkan **hi_group_centered** dan **hi_gm** dalam satu model yang sama
 
@@ -462,7 +491,7 @@ Setelah menginspeksi data secara visual, kita tidak bisa mempertahankan kesimpul
 
 * Masukkan _intercept_ (Intercept|idsekolah) dan **hi_group_centered** ke kotak **random coefficients**, kemudian pada menu **effect correlation** pilih `not correlated`
 
-* Pada menu **covariates scaling**, set keduanya pada `none`
+* Pada menu **covariates scaling**, set keduanya pada `none` (karena variabel sudah di _group-mean centered_ secara manual)
 
 * Lihat _fixed slopes_-nya untuk kedua prediktor
 
@@ -471,28 +500,41 @@ Jangan masukkan **hi_gm** ke _random coefficient_ karena ini adalah rerata kelom
 :::
 
 :::
-::: {.column width="45%"}
+::: {.column width="40%"}
 
 ![](https://media.giphy.com/media/l1KVaj5UcbHwrBMqI/giphy.gif){width="100%"}
 
 :::
 ::::
 
-## _Contextual effects_: Hasil
+## _Contextual effects_
 
 :::: {.columns}
-::: {.column width="55%"}
+::: {.column}
 
 * _Within_ (_B_ = -0.621 95% CI [-0.786, -0.456], _SE_ = 0.084, _t_ = -7.386, _p_ = .004), maupun _between-group effect_ (_B_ = 0.732 95% CI [0.583, 0.881], _SE_ = 0.075, _t_ = 9.76, _p_ = .002) berhubungan dengan tingkat kemandirian siswa.
 * _Within-group effect_: Di dalam sekolah yang sama, siswa dengan tingkat pendapatan keluarga yang lebih tinggi cenderung memiliki tingkat kemandirian yang lebih rendah.
 * _Between-group effect_: Ada bukti bahwa sekolah dengan rata-rata pendapatan keluarga yang lebih tinggi cenderung memiliki siswa yang lebih mandiri.
+
+:::
+::: {.column}
+
+![](libs/context.png)
+
+:::
+::::
+
+## _Contextual effects_
+
+:::: {.columns}
+::: {.column width="55%"}
 
 * **_Contextual effects_** ($\beta_{between_{ij}}-\beta_{within_{ij}}$ = 0.732 - (-0.621) = 1.535) menunjukkan bahwa terdapat pengaruh tambahan dari konteks sekolah (yang cukup substansial) terhadap kemandirian siswa, di luar pengaruh pendapatan keluarga siswa itu sendiri. 
 
 :::
 ::: {.column width="45%"}
 
-<img src="libs/context.png" style="width:100%;" class="fancyimage"/>
+![](libs/context.png)
 
 :::
 ::::
@@ -537,6 +579,22 @@ _Contextual effects_ ditemukan sebesar 1.535, yang menunjukkan bahwa ada pengaru
 * Bagaimana kalau sampelnya bersarang/berjenjang level-3, bahkan lebih?
 
 * Bagaimana kalo terjadi interaksi antara variabel prediktor level-1 dengan level-2 (_cross-level interactions_)?
+
+## Bagaimana dengan pengukuran berulang?
+
+* Bayangkan kita mengukur **tingkat kecemasan** menteri pada:
+  - Sebelum BBM naik (T1)
+  - Saat kebijakan BBM naik diumumkan (T2)
+  - Seminggu sesudah BBM dinyatakan naik (T3)
+
+* Kecemasan Menteri Purbaya di T1 dan T2 **sangat mungkin berkorelasi**, karena **Purbaya yang sama** yang diukur dua kali pada dua titik waktu (_time points_ atau _beep_ dalam literatur _experience sampling_).
+
+* Ketika ini terjadi, maka model melanggar asumsi **independensi residual** (untuk level-2) dari `lme` biasa.
+  - Kalau diabaikan, _standard error_ akan **terlalu kecil** ➡️ risiko _Type I error_ meningkat.
+
+* Oleh karena itu, dalam desain eksperimen _within-subject_, penelitian longitudinal, dan _experience sampling_, peneliti harus mempertimbangkan struktur korelasi residual antarwaktu pengukuran.
+
+* Lanjutkan dengan belajar mandiri: [`lme` untuk pengukuran berulang dan _experience sampling_](https://rameliaz.github.io/mlm-lme-workshop/materi-lme3.html#/title-slide).
 
 ## _The problem with linear relationship_
 

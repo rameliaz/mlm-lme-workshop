@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.8.27">
 
   <meta name="author" content="Rizqy Amelia Zein">
-  <meta name="dcterms.date" content="2026-04-06">
+  <meta name="dcterms.date" content="2026-04-07">
   <title>LME Workshop – Linear Mixed Models</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -146,7 +146,7 @@ Rizqy Amelia Zein
     </div>
 </div>
 
-  <p class="date">2026-04-06</p>
+  <p class="date">2026-04-07</p>
 </section>
 <section id="outline-1" class="slide level2">
 <h2><em>Outline</em> 1️⃣</h2>
@@ -194,7 +194,11 @@ Rizqy Amelia Zein
 <section id="scatterplot" class="slide level2">
 <h2><em>Scatterplot</em></h2>
 <div class="center">
-<p><img data-src="libs/scat-group.png"></p>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="libs/scat-group.png" class="quarto-figure quarto-figure-center" style="width:60.0%"></p>
+</figure>
+</div>
 </div>
 </section>
 <section id="ada-yang-janggal.." class="slide level2">
@@ -219,9 +223,25 @@ Rizqy Amelia Zein
 <div class="columns">
 <div class="column" style="width:55%;">
 <ul>
-<li>Hati-hati <em>ecological fallacy</em>!
+<li>Kalau <em>Simpson’s paradox</em> diabaikan, kesimpulan bisa terkontaminasi <em>ecological fallacy</em>
 <ul>
-<li>Terjadi ketika kita salah menyimpulkan suatu gejala yang skalanya individual, padahal yang dianalisis oleh peneliti sesungguhnya fenomena di level yang lebih besar (kelompok atau sub-kelompok)</li>
+<li>Terjadi ketika peneliti salah menyimpulkan suatu gejala yang skalanya individual, padahal yang dianalisis sesungguhnya fenomena di level yang lebih besar (kelompok atau sub-kelompok)</li>
+</ul></li>
+</ul>
+</div><div class="column" style="width:45%;">
+<p><img data-src="libs/ecological-fallacy.jpg"></p>
+</div></div>
+</section>
+<section id="ada-yang-janggal..-2" class="slide level2">
+<h2>Ada yang janggal.. 🤔</h2>
+<div class="columns">
+<div class="column" style="width:55%;">
+<ul>
+<li>“Saya <em>ga</em> percaya kalau ada yang <em>bilang</em> <a href="https://rri.co.id/bogor/kesehatan/1501636/indonesia-peringkat-satu-pria-perokok-tertinggi-dunia">7 dari 10 laki-laki dewasa di Indonesia adalah perokok</a>. <em>lha</em>, suami saya, kakek saya, adik-adik saya, semuanya laki-laki dewasa dan tidak ada yang merokok, <em>tuh</em>”.
+<ul>
+<li>Kalau kebanyakan pria dewasa adalah perokok, bukan berarti <em>tidak ada pria</em> yang bukan perokok.</li>
+<li>Atau sebalinya, kalau orang terdekat saya bukan perokok, tidak bisa menggugurkan fakta bahwa mayoritas pria dewasa di Indonesia adalah perokok.</li>
+<li>Oleh karena itu, perlu dipisahkan, mana fenomena yang terjadi di level kelompok, mana yang terjadi di level individual.</li>
 </ul></li>
 </ul>
 </div><div class="column" style="width:45%;">
@@ -361,14 +381,14 @@ Rizqy Amelia Zein
 <h2>Interpretasi <em>random intercept</em> dan <em>random slopes</em> (vs.&nbsp;residual)</h2>
 <table class="caption-top">
 <colgroup>
-<col style="width: 33%">
-<col style="width: 33%">
-<col style="width: 33%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 68%">
 </colgroup>
 <thead>
 <tr class="header">
-<th>Varians <em>Random Intercept</em></th>
-<th>Varians <em>Random Slope</em></th>
+<th>Varians<br>Random<br>Intercept</th>
+<th>Varians<br>Random<br>Slope</th>
 <th>Interpretasi</th>
 </tr>
 </thead>
@@ -383,6 +403,25 @@ Rizqy Amelia Zein
 <td>Besar</td>
 <td>Kelompok memiliki rata-rata <em>outcome</em> yang serupa, tetapi kekuatan (dan/atau arah) hubungan antara prediktor dan <em>outcome</em> sangat bervariasi antar kelompok</td>
 </tr>
+</tbody>
+</table>
+</section>
+<section id="interpretasi-random-intercept-dan-random-slopes-vs.-residual-1" class="slide level2">
+<h2>Interpretasi <em>random intercept</em> dan <em>random slopes</em> (vs.&nbsp;residual)</h2>
+<table class="caption-top">
+<colgroup>
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 68%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Varians<br>Random<br>Intercept</th>
+<th>Varians<br>Random<br>Slope</th>
+<th>Interpretasi</th>
+</tr>
+</thead>
+<tbody>
 <tr class="odd">
 <td>Besar</td>
 <td>Besar</td>
@@ -439,11 +478,16 @@ Rizqy Amelia Zein
 <li><p>Jadi pendapatan keluarga justru lebih “menonjol” sebagai penjelas variasi kemandirian yang tersisa di sekolah dengan rata-rata kemandirian yang tinggi. Efek negatifnya lebih kuat.</p></li>
 <li><p>Apakah artinya lingkungan sekolah tidak berdampak pada kemandirian anak?</p>
 <ul>
-<li>Akan kita eksplorasi di bagian selanjutnya (<em>contextual effect</em>)</li>
+<li>Belum tentu😉 Periksa dulu <em>contextual effect</em></li>
+<li>Akan kita eksplorasi di bagian selanjutnya</li>
 </ul></li>
 </ul>
 </div><div class="column">
-<p><img data-src="libs/corr-random.png"></p>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="libs/corr-random.png" class="quarto-figure quarto-figure-center"></p>
+</figure>
+</div>
 </div></div>
 </section>
 <section id="random-coefficients-5" class="slide level2">
@@ -566,12 +610,12 @@ Rizqy Amelia Zein
 <section id="latihan-4-contextual-effects" class="slide level2">
 <h2>Latihan 4️⃣: <em>Contextual effects</em></h2>
 <div class="columns">
-<div class="column" style="width:55%;">
+<div class="column" style="width:60%;">
 <ul>
 <li><p>Lakukan <code>lme</code> dengan memasukkan <strong>hi_group_centered</strong> dan <strong>hi_gm</strong> dalam satu model yang sama</p></li>
 <li><p>Masukkan kedua variabel tersebut dalam <strong>fixed coefficients</strong></p></li>
 <li><p>Masukkan <em>intercept</em> (Intercept|idsekolah) dan <strong>hi_group_centered</strong> ke kotak <strong>random coefficients</strong>, kemudian pada menu <strong>effect correlation</strong> pilih <code>not correlated</code></p></li>
-<li><p>Pada menu <strong>covariates scaling</strong>, set keduanya pada <code>none</code></p></li>
+<li><p>Pada menu <strong>covariates scaling</strong>, set keduanya pada <code>none</code> (karena variabel sudah di <em>group-mean centered</em> secara manual)</p></li>
 <li><p>Lihat <em>fixed slopes</em>-nya untuk kedua prediktor</p></li>
 </ul>
 <div class="callout callout-warning callout-titled callout-style-default">
@@ -587,22 +631,32 @@ Rizqy Amelia Zein
 </div>
 </div>
 </div>
-</div><div class="column" style="width:45%;">
+</div><div class="column" style="width:40%;">
 <p><img data-src="https://media.giphy.com/media/l1KVaj5UcbHwrBMqI/giphy.gif" style="width:100.0%"></p>
 </div></div>
 </section>
-<section id="contextual-effects-hasil" class="slide level2">
-<h2><em>Contextual effects</em>: Hasil</h2>
+<section id="contextual-effects-1" class="slide level2">
+<h2><em>Contextual effects</em></h2>
+<div class="columns">
+<div class="column">
+<ul>
+<li><em>Within</em> (<em>B</em> = -0.621 95% CI [-0.786, -0.456], <em>SE</em> = 0.084, <em>t</em> = -7.386, <em>p</em> = .004), maupun <em>between-group effect</em> (<em>B</em> = 0.732 95% CI [0.583, 0.881], <em>SE</em> = 0.075, <em>t</em> = 9.76, <em>p</em> = .002) berhubungan dengan tingkat kemandirian siswa.</li>
+<li><em>Within-group effect</em>: Di dalam sekolah yang sama, siswa dengan tingkat pendapatan keluarga yang lebih tinggi cenderung memiliki tingkat kemandirian yang lebih rendah.</li>
+<li><em>Between-group effect</em>: Ada bukti bahwa sekolah dengan rata-rata pendapatan keluarga yang lebih tinggi cenderung memiliki siswa yang lebih mandiri.</li>
+</ul>
+</div><div class="column">
+<p><img data-src="libs/context.png"></p>
+</div></div>
+</section>
+<section id="contextual-effects-2" class="slide level2">
+<h2><em>Contextual effects</em></h2>
 <div class="columns">
 <div class="column" style="width:55%;">
 <ul>
-<li><p><em>Within</em> (<em>B</em> = -0.621 95% CI [-0.786, -0.456], <em>SE</em> = 0.084, <em>t</em> = -7.386, <em>p</em> = .004), maupun <em>between-group effect</em> (<em>B</em> = 0.732 95% CI [0.583, 0.881], <em>SE</em> = 0.075, <em>t</em> = 9.76, <em>p</em> = .002) berhubungan dengan tingkat kemandirian siswa.</p></li>
-<li><p><em>Within-group effect</em>: Di dalam sekolah yang sama, siswa dengan tingkat pendapatan keluarga yang lebih tinggi cenderung memiliki tingkat kemandirian yang lebih rendah.</p></li>
-<li><p><em>Between-group effect</em>: Ada bukti bahwa sekolah dengan rata-rata pendapatan keluarga yang lebih tinggi cenderung memiliki siswa yang lebih mandiri.</p></li>
-<li><p><strong><em>Contextual effects</em></strong> (<span class="math inline">\(\beta_{between_{ij}}-\beta_{within_{ij}}\)</span> = 0.732 - (-0.621) = 1.535) menunjukkan bahwa terdapat pengaruh tambahan dari konteks sekolah (yang cukup substansial) terhadap kemandirian siswa, di luar pengaruh pendapatan keluarga siswa itu sendiri.</p></li>
+<li><strong><em>Contextual effects</em></strong> (<span class="math inline">\(\beta_{between_{ij}}-\beta_{within_{ij}}\)</span> = 0.732 - (-0.621) = 1.535) menunjukkan bahwa terdapat pengaruh tambahan dari konteks sekolah (yang cukup substansial) terhadap kemandirian siswa, di luar pengaruh pendapatan keluarga siswa itu sendiri.</li>
 </ul>
 </div><div class="column" style="width:45%;">
-<p><img src="libs/context.png" style="width:100%;" class="fancyimage"></p>
+<p><img data-src="libs/context.png"></p>
 </div></div>
 </section>
 <section id="bagaimana-melaporkannya-1" class="slide level2">
@@ -640,6 +694,24 @@ Rizqy Amelia Zein
 <li><p>Bagaimana cara merencanakan jumlah sampelnya?</p></li>
 <li><p>Bagaimana kalau sampelnya bersarang/berjenjang level-3, bahkan lebih?</p></li>
 <li><p>Bagaimana kalo terjadi interaksi antara variabel prediktor level-1 dengan level-2 (<em>cross-level interactions</em>)?</p></li>
+</ul>
+</section>
+<section id="bagaimana-dengan-pengukuran-berulang" class="slide level2">
+<h2>Bagaimana dengan pengukuran berulang?</h2>
+<ul>
+<li><p>Bayangkan kita mengukur <strong>tingkat kecemasan</strong> menteri pada:</p>
+<ul>
+<li>Sebelum BBM naik (T1)</li>
+<li>Saat kebijakan BBM naik diumumkan (T2)</li>
+<li>Seminggu sesudah BBM dinyatakan naik (T3)</li>
+</ul></li>
+<li><p>Kecemasan Menteri Purbaya di T1 dan T2 <strong>sangat mungkin berkorelasi</strong>, karena <strong>Purbaya yang sama</strong> yang diukur dua kali pada dua titik waktu (<em>time points</em> atau <em>beep</em> dalam literatur <em>experience sampling</em>).</p></li>
+<li><p>Ketika ini terjadi, maka model melanggar asumsi <strong>independensi residual</strong> (untuk level-2) dari <code>lme</code> biasa.</p>
+<ul>
+<li>Kalau diabaikan, <em>standard error</em> akan <strong>terlalu kecil</strong> ➡️ risiko <em>Type I error</em> meningkat.</li>
+</ul></li>
+<li><p>Oleh karena itu, dalam desain eksperimen <em>within-subject</em>, penelitian longitudinal, dan <em>experience sampling</em>, peneliti harus mempertimbangkan struktur korelasi residual antarwaktu pengukuran.</p></li>
+<li><p>Lanjutkan dengan belajar mandiri: <a href="https://rameliaz.github.io/mlm-lme-workshop/materi-lme3.html#/title-slide"><code>lme</code> untuk pengukuran berulang dan <em>experience sampling</em></a>.</p></li>
 </ul>
 </section>
 <section id="the-problem-with-linear-relationship" class="slide level2">
