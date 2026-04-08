@@ -51,7 +51,7 @@ website:
             href: https://www.soscisurvey.de/fb-workshop-amel/
       - text: "_Pre-Test_"
         menu:
-          - text: "Kuis _Pre-Test_"
+          - text: "Kuis Pre-Test"
             href: https://forms.cloud.microsoft/r/G6yrJKduRe
       - icon: envelope
         href: "mailto:amelia.zein@psikologi.unair.ac.id"

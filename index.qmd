@@ -6,7 +6,7 @@ title: "Linear Mixed Models (LME) Workshop"
 ### Kuis _Pre-test_
 `lme` merupakan teknik statistik yang kompleks dan menguasainya perlu melewati _learning curve_ yang lumayan curam. Agar _workshop_ ini bermanfaat, peserta ***wajib*** untuk mengikuti kuis _pre-test_ sebelum _workshop_ untuk mengetahui apa saja materi yang perlu dipersiapkan sebelum _workshop_ dimulai.
 
-Silakan klik _navigation bar_ `Kuis _Pre-Test_`untuk mengikuti kuis. 
+Silakan klik menu `Kuis Pre-Test` di _navigation bar_ untuk mengikuti kuis. 
 :::
 
 ::: {.callout-warning}
