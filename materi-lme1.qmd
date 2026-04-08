@@ -61,7 +61,7 @@ Marimar heran sekaligus penasaran, mengapa tiap anak **memberikan respon yang be
 * Klik menu **Dataset** di pojok kanan dan unduh [dataset-sekolah.omv](https://rameliaz.github.io/mlm-lme-workshop/dataset-sekolah.omv)
 * Dalam dataset tersebut ada beberapa variabel
   - **neu** = Kecenderungan _neuroticism_ ibu (_five factor model_). Makin tinggi skor, Ibu makin mudah cemas, frustasi, cemburu, rasa bersalah, dan ketakutan berlebihan.
-  - **trust** = Kepercayaan ibu bahwa perkembangan anak dapat berlangsung secara natural ([**trust in organismic development**](https://link.springer.com/article/10.1007/s11031-008-9092-2)). Makin tinggi skor, ibu makin percaya anaknya bisa berkembang natural.
+  - **trust** = Kepercayaan ibu bahwa perkembangan anak dapat berlangsung secara natural ([**trust in organismic development**](https://link.springer.com/article/10.1007/s11031-008-9092-2)). Makin tinggi skor, ibu makin percaya anaknya bisa berkembang secara natural.
   - **hi** = Pendapatan seluruh anggota keluarga inti (**household income**). Skor makin tinggi, pendapatan total seluruh anggota keluarga yang bekerja semakin besar.
   - **mandiri** = Tingkat kemandirian anak. Makin tinggi skor, anak makin independen dan lebih santai ketika ditinggal orangtuanya di sekolah.
 

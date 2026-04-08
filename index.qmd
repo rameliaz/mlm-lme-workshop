@@ -2,8 +2,16 @@
 title: "Linear Mixed Models (LME) Workshop"
 ---
 
+::: {.callout-note}
+### Kuis _Pre-test_
+`lme` merupakan teknik statistik yang kompleks dan menguasainya perlu melewati _learning curve_ yang lumayan curam. Agar _workshop_ ini bermanfaat, peserta ***wajib*** untuk mengikuti kuis _pre-test_ sebelum _workshop_ untuk mengetahui apa saja materi yang perlu dipersiapkan sebelum _workshop_ dimulai.
+
+Silakan klik _navigation bar_ `Kuis _Pre-test_`untuk mengikuti kuis. 
+:::
+
 ::: {.callout-warning}
-**Perhatian**: Materi akan terus diperbarui sampai dengan H-1 _workshop_.
+#### Perhatian
+Materi akan terus diperbarui sampai dengan H-1 _workshop_.
 :::
 
 Laman web berikut ini merupakan laman web untuk **Workshop Linear Mixed Models** yang diselenggarakan oleh program studi Doktor (S3) Psikologi, Fakultas Psikologi, Universitas Airlangga.
@@ -48,6 +56,7 @@ Berikut adalah *outline* materi yang tersedia di laman web ini:
 * Menulis hasil analisis regresi linear dengan _interaction terms_ dalam manuskrip
 
 ::: {.callout-important}
+#### Regresi OLS tidak diajarkan di _workshop_
 Karena asumsinya mahasiswa S3 sudah memiliki pengetahuan statistik dasar, maka  **Bagian 1 tidak diajarkan** di _workshop_. Bagian 1 **harus dikuasai** oleh peserta terlebih dahulu sebelum memulai _workshop_ dan dapat dipelajari secara mandiri.
 :::
 
@@ -83,11 +92,13 @@ Karena asumsinya mahasiswa S3 sudah memiliki pengetahuan statistik dasar, maka  
 * Melaporkan hasil dalam manuskrip
 
 ::: {.callout-important}
-Karena keterbatasan waktu, bagian 3️⃣ **tidak diajarkan** di _workshop_. Materi tersedia di laman web ini dan dapat dipelajari peserta secara mandiri.
+#### _Repeated Measures_ dan ESM tidak diajarkan
+Karena keterbatasan waktu, bagian 3️⃣ **tidak diajarkan** secara mendalam di _workshop_. Materi tersedia di laman web ini dan dapat dipelajari peserta secara mandiri.
 :::
 
 ::: {.callout-note}
-**Unduh materi dalam bentuk PDF**: Klik _navigation bar_ yang mengarah pada PDF materi, kemudian tekan `ctrl` dan `p` bersamaan. Setelah _window_ untuk _print_ muncul, pilih `Save to PDF` dan klik `Save`.
+#### Unduh materi dalam bentuk PDF** 
+Klik _navigation bar_ yang mengarah pada PDF materi, kemudian tekan `ctrl` dan `p` bersamaan. Setelah _window_ untuk _print_ muncul, pilih `Save to PDF` dan klik `Save`.
 :::
 
 ## Referensi
