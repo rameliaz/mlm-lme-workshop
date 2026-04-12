@@ -38,18 +38,18 @@ website:
       - text: "Dataset"
         menu:
           - text: "Dataset1-Sekolah"
-            href: dataset-sekolah.omv
+            href: materials/dataset-sekolah.omv
           - text: "Dataset2-Organisasi"
-            href: dataset-organisasi.omv
+            href: materials/dataset-organisasi.omv
           - text: "Dataset Repeated Measures"
-            href: dataset-rm.omv
+            href: materials/dataset-rm.omv
           - text: "Dataset ESM"
-            href: dataset-esm.omv
+            href: materials/dataset-esm.omv
       - text: "Survei"
         menu:
           - text: "Evaluasi Workshop"
             href: https://www.soscisurvey.de/fb-workshop-amel/
-      - text: "_Pre-Test_"
+      - text: "Pre-Test"
         menu:
           - text: "Kuis Pre-Test"
             href: https://forms.cloud.microsoft/r/G6yrJKduRe
