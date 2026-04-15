@@ -545,23 +545,23 @@ Sebelum studi dimulai, partisipan mengisi:
 
 ## Bagaimana melaporkannya? 1️⃣
 
-"...untuk menguji hipotesis penelitian, kami melakukan analisis _linear mixed effects_ (LME) dengan menggunakan REML (_Restricted Maximum Likelihood_) di jamovi (GAMLj). Data bersarang dalam dua level: pengukuran sesaat (_beep_, N=2.800) bersarang dalam individu (N=80).
+> Untuk menguji hipotesis penelitian, kami melakukan analisis _linear mixed effects_ (LME) dengan menggunakan REML (_Restricted Maximum Likelihood_) di jamovi (GAMLj). Data bersarang dalam dua level: pengukuran sesaat (_beep_, N=2.800) bersarang dalam individu (N=80).
 
-Sebelum analisis, variabel stres sesaat di-_person-mean centered_ dengan cara mengurangi skor stres setiap _beep_ dengan rata-rata skor stres individu tersebut di seluruh _beep_-nya. Rata-rata stres individu dimasukkan sebagai prediktor Level-2 yang terpisah untuk mengestimasi efek _between-person_ secara eksplisit.
+> Sebelum analisis, variabel stres sesaat di-_person-mean centered_ dengan cara mengurangi skor stres setiap _beep_ dengan rata-rata skor stres individu tersebut di seluruh _beep_-nya. Rata-rata stres individu dimasukkan sebagai prediktor Level-2 yang terpisah untuk mengestimasi efek _between-person_ secara eksplisit.
 
-Struktur kovarians residual AR(1) dipilih untuk menangkap _temporal autocorrelation_ antar pengukuran, yang diperkuat oleh estimasi koefisien autokorelasi ρ = 0.372, menunjukkan korelasi yang moderat antara pengukuran berturutan..."
+> Struktur kovarians residual AR(1) dipilih untuk menangkap _temporal autocorrelation_ antar pengukuran, yang diperkuat oleh estimasi koefisien autokorelasi ρ = 0.372, menunjukkan korelasi yang moderat antara pengukuran berturutan.
 
 ## Bagaimana melaporkannya? 2️⃣
 
-"..._model null_ menunjukkan bahwa 59.9% varians afek positif sesaat berada di level individu (ICC = 0.599), mengindikasikan bahwa penggunaan `lme` lebih sesuai daripada regresi OLS.
+> _Model null_ menunjukkan bahwa 59.9% varians afek positif sesaat berada di level individu (ICC = 0.599), mengindikasikan bahwa penggunaan `lme` lebih sesuai daripada regresi OLS.
 
-Efek _within-person_ stres sesaat terhadap afek positif sesaat signifikan negatif (_B_ = -0.336 95% CI [-0.371, -301], _SE_ = 0.017, _t_ = -18.72, _p_ = .001), artinya ketika seseorang **saat ini lebih stres dari biasanya**, afek positifnya juga lebih rendah dari biasanya sebesar 0.336 poin.
+> Efek _within-person_ stres sesaat terhadap afek positif sesaat signifikan negatif (_B_ = -0.336 95% CI [-0.371, -301], _SE_ = 0.017, _t_ = -18.72, _p_ = .001), artinya ketika seseorang **saat ini lebih stres dari biasanya**, afek positifnya juga lebih rendah dari biasanya sebesar 0.336 poin.
 
-Efek _between-person_ stres juga signifikan (_B_ = -0.409 95% CI [-0.548, -0.271], _SE_ = 0.069, _t_ = -5.89, _p_ = .001), artinya **orang yang secara umum lebih stres** memiliki afek positif rata-rata yang lebih rendah sebesar 0.409 poin, dibanding orang yang lebih tidak stres — bahkan ketika perbedaan fluktuasi sesaat sudah dikontrol.
+> Efek _between-person_ stres juga signifikan (_B_ = -0.409 95% CI [-0.548, -0.271], _SE_ = 0.069, _t_ = -5.89, _p_ = .001), artinya **orang yang secara umum lebih stres** memiliki afek positif rata-rata yang lebih rendah sebesar 0.409 poin, dibanding orang yang lebih tidak stres — bahkan ketika perbedaan fluktuasi sesaat sudah dikontrol.
 
-Efek regulasi emosi positif dan signifikan berkaitan dengan afek positif (_B_ = 0.176 95% CI [0.053, 0.300], _SE_ = 0.061, _t_ = 2.86, _p_ = .006). Artinya, partisipan dengan regulasi emosi yang baik juga cenderung memiliki afek positif yang lebih baik.
+> Efek regulasi emosi positif dan signifikan berkaitan dengan afek positif (_B_ = 0.176 95% CI [0.053, 0.300], _SE_ = 0.061, _t_ = 2.86, _p_ = .006). Artinya, partisipan dengan regulasi emosi yang baik juga cenderung memiliki afek positif yang lebih baik.
 
-_Cross-level interaction_ antara stres sesaat dan regulasi emosi signifikan (_B_ = 0.006 95% CI [0.004, 0.009], _SE_ = 0.001, _t_ = 6.08, _p_ = .001), menunjukkan bahwa orang dengan regulasi emosi yang lebih baik menunjukkan reaktivitas stres-afek yang lebih lemah..."
+> _Cross-level interaction_ antara stres sesaat dan regulasi emosi signifikan (_B_ = 0.006 95% CI [0.004, 0.009], _SE_ = 0.001, _t_ = 6.08, _p_ = .001), menunjukkan bahwa orang dengan regulasi emosi yang lebih baik menunjukkan reaktivitas stres-afek yang lebih lemah.
 
 ## Rangkuman
 

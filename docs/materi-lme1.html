@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.10.3">
 
   <meta name="author" content="Rizqy Amelia Zein">
-  <meta name="dcterms.date" content="2026-04-12">
+  <meta name="dcterms.date" content="2026-04-15">
   <title>LME Workshop – Regresi Linear (Ordinary Least Square)</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -149,7 +149,7 @@ Rizqy Amelia Zein
     </div>
 </div>
 
-  <p class="date">2026-04-12</p>
+  <p class="date">2026-04-15</p>
 </section>
 <section id="outline" class="slide level2">
 <h2><em>Outline</em></h2>
@@ -580,21 +580,53 @@ Rizqy Amelia Zein
 </section>
 <section id="cara-melaporkannya-dalam-manuskrip" class="slide level2">
 <h2>Cara melaporkannya dalam manuskrip</h2>
-<p>“… untuk menguji hipotesis penelitian, peneliti melakukan analisis regresi <em>ordinary least square</em> (OLS). Hasil analisis menunjukkan bahwa model cocok menggambarkan data dan mampu menjelaskan kurang dari 40% varians tingkat kemandirian siswa (<em>F</em>(1,398) = 221, <em>p</em> = .001, <em>R</em><sup>2</sup> = .357).</p>
+<blockquote>
+<p>Untuk menguji hipotesis penelitian, peneliti melakukan analisis regresi <em>ordinary least square</em> (OLS). Hasil analisis menunjukkan bahwa model cocok menggambarkan data dan mampu menjelaskan kurang dari 40% varians tingkat kemandirian siswa (<em>F</em>(1,398) = 221, <em>p</em> = .001, <em>R</em><sup>2</sup> = .357).</p>
+</blockquote>
+<blockquote>
 <p>Kecenderungan <em>neuroticism</em> ibu berkontribusi berarti dalam menjelaskan varians tingkat kemandirian siswa, dimana perubahan kecenderungan <em>neuroticism</em> sebesar 1 poin diasosiasikan dengan perubahan tingkat kemandirian anak sebesar 0.544 (<em>B</em> = 0.544 95% CI [0.472, 0.616], <em>SE</em> = 0.036, <em>t</em> = 14.88, <em>p</em> = .001). Berbeda dengan yang dihipotesiskan sebelumnya, ibu dengan tingkat <em>neuroticism</em> yang tinggi justru mengasuh anak dengan tingkat kemandirian yang juga tinggi.</p>
+</blockquote>
+<blockquote>
 <p>Setelah dilakukan diagnostik, varians yang tidak dapat dijelaskan oleh model berdistribusi normal dan ketika dikorelasikan dengan nilai prediktif tingkat kemandirian siswa dan kecenderungan <em>neuroticism</em> ibu, maka menghasilkan varians yang homogen (homoskedastik).</p>
-<p>Diagnostik <em>outlier</em> dilakukan dengan menggunakan <em>Cook’s distance</em>, dan menghasilkan kesimpulan bahwa apabila <em>outlier</em> tidak disertakan dalam model, maka perubahan rerata, nilai tengah, dan simpangan baku kurang dari satu dari nilai awalnya, sehingga tidak berpotensi mendistorsi garis regresi…”</p>
+</blockquote>
+<blockquote>
+<p>Diagnostik <em>outlier</em> dilakukan dengan menggunakan <em>Cook’s distance</em>, dan menghasilkan kesimpulan bahwa apabila <em>outlier</em> tidak disertakan dalam model, maka perubahan rerata, nilai tengah, dan simpangan baku kurang dari satu dari nilai awalnya, sehingga tidak berpotensi mendistorsi garis regresi.</p>
+</blockquote>
 </section>
 <section id="latihan-2" class="slide level2">
 <h2>Latihan 2️⃣</h2>
 <ul>
-<li>Ternyata, <em>neuroticism</em> berkorelasi positif dengan tingkat kemandirian.</li>
+<li>Ternyata, <em>neuroticism</em> berkorelasi positif dengan tingkat kemandirian.
+<ul>
+<li>Ini berbeda dengan hipotesis Marimar sebelumnya.</li>
+</ul></li>
 <li>Marimar tidak menyerah - ia lalu menambahkan interaksi antara <em>neuroticism</em> dengan <em>trust</em>
 <ul>
 <li>Mungkin saja ibu yang percaya/kurang percaya bahwa anak dapat berkembang secara natural, korelasi antara <em>neuroticism</em> dengan kemandirian akan negatif, sesuai.</li>
 <li>Selain itu, ia ingin tahu kaitan antara pendapatan keluarga dengan tingkat kemandirian anak.</li>
 </ul></li>
 <li>Tambahkan variabel <strong>trust</strong>, <strong>neu</strong>, dan <strong>hi</strong> dalam kolom <strong>covariates</strong>.</li>
+</ul>
+</section>
+<section id="regresi-dengan-suku-interaksi-interaction-terms" class="slide level2">
+<h2>Regresi dengan suku interaksi (<em>interaction terms</em>)</h2>
+<p>Ada 2️⃣ hal yang diestimasi:</p>
+<p><strong><em>Main effect</em></strong> * Artinya, efek langsung satu prediktor terhadap <em>outcome</em>, tanpa mempertimbangkan nilai prediktor lain dalam model (prediktor lain di-<em>hold constant</em> = 0) * Tetapi, <strong>dalam model regresi dengan suku interaksi</strong>, <em>main effect</em> merupakan efek kondisional pada nilai tertentu dari moderator, yaitu rata-ratanya setelah <em>centering</em> * Contoh: ketika <em>main effect</em> <em>neuroticism</em> (<em>b</em>) = 0.31, maka <em>b</em> adalah efek <em>neuroticism</em> terhadap kemandirian ketika <em>trust in organismic development</em> = rata-rata</p>
+<p><strong><em>Interaction effect</em></strong> * Efek interaksi adalah interpretasi substantif dari koefisien (<em>slope</em>) suku interaksi, yaitu seberapa besar efek X<sub>1</sub> terhadap <em>outcome</em> berubah setiap satu unit perubahan X<sub>2</sub> * Jika signifikan, artinya hubungan antara X<sub>1</sub> dan <em>outcome</em> tidak konstan, melainkan berbeda-beda tergantung nilai X<sub>2</sub></p>
+</section>
+<section id="mean-centering-pada-suku-interaksi-interaction-terms" class="slide level2">
+<h2><em>Mean-centering</em> pada suku interaksi (<em>interaction terms</em>)</h2>
+<ul>
+<li><p>Ketika melakukan analisis regresi dengan suku interaksi, maka kita perlu melakukan prosedur <em>mean centering</em> untuk prediktor dan moderator.</p></li>
+<li><p>Alsannya, koefisien <em>main effect</em> akan lebih mudah diinterpretasi</p>
+<ul>
+<li>Tanpa <em>centering</em>, koefisien untuk X<sub>1</sub> adalah efek X<sub>1</sub> ketika X<sub>2</sub> = 0, yang tidak memiliki makna substantif</li>
+<li>Dengan <em>centering</em>, koefisien X<sub>1</sub> adalah efek X<sub>1</sub> ketika X<sub>2</sub> berada di rata-ratanya</li>
+</ul></li>
+<li><p>Selain itu, mencegah multikolinearitas antara prediktor dan suku interaksi — Tanpa <em>centering</em>, variabel interaksi (X<sub>1</sub> × X<sub>2</sub>) sangat berkorelasi dengan X<sub>1</sub> dan X<sub>1</sub> secara terpisah karena merupakan hasil kali keduanya</p>
+<ul>
+<li><em>Centering</em> tidak menghilangkan multikolinearitas secara substantif (yang alasannya <em>conceptual overlap</em>), tetapi hanya mengurangi <strong>korelasi artifisial</strong> antara <em>main effect</em> dan suku interaksi</li>
+</ul></li>
 </ul>
 </section>
 <section id="latihan-2-1" class="slide level2">
@@ -605,23 +637,23 @@ Rizqy Amelia Zein
 <ul>
 <li>Klik <strong>Block 1</strong>, sampai keluar <em>shading</em> di pinggir kotak, lalu masukkan <strong>hi</strong></li>
 <li>Klik <strong>Block 2</strong>, sampai keluar <em>shading</em> di pinggir kotak</li>
-<li>Kemudian sambil menekan tombol <code>ctrl</code>, klik <strong>neu</strong> kemudian <strong>trust</strong>, lalu klik tanda panah yang kedua dan pilih <strong>interaction</strong></li>
+<li>Untuk membuat suku interaksi, sambil menekan tombol <code>ctrl</code>, klik <strong>neu_mc</strong> kemudian <strong>trust_mc</strong>, lalu klik tanda panah yang kedua dan pilih <strong>interaction</strong></li>
+<li>Masukkan <strong>neu_mc</strong> dan <strong>trust_mc</strong> sebagai prediktor individual untuk mengestimasi <em>main effect</em></li>
 </ul></li>
 <li>Dengan begitu kita punya 2 model regresi
 <ul>
 <li>Model 1 prediktornya <strong>hi</strong></li>
-<li>Model 2 prediktornya <strong>hi</strong> dan interaksi antara <strong>neu</strong> dengan <strong>trust</strong></li>
+<li>Model 2 prediktornya <strong>hi</strong> dan interaksi antara <strong>neu</strong> dengan <strong>trust</strong> (<em>main effect</em> + <em>interction effect</em>)</li>
 </ul></li>
 <li>Pada opsi <strong>assumption checks</strong>, tambahkan centang pada <strong>collinearity statistics</strong></li>
 <li>Pada opsi <strong>model fit</strong>, klik <strong>AIC</strong> dan <strong>BIC</strong>.</li>
-<li>Pada opsi <strong>estimated marginal means</strong>, masukkan <strong>neu</strong> dan <strong>trust</strong> dalam <strong>terms 1</strong></li>
+<li>Pada opsi <strong>estimated marginal means</strong>, masukkan <strong>neu_mc</strong> dan <strong>trust_mc</strong> dalam <strong>terms 1</strong></li>
 </ul>
 </section>
 <section id="model-fit-2" class="slide level2">
 <h2>Model fit</h2>
-<div class="columns">
-<div class="column">
-<p>Model 2 (<em>F</em>(2,397) = 146, <em>p</em> = .001, <em>Adj. R</em><sup>2</sup> = .42) dapat menjelaskan varians tingkat kemandirian anak lebih baik daripada Model 1 (<em>F</em>(1,398) = 172, <em>p</em> = .001, <em>Adj. R</em><sup>2</sup> = .30), dengan <em>overlapping variances</em> sebesar 42% dibanding 30%.</p>
+
+<img data-src="libs/mfit-2.png" class="quarto-figure quarto-figure-center r-stretch"><p>Model 2 (<em>F</em>(2,397) = 74.3, <em>p</em> = .001, <em>Adj. R</em><sup>2</sup> = .424) dapat menjelaskan varians tingkat kemandirian anak lebih baik daripada Model 1 (<em>F</em>(1,398) = 171.8, <em>p</em> = .001, <em>R</em><sup>2</sup> = .300), dengan <em>overlapping variances</em> sebesar 42.4% dibanding 30%.</p>
 <p><strong><em>Information criteria</em> (AIC &amp; BIC)</strong></p>
 <ul>
 <li>Digunakan untuk mengakomodasi kelemahan dari <em>R</em><sup>2</sup> (apabila prediktor dalam model ditambah terus, maka nilai <em>R</em><sup>2</sup> akan terus naik)</li>
@@ -629,13 +661,6 @@ Rizqy Amelia Zein
 <li>Rumus dari <em>information criteria</em> memberi “penalti” kepada model yang mengandung lebih banyak variabel prediktor</li>
 <li>Pilih model dengan AIC dan BIC yang terkecil (Model 2)</li>
 </ul>
-</div><div class="column">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="libs/mfit-2.png" class="quarto-figure quarto-figure-center" style="width:150.0%"></p>
-</figure>
-</div>
-</div></div>
 </section>
 <section id="model-comparison" class="slide level2">
 <h2><em>Model comparison</em></h2>
@@ -654,16 +679,16 @@ Rizqy Amelia Zein
 <section id="koefisien-model-2" class="slide level2">
 <h2>Koefisien model 2</h2>
 
-<img data-src="libs/mod-coef2.png" class="quarto-figure quarto-figure-center r-stretch"><h4 id="pendapatan-keluarga-dapat-menjelaskan-variasi-kemandirian-anak-b-0.200-95-ci-0.103-0.297-se-0.04-t-4.06-p-.001.">Pendapatan keluarga dapat menjelaskan variasi kemandirian anak (<em>B</em> = 0.200 95% CI [0.103, 0.297], <em>SE</em> = 0.04, <em>t</em> = 4.06, <em>p</em> = .001).</h4>
-<p>Artinya, anak yang dibesarkan di keluarga dengan tingkat pendapatan yang tinggi, maka cenderung lebih mandiri.</p>
-<h4 id="interaksi-antara-neuroticism-dengan-trust-in-organismic-development-juga-signifikan-dalam-menjelaskan-varians-kemandirian-anak-b-0.019-95-ci-0.015-0.023-se-0.002-t-9.15-p-.001.">Interaksi antara <em>neuroticism</em> dengan <em>trust in organismic development</em> juga signifikan dalam menjelaskan varians kemandirian anak (<em>B</em> = 0.019 95% CI [0.015, 0.023], <em>SE</em> = 0.002, <em>t</em> = 9.15, <em>p</em> = .001).</h4>
+<img data-src="libs/mod-coef2.png" class="quarto-figure quarto-figure-center r-stretch"><p>Pendapatan keluarga dapat menjelaskan variasi kemandirian anak (<em>B</em> = 0.153 95% CI [0.025, 0.281], <em>SE</em> = 0.065, <em>t</em> = 2.354, <em>p</em> = .019). Artinya, anak yang dibesarkan di keluarga dengan tingkat pendapatan yang tinggi, maka cenderung lebih mandiri.</p>
+<p><em>Main effect neuroticism</em> (<em>B</em> = 0.387 95% CI [0.261, 0.514], <em>SE</em> = 0.064, <em>t</em> = 6.018, <em>p</em> = .001) dan <em>trust in organismic development</em> (<em>B</em> = 0.391 95% CI [0.275, 0.508], <em>SE</em> = 0.059, <em>t</em> = 6.609, <em>p</em> = .001) secara independen menjelaskan tingkat kemandirian anak.</p>
+<p>Tidak ada bukti bahwa ada interaksi antara <em>neuroticism</em> dengan <em>trust in organismic development</em> dalam menjelaskan varians kemandirian anak (<em>B</em> = -0.005 95% CI [-0.019, 0.018], <em>SE</em> = 0.009, <em>t</em> = -0.05, <em>p</em> = .955).</p>
 </section>
 <section id="estimated-marginal-means" class="slide level2">
 <h2><em>Estimated Marginal Means</em></h2>
 <div class="columns">
 <div class="column">
 <ul>
-<li>Interpretasi <em>slopes</em> pada <em>interaction terms</em>:
+<li>Interpretasi <em>slopes</em> pada <em>interaction terms</em> (<strong>kalau signifikan</strong>):
 <ul>
 <li><em>Unstandardized B</em> yang positif artinya, pada ibu dengan <em>trust in organismic development</em> yang tinggi (+1SD), korelasi antara kecenderungan <em>neuroticism</em> dengan kemandirian anak juga semakin positif/menguat.</li>
 </ul></li>
@@ -701,10 +726,18 @@ Rizqy Amelia Zein
 </section>
 <section id="bagaimana-melaporkannya" class="slide level2">
 <h2>Bagaimana melaporkannya?</h2>
-<p>“…untuk menginvestigasi keterkaitan antara pendapatan keluarga, kecenderungan <em>neuroticism</em> ibu, dan kepercayaan ibu bahwa perkembangan anak dapat terjadi secara natural dengan tingkat kemandirian anak, peneliti melakukan analisis regresi linear hirarkial dengan <em>interaction terms</em>. Peneliti menyusun dua model, dimana; model 1 mengestimasi varians tingkat kemandirian anak dengan pendapatan keluarga inti sebagai prediktor, sedangkan pada model 2 peneliti menambahkan prediktor berupa <em>interaction terms</em> antara <em>neuroticism</em> dengan <em>trust</em>.</p>
-<p>Ketika dibandingkan, Model 1 dan Model 2 berbeda signifikan (<em>F</em>(1,397) = 83.7, <em>p</em> = .001). <em>R</em><sup>2</sup> bertambah sebesar 12.2% (ΔR<sup>2</sup> = .122). Model 2 (<em>F</em>(2,397) = 146, <em>p</em> = .001, <em>Adj. R</em><sup>2</sup> = .420, AIC = 2472, BIC = 2488) dapat menjelaskan varians tingkat kemandirian anak lebih baik daripada Model 1 (<em>F</em>(1,398) = 172, <em>p</em> = .001, <em>Adj. R</em><sup>2</sup> = .300, AIC = 2547, BIC = 2559).</p>
-<p>Pendapatan keluarga dapat menjelaskan variasi kemandirian anak (<em>B</em> = 0.200 95% CI [0.103, 0.297], <em>SE</em> = 0.04, <em>t</em> = 4.06, <em>p</em> = .001). Interaksi antara <em>neuroticism</em> dengan <em>trust</em> juga signifikan (<em>B</em> = 0.019 95% CI [0.015, 0.023], <em>SE</em> = 0.002, <em>t</em> = 9.15, <em>p</em> = .001). Artinya, korelasi antara kecenderungan <em>neuroticism</em> ibu dengan kemandirian anak akan menguat pada ibu yang <em>trust</em> nya tinggi.</p>
-<p>Potensi multikolinearitas dideteksi dengan VIF dan hasil analisis menunjukkan multikolinearitas kemungkinan besar tidak terjadi (VIF = 1.93)…”</p>
+<blockquote>
+<p>Untuk menginvestigasi keterkaitan antara pendapatan keluarga, kecenderungan <em>neuroticism</em> ibu, dan kepercayaan ibu bahwa perkembangan anak dapat terjadi secara natural dengan tingkat kemandirian anak, peneliti melakukan analisis regresi linear hirarkial dengan <em>interaction terms</em>. Peneliti menyusun dua model, dimana; model 1 mengestimasi varians tingkat kemandirian anak dengan pendapatan keluarga inti sebagai prediktor, sedangkan pada model 2 peneliti menambahkan prediktor berupa <em>interaction terms</em> antara <em>neuroticism</em> dengan <em>trust</em>.</p>
+</blockquote>
+<blockquote>
+<p>Ketika dibandingkan, Model 1 dan Model 2 berbeda signifikan (<em>F</em>(1,397) = 29.5, <em>p</em> = .001). <em>R</em><sup>2</sup> bertambah sedikit (ΔR<sup>2</sup> = .128). Model 2 (<em>F</em>(2,397) = 74.3, <em>p</em> = .001, <em>Adj. R</em><sup>2</sup> = .429, AIC = 2472, BIC = 2496) dapat menjelaskan varians tingkat kemandirian anak sedikit lebih baik daripada Model 1 (<em>F</em>(1,398) = 171.8, <em>p</em> = .001, <em>Adj. R</em><sup>2</sup> = .300, AIC = 2547, BIC = 2559).</p>
+</blockquote>
+<blockquote>
+<p>Pendapatan keluarga dapat menjelaskan variasi kemandirian anak (<em>B</em> = 0.153 95% CI [0.025, 0.281], <em>SE</em> = 0.065, <em>t</em> = 2.354, <em>p</em> = .019). <em>Main effect neuroticism</em> (<em>B</em> = 0.387 95% CI [0.261, 0.514], <em>SE</em> = 0.064, <em>t</em> = 6.018, <em>p</em> = .001) dan <em>trust in organismic development</em> (<em>B</em> = 0.391 95% CI [0.275, 0.508], <em>SE</em> = 0.059, <em>t</em> = 6.609, <em>p</em> = .001) secara independen menjelaskan tingkat kemandirian anak. Tidak ada bukti bahwa interaksi antara <em>neuroticism</em> dengan <em>trust in organismic development</em> dapat menjelaskan varians kemandirian anak (<em>B</em> = -0.005 95% CI [-0.019, 0.018], <em>SE</em> = 0.009, <em>t</em> = -0.05, <em>p</em> = .955).</p>
+</blockquote>
+<blockquote>
+<p>Potensi multikolinearitas dideteksi dengan VIF dan hasil analisis menunjukkan multikolinearitas kemungkinan tidak terjadi (VIF = 1.03 - 3.47).</p>
+</blockquote>
 </section>
 <section id="latihan-mandiri-1" class="slide level2">
 <h2>Latihan mandiri 1️⃣</h2>

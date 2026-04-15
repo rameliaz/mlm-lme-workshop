@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.10.3">
 
   <meta name="author" content="Rizqy Amelia Zein">
-  <meta name="dcterms.date" content="2026-04-12">
+  <meta name="dcterms.date" content="2026-04-15">
   <title>LME Workshop – lme untuk Pengukuran Berulang dan Experience Sampling</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -149,7 +149,7 @@ Rizqy Amelia Zein
     </div>
 </div>
 
-  <p class="date">2026-04-12</p>
+  <p class="date">2026-04-15</p>
 </section>
 <section id="outline" class="slide level2">
 <h2><em>Outline</em></h2>
@@ -982,17 +982,33 @@ Rizqy Amelia Zein
 </section>
 <section id="bagaimana-melaporkannya-1" class="slide level2">
 <h2>Bagaimana melaporkannya? 1️⃣</h2>
-<p>“…untuk menguji hipotesis penelitian, kami melakukan analisis <em>linear mixed effects</em> (LME) dengan menggunakan REML (<em>Restricted Maximum Likelihood</em>) di jamovi (GAMLj). Data bersarang dalam dua level: pengukuran sesaat (<em>beep</em>, N=2.800) bersarang dalam individu (N=80).</p>
+<blockquote>
+<p>Untuk menguji hipotesis penelitian, kami melakukan analisis <em>linear mixed effects</em> (LME) dengan menggunakan REML (<em>Restricted Maximum Likelihood</em>) di jamovi (GAMLj). Data bersarang dalam dua level: pengukuran sesaat (<em>beep</em>, N=2.800) bersarang dalam individu (N=80).</p>
+</blockquote>
+<blockquote>
 <p>Sebelum analisis, variabel stres sesaat di-<em>person-mean centered</em> dengan cara mengurangi skor stres setiap <em>beep</em> dengan rata-rata skor stres individu tersebut di seluruh <em>beep</em>-nya. Rata-rata stres individu dimasukkan sebagai prediktor Level-2 yang terpisah untuk mengestimasi efek <em>between-person</em> secara eksplisit.</p>
-<p>Struktur kovarians residual AR(1) dipilih untuk menangkap <em>temporal autocorrelation</em> antar pengukuran, yang diperkuat oleh estimasi koefisien autokorelasi ρ = 0.372, menunjukkan korelasi yang moderat antara pengukuran berturutan…”</p>
+</blockquote>
+<blockquote>
+<p>Struktur kovarians residual AR(1) dipilih untuk menangkap <em>temporal autocorrelation</em> antar pengukuran, yang diperkuat oleh estimasi koefisien autokorelasi ρ = 0.372, menunjukkan korelasi yang moderat antara pengukuran berturutan.</p>
+</blockquote>
 </section>
 <section id="bagaimana-melaporkannya-2" class="slide level2">
 <h2>Bagaimana melaporkannya? 2️⃣</h2>
-<p>“…<em>model null</em> menunjukkan bahwa 59.9% varians afek positif sesaat berada di level individu (ICC = 0.599), mengindikasikan bahwa penggunaan <code>lme</code> lebih sesuai daripada regresi OLS.</p>
+<blockquote>
+<p><em>Model null</em> menunjukkan bahwa 59.9% varians afek positif sesaat berada di level individu (ICC = 0.599), mengindikasikan bahwa penggunaan <code>lme</code> lebih sesuai daripada regresi OLS.</p>
+</blockquote>
+<blockquote>
 <p>Efek <em>within-person</em> stres sesaat terhadap afek positif sesaat signifikan negatif (<em>B</em> = -0.336 95% CI [-0.371, -301], <em>SE</em> = 0.017, <em>t</em> = -18.72, <em>p</em> = .001), artinya ketika seseorang <strong>saat ini lebih stres dari biasanya</strong>, afek positifnya juga lebih rendah dari biasanya sebesar 0.336 poin.</p>
+</blockquote>
+<blockquote>
 <p>Efek <em>between-person</em> stres juga signifikan (<em>B</em> = -0.409 95% CI [-0.548, -0.271], <em>SE</em> = 0.069, <em>t</em> = -5.89, <em>p</em> = .001), artinya <strong>orang yang secara umum lebih stres</strong> memiliki afek positif rata-rata yang lebih rendah sebesar 0.409 poin, dibanding orang yang lebih tidak stres — bahkan ketika perbedaan fluktuasi sesaat sudah dikontrol.</p>
+</blockquote>
+<blockquote>
 <p>Efek regulasi emosi positif dan signifikan berkaitan dengan afek positif (<em>B</em> = 0.176 95% CI [0.053, 0.300], <em>SE</em> = 0.061, <em>t</em> = 2.86, <em>p</em> = .006). Artinya, partisipan dengan regulasi emosi yang baik juga cenderung memiliki afek positif yang lebih baik.</p>
-<p><em>Cross-level interaction</em> antara stres sesaat dan regulasi emosi signifikan (<em>B</em> = 0.006 95% CI [0.004, 0.009], <em>SE</em> = 0.001, <em>t</em> = 6.08, <em>p</em> = .001), menunjukkan bahwa orang dengan regulasi emosi yang lebih baik menunjukkan reaktivitas stres-afek yang lebih lemah…”</p>
+</blockquote>
+<blockquote>
+<p><em>Cross-level interaction</em> antara stres sesaat dan regulasi emosi signifikan (<em>B</em> = 0.006 95% CI [0.004, 0.009], <em>SE</em> = 0.001, <em>t</em> = 6.08, <em>p</em> = .001), menunjukkan bahwa orang dengan regulasi emosi yang lebih baik menunjukkan reaktivitas stres-afek yang lebih lemah.</p>
+</blockquote>
 </section>
 <section id="rangkuman" class="slide level2">
 <h2>Rangkuman</h2>
