@@ -393,13 +393,13 @@ Selalu laporkan _unstandardized estimates_ dan _confidence interval_ ([Appelbaum
 :::
 ::::
 
-## Cara melaporkannya dalam manuskrip
+## Cara melaporkannya dalam manuskrip 1️⃣
 
 > Untuk menguji hipotesis penelitian, peneliti melakukan analisis regresi _ordinary least square_ (OLS). Hasil analisis menunjukkan bahwa model cocok menggambarkan data dan mampu menjelaskan kurang dari 40% varians tingkat kemandirian siswa (_F_(1,398) = 221, _p_ = .001, _R_^2^ = .357).
-
 > Kecenderungan _neuroticism_ ibu berkontribusi berarti dalam menjelaskan varians tingkat kemandirian siswa, dimana perubahan kecenderungan _neuroticism_ sebesar 1 poin diasosiasikan dengan perubahan tingkat kemandirian anak sebesar 0.544 (_B_ = 0.544 95% CI [0.472, 0.616], _SE_ = 0.036, _t_ = 14.88, _p_ = .001). Berbeda dengan yang dihipotesiskan sebelumnya, ibu dengan tingkat _neuroticism_ yang tinggi justru mengasuh anak dengan tingkat kemandirian yang juga tinggi.
-
 > Setelah dilakukan diagnostik, varians yang tidak dapat dijelaskan oleh model berdistribusi normal dan ketika dikorelasikan dengan nilai prediktif tingkat kemandirian siswa dan kecenderungan _neuroticism_ ibu, maka menghasilkan varians yang homogen (homoskedastik).
+
+## Cara melaporkannya dalam manuskrip 2️⃣
 
 > Diagnostik _outlier_ dilakukan dengan menggunakan _Cook's distance_, dan menghasilkan kesimpulan bahwa apabila _outlier_ tidak disertakan dalam model, maka perubahan rerata, nilai tengah, dan simpangan baku kurang dari satu dari nilai awalnya, sehingga tidak berpotensi mendistorsi garis regresi.
 
@@ -417,25 +417,31 @@ Selalu laporkan _unstandardized estimates_ dan _confidence interval_ ([Appelbaum
 Ada 2️⃣ hal yang diestimasi:
 
 **_Main effect_**
+
 * Artinya, efek langsung satu prediktor terhadap _outcome_, tanpa mempertimbangkan nilai prediktor lain dalam model (prediktor lain di-_hold constant_ = 0)
 * Tetapi, **dalam model regresi dengan suku interaksi**, _main effect_ merupakan efek kondisional pada nilai tertentu dari moderator, yaitu rata-ratanya setelah _centering_
 * Contoh: ketika _main effect_ _neuroticism_ (_b_) = 0.31, maka _b_ adalah efek _neuroticism_ terhadap kemandirian ketika _trust in organismic development_ = rata-rata
 
 **_Interaction effect_**
+
 * Efek interaksi adalah interpretasi substantif dari koefisien (_slope_) suku interaksi, yaitu seberapa besar efek X~1~ terhadap _outcome_ berubah setiap satu unit perubahan X~2~
 * Jika signifikan, artinya hubungan antara X~1~ dan _outcome_ tidak konstan, melainkan berbeda-beda tergantung nilai X~2~
 
 ## _Mean-centering_ pada suku interaksi (_interaction terms_)
 
+::: {.incremental}
+
 * Ketika melakukan analisis regresi dengan suku interaksi, maka kita perlu melakukan prosedur _mean centering_ untuk prediktor dan moderator.
 
-* Alsannya, koefisien _main effect_ akan lebih mudah diinterpretasi
+* Alasannya, koefisien _main effect_ akan lebih mudah diinterpretasi
   - Tanpa _centering_, koefisien untuk X~1~ adalah efek X~1~ ketika X~2~ = 0, yang tidak memiliki makna substantif
   * Dengan _centering_, koefisien X~1~ adalah efek X~1~ ketika X~2~ berada di rata-ratanya
 
 * Selain itu, mencegah multikolinearitas antara prediktor dan suku interaksi 
   — Tanpa _centering_, variabel interaksi (X~1~ × X~2~) sangat berkorelasi dengan X~1~ dan X~1~ secara terpisah karena merupakan hasil kali keduanya 
   - _Centering_ tidak menghilangkan multikolinearitas secara substantif (yang alasannya _conceptual overlap_), tetapi hanya mengurangi **korelasi artifisial** antara _main effect_ dan suku interaksi
+
+:::
 
 ## Latihan 2️⃣
 
@@ -513,11 +519,12 @@ Tidak ada bukti bahwa ada interaksi antara _neuroticism_ dengan _trust in organi
 :::: {.columns}
 ::: {.column}
 
-* Dapat dideteksi dengan melakukan analisis melihat _variance inflated factors_ (VIF).
-  - Bila VIF \< 2.5, maka multi-kolinearitas kemungkinan besar tidak terjadi.
+* Dapat dideteksi dengan melakukan analisis melihat _variance inflated factors_ (VIF)
+  - Bila VIF \< 5, maka multi-kolinearitas tidak terjadi
 * Penelitian _longitudinal_ punya potensi terjadinya autokorelasi (residual _time 1_ dan _time 2_ berkorelasi)
   - Dapat dicek dengan tes Durbin-Watson
-  - Bila nilai p analisis autokorelasi \> .05, maka autokorelasi residual tidak terjadi.
+  - Bila nilai p analisis autokorelasi \> .05, maka autokorelasi residual tidak terjadi
+  - Umumnya, untuk data _cross-sectional_, autokorelasi tidak terlalu relevan
 
 :::
 ::: {.column}
@@ -530,11 +537,11 @@ Tidak ada bukti bahwa ada interaksi antara _neuroticism_ dengan _trust in organi
 ## Bagaimana melaporkannya?
 
 > Untuk menginvestigasi keterkaitan antara pendapatan keluarga, kecenderungan _neuroticism_ ibu, dan kepercayaan ibu bahwa perkembangan anak dapat terjadi secara natural dengan tingkat kemandirian anak, peneliti melakukan analisis regresi linear hirarkial dengan _interaction terms_. Peneliti menyusun dua model, dimana; model 1 mengestimasi varians tingkat kemandirian anak dengan pendapatan keluarga inti sebagai prediktor, sedangkan pada model 2 peneliti menambahkan prediktor berupa _interaction terms_ antara _neuroticism_ dengan _trust_.
-
 > Ketika dibandingkan, Model 1 dan Model 2 berbeda signifikan (_F_(1,397) = 29.5, _p_ = .001). _R_^2^ bertambah sedikit (ΔR^2^ = .128). Model 2 (_F_(2,397) = 74.3, _p_ = .001, _Adj. R_^2^ = .429, AIC = 2472, BIC = 2496) dapat menjelaskan varians tingkat kemandirian anak sedikit lebih baik daripada Model 1 (_F_(1,398) = 171.8, _p_ = .001, _Adj. R_^2^ = .300, AIC = 2547, BIC = 2559).
 
-> Pendapatan keluarga dapat menjelaskan variasi kemandirian anak (_B_ = 0.153 95% CI [0.025, 0.281], _SE_ = 0.065, _t_ = 2.354, _p_ = .019). _Main effect neuroticism_ (_B_ = 0.387 95% CI [0.261, 0.514], _SE_ = 0.064, _t_ = 6.018, _p_ = .001) dan _trust in organismic development_ (_B_ = 0.391 95% CI [0.275, 0.508], _SE_ = 0.059, _t_ = 6.609, _p_ = .001) secara independen menjelaskan tingkat kemandirian anak. Tidak ada bukti bahwa interaksi antara _neuroticism_ dengan _trust in organismic development_ dapat menjelaskan varians kemandirian anak (_B_ = -0.005 95% CI [-0.019, 0.018], _SE_ = 0.009, _t_ = -0.05, _p_ = .955).
+## Bagaimana melaporkannya?
 
+> Pendapatan keluarga dapat menjelaskan variasi kemandirian anak (_B_ = 0.153 95% CI [0.025, 0.281], _SE_ = 0.065, _t_ = 2.354, _p_ = .019). _Main effect neuroticism_ (_B_ = 0.387 95% CI [0.261, 0.514], _SE_ = 0.064, _t_ = 6.018, _p_ = .001) dan _trust in organismic development_ (_B_ = 0.391 95% CI [0.275, 0.508], _SE_ = 0.059, _t_ = 6.609, _p_ = .001) secara independen menjelaskan tingkat kemandirian anak. Tidak ada bukti bahwa interaksi antara _neuroticism_ dengan _trust in organismic development_ dapat menjelaskan varians kemandirian anak (_B_ = -0.005 95% CI [-0.019, 0.018], _SE_ = 0.009, _t_ = -0.05, _p_ = .955).
 > Potensi multikolinearitas dideteksi dengan VIF dan hasil analisis menunjukkan multikolinearitas kemungkinan tidak terjadi (VIF = 1.03 - 3.47).
 
 ## Latihan mandiri 1️⃣
