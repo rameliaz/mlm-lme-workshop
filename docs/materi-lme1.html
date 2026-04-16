@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.10.3">
 
   <meta name="author" content="Rizqy Amelia Zein">
-  <meta name="dcterms.date" content="2026-04-15">
+  <meta name="dcterms.date" content="2026-04-16">
   <title>LME Workshop – Regresi Linear (Ordinary Least Square)</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -149,7 +149,7 @@ Rizqy Amelia Zein
     </div>
 </div>
 
-  <p class="date">2026-04-15</p>
+  <p class="date">2026-04-16</p>
 </section>
 <section id="outline" class="slide level2">
 <h2><em>Outline</em></h2>
@@ -629,8 +629,9 @@ Rizqy Amelia Zein
 <li class="fragment">Tanpa <em>centering</em>, koefisien untuk X<sub>1</sub> adalah efek X<sub>1</sub> ketika X<sub>2</sub> = 0, yang tidak memiliki makna substantif</li>
 <li class="fragment">Dengan <em>centering</em>, koefisien X<sub>1</sub> adalah efek X<sub>1</sub> ketika X<sub>2</sub> berada di rata-ratanya</li>
 </ul></li>
-<li class="fragment"><p>Selain itu, mencegah multikolinearitas antara prediktor dan suku interaksi — Tanpa <em>centering</em>, variabel interaksi (X<sub>1</sub> × X<sub>2</sub>) sangat berkorelasi dengan X<sub>1</sub> dan X<sub>1</sub> secara terpisah karena merupakan hasil kali keduanya</p>
+<li class="fragment"><p>Selain itu, mencegah multikolinearitas antara prediktor dan suku interaksi</p>
 <ul>
+<li class="fragment">Tanpa <em>centering</em>, variabel interaksi (X<sub>1</sub> × X<sub>2</sub>) sangat berkorelasi dengan X<sub>1</sub> dan X<sub>1</sub> secara terpisah karena merupakan hasil kali keduanya</li>
 <li class="fragment"><em>Centering</em> tidak menghilangkan multikolinearitas secara substantif (yang alasannya <em>conceptual overlap</em>), tetapi hanya mengurangi <strong>korelasi artifisial</strong> antara <em>main effect</em> dan suku interaksi</li>
 </ul></li>
 </ul>
@@ -694,9 +695,10 @@ Rizqy Amelia Zein
 <div class="columns">
 <div class="column">
 <ul>
-<li>Interpretasi <em>slopes</em> pada <em>interaction terms</em> (<strong>kalau signifikan</strong>):
+<li>Interpretasi <em>slopes</em> pada suku interaksi - bisa di-<em>probe</em> dengan <em>estimated marginal means</em>
 <ul>
-<li><em>Unstandardized B</em> yang positif artinya, pada ibu dengan <em>trust in organismic development</em> yang tinggi (+1SD), korelasi antara kecenderungan <em>neuroticism</em> dengan kemandirian anak juga semakin positif/menguat.</li>
+<li>Dalam konteks analisis yang kita lakukan, suku interaksi nonsignifikan, sehingga kita melihat dua garis regresi yang sejajar, tidak berpotongan</li>
+<li>Artinya, masing-masing prediktor berkontribusi menjelaskan varians <em>outcome</em> secara independen</li>
 </ul></li>
 </ul>
 </div><div class="column">
@@ -706,6 +708,14 @@ Rizqy Amelia Zein
 </figure>
 </div>
 </div></div>
+</section>
+<section id="estimated-marginal-means-1" class="slide level2">
+<h2><em>Estimated Marginal Means</em></h2>
+<p><strong>Seandainya</strong> suku interaksi signifikan, lihat tanda <em>slope</em>-nya</p>
+<ul>
+<li><em>Unstandardized B</em> yang positif artinya, pada ibu dengan <em>trust in organismic development</em> yang tinggi (+1SD), korelasi antara kecenderungan <em>neuroticism</em> dengan kemandirian anak juga semakin positif/menguat</li>
+<li><em>Unstandardized B</em> yang negatif, sebaliknya, ibu dengan kecenderungan <em>trust</em> yang di atas rata-rata (+1SD), korelasi antara <em>neuroticism</em> dengan kemandirian justru melemah/negatif</li>
+</ul>
 </section>
 <section id="diagnostik-kolinearitas" class="slide level2">
 <h2>Diagnostik kolinearitas</h2>
@@ -739,6 +749,9 @@ Rizqy Amelia Zein
 <blockquote>
 <p>Ketika dibandingkan, Model 1 dan Model 2 berbeda signifikan (<em>F</em>(1,397) = 29.5, <em>p</em> = .001). <em>R</em><sup>2</sup> bertambah sedikit (ΔR<sup>2</sup> = .128). Model 2 (<em>F</em>(2,397) = 74.3, <em>p</em> = .001, <em>Adj. R</em><sup>2</sup> = .429, AIC = 2472, BIC = 2496) dapat menjelaskan varians tingkat kemandirian anak sedikit lebih baik daripada Model 1 (<em>F</em>(1,398) = 171.8, <em>p</em> = .001, <em>Adj. R</em><sup>2</sup> = .300, AIC = 2547, BIC = 2559).</p>
 </blockquote>
+</section>
+<section id="bagaimana-melaporkannya-1" class="slide level2">
+<h2>Bagaimana melaporkannya?</h2>
 <blockquote>
 <p>Pendapatan keluarga dapat menjelaskan variasi kemandirian anak (<em>B</em> = 0.153 95% CI [0.025, 0.281], <em>SE</em> = 0.065, <em>t</em> = 2.354, <em>p</em> = .019). <em>Main effect neuroticism</em> (<em>B</em> = 0.387 95% CI [0.261, 0.514], <em>SE</em> = 0.064, <em>t</em> = 6.018, <em>p</em> = .001) dan <em>trust in organismic development</em> (<em>B</em> = 0.391 95% CI [0.275, 0.508], <em>SE</em> = 0.059, <em>t</em> = 6.609, <em>p</em> = .001) secara independen menjelaskan tingkat kemandirian anak. Tidak ada bukti bahwa interaksi antara <em>neuroticism</em> dengan <em>trust in organismic development</em> dapat menjelaskan varians kemandirian anak (<em>B</em> = -0.005 95% CI [-0.019, 0.018], <em>SE</em> = 0.009, <em>t</em> = -0.05, <em>p</em> = .955).</p>
 </blockquote>

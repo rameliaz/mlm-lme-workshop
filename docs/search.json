@@ -536,7 +536,7 @@
     "href": "materi-lme1.html#mean-centering-pada-suku-interaksi-interaction-terms",
     "title": "Regresi Linear (Ordinary Least Square)",
     "section": "Mean-centering pada suku interaksi (interaction terms)",
-    "text": "Mean-centering pada suku interaksi (interaction terms)\n\nKetika melakukan analisis regresi dengan suku interaksi, maka kita perlu melakukan prosedur mean centering untuk prediktor dan moderator.\nAlasannya, koefisien main effect akan lebih mudah diinterpretasi\n\nTanpa centering, koefisien untuk X1 adalah efek X1 ketika X2 = 0, yang tidak memiliki makna substantif\nDengan centering, koefisien X1 adalah efek X1 ketika X2 berada di rata-ratanya\n\nSelain itu, mencegah multikolinearitas antara prediktor dan suku interaksi — Tanpa centering, variabel interaksi (X1 × X2) sangat berkorelasi dengan X1 dan X1 secara terpisah karena merupakan hasil kali keduanya\n\nCentering tidak menghilangkan multikolinearitas secara substantif (yang alasannya conceptual overlap), tetapi hanya mengurangi korelasi artifisial antara main effect dan suku interaksi"
+    "text": "Mean-centering pada suku interaksi (interaction terms)\n\nKetika melakukan analisis regresi dengan suku interaksi, maka kita perlu melakukan prosedur mean centering untuk prediktor dan moderator.\nAlasannya, koefisien main effect akan lebih mudah diinterpretasi\n\nTanpa centering, koefisien untuk X1 adalah efek X1 ketika X2 = 0, yang tidak memiliki makna substantif\nDengan centering, koefisien X1 adalah efek X1 ketika X2 berada di rata-ratanya\n\nSelain itu, mencegah multikolinearitas antara prediktor dan suku interaksi\n\nTanpa centering, variabel interaksi (X1 × X2) sangat berkorelasi dengan X1 dan X1 secara terpisah karena merupakan hasil kali keduanya\nCentering tidak menghilangkan multikolinearitas secara substantif (yang alasannya conceptual overlap), tetapi hanya mengurangi korelasi artifisial antara main effect dan suku interaksi"
   },
   {
     "objectID": "materi-lme1.html#latihan-2-1",
@@ -571,7 +571,14 @@
     "href": "materi-lme1.html#estimated-marginal-means",
     "title": "Regresi Linear (Ordinary Least Square)",
     "section": "Estimated Marginal Means",
-    "text": "Estimated Marginal Means\n\n\n\nInterpretasi slopes pada interaction terms (kalau signifikan):\n\nUnstandardized B yang positif artinya, pada ibu dengan trust in organismic development yang tinggi (+1SD), korelasi antara kecenderungan neuroticism dengan kemandirian anak juga semakin positif/menguat."
+    "text": "Estimated Marginal Means\n\n\n\nInterpretasi slopes pada suku interaksi - bisa di-probe dengan estimated marginal means\n\nDalam konteks analisis yang kita lakukan, suku interaksi nonsignifikan, sehingga kita melihat dua garis regresi yang sejajar, tidak berpotongan\nArtinya, masing-masing prediktor berkontribusi menjelaskan varians outcome secara independen"
+  },
+  {
+    "objectID": "materi-lme1.html#estimated-marginal-means-1",
+    "href": "materi-lme1.html#estimated-marginal-means-1",
+    "title": "Regresi Linear (Ordinary Least Square)",
+    "section": "Estimated Marginal Means",
+    "text": "Estimated Marginal Means\nSeandainya suku interaksi signifikan, lihat tanda slope-nya\n\nUnstandardized B yang positif artinya, pada ibu dengan trust in organismic development yang tinggi (+1SD), korelasi antara kecenderungan neuroticism dengan kemandirian anak juga semakin positif/menguat\nUnstandardized B yang negatif, sebaliknya, ibu dengan kecenderungan trust yang di atas rata-rata (+1SD), korelasi antara neuroticism dengan kemandirian justru melemah/negatif"
   },
   {
     "objectID": "materi-lme1.html#diagnostik-kolinearitas",
@@ -585,7 +592,14 @@
     "href": "materi-lme1.html#bagaimana-melaporkannya",
     "title": "Regresi Linear (Ordinary Least Square)",
     "section": "Bagaimana melaporkannya?",
-    "text": "Bagaimana melaporkannya?\n\nUntuk menginvestigasi keterkaitan antara pendapatan keluarga, kecenderungan neuroticism ibu, dan kepercayaan ibu bahwa perkembangan anak dapat terjadi secara natural dengan tingkat kemandirian anak, peneliti melakukan analisis regresi linear hirarkial dengan interaction terms. Peneliti menyusun dua model, dimana; model 1 mengestimasi varians tingkat kemandirian anak dengan pendapatan keluarga inti sebagai prediktor, sedangkan pada model 2 peneliti menambahkan prediktor berupa interaction terms antara neuroticism dengan trust.\n\n\nKetika dibandingkan, Model 1 dan Model 2 berbeda signifikan (F(1,397) = 29.5, p = .001). R2 bertambah sedikit (ΔR2 = .128). Model 2 (F(2,397) = 74.3, p = .001, Adj. R2 = .429, AIC = 2472, BIC = 2496) dapat menjelaskan varians tingkat kemandirian anak sedikit lebih baik daripada Model 1 (F(1,398) = 171.8, p = .001, Adj. R2 = .300, AIC = 2547, BIC = 2559).\n\n\nPendapatan keluarga dapat menjelaskan variasi kemandirian anak (B = 0.153 95% CI [0.025, 0.281], SE = 0.065, t = 2.354, p = .019). Main effect neuroticism (B = 0.387 95% CI [0.261, 0.514], SE = 0.064, t = 6.018, p = .001) dan trust in organismic development (B = 0.391 95% CI [0.275, 0.508], SE = 0.059, t = 6.609, p = .001) secara independen menjelaskan tingkat kemandirian anak. Tidak ada bukti bahwa interaksi antara neuroticism dengan trust in organismic development dapat menjelaskan varians kemandirian anak (B = -0.005 95% CI [-0.019, 0.018], SE = 0.009, t = -0.05, p = .955).\n\n\nPotensi multikolinearitas dideteksi dengan VIF dan hasil analisis menunjukkan multikolinearitas kemungkinan tidak terjadi (VIF = 1.03 - 3.47)."
+    "text": "Bagaimana melaporkannya?\n\nUntuk menginvestigasi keterkaitan antara pendapatan keluarga, kecenderungan neuroticism ibu, dan kepercayaan ibu bahwa perkembangan anak dapat terjadi secara natural dengan tingkat kemandirian anak, peneliti melakukan analisis regresi linear hirarkial dengan interaction terms. Peneliti menyusun dua model, dimana; model 1 mengestimasi varians tingkat kemandirian anak dengan pendapatan keluarga inti sebagai prediktor, sedangkan pada model 2 peneliti menambahkan prediktor berupa interaction terms antara neuroticism dengan trust.\n\n\nKetika dibandingkan, Model 1 dan Model 2 berbeda signifikan (F(1,397) = 29.5, p = .001). R2 bertambah sedikit (ΔR2 = .128). Model 2 (F(2,397) = 74.3, p = .001, Adj. R2 = .429, AIC = 2472, BIC = 2496) dapat menjelaskan varians tingkat kemandirian anak sedikit lebih baik daripada Model 1 (F(1,398) = 171.8, p = .001, Adj. R2 = .300, AIC = 2547, BIC = 2559)."
+  },
+  {
+    "objectID": "materi-lme1.html#bagaimana-melaporkannya-1",
+    "href": "materi-lme1.html#bagaimana-melaporkannya-1",
+    "title": "Regresi Linear (Ordinary Least Square)",
+    "section": "Bagaimana melaporkannya?",
+    "text": "Bagaimana melaporkannya?\n\nPendapatan keluarga dapat menjelaskan variasi kemandirian anak (B = 0.153 95% CI [0.025, 0.281], SE = 0.065, t = 2.354, p = .019). Main effect neuroticism (B = 0.387 95% CI [0.261, 0.514], SE = 0.064, t = 6.018, p = .001) dan trust in organismic development (B = 0.391 95% CI [0.275, 0.508], SE = 0.059, t = 6.609, p = .001) secara independen menjelaskan tingkat kemandirian anak. Tidak ada bukti bahwa interaksi antara neuroticism dengan trust in organismic development dapat menjelaskan varians kemandirian anak (B = -0.005 95% CI [-0.019, 0.018], SE = 0.009, t = -0.05, p = .955).\n\n\nPotensi multikolinearitas dideteksi dengan VIF dan hasil analisis menunjukkan multikolinearitas kemungkinan tidak terjadi (VIF = 1.03 - 3.47)."
   },
   {
     "objectID": "materi-lme1.html#latihan-mandiri-1",

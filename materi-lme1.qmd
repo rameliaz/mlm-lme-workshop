@@ -438,7 +438,7 @@ Ada 2️⃣ hal yang diestimasi:
   * Dengan _centering_, koefisien X~1~ adalah efek X~1~ ketika X~2~ berada di rata-ratanya
 
 * Selain itu, mencegah multikolinearitas antara prediktor dan suku interaksi 
-  — Tanpa _centering_, variabel interaksi (X~1~ × X~2~) sangat berkorelasi dengan X~1~ dan X~1~ secara terpisah karena merupakan hasil kali keduanya 
+  - Tanpa _centering_, variabel interaksi (X~1~ × X~2~) sangat berkorelasi dengan X~1~ dan X~1~ secara terpisah karena merupakan hasil kali keduanya 
   - _Centering_ tidak menghilangkan multikolinearitas secara substantif (yang alasannya _conceptual overlap_), tetapi hanya mengurangi **korelasi artifisial** antara _main effect_ dan suku interaksi
 
 :::
@@ -503,8 +503,9 @@ Tidak ada bukti bahwa ada interaksi antara _neuroticism_ dengan _trust in organi
 :::: {.columns}
 ::: {.column}
 
-* Interpretasi _slopes_ pada _interaction terms_ (**kalau signifikan**):
-  - _Unstandardized B_ yang positif artinya, pada ibu dengan _trust in organismic development_ yang tinggi (+1SD), korelasi antara kecenderungan _neuroticism_ dengan kemandirian anak juga semakin positif/menguat.
+* Interpretasi _slopes_ pada suku interaksi - bisa di-_probe_ dengan _estimated marginal means_
+  - Dalam konteks analisis yang kita lakukan, suku interaksi nonsignifikan, sehingga kita melihat dua garis regresi yang sejajar, tidak berpotongan
+  - Artinya, masing-masing prediktor berkontribusi menjelaskan varians _outcome_ secara independen
 
 :::
 ::: {.column}
@@ -513,6 +514,13 @@ Tidak ada bukti bahwa ada interaksi antara _neuroticism_ dengan _trust in organi
 
 :::
 ::::
+
+## _Estimated Marginal Means_
+
+**Seandainya** suku interaksi signifikan, lihat tanda _slope_-nya
+
+* _Unstandardized B_ yang positif artinya, pada ibu dengan _trust in organismic development_ yang tinggi (+1SD), korelasi antara kecenderungan _neuroticism_ dengan kemandirian anak juga semakin positif/menguat
+* _Unstandardized B_ yang negatif, sebaliknya, ibu dengan kecenderungan _trust_ yang di atas rata-rata (+1SD), korelasi antara _neuroticism_ dengan kemandirian justru melemah/negatif
 
 ## Diagnostik kolinearitas
 
@@ -537,11 +545,13 @@ Tidak ada bukti bahwa ada interaksi antara _neuroticism_ dengan _trust in organi
 ## Bagaimana melaporkannya?
 
 > Untuk menginvestigasi keterkaitan antara pendapatan keluarga, kecenderungan _neuroticism_ ibu, dan kepercayaan ibu bahwa perkembangan anak dapat terjadi secara natural dengan tingkat kemandirian anak, peneliti melakukan analisis regresi linear hirarkial dengan _interaction terms_. Peneliti menyusun dua model, dimana; model 1 mengestimasi varians tingkat kemandirian anak dengan pendapatan keluarga inti sebagai prediktor, sedangkan pada model 2 peneliti menambahkan prediktor berupa _interaction terms_ antara _neuroticism_ dengan _trust_.
+
 > Ketika dibandingkan, Model 1 dan Model 2 berbeda signifikan (_F_(1,397) = 29.5, _p_ = .001). _R_^2^ bertambah sedikit (ΔR^2^ = .128). Model 2 (_F_(2,397) = 74.3, _p_ = .001, _Adj. R_^2^ = .429, AIC = 2472, BIC = 2496) dapat menjelaskan varians tingkat kemandirian anak sedikit lebih baik daripada Model 1 (_F_(1,398) = 171.8, _p_ = .001, _Adj. R_^2^ = .300, AIC = 2547, BIC = 2559).
 
 ## Bagaimana melaporkannya?
 
 > Pendapatan keluarga dapat menjelaskan variasi kemandirian anak (_B_ = 0.153 95% CI [0.025, 0.281], _SE_ = 0.065, _t_ = 2.354, _p_ = .019). _Main effect neuroticism_ (_B_ = 0.387 95% CI [0.261, 0.514], _SE_ = 0.064, _t_ = 6.018, _p_ = .001) dan _trust in organismic development_ (_B_ = 0.391 95% CI [0.275, 0.508], _SE_ = 0.059, _t_ = 6.609, _p_ = .001) secara independen menjelaskan tingkat kemandirian anak. Tidak ada bukti bahwa interaksi antara _neuroticism_ dengan _trust in organismic development_ dapat menjelaskan varians kemandirian anak (_B_ = -0.005 95% CI [-0.019, 0.018], _SE_ = 0.009, _t_ = -0.05, _p_ = .955).
+
 > Potensi multikolinearitas dideteksi dengan VIF dan hasil analisis menunjukkan multikolinearitas kemungkinan tidak terjadi (VIF = 1.03 - 3.47).
 
 ## Latihan mandiri 1️⃣
