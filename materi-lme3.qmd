@@ -79,7 +79,7 @@ Observasi **dalam** satu orang tidak independen!
 
 ## Spesifikasi **struktur kovarians residual**
 
-Kita perlu menspesifikasi dengan cara memberi tahu ´jamovi´, **bagaimana pola korelasi** antara residual dari pengukuran berulang pada orang yang sama.
+Kita perlu menspesifikasi dengan cara memberi tahu `jamovi`, **bagaimana pola korelasi** antara residual dari pengukuran berulang pada orang yang sama.
 
 Di GAMLj, kovarians residual dapat diatur melalui menu **_Residuals Options_**.
 
@@ -410,10 +410,10 @@ Teknik ini **mirip** dengan [*group-mean centering*](https://rameliaz.github.io/
 
 ## _Person-mean centering_ dalam ESM
 
-* Karena `lme` memungkinkan _person-mean centering_ efek *within-person* dengan *between-person* bisa dipisahkan
+* Efek *within-person* dengan *between-person* bisa dipisahkan oleh `lme`, karena `lme` memungkinkan prosedur _person-mean centering_
 
 * Fitur inilah yang membuat `lme` lebih baik daripada _cross-lagged panel model_ (CPLM) karena CPLM tidak punya mekanisme untuk mempartisi kedua jenis varians ini ([Hamaker, Kuiper, & Grasman, 2015](https://psycnet.apa.org/doiLanding?doi=10.1037%2Fa0038889))
-  - Apabila ingin tetap menggunakan CPLM, maka disarankan untuk menambahkan _random intercept_ yang bisa mengontrol efek *between-person*
+  - Apabila ingin tetap menggunakan CPLM, maka disarankan untuk menambahkan _random intercept_ yang bisa mengontrol efek *between-person* (RI-CPLM)
   - Sehingga varians yang tersisa adalah efek *within-person*
 
 ## Efek _within-_ vs. _between-person_: ilustrasi
@@ -512,7 +512,7 @@ Sebelum studi dimulai, partisipan mengisi:
 * **Covariates level 1:** stres_centered (_within-person_)
 * **Covariates level 2:** stres_mean (_between-person_), er (regulasi emosi)
 * **Random Effects:** tambahkan **stres_centered|id** (_random slopes_)
-* **Covariates scaling:** klik `none` untuk `stres_centered` dan `stress_mean`
+* **Covariates scaling:** klik `none` untuk `stres_centered` dan `stres_mean`
 * **Residuals Structure → pilih AR(1)** untuk menangkap _temporal autocorrelation_
 
 **Langkah 3 — Cross-level interaction:**
@@ -555,7 +555,7 @@ Sebelum studi dimulai, partisipan mengisi:
 
 > _Model null_ menunjukkan bahwa 59.9% varians afek positif sesaat berada di level individu (ICC = 0.599), mengindikasikan bahwa penggunaan `lme` lebih sesuai daripada regresi OLS.
 
-> Efek _within-person_ stres sesaat terhadap afek positif sesaat signifikan negatif (_B_ = -0.336 95% CI [-0.371, -301], _SE_ = 0.017, _t_ = -18.72, _p_ = .001), artinya ketika seseorang **saat ini lebih stres dari biasanya**, afek positifnya juga lebih rendah dari biasanya sebesar 0.336 poin.
+> Efek _within-person_ stres sesaat terhadap afek positif sesaat signifikan negatif (_B_ = -0.336 95% CI [-0.371, -0.301], _SE_ = 0.017, _t_ = -18.72, _p_ = .001), artinya ketika seseorang **saat ini lebih stres dari biasanya**, afek positifnya juga lebih rendah dari biasanya sebesar 0.336 poin.
 
 > Efek _between-person_ stres juga signifikan (_B_ = -0.409 95% CI [-0.548, -0.271], _SE_ = 0.069, _t_ = -5.89, _p_ = .001), artinya **orang yang secara umum lebih stres** memiliki afek positif rata-rata yang lebih rendah sebesar 0.409 poin, dibanding orang yang lebih tidak stres — bahkan ketika perbedaan fluktuasi sesaat sudah dikontrol.
 
@@ -592,13 +592,13 @@ Sebelum studi dimulai, partisipan mengisi:
   - Dalam R: `lme4` dengan dua _cluster variables_
   - Dalam jamovi GAMLj saat ini: belum bisa dilakukan
 
-* **_Lagged predictors_**: apakah stres _sebelumnya_ memprediksi afek _sekarang_?
+* **_Lagged predictors_**: apakah stres _sebelumnya_ memprediksi afek _saat ini_?
 
 * **_Intra-individual variability_** sebagai _outcome_ (bukan hanya rata-rata)
 
 * **_Intensive longitudinal data_**: ketika jumlah _beep_ sangat banyak (>100/orang)
 
-* **ESM dengan variabel kategoris** (mis. afek diukur dengan _item_ nominal)
+* **ESM dengan variabel kategorikal** (mis. afek diukur dengan _item_ nominal)
   - Perlu _generalized_ `lme` (_GLMM_)
 
 ## Referensi tambahan

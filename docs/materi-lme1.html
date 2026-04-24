@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.10.3">
 
   <meta name="author" content="Rizqy Amelia Zein">
-  <meta name="dcterms.date" content="2026-04-16">
+  <meta name="dcterms.date" content="2026-04-25">
   <title>LME Workshop – Regresi Linear (Ordinary Least Square)</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -149,7 +149,7 @@ Rizqy Amelia Zein
     </div>
 </div>
 
-  <p class="date">2026-04-16</p>
+  <p class="date">2026-04-25</p>
 </section>
 <section id="outline" class="slide level2">
 <h2><em>Outline</em></h2>
@@ -186,7 +186,7 @@ Rizqy Amelia Zein
 </section>
 <section id="eksplorasi-dataset" class="slide level2">
 <h2>Eksplorasi dataset</h2>
-<h3 id="dataset-1-dataset-sekolah.omv">Dataset 1: dataset-sekolah.omv</h3>
+<h3 id="dataset-1-dataset-sekolah.omv">Dataset 1: <a href="materials/dataset-sekolah.omv">dataset-sekolah.omv</a></h3>
 <ul>
 <li>Marimar yang penasaran akhirnya melakukan survei di 5 PAUD di Kota Surabaya, dengan ukuran sampel sebesar total 400 orang</li>
 <li>Buka <a href="https://rameliaz.github.io/mlm-lme-workshop/">laman web <em>workshop</em></a></li>
@@ -279,14 +279,18 @@ Rizqy Amelia Zein
 <p><img data-src="libs/scat-1.png" class="quarto-figure quarto-figure-center"></p>
 </figure>
 </div>
-<p><em>Scatterplot</em> 1. <em>Neuroticism</em> dan Kemandirian</p>
+<p style="text-align: center;">
+<em>Scatterplot</em> 1. <em>Neuroticism</em> dan Kemandirian
+</p>
 </div><div class="column" style="width:50%;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
 <p><img data-src="libs/scat-2.png" class="quarto-figure quarto-figure-center"></p>
 </figure>
 </div>
-<p><em>Scatterplot</em> 2. <em>Trust</em> dan Kemandirian</p>
+<p style="text-align: center;">
+<em>Scatterplot</em> 2. <em>Trust</em> dan Kemandirian
+</p>
 </div></div>
 <div class="footnote">
 <p><strong>Bagaimana kekuatan dan arah hubungan pada <em>scatterplot</em> 1 dan 2?</strong></p>
@@ -309,12 +313,12 @@ Rizqy Amelia Zein
 <h2>Kekuatan dan arah korelasi 1️⃣</h2>
 <p>Korelasi yang tampak pada <em>scatterplot</em> tadi dapat dikonseptualisasikan dengan lebih jelas dengan menghitung <strong>koefisien korelasi</strong>, yang mengimplikasikan kekuatan hubungan.</p>
 <ul>
-<li><em>Pearson’s</em> r misalnya, biasanya ditulis dengan <em>r</em><sub>xy</sub>, sedangkan <em>Spearman’s</em> ρ ditulis <em>r</em><sub>s</sub>.</li>
-<li>Berkisar antara -1 s/d 1</li>
-<li>-1 artinya korelasi negatif sempurna, 1 artinya korelasi positif sempurna</li>
-<li>Koefisien korelasi <em>Pearson’s</em> <em>r</em> atau <em>Spearman’s</em> ρ dihitung dari kovarians (<em>covariance</em>/<em>average cross product</em> dari dua variabel).
+<li class="fragment"><em>Pearson’s</em> r misalnya, biasanya ditulis dengan <em>r</em><sub>xy</sub>, sedangkan <em>Spearman’s</em> ρ ditulis <em>r</em><sub>s</sub>.</li>
+<li class="fragment">Berkisar antara -1 s/d 1</li>
+<li class="fragment">-1 artinya korelasi negatif sempurna, 1 artinya korelasi positif sempurna</li>
+<li class="fragment">Koefisien korelasi <em>Pearson’s</em> <em>r</em> atau <em>Spearman’s</em> ρ dihitung dari kovarians (<em>covariance</em>/<em>average cross product</em> dari dua variabel).
 <ul>
-<li>Dua variabel yang sama sekali tak berkorelasi, maka kovarians nol.</li>
+<li class="fragment">Dua variabel yang sama sekali tak berkorelasi, maka kovarians nol.</li>
 </ul></li>
 </ul>
 </section>
@@ -323,11 +327,11 @@ Rizqy Amelia Zein
 <div class="columns">
 <div class="column" style="width:55%;">
 <ul>
-<li>Kovarians sulit diinterpretasi, sehingga formula <em>Pearson’s</em> r dan <em>Spearman’s</em> ρ menstandardisasi kovarians agar lebih mudah diinterpretasi</li>
-<li>Fungsi <em>Pearson’s r</em> dan <em>Spearman’s</em> ρ mirip <em>z-score</em></li>
-<li>Kuat &gt;&lt; lemahnya koefisien korelasi sebenarnya sangat tergantung konteks penelitiannya.
+<li class="fragment">Kovarians sulit diinterpretasi, sehingga formula <em>Pearson’s</em> r dan <em>Spearman’s</em> ρ menstandardisasi kovarians agar lebih mudah diinterpretasi</li>
+<li class="fragment">Fungsi <em>Pearson’s r</em> dan <em>Spearman’s</em> ρ mirip <em>z-score</em></li>
+<li class="fragment">Kuat &gt;&lt; lemahnya koefisien korelasi sebenarnya sangat tergantung konteks penelitiannya.
 <ul>
-<li>Pada fenomena yang multifaktor, misalnya mencari variabel yang berkaitan dengan kecenderungan Skizofrenia, korelasi 0.3 aja sudah bermakna sangat besar.</li>
+<li class="fragment">Pada fenomena yang multifaktor, misalnya mencari variabel yang berkaitan dengan kecenderungan Skizofrenia, korelasi 0.3 aja sudah bermakna sangat besar.</li>
 </ul></li>
 </ul>
 </div><div class="column" style="width:45%;">
@@ -343,13 +347,13 @@ Rizqy Amelia Zein
 <div class="columns">
 <div class="column" style="width:60%;">
 <ul>
-<li>Merupakan kelanjutan yang lebih kompleks dari <em>Pearson’s</em> r</li>
-<li>Ide dasarnya adalah menyusun persamaan garis yang dapat digunakan untuk <strong>memperkirakan</strong> nilai Y ketika nilai X diketahui
+<li class="fragment">Merupakan kelanjutan yang lebih kompleks dari <em>Pearson’s</em> r</li>
+<li class="fragment">Ide dasarnya adalah menyusun persamaan garis yang dapat digunakan untuk <strong>memperkirakan</strong> nilai Y ketika nilai X diketahui
 <ul>
-<li>Contohnya, kita tahu bahwa <strong>kemandirian</strong> berkorelasi positif dan sedang dengan <strong>neuroticism</strong> dan <strong>trust</strong></li>
-<li>Namun dengan regresi, kita bisa <em>mengestimasi</em> tingkat kemandirian anak, ketika hanya informasi mengenai <em>neuroticism</em> dan <em>trust</em> yang tersedia.</li>
+<li class="fragment">Contohnya, kita memiliki hipotesis bahwa <strong>kemandirian</strong> berkorelasi positif dan sedang dengan <strong>neuroticism</strong> dan <strong>trust</strong> dan memang menemukan korelasi antara keduanya</li>
+<li class="fragment">Namun dengan regresi, kita bisa <em>mengestimasi</em> tingkat kemandirian anak, ketika hanya informasi mengenai <em>neuroticism</em> dan <em>trust</em> yang tersedia.</li>
 </ul></li>
-<li>OLS bekerja dengan pendekatan <em>least square</em>, artinya mencari <strong>jumlah kuadrat terkecil</strong> antara garis regresi (nilai Y yang diperkirakan oleh model) dengan nilai Y yang diobservasi.</li>
+<li class="fragment">OLS bekerja dengan pendekatan <em>least square</em>, artinya mencari <strong>jumlah kuadrat terkecil</strong> antara garis regresi (nilai Y yang diperkirakan oleh model) dengan nilai Y yang diobservasi.</li>
 </ul>
 </div><div class="column" style="width:40%;">
 <div class="quarto-figure quarto-figure-center">
@@ -370,22 +374,22 @@ Rizqy Amelia Zein
 <section id="asumsi-yang-harus-dipenuhi" class="slide level2">
 <h2>Asumsi yang harus dipenuhi</h2>
 <ul>
-<li>Prediktor dan variabel dependen <strong>berkorelasi secara linear</strong>
+<li class="fragment">Prediktor dan variabel dependen <strong>berkorelasi secara linear</strong>
 <ul>
-<li>Lakukan analisis korelasi sebelum melakukan regresi untuk memastikan asumsi ini terpenuhi</li>
+<li class="fragment">Lakukan analisis korelasi sebelum melakukan regresi untuk memastikan asumsi ini terpenuhi</li>
 </ul></li>
-<li>Residual (varians <em>error</em>) variabel dependen yang tidak dapat dijelaskan oleh model
+<li class="fragment">Residual (varians <em>error</em>) variabel dependen yang tidak dapat dijelaskan oleh model
 <ul>
-<li>Berdistribusi normal</li>
-<li>Variansnya homogen (<strong>homoskedastisitas</strong>)</li>
-<li>Tidak dipengaruhi oleh prediktor lain diluar model</li>
+<li class="fragment">Berdistribusi normal</li>
+<li class="fragment">Variansnya homogen (<strong>homoskedastisitas</strong>)</li>
+<li class="fragment">Tidak dipengaruhi oleh prediktor lain diluar model</li>
 </ul></li>
-<li>Prediktor dalam model independen satu sama lain (tidak berkorelasi)
+<li class="fragment">Prediktor dalam model independen satu sama lain (tidak berkorelasi)
 <ul>
-<li>Berlaku ketika ada dua atau lebih prediktor dalam satu model regresi</li>
-<li>Kalau prediktor berkorelasi satu sama lain maka telah terjadi <strong>multi-kolinearitas</strong></li>
+<li class="fragment">Berlaku ketika ada dua atau lebih prediktor dalam satu model regresi</li>
+<li class="fragment">Kalau prediktor berkorelasi satu sama lain maka telah terjadi <strong>multi-kolinearitas</strong></li>
 </ul></li>
-<li><strong>Data/observasi dan residual harus independen</strong></li>
+<li class="fragment"><strong>Data/observasi dan residual harus independen</strong></li>
 </ul>
 </section>
 <section id="latihan-1" class="slide level2">
@@ -455,7 +459,7 @@ Rizqy Amelia Zein
 <h4 id="interpretasi-standardized-β-dan-unstandardized-b-estimates">Interpretasi <em>standardized</em> (<em>β</em>) dan <em>unstandardized</em> (<em>B</em>) <em>estimates</em></h4>
 <ul>
 <li><em>Unstandardized</em> (<em>B</em>) <em>estimates</em>: Setiap perubahan <em>neuroticism</em> sebesar 1 poin, maka tingkat kemandirian juga berubah sebesar 0.544 poin.</li>
-<li><em>Standardized</em> (<em>β</em>) <em>estimates</em>: Setiap berubah <em>neuroticism</em> sebesar 1SD, maka tingkat kemandirian juga berubah sebesar 0.161SD.</li>
+<li><em>Standardized</em> (<em>β</em>) <em>estimates</em>: Setiap perubahan <em>neuroticism</em> sebesar 1SD, maka tingkat kemandirian juga berubah sebesar 0.598SD.</li>
 </ul>
 <div class="callout callout-tip callout-titled callout-style-default">
 <div class="callout-body">
@@ -554,12 +558,12 @@ Rizqy Amelia Zein
 <section id="diagnostik-model-deteksi-outliers-2" class="slide level2">
 <h2>Diagnostik model: deteksi <em>outliers</em> 2️⃣</h2>
 <ul>
-<li>Kalau <em>Cook’s distance</em> diatas 1 bagaimana?
+<li class="fragment">Kalau <em>Cook’s distance</em> diatas 1 bagaimana?
 <ul>
-<li>Coba buat lagi garis regresi tanpa <em>outlier</em> tersebut, cari tahu kenapa nilainya bisa se-ekstrim itu</li>
-<li><em>Outlier</em> umumnya tidak boleh dihapus dari dataset tanpa justifikasi yang jelas, karena ini termasuk <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC4114807/"><em>questionable research practices</em></a>.</li>
-<li>Kalau sangat mendesak, <em>outlier</em> dapat dikeluarkan dari model. Tetapi ini tidak disarankan dan kalaupun dilakukan, analisis <strong>harus dilaporkan dua versi; dengan dan tanpa <em>outlier</em>.</strong></li>
-<li>Daripada dihapus, sebaiknya pakai regresi dengan <a href="https://forum.jamovi.org/viewtopic.php?t=4067"><em>robust estimator</em></a> yang dapat mengurangi efek <em>outlier</em>.</li>
+<li class="fragment">Coba buat lagi garis regresi tanpa <em>outlier</em> tersebut, cari tahu kenapa nilainya bisa se-ekstrim itu</li>
+<li class="fragment"><em>Outlier</em> umumnya tidak boleh dihapus dari dataset tanpa justifikasi yang jelas, karena ini termasuk <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC4114807/"><em>questionable research practices</em></a>.</li>
+<li class="fragment">Kalau sangat mendesak, <em>outlier</em> dapat dikeluarkan dari model. Tetapi ini tidak disarankan dan kalaupun dilakukan, analisis <strong>harus dilaporkan dua versi; dengan dan tanpa <em>outlier</em>.</strong></li>
+<li class="fragment">Daripada dihapus, sebaiknya pakai regresi dengan <a href="https://forum.jamovi.org/viewtopic.php?t=4067"><em>robust estimator</em></a> yang dapat mengurangi efek <em>outlier</em>.</li>
 </ul></li>
 </ul>
 </section>
@@ -610,14 +614,14 @@ Rizqy Amelia Zein
 <p>Ada 2️⃣ hal yang diestimasi:</p>
 <p><strong><em>Main effect</em></strong></p>
 <ul>
-<li>Artinya, efek langsung satu prediktor terhadap <em>outcome</em>, tanpa mempertimbangkan nilai prediktor lain dalam model (prediktor lain di-<em>hold constant</em> = 0)</li>
-<li>Tetapi, <strong>dalam model regresi dengan suku interaksi</strong>, <em>main effect</em> merupakan efek kondisional pada nilai tertentu dari moderator, yaitu rata-ratanya setelah <em>centering</em></li>
-<li>Contoh: ketika <em>main effect</em> <em>neuroticism</em> (<em>b</em>) = 0.31, maka <em>b</em> adalah efek <em>neuroticism</em> terhadap kemandirian ketika <em>trust in organismic development</em> = rata-rata</li>
+<li class="fragment">Artinya, efek langsung satu prediktor terhadap <em>outcome</em>, tanpa mempertimbangkan nilai prediktor lain dalam model (prediktor lain di-<em>hold constant</em> = 0)</li>
+<li class="fragment">Tetapi, <strong>dalam model regresi dengan suku interaksi</strong>, <em>main effect</em> merupakan efek kondisional pada nilai tertentu dari moderator, yaitu rata-ratanya setelah <em>centering</em></li>
+<li class="fragment">Contoh: ketika <em>main effect</em> <em>neuroticism</em> (<em>b</em>) = 0.31, maka <em>b</em> adalah efek <em>neuroticism</em> terhadap kemandirian ketika <em>trust in organismic development</em> = rata-rata</li>
 </ul>
 <p><strong><em>Interaction effect</em></strong></p>
 <ul>
-<li>Efek interaksi adalah interpretasi substantif dari koefisien (<em>slope</em>) suku interaksi, yaitu seberapa besar efek X<sub>1</sub> terhadap <em>outcome</em> berubah setiap satu unit perubahan X<sub>2</sub></li>
-<li>Jika signifikan, artinya hubungan antara X<sub>1</sub> dan <em>outcome</em> tidak konstan, melainkan berbeda-beda tergantung nilai X<sub>2</sub></li>
+<li class="fragment">Efek interaksi adalah interpretasi substantif dari koefisien (<em>slope</em>) suku interaksi, yaitu seberapa besar efek X<sub>1</sub> terhadap <em>outcome</em> berubah setiap satu unit perubahan X<sub>2</sub></li>
+<li class="fragment">Jika signifikan, artinya hubungan antara X<sub>1</sub> dan <em>outcome</em> tidak konstan, melainkan berbeda-beda tergantung nilai X<sub>2</sub></li>
 </ul>
 </section>
 <section id="mean-centering-pada-suku-interaksi-interaction-terms" class="slide level2">
@@ -631,7 +635,7 @@ Rizqy Amelia Zein
 </ul></li>
 <li class="fragment"><p>Selain itu, mencegah multikolinearitas antara prediktor dan suku interaksi</p>
 <ul>
-<li class="fragment">Tanpa <em>centering</em>, variabel interaksi (X<sub>1</sub> × X<sub>2</sub>) sangat berkorelasi dengan X<sub>1</sub> dan X<sub>1</sub> secara terpisah karena merupakan hasil kali keduanya</li>
+<li class="fragment">Tanpa <em>centering</em>, variabel interaksi (X<sub>1</sub> × X<sub>2</sub>) sangat berkorelasi dengan X<sub>1</sub> dan X<sub>2</sub> secara terpisah karena merupakan hasil kali keduanya</li>
 <li class="fragment"><em>Centering</em> tidak menghilangkan multikolinearitas secara substantif (yang alasannya <em>conceptual overlap</em>), tetapi hanya mengurangi <strong>korelasi artifisial</strong> antara <em>main effect</em> dan suku interaksi</li>
 </ul></li>
 </ul>
@@ -650,7 +654,7 @@ Rizqy Amelia Zein
 <li>Dengan begitu kita punya 2 model regresi
 <ul>
 <li>Model 1 prediktornya <strong>hi</strong></li>
-<li>Model 2 prediktornya <strong>hi</strong> dan interaksi antara <strong>neu</strong> dengan <strong>trust</strong> (<em>main effect</em> + <em>interction effect</em>)</li>
+<li>Model 2 prediktornya <strong>hi</strong> dan interaksi antara <strong>neu</strong> dengan <strong>trust</strong> (<em>main effect</em> + <em>interaction effect</em>)</li>
 </ul></li>
 <li>Pada opsi <strong>assumption checks</strong>, tambahkan centang pada <strong>collinearity statistics</strong></li>
 <li>Pada opsi <strong>model fit</strong>, klik <strong>AIC</strong> dan <strong>BIC</strong>.</li>
@@ -673,7 +677,7 @@ Rizqy Amelia Zein
 <h2><em>Model comparison</em></h2>
 <div class="columns">
 <div class="column" style="width:55%;">
-<p>Ketika dibandingkan, Model 1 dan Model 2 berbeda signifikan (<em>F</em>(1,397) = 83.7, <em>p</em> = .001). ΔR<sup>2</sup> = .122, artinya selisih <em>R</em><sup>2</sup> Model 1 dan Model 2 = .122 atau <em>R</em><sup>2</sup> naik sebesar 12.2%</p>
+<p>Ketika dibandingkan, Model 1 dan Model 2 berbeda signifikan (<em>F</em>(1,397) = 29.5, <em>p</em> = .001). ΔR<sup>2</sup> = .122, artinya selisih <em>R</em><sup>2</sup> Model 1 dan Model 2 = .128 atau <em>R</em><sup>2</sup> naik sebesar 12.8%</p>
 <p><strong>Coba perhatikan Residuals Model 1 dengan Model 2</strong></p>
 </div><div class="column" style="width:45%;">
 <div class="quarto-figure quarto-figure-center">
@@ -747,7 +751,7 @@ Rizqy Amelia Zein
 <p>Untuk menginvestigasi keterkaitan antara pendapatan keluarga, kecenderungan <em>neuroticism</em> ibu, dan kepercayaan ibu bahwa perkembangan anak dapat terjadi secara natural dengan tingkat kemandirian anak, peneliti melakukan analisis regresi linear hirarkial dengan <em>interaction terms</em>. Peneliti menyusun dua model, dimana; model 1 mengestimasi varians tingkat kemandirian anak dengan pendapatan keluarga inti sebagai prediktor, sedangkan pada model 2 peneliti menambahkan prediktor berupa <em>interaction terms</em> antara <em>neuroticism</em> dengan <em>trust</em>.</p>
 </blockquote>
 <blockquote>
-<p>Ketika dibandingkan, Model 1 dan Model 2 berbeda signifikan (<em>F</em>(1,397) = 29.5, <em>p</em> = .001). <em>R</em><sup>2</sup> bertambah sedikit (ΔR<sup>2</sup> = .128). Model 2 (<em>F</em>(2,397) = 74.3, <em>p</em> = .001, <em>Adj. R</em><sup>2</sup> = .429, AIC = 2472, BIC = 2496) dapat menjelaskan varians tingkat kemandirian anak sedikit lebih baik daripada Model 1 (<em>F</em>(1,398) = 171.8, <em>p</em> = .001, <em>Adj. R</em><sup>2</sup> = .300, AIC = 2547, BIC = 2559).</p>
+<p>Ketika dibandingkan, Model 1 dan Model 2 berbeda signifikan (<em>F</em>(1,397) = 29.5, <em>p</em> = .001). <em>R</em><sup>2</sup> bertambah sedikit (ΔR<sup>2</sup> = .128). Model 2 (<em>F</em>(2,397) = 74.3, <em>p</em> = .001, <em>Adj. R</em><sup>2</sup> = .424, AIC = 2472, BIC = 2496) dapat menjelaskan varians tingkat kemandirian anak sedikit lebih baik daripada Model 1 (<em>F</em>(1,398) = 171.8, <em>p</em> = .001, <em>Adj. R</em><sup>2</sup> = .300, AIC = 2547, BIC = 2559).</p>
 </blockquote>
 </section>
 <section id="bagaimana-melaporkannya-1" class="slide level2">
@@ -774,7 +778,7 @@ Rizqy Amelia Zein
 </section>
 <section id="eksplorasi-dataset-2" class="slide level2">
 <h2>Eksplorasi dataset 2️⃣</h2>
-<h3 id="dataset-2-dataset-organisasi.omv">Dataset 2: dataset-organisasi.omv</h3>
+<h3 id="dataset-2-dataset-organisasi.omv">Dataset 2: <a href="materials/dataset-organisasi.omv">dataset-organisasi.omv</a></h3>
 <ul>
 <li>Fernando Jose akhirnya melakukan penelitian survei pada 450 karyawan di 3 perusahaan yang berbeda</li>
 <li>Buka <a href="https://rameliaz.github.io/mlm-lme-workshop/">laman web <em>workshop</em></a> dan unduh <a href="https://rameliaz.github.io/mlm-lme-workshop/dataset-organisasi.omv">dataset-organisasi.omv</a></li>

@@ -54,7 +54,7 @@ Marimar heran sekaligus penasaran, mengapa tiap anak **memberikan respon yang be
 
 ## Eksplorasi dataset
 
-### Dataset 1: dataset-sekolah.omv
+### Dataset 1: [dataset-sekolah.omv](materials/dataset-sekolah.omv)
 
 * Marimar yang penasaran akhirnya melakukan survei di 5 PAUD di Kota Surabaya, dengan ukuran sampel sebesar total 400 orang
 * Buka [laman web _workshop_](https://rameliaz.github.io/mlm-lme-workshop/)
@@ -132,14 +132,14 @@ Marimar heran sekaligus penasaran, mengapa tiap anak **memberikan respon yang be
 
 ![](libs/scat-1.png){fig-align="center"}
 
-_Scatterplot_ 1. _Neuroticism_ dan Kemandirian
+<p style="text-align: center;"><em>Scatterplot</em> 1. <em>Neuroticism</em> dan Kemandirian</p>
 
 :::
 ::: {.column width="50%"}
 
 ![](libs/scat-2.png){fig-align="center"}
 
-_Scatterplot_ 2. _Trust_ dan Kemandirian
+<p style="text-align: center;"><em>Scatterplot</em> 2. <em>Trust</em> dan Kemandirian</p>
 
 :::
 ::::
@@ -165,6 +165,8 @@ _Scatterplot_ 2. _Trust_ dan Kemandirian
 
 ## Kekuatan dan arah korelasi 1️⃣
 
+::: {.incremental}
+
 Korelasi yang tampak pada _scatterplot_ tadi dapat dikonseptualisasikan dengan lebih jelas dengan menghitung **koefisien korelasi**, yang mengimplikasikan kekuatan hubungan.
 
 * _Pearson's_ r misalnya, biasanya ditulis dengan _r_~xy~, sedangkan _Spearman's_ ρ ditulis _r_~s~.
@@ -173,16 +175,20 @@ Korelasi yang tampak pada _scatterplot_ tadi dapat dikonseptualisasikan dengan l
 * Koefisien korelasi _Pearson's_ _r_ atau _Spearman's_ ρ dihitung dari kovarians (_covariance_/_average cross product_ dari dua variabel).
   - Dua variabel yang sama sekali tak berkorelasi, maka kovarians nol.
 
+:::
+
 ## Kekuatan dan arah korelasi 2️⃣
 
 :::: {.columns}
 ::: {.column width="55%"}
+::: {.incremental}
 
 * Kovarians sulit diinterpretasi, sehingga formula _Pearson's_ r dan _Spearman's_ ρ menstandardisasi kovarians agar lebih mudah diinterpretasi
 * Fungsi _Pearson's r_ dan _Spearman's_ ρ mirip _z-score_
 * Kuat >< lemahnya koefisien korelasi sebenarnya sangat tergantung konteks penelitiannya.
   - Pada fenomena yang multifaktor, misalnya mencari variabel yang berkaitan dengan kecenderungan Skizofrenia, korelasi 0.3 aja sudah bermakna sangat besar.
 
+:::
 :::
 ::: {.column width="45%"}
 
@@ -195,13 +201,15 @@ Korelasi yang tampak pada _scatterplot_ tadi dapat dikonseptualisasikan dengan l
 
 :::: {.columns}
 ::: {.column width="60%"}
+::: {.incremental}
 
 * Merupakan kelanjutan yang lebih kompleks dari _Pearson's_ r
 * Ide dasarnya adalah menyusun persamaan garis yang dapat digunakan untuk **memperkirakan** nilai Y ketika nilai X diketahui
-  - Contohnya, kita tahu bahwa **kemandirian** berkorelasi positif dan sedang dengan **neuroticism** dan **trust**
+  - Contohnya, kita memiliki hipotesis bahwa **kemandirian** berkorelasi positif dan sedang dengan **neuroticism** dan **trust** dan memang menemukan korelasi antara keduanya
   - Namun dengan regresi, kita bisa _mengestimasi_ tingkat kemandirian anak, ketika hanya informasi mengenai _neuroticism_ dan _trust_ yang tersedia.
 * OLS bekerja dengan pendekatan _least square_, artinya mencari **jumlah kuadrat terkecil** antara garis regresi (nilai Y yang diperkirakan oleh model) dengan nilai Y yang diobservasi.
 
+:::
 :::
 ::: {.column width="40%"}
 
@@ -220,6 +228,8 @@ Korelasi yang tampak pada _scatterplot_ tadi dapat dikonseptualisasikan dengan l
 
 ## Asumsi yang harus dipenuhi
 
+::: {.incremental}
+
 * Prediktor dan variabel dependen **berkorelasi secara linear**
   - Lakukan analisis korelasi sebelum melakukan regresi untuk memastikan asumsi ini terpenuhi
 * Residual (varians _error_) variabel dependen yang tidak dapat dijelaskan oleh model
@@ -230,6 +240,8 @@ Korelasi yang tampak pada _scatterplot_ tadi dapat dikonseptualisasikan dengan l
   - Berlaku ketika ada dua atau lebih prediktor dalam satu model regresi
   - Kalau prediktor berkorelasi satu sama lain maka telah terjadi **multi-kolinearitas**
 * **Data/observasi dan residual harus independen**
+
+:::
 
 ## Latihan 1️⃣
 
@@ -289,7 +301,7 @@ Hampir semua teknik statistik intinya adalah membandingkan varians variabel _out
 #### Interpretasi _standardized_ (_β_) dan _unstandardized_ (_B_) _estimates_
 
 * _Unstandardized_ (_B_) _estimates_: Setiap perubahan _neuroticism_ sebesar 1 poin, maka tingkat kemandirian juga berubah sebesar 0.544 poin.
-* _Standardized_ (_β_) _estimates_: Setiap berubah _neuroticism_ sebesar 1SD, maka tingkat kemandirian juga berubah sebesar 0.161SD.
+* _Standardized_ (_β_) _estimates_: Setiap perubahan _neuroticism_ sebesar 1SD, maka tingkat kemandirian juga berubah sebesar 0.598SD.
 
 ::: {.callout-tip}
 #### Tips 
@@ -372,11 +384,15 @@ Selalu laporkan _unstandardized estimates_ dan _confidence interval_ ([Appelbaum
 
 ## Diagnostik model: deteksi _outliers_ 2️⃣
 
+::: {.incremental}
+
 * Kalau _Cook's distance_ diatas 1 bagaimana?
   - Coba buat lagi garis regresi tanpa _outlier_ tersebut, cari tahu kenapa nilainya bisa se-ekstrim itu
   - _Outlier_ umumnya tidak boleh dihapus dari dataset tanpa justifikasi yang jelas, karena ini termasuk [_questionable research practices_](https://pmc.ncbi.nlm.nih.gov/articles/PMC4114807/).
   - Kalau sangat mendesak, _outlier_ dapat dikeluarkan dari model. Tetapi ini tidak disarankan dan kalaupun dilakukan, analisis **harus dilaporkan dua versi; dengan dan tanpa _outlier_.**
   - Daripada dihapus, sebaiknya pakai regresi dengan [_robust estimator_](https://forum.jamovi.org/viewtopic.php?t=4067) yang dapat mengurangi efek _outlier_.
+
+:::
 
 ## Diagnostik model: deteksi _outliers_ 3️⃣ 
 
@@ -416,6 +432,8 @@ Selalu laporkan _unstandardized estimates_ dan _confidence interval_ ([Appelbaum
 
 Ada 2️⃣ hal yang diestimasi:
 
+::: {.incremental}
+
 **_Main effect_**
 
 * Artinya, efek langsung satu prediktor terhadap _outcome_, tanpa mempertimbangkan nilai prediktor lain dalam model (prediktor lain di-_hold constant_ = 0)
@@ -426,6 +444,8 @@ Ada 2️⃣ hal yang diestimasi:
 
 * Efek interaksi adalah interpretasi substantif dari koefisien (_slope_) suku interaksi, yaitu seberapa besar efek X~1~ terhadap _outcome_ berubah setiap satu unit perubahan X~2~
 * Jika signifikan, artinya hubungan antara X~1~ dan _outcome_ tidak konstan, melainkan berbeda-beda tergantung nilai X~2~
+
+:::
 
 ## _Mean-centering_ pada suku interaksi (_interaction terms_)
 
@@ -438,7 +458,7 @@ Ada 2️⃣ hal yang diestimasi:
   * Dengan _centering_, koefisien X~1~ adalah efek X~1~ ketika X~2~ berada di rata-ratanya
 
 * Selain itu, mencegah multikolinearitas antara prediktor dan suku interaksi 
-  - Tanpa _centering_, variabel interaksi (X~1~ × X~2~) sangat berkorelasi dengan X~1~ dan X~1~ secara terpisah karena merupakan hasil kali keduanya 
+  - Tanpa _centering_, variabel interaksi (X~1~ × X~2~) sangat berkorelasi dengan X~1~ dan X~2~ secara terpisah karena merupakan hasil kali keduanya 
   - _Centering_ tidak menghilangkan multikolinearitas secara substantif (yang alasannya _conceptual overlap_), tetapi hanya mengurangi **korelasi artifisial** antara _main effect_ dan suku interaksi
 
 :::
@@ -453,7 +473,7 @@ Ada 2️⃣ hal yang diestimasi:
   - Masukkan **neu_mc** dan **trust_mc** sebagai prediktor individual untuk mengestimasi _main effect_
 * Dengan begitu kita punya 2 model regresi
   - Model 1 prediktornya **hi**
-  - Model 2 prediktornya **hi** dan interaksi antara **neu** dengan **trust** (_main effect_ + _interction effect_)
+  - Model 2 prediktornya **hi** dan interaksi antara **neu** dengan **trust** (_main effect_ + _interaction effect_)
 * Pada opsi **assumption checks**, tambahkan centang pada **collinearity statistics**
 * Pada opsi **model fit**, klik **AIC** dan **BIC**.
 * Pada opsi **estimated marginal means**, masukkan **neu_mc** dan **trust_mc** dalam **terms 1**
@@ -476,7 +496,7 @@ Model 2 (_F_(2,397) = 74.3, _p_ = .001, _Adj. R_^2^ = .424) dapat menjelaskan va
 :::: {.columns}
 ::: {.column width="55%"}
 
-Ketika dibandingkan, Model 1 dan Model 2 berbeda signifikan (_F_(1,397) = 83.7, _p_ = .001). ΔR^2^ = .122, artinya selisih _R_^2^ Model 1 dan Model 2 = .122 atau _R_^2^ naik sebesar 12.2%
+Ketika dibandingkan, Model 1 dan Model 2 berbeda signifikan (_F_(1,397) = 29.5, _p_ = .001). ΔR^2^ = .122, artinya selisih _R_^2^ Model 1 dan Model 2 = .128 atau _R_^2^ naik sebesar 12.8%
 
 **Coba perhatikan Residuals Model 1 dengan Model 2**
 
@@ -546,7 +566,7 @@ Tidak ada bukti bahwa ada interaksi antara _neuroticism_ dengan _trust in organi
 
 > Untuk menginvestigasi keterkaitan antara pendapatan keluarga, kecenderungan _neuroticism_ ibu, dan kepercayaan ibu bahwa perkembangan anak dapat terjadi secara natural dengan tingkat kemandirian anak, peneliti melakukan analisis regresi linear hirarkial dengan _interaction terms_. Peneliti menyusun dua model, dimana; model 1 mengestimasi varians tingkat kemandirian anak dengan pendapatan keluarga inti sebagai prediktor, sedangkan pada model 2 peneliti menambahkan prediktor berupa _interaction terms_ antara _neuroticism_ dengan _trust_.
 
-> Ketika dibandingkan, Model 1 dan Model 2 berbeda signifikan (_F_(1,397) = 29.5, _p_ = .001). _R_^2^ bertambah sedikit (ΔR^2^ = .128). Model 2 (_F_(2,397) = 74.3, _p_ = .001, _Adj. R_^2^ = .429, AIC = 2472, BIC = 2496) dapat menjelaskan varians tingkat kemandirian anak sedikit lebih baik daripada Model 1 (_F_(1,398) = 171.8, _p_ = .001, _Adj. R_^2^ = .300, AIC = 2547, BIC = 2559).
+> Ketika dibandingkan, Model 1 dan Model 2 berbeda signifikan (_F_(1,397) = 29.5, _p_ = .001). _R_^2^ bertambah sedikit (ΔR^2^ = .128). Model 2 (_F_(2,397) = 74.3, _p_ = .001, _Adj. R_^2^ = .424, AIC = 2472, BIC = 2496) dapat menjelaskan varians tingkat kemandirian anak sedikit lebih baik daripada Model 1 (_F_(1,398) = 171.8, _p_ = .001, _Adj. R_^2^ = .300, AIC = 2547, BIC = 2559).
 
 ## Bagaimana melaporkannya?
 
@@ -575,7 +595,7 @@ Untuk faktor situasi, ia mengamati sepertinya persepsi atas kondisi kerja yang i
 
 ## Eksplorasi dataset 2️⃣
 
-### Dataset 2: dataset-organisasi.omv
+### Dataset 2: [dataset-organisasi.omv](materials/dataset-organisasi.omv)
 
 * Fernando Jose akhirnya melakukan penelitian survei pada 450 karyawan di 3 perusahaan yang berbeda
 * Buka [laman web _workshop_](https://rameliaz.github.io/mlm-lme-workshop/) dan unduh [dataset-organisasi.omv](https://rameliaz.github.io/mlm-lme-workshop/dataset-organisasi.omv)

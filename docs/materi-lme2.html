@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.10.3">
 
   <meta name="author" content="Rizqy Amelia Zein">
-  <meta name="dcterms.date" content="2026-04-16">
+  <meta name="dcterms.date" content="2026-04-25">
   <title>LME Workshop – Linear Mixed Models</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -149,7 +149,7 @@ Rizqy Amelia Zein
     </div>
 </div>
 
-  <p class="date">2026-04-16</p>
+  <p class="date">2026-04-25</p>
 </section>
 <section id="outline-1" class="slide level2">
 <h2><em>Outline</em> 1️⃣</h2>
@@ -194,38 +194,61 @@ Rizqy Amelia Zein
 <li><p>Apa yang terjadi?</p></li>
 </ul>
 </section>
-<section id="scatterplot" class="slide level2">
-<h2><em>Scatterplot</em></h2>
+<section id="scatterplot-subkelompok" class="slide level2">
+<h2><em>Scatterplot</em> subkelompok</h2>
 <div class="center">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="libs/scat-group.png" class="quarto-figure quarto-figure-center" style="width:60.0%"></p>
+<p><img data-src="libs/scat-group.png" class="quarto-figure quarto-figure-center"></p>
 </figure>
 </div>
 </div>
+</section>
+<section id="scatterplot" class="slide level2">
+<h2><em>Scatterplot</em></h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="libs/scat-1.png" class="quarto-figure quarto-figure-center"></p>
+</figure>
+</div>
+<p style="text-align: center;">
+<em>Scatterplot</em> 1. <em>Neuroticism</em> dan Kemandirian
+</p>
+</div><div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="libs/scat-2.png" class="quarto-figure quarto-figure-center"></p>
+</figure>
+</div>
+<p style="text-align: center;">
+<em>Scatterplot</em> 2. <em>Trust</em> dan Kemandirian
+</p>
+</div></div>
 </section>
 <section id="ada-yang-janggal.." class="slide level2">
 <h2>Ada yang janggal.. 🤔</h2>
 <div class="columns">
 <div class="column" style="width:55%;">
 <ul>
-<li><p><em>Intercept</em> <em>neuroticism</em> dan pendapatan keluarga ternyata <strong>menunjukkan korelasi negatif</strong> dengan tingkat kemandirian, dengan <em>intercept</em> dan kemiringan (<em>slopes</em>) yang bervariasi di setiap sekolah.</p></li>
-<li><p>Selain itu, meskipun <em>trust</em> menunjukkan korelasi positif di semua sekolah, tetapi <em>intercept</em> dan <em>slope</em> nya juga bervariasi di setiap sekolah</p></li>
-<li><p>Padahal, berdasarkan analisis yang kita lakukan di sesi sebelumnya, disimpulkan bahwa <strong><em>neuroticism</em> ibu dan kemandirian anak korelasinya positif</strong> (lihat <em>output</em> di samping).</p></li>
-<li><p>Fenomena ini dikenal sebagai <a href="https://en.wikipedia.org/wiki/Simpson%27s_paradox"><em>Simpson’s paradox</em></a></p>
-<ul>
-<li>..yaitu ketika tren yang diamati di level kelompok berbalik arah atau menghilang sama sekali ketika kelompok-kelompok tersebut digabungkan (diagregasi).</li>
-</ul></li>
+<li class="fragment"><p><em>Neuroticism</em> dan pendapatan keluarga ternyata <strong>menunjukkan korelasi negatif</strong> dengan tingkat kemandirian, dengan <em>intercept</em> dan kemiringan (<em>slopes</em>) yang bervariasi di setiap sekolah.</p></li>
+<li class="fragment"><p>Selain itu, meskipun <em>trust</em> menunjukkan korelasi positif di semua sekolah, tetapi <em>intercept</em> dan <em>slope</em> nya juga bervariasi di setiap sekolah</p></li>
+<li class="fragment"><p>Padahal, berdasarkan analisis yang kita lakukan di sesi sebelumnya, disimpulkan bahwa <strong><em>neuroticism</em> ibu dan kemandirian anak korelasinya positif</strong> (lihat <em>output</em> di samping).</p></li>
 </ul>
 </div><div class="column" style="width:45%;">
 <p><img data-src="libs/allmod.png"></p>
 </div></div>
 </section>
-<section id="ada-yang-janggal..-1" class="slide level2">
-<h2>Ada yang janggal.. 🤔</h2>
+<section id="simpsons-paradox" class="slide level2">
+<h2>Simpson’s <em>paradox</em></h2>
 <div class="columns">
 <div class="column" style="width:55%;">
 <ul>
+<li>Fenomena ini dikenal sebagai <a href="https://en.wikipedia.org/wiki/Simpson%27s_paradox"><em>Simpson’s paradox</em></a>
+<ul>
+<li>..yaitu ketika tren yang diamati di level kelompok berbalik arah atau menghilang sama sekali ketika kelompok-kelompok tersebut digabungkan (diagregasi).</li>
+</ul></li>
 <li>Kalau <em>Simpson’s paradox</em> diabaikan, kesimpulan bisa terkontaminasi <em>ecological fallacy</em>
 <ul>
 <li>Terjadi ketika peneliti salah menyimpulkan suatu gejala yang skalanya individual, padahal yang dianalisis sesungguhnya fenomena di level yang lebih besar (kelompok atau sub-kelompok)</li>
@@ -235,15 +258,15 @@ Rizqy Amelia Zein
 <p><img data-src="libs/ecological-fallacy.jpg"></p>
 </div></div>
 </section>
-<section id="ada-yang-janggal..-2" class="slide level2">
-<h2>Ada yang janggal.. 🤔</h2>
+<section id="simpsons-paradox-1" class="slide level2">
+<h2>Simpson’s <em>paradox</em></h2>
 <div class="columns">
 <div class="column" style="width:55%;">
 <ul>
 <li>“Saya <em>ga</em> percaya kalau ada yang <em>bilang</em> <a href="https://rri.co.id/bogor/kesehatan/1501636/indonesia-peringkat-satu-pria-perokok-tertinggi-dunia">7 dari 10 laki-laki dewasa di Indonesia adalah perokok</a>. <em>lha</em>, suami saya, kakek saya, adik-adik saya, semuanya laki-laki dewasa dan tidak ada yang merokok, <em>tuh</em>”.
 <ul>
 <li>Kalau kebanyakan pria dewasa adalah perokok, bukan berarti <em>tidak ada pria</em> yang bukan perokok.</li>
-<li>Atau sebalinya, kalau orang terdekat saya bukan perokok, tidak bisa menggugurkan fakta bahwa mayoritas pria dewasa di Indonesia adalah perokok.</li>
+<li>Atau sebaliknya, kalau orang terdekat saya bukan perokok, tidak bisa menggugurkan fakta bahwa mayoritas pria dewasa di Indonesia adalah perokok.</li>
 <li>Oleh karena itu, perlu dipisahkan, mana fenomena yang terjadi di level kelompok, mana yang terjadi di level individual.</li>
 </ul></li>
 </ul>
@@ -271,10 +294,10 @@ Rizqy Amelia Zein
 <section id="apa-yang-harus-dilakukan-1" class="slide level2">
 <h2>Apa yang harus dilakukan?</h2>
 <ul>
-<li class="fragment">Bagaimana kalau pengelompokan (<em>group status</em>) dimasukkan aja dalam regresi OLS sebagai variabel moderator
+<li class="fragment">Bagaimana kalau pengelompokan (<em>grouping variable</em>) dimasukkan aja dalam regresi OLS sebagai variabel moderator
 <ul>
 <li class="fragment">Dengan begitu, estimasi <em>standard error</em> disesuaikan dengan menggunakan <em>marginal model</em></li>
-<li class="fragment">Estimasi <em>standard error</em> akan lebih presisi, <strong>tetapi</strong> kita tetap tidak bisa mengestimasi <em>between-group variance</em></li>
+<li class="fragment">Estimasi <em>standard error</em> akan lebih presisi, <strong>tetapi</strong> kita tetap tidak bisa membandingkan variasi antar-kelompok (<em>between-group variance</em>)</li>
 </ul></li>
 <li class="fragment">Kalau diagregat? Jadi, unit analisis yang tadinya individual, menjadi kelompok.
 <ul>
@@ -300,10 +323,10 @@ Rizqy Amelia Zein
 <section id="kovarians-antara-random-intercept-dan-random-slopes-σu0u1" class="slide level2">
 <h2>Kovarians antara <em>random intercept</em> dan <em>random slopes</em> (σ<sub>U0U1</sub>)</h2>
 <ul>
-<li><p><strong>Nilainya positif</strong>, maka semakin tinggi <em>intercept</em> akan diasosiasikan dengan kemiringan garis yang lebih curam/<em>slopes</em> yang lebih besar</p></li>
-<li><p>Misalnya, di sekolah yang <strong>rata-rata pendapatan</strong> keluarga inti perbulan siswanya <strong>tinggi</strong>, maka <strong>korelasi</strong> antara pendapatan per bulan dengan tingkat kemandirian siswa <strong>akan menguat</strong>.</p></li>
-<li><p><strong>Nilainya negatif</strong>, maka semakin tinggi <em>intercept</em> akan diasosiasikan dengan kemiringan garis yang lebih landai/<em>slopes</em> yang lebih kecil</p></li>
-<li><p>Misalnya, di sekolah yang <strong>rata-rata pendapatan</strong> keluarga inti perbulan siswanya <strong>tinggi</strong>, maka <strong>korelasi</strong> antara pendapatan per bulan dengan tingkat kemandirian siswa <strong>akan melemah</strong>.</p></li>
+<li class="fragment"><p><strong>Nilainya positif</strong>, maka semakin tinggi <em>intercept</em> akan diasosiasikan dengan kemiringan garis yang lebih curam/<em>slopes</em> yang lebih besar</p></li>
+<li class="fragment"><p>Misalnya, di sekolah yang <strong>rata-rata pendapatan</strong> keluarga inti perbulan siswanya <strong>tinggi</strong>, maka <strong>korelasi</strong> antara pendapatan per bulan dengan tingkat kemandirian siswa <strong>akan menguat</strong>.</p></li>
+<li class="fragment"><p><strong>Nilainya negatif</strong>, maka semakin tinggi <em>intercept</em> akan diasosiasikan dengan kemiringan garis yang lebih landai/<em>slopes</em> yang lebih kecil</p></li>
+<li class="fragment"><p>Misalnya, di sekolah yang <strong>rata-rata pendapatan</strong> keluarga inti perbulan siswanya <strong>tinggi</strong>, maka <strong>korelasi</strong> antara pendapatan per bulan dengan tingkat kemandirian siswa <strong>akan melemah</strong>.</p></li>
 </ul>
 </section>
 <section id="parameter-yang-diestimasi-dalam-lme" class="slide level2">
@@ -324,7 +347,7 @@ Rizqy Amelia Zein
 </section>
 <section id="latihan-3-kembali-ke-dataset-sekolah" class="slide level2">
 <h2>Latihan 3️⃣: Kembali ke dataset sekolah 🏫</h2>
-<p>Setelah menginspeksi data secara visual, kita tidak bisa mempertahankan kesimpulan bahwa <strong>tingkat pendapatan</strong> dan <strong>tingkat kemandirian anak</strong> berkorelasi positif. Kita akan membuat <em>linear mixed model</em> dengan <strong>tingkat pendapatan</strong> sebagai prediktor, dan <strong>tingkat kemandirian anak</strong> sebagai variabel dependen.</p>
+<p>Kita akan membuat <em>linear mixed model</em> dengan <strong>tingkat pendapatan</strong> sebagai prediktor, dan <strong>tingkat kemandirian anak</strong> sebagai variabel dependen.</p>
 <h3 id="buat-model-kosong-null-model">Buat “model kosong” (<em>null model</em>)</h3>
 <ul>
 <li><p>Yaitu model yang isinya hanya <em>intercept</em> saja, tidak ada prediktornya (<em>slopes</em>)</p></li>
@@ -462,9 +485,9 @@ Rizqy Amelia Zein
 <ul>
 <li><p>ICC = 0.622, artinya <strong>62.2%</strong> varians tingkat kemandirian siswa dijelaskan oleh perbedaan sekolah.</p></li>
 <li><p>ICC di atas 0.1 biasanya menunjukkan <code>lme</code> adalah opsi yang lebih baik daripada OLS.</p></li>
-<li><p>LRT menunjukkan bahwa ada perbedaan yang signifikan antara varians tingkat kemandirian antar-sekolah (LRT(2)=74.0, <em>p</em>&lt;.001), tetapi…</p></li>
+<li><p>LRT menunjukkan bahwa tidak ada perbedaan yang signifikan antara varians tingkat kemandirian antar-sekolah (LRT(2) = 0.627, <em>p</em> = .731), tetapi…</p></li>
 <li><p>…struktur multilevel tetap dipertahankan mengingat besarnya ICC yang mengindikasikan ketidakindependenan observasi dalam sekolah yang sama.</p></li>
-<li><p>LRT bisa jadi tidak signifikan karena <em>power</em> rendah akibat kita hanya punya sedikit kelompok (&lt; 5 sekolah) dalam dataset</p></li>
+<li><p>LRT bisa jadi tidak signifikan karena <em>power</em> rendah akibat kita hanya punya sedikit kelompok (≤ 5 sekolah) dalam dataset</p></li>
 </ul>
 </div><div class="column">
 <p><img data-src="libs/random-component1.png"></p>
@@ -503,7 +526,11 @@ Rizqy Amelia Zein
 <li>Sekaligus sekolah dengan korelasi antara kemandirian dan tingkat pendapatan keluarga yang paling tinggi (<em>slope</em> paling besar)</li>
 </ul>
 </div><div class="column">
-<p><img data-src="libs/random-coeff.png"></p>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="libs/random-coeff.png" class="quarto-figure quarto-figure-center"></p>
+</figure>
+</div>
 </div></div>
 </section>
 <section id="model-comparison-1" class="slide level2">
@@ -519,7 +546,11 @@ Rizqy Amelia Zein
 <li><p>Artinya, mempertahankan struktur bersarang memang pilihan tepat dan menguatkan dugaan sebelumnya bahwa LRT <em>test</em> yang tidak signifikan karena <em>under-powered</em></p></li>
 </ul>
 </div><div class="column">
-<p><img data-src="libs/model-comparison-1.png"></p>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="libs/model-comparison-1.png" class="quarto-figure quarto-figure-center"></p>
+</figure>
+</div>
 </div></div>
 </section>
 <section id="model-comparison-2" class="slide level2">
@@ -535,7 +566,11 @@ Rizqy Amelia Zein
 </ul></li>
 </ul>
 </div><div class="column">
-<p><img data-src="libs/conditional-marginal.png"></p>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="libs/conditional-marginal.png" class="quarto-figure quarto-figure-center"></p>
+</figure>
+</div>
 </div></div>
 </section>
 <section id="within-group-effect" class="slide level2">
@@ -550,7 +585,11 @@ Rizqy Amelia Zein
 </ul></li>
 </ul>
 </div><div class="column">
-<p><img data-src="libs/within-group-effect.png"></p>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="libs/within-group-effect.png" class="quarto-figure quarto-figure-center"></p>
+</figure>
+</div>
 </div></div>
 </section>
 <section id="between-group-effect" class="slide level2">
@@ -565,7 +604,11 @@ Rizqy Amelia Zein
 </ul></li>
 </ul>
 </div><div class="column">
-<p><img data-src="libs/between-group-effect.png"></p>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="libs/between-group-effect.png" class="quarto-figure quarto-figure-center"></p>
+</figure>
+</div>
 </div></div>
 </section>
 <section id="contextual-effects" class="slide level2">
@@ -577,7 +620,11 @@ Rizqy Amelia Zein
 <li>Seberapa besar perbedaan <strong>tingkat kemandirian</strong> dua siswa dari <strong>dua sekolah yang berbeda</strong>, ketika tingkat pendapatan keluarga kedua siswa tersebut sama, tetapi rerata tingkat pendapatan keluarga di sekolah mereka berbeda sebesar 1 poin?</li>
 </ul>
 </div><div class="column">
-<p><img data-src="libs/contextual-effect.png"></p>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="libs/contextual-effect.png" class="quarto-figure quarto-figure-center"></p>
+</figure>
+</div>
 </div></div>
 </section>
 <section id="contextual-effects-partitioning-1" class="slide level2">
@@ -643,7 +690,7 @@ Rizqy Amelia Zein
 <div class="columns">
 <div class="column">
 <ul>
-<li><em>Within</em> (<em>B</em> = -0.621 95% CI [-0.786, -0.456], <em>SE</em> = 0.084, <em>t</em> = -7.386, <em>p</em> = .004), maupun <em>between-group effect</em> (<em>B</em> = 0.732 95% CI [0.583, 0.881], <em>SE</em> = 0.075, <em>t</em> = 9.76, <em>p</em> = .002) berhubungan dengan tingkat kemandirian siswa.</li>
+<li><em>Within</em> (<em>B</em> = -0.621 95% CI [-0.786, -0.456], <em>SE</em> = 0.084, <em>t</em> = -7.386, <em>p</em> = .004), maupun <em>between-group effect</em> (<em>B</em> = 0.732 95% CI [0.583, 0.881], <em>SE</em> = 0.075, <em>t</em> = 9.64, <em>p</em> = .002) berhubungan dengan tingkat kemandirian siswa.</li>
 <li><em>Within-group effect</em>: Di dalam sekolah yang sama, siswa dengan tingkat pendapatan keluarga yang lebih tinggi cenderung memiliki tingkat kemandirian yang lebih rendah.</li>
 <li><em>Between-group effect</em>: Ada bukti bahwa sekolah dengan rata-rata pendapatan keluarga yang lebih tinggi cenderung memiliki siswa yang lebih mandiri.</li>
 </ul>
@@ -665,13 +712,13 @@ Rizqy Amelia Zein
 <section id="bagaimana-melaporkannya-1" class="slide level2">
 <h2>Bagaimana melaporkannya? 1️⃣</h2>
 <blockquote>
-<p>Untuk menguji hipotesis bahwa ada perbedaan rerata tingkat kemandirian anak, dan korelasi antara pendapatan keluarga dengan tingkat kemandirian anak di masing-masing sekolah, peneliti melakukan analisis <em>linear mixed effect</em>. Tingkat kemandirian anak dijelaskan sebagai fungsi dari tingkat pendapatan keluarga, dengan mengontrol asal sekolah (PAUD) anak. Sebelum melakukan analisis, tingkat pendapatan keluarga dipartisi dengan cara menguranginya dengan rata-rata tingkat pendapatan keluarga di masing-masing sekolah (<em>group-mean/cluster-based centering</em>). Pengujian model menghasilkan kesimpulan bahwa model tepat menggambarkan data (<em>F</em>(1, 3) = 93, <em>p</em> = .002), sehingga dapat disimpulkan bahwa tingkat pendapatan keluarga dan kemandirian anak, berkaitan secara berarti.</p>
+<p>Untuk menguji hipotesis bahwa ada perbedaan rerata tingkat kemandirian anak, dan korelasi antara pendapatan keluarga dengan tingkat kemandirian anak di masing-masing sekolah, peneliti melakukan analisis <em>linear mixed effect</em>. Tingkat kemandirian anak dijelaskan sebagai fungsi dari tingkat pendapatan keluarga, dengan mengontrol asal sekolah (PAUD) anak. Sebelum melakukan analisis, tingkat pendapatan keluarga dipartisi dengan cara menguranginya dengan rata-rata tingkat pendapatan keluarga di masing-masing sekolah (<em>group-mean/cluster-based centering</em>). Pengujian model menghasilkan kesimpulan bahwa model tepat menggambarkan data (<em>F</em>(1, 3.28) = 51.7, <em>p</em> = .004), sehingga dapat disimpulkan bahwa tingkat pendapatan keluarga dan kemandirian anak, berkaitan secara berarti.</p>
 </blockquote>
 </section>
 <section id="bagaimana-melaporkannya-2" class="slide level2">
 <h2>Bagaimana melaporkannya? 2️⃣</h2>
 <blockquote>
-<p>Model <em>fixed effects</em> menunjukkan bahwa ada bukti bahwa perbedaan tingkat pendapatan keluarga di dalam sekolah yang sama berhubungan dengan perbedaan tingkat kemandirian (<em>within-group effect</em>: <em>B</em> = -0.621 95% CI [-0.786, -0.456], <em>SE</em> = 0.084, <em>t</em> = -7.386, <em>p</em> = .004). Artinya, di dalam sekolah yang sama, siswa dengan tingkat pendapatan keluarga yang lebih tinggi cenderung memiliki tingkat kemandirian yang lebih rendah. Selain itu, ada bukti bahwa sekolah dengan rata-rata tingkat pendapatan keluarga yang lebih tinggi cenderung memiliki rata-rata tingkat kemandirian yang lebih tinggi (<em>between-group effect</em>: <em>B</em> = 0.732 95% CI [0.583, 0.881], <em>SE</em> = 0.075, <em>t</em> = 0.084, <em>p</em> = .002). Model <em>random effects</em> menunjukkan bahwa ada perbedaan varians tingkat kemandirian antar-kelompok (LRT(1) = 8.188, <em>p</em> = .004) yang signifikan antar sekolah. <em>Contextual effects</em> ditemukan sebesar 1.535, yang menunjukkan bahwa ada pengaruh tambahan dari konteks sekolah yang cukup substansial terhadap tingkat kemandirian siswa, di luar pengaruh pendapatan keluarga siswa itu sendiri.”</p>
+<p>Model <em>fixed effects</em> menunjukkan bahwa ada bukti bahwa perbedaan tingkat pendapatan keluarga di dalam sekolah yang sama berhubungan dengan perbedaan tingkat kemandirian (<em>within-group effect</em>: <em>B</em> = -0.621 95% CI [-0.786, -0.456], <em>SE</em> = 0.084, <em>t</em> = -7.386, <em>p</em> = .004). Artinya, di dalam sekolah yang sama, siswa dengan tingkat pendapatan keluarga yang lebih tinggi cenderung memiliki tingkat kemandirian yang lebih rendah. Selain itu, ada bukti bahwa sekolah dengan rata-rata tingkat pendapatan keluarga yang lebih tinggi cenderung memiliki rata-rata tingkat kemandirian yang lebih tinggi (<em>between-group effect</em>: <em>B</em> = 0.732 95% CI [0.583, 0.881], <em>SE</em> = 0.075, <em>t</em> = 9.64, <em>p</em> = .002). Model <em>random effects</em> menunjukkan bahwa ada perbedaan rata-rata tingkat kemandirian antar-kelompok (LRT(1) = 8.18, <em>p</em> = .004) yang signifikan antar sekolah. <em>Contextual effects</em> ditemukan sebesar 1.535, yang menunjukkan bahwa ada pengaruh tambahan dari konteks sekolah yang cukup substansial terhadap tingkat kemandirian siswa, di luar pengaruh pendapatan keluarga siswa itu sendiri.”</p>
 </blockquote>
 </section>
 <section id="latihan-mandiri-2" class="slide level2">

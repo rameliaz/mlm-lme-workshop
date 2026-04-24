@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.10.3">
 
   <meta name="author" content="Rizqy Amelia Zein">
-  <meta name="dcterms.date" content="2026-04-16">
+  <meta name="dcterms.date" content="2026-04-25">
   <title>LME Workshop – lme untuk Pengukuran Berulang dan Experience Sampling</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -149,7 +149,7 @@ Rizqy Amelia Zein
     </div>
 </div>
 
-  <p class="date">2026-04-16</p>
+  <p class="date">2026-04-25</p>
 </section>
 <section id="outline" class="slide level2">
 <h2><em>Outline</em></h2>
@@ -244,7 +244,7 @@ Rizqy Amelia Zein
 </section>
 <section id="spesifikasi-struktur-kovarians-residual" class="slide level2">
 <h2>Spesifikasi <strong>struktur kovarians residual</strong></h2>
-<p>Kita perlu menspesifikasi dengan cara memberi tahu ´jamovi´, <strong>bagaimana pola korelasi</strong> antara residual dari pengukuran berulang pada orang yang sama.</p>
+<p>Kita perlu menspesifikasi dengan cara memberi tahu <code>jamovi</code>, <strong>bagaimana pola korelasi</strong> antara residual dari pengukuran berulang pada orang yang sama.</p>
 <p>Di GAMLj, kovarians residual dapat diatur melalui menu <strong><em>Residuals Options</em></strong>.</p>
 </section>
 <section id="matriks-kovarians-residual" class="slide level2">
@@ -790,10 +790,10 @@ Rizqy Amelia Zein
 <section id="person-mean-centering-dalam-esm-1" class="slide level2">
 <h2><em>Person-mean centering</em> dalam ESM</h2>
 <ul>
-<li><p>Karena <code>lme</code> memungkinkan <em>person-mean centering</em> efek <em>within-person</em> dengan <em>between-person</em> bisa dipisahkan</p></li>
+<li><p>Efek <em>within-person</em> dengan <em>between-person</em> bisa dipisahkan oleh <code>lme</code>, karena <code>lme</code> memungkinkan prosedur <em>person-mean centering</em></p></li>
 <li><p>Fitur inilah yang membuat <code>lme</code> lebih baik daripada <em>cross-lagged panel model</em> (CPLM) karena CPLM tidak punya mekanisme untuk mempartisi kedua jenis varians ini (<a href="https://psycnet.apa.org/doiLanding?doi=10.1037%2Fa0038889">Hamaker, Kuiper, &amp; Grasman, 2015</a>)</p>
 <ul>
-<li>Apabila ingin tetap menggunakan CPLM, maka disarankan untuk menambahkan <em>random intercept</em> yang bisa mengontrol efek <em>between-person</em></li>
+<li>Apabila ingin tetap menggunakan CPLM, maka disarankan untuk menambahkan <em>random intercept</em> yang bisa mengontrol efek <em>between-person</em> (RI-CPLM)</li>
 <li>Sehingga varians yang tersisa adalah efek <em>within-person</em></li>
 </ul></li>
 </ul>
@@ -947,7 +947,7 @@ Rizqy Amelia Zein
 <li><strong>Covariates level 1:</strong> stres_centered (<em>within-person</em>)</li>
 <li><strong>Covariates level 2:</strong> stres_mean (<em>between-person</em>), er (regulasi emosi)</li>
 <li><strong>Random Effects:</strong> tambahkan <strong>stres_centered|id</strong> (<em>random slopes</em>)</li>
-<li><strong>Covariates scaling:</strong> klik <code>none</code> untuk <code>stres_centered</code> dan <code>stress_mean</code></li>
+<li><strong>Covariates scaling:</strong> klik <code>none</code> untuk <code>stres_centered</code> dan <code>stres_mean</code></li>
 <li><strong>Residuals Structure → pilih AR(1)</strong> untuk menangkap <em>temporal autocorrelation</em></li>
 </ul>
 <p><strong>Langkah 3 — Cross-level interaction:</strong></p>
@@ -998,7 +998,7 @@ Rizqy Amelia Zein
 <p><em>Model null</em> menunjukkan bahwa 59.9% varians afek positif sesaat berada di level individu (ICC = 0.599), mengindikasikan bahwa penggunaan <code>lme</code> lebih sesuai daripada regresi OLS.</p>
 </blockquote>
 <blockquote>
-<p>Efek <em>within-person</em> stres sesaat terhadap afek positif sesaat signifikan negatif (<em>B</em> = -0.336 95% CI [-0.371, -301], <em>SE</em> = 0.017, <em>t</em> = -18.72, <em>p</em> = .001), artinya ketika seseorang <strong>saat ini lebih stres dari biasanya</strong>, afek positifnya juga lebih rendah dari biasanya sebesar 0.336 poin.</p>
+<p>Efek <em>within-person</em> stres sesaat terhadap afek positif sesaat signifikan negatif (<em>B</em> = -0.336 95% CI [-0.371, -0.301], <em>SE</em> = 0.017, <em>t</em> = -18.72, <em>p</em> = .001), artinya ketika seseorang <strong>saat ini lebih stres dari biasanya</strong>, afek positifnya juga lebih rendah dari biasanya sebesar 0.336 poin.</p>
 </blockquote>
 <blockquote>
 <p>Efek <em>between-person</em> stres juga signifikan (<em>B</em> = -0.409 95% CI [-0.548, -0.271], <em>SE</em> = 0.069, <em>t</em> = -5.89, <em>p</em> = .001), artinya <strong>orang yang secara umum lebih stres</strong> memiliki afek positif rata-rata yang lebih rendah sebesar 0.409 poin, dibanding orang yang lebih tidak stres — bahkan ketika perbedaan fluktuasi sesaat sudah dikontrol.</p>
@@ -1043,10 +1043,10 @@ Rizqy Amelia Zein
 <li>Dalam R: <code>lme4</code> dengan dua <em>cluster variables</em></li>
 <li>Dalam jamovi GAMLj saat ini: belum bisa dilakukan</li>
 </ul></li>
-<li><p><strong><em>Lagged predictors</em></strong>: apakah stres <em>sebelumnya</em> memprediksi afek <em>sekarang</em>?</p></li>
+<li><p><strong><em>Lagged predictors</em></strong>: apakah stres <em>sebelumnya</em> memprediksi afek <em>saat ini</em>?</p></li>
 <li><p><strong><em>Intra-individual variability</em></strong> sebagai <em>outcome</em> (bukan hanya rata-rata)</p></li>
 <li><p><strong><em>Intensive longitudinal data</em></strong>: ketika jumlah <em>beep</em> sangat banyak (&gt;100/orang)</p></li>
-<li><p><strong>ESM dengan variabel kategoris</strong> (mis. afek diukur dengan <em>item</em> nominal)</p>
+<li><p><strong>ESM dengan variabel kategorikal</strong> (mis. afek diukur dengan <em>item</em> nominal)</p>
 <ul>
 <li>Perlu <em>generalized</em> <code>lme</code> (<em>GLMM</em>)</li>
 </ul></li>
