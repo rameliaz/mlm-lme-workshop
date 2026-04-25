@@ -144,7 +144,7 @@ Rizqy Amelia Zein
             <a href="https://psikologi.unair.ac.id/dosen-rizqy-amelia-zein/"><em>Departemen Psikologi, Universitas Airlangga</em></a>
           </p>
         <p class="quarto-title-affiliation">
-            <a href="https://www.cais-research.de/team/rizqy-amelia-zein/">Research Data &amp; Methods Team, Center for Advanced Internet Studies</a>
+            <a href="https://www.cais-research.de/team/rizqy-amelia-zein/"><em>Research Data &amp; Methods Team, Center for Advanced Internet Studies</em></a>
           </p>
     </div>
 </div>
@@ -494,7 +494,7 @@ Rizqy Amelia Zein
 <section>
 <section id="latihan-5-setup-repeated-measures-di-gamlj" class="title-slide slide level1 center" data-background-color="#14497F">
 <h1>Latihan 5️⃣: Setup repeated measures di GAMLj</h1>
-<p>Buka <a href=".\materials/dataset-rm.omv"><strong>dataset-rm.omv</strong></a></p>
+<p>Buka <a href=".\materials/dataset-rm.omv">dataset-rm.omv</a></p>
 </section>
 <section id="latihan-5-langkah-langkah" class="slide level2">
 <h2>Latihan 5️⃣: Langkah-langkah</h2>
@@ -884,7 +884,7 @@ Rizqy Amelia Zein
 </section>
 <section id="ilustrasi-kasus-esm-afek-dan-regulasi-emosi-1" class="slide level2">
 <h2>Ilustrasi Kasus ESM: Afek dan regulasi emosi</h2>
-<p><strong>Klik teks di bawah ini untuk mengunduh dataset</strong> <a href=".\materials/dataset-esm.omv"><strong>dataset-esm.omv</strong></a></p>
+<p><strong>Klik teks di bawah ini untuk mengunduh dataset</strong> <a href=".\materials/dataset-esm.omv">dataset-esm.omv</a></p>
 <p><strong>Variabel Level-1 (<em>beep</em>):</strong></p>
 <ul>
 <li>id, hari, beep, pa, stres</li>
@@ -905,7 +905,7 @@ Rizqy Amelia Zein
 <ul>
 <li>Sebelum analisis, kita perlu membuat variabel <strong>stres_centered</strong> (stres yang sudah di-<em>person-mean centered</em>)
 <ul>
-<li>Dalam jamovi: <strong>Data</strong> → <strong>Add Computed Variable</strong></li>
+<li>Dalam <code>jamovi</code>: <strong>Data</strong> → <strong>Add Computed Variable</strong></li>
 <li>Formula: <code>stres - VMEAN(stres, group_by = id)</code> (mengurangi dengan rata-rata dalam kelompok id)</li>
 <li>Variabel ini mewakili <em>within-person effect</em></li>
 </ul></li>
@@ -923,7 +923,7 @@ Rizqy Amelia Zein
 <p><strong>Note</strong></p>
 </div>
 <div class="callout-content">
-<p><strong>Tips</strong>: dalam jamovi, fungsi <code>VMEAN(var, group_by = group)</code> menghitung rata-rata variabel <code>var</code> untuk setiap nilai <code>group</code>. Ini mirip dengan <em>group-mean centering</em> yang kita gunakan di materi sebelumnya.</p>
+<p><strong>Tips</strong>: dalam <code>jamovi</code>, fungsi <code>VMEAN(var, group_by = group)</code> menghitung rata-rata variabel <code>var</code> untuk setiap nilai <code>group</code>. Ini mirip dengan <em>group-mean centering</em> yang kita gunakan di materi sebelumnya.</p>
 </div>
 </div>
 </div>
@@ -984,11 +984,7 @@ Rizqy Amelia Zein
 <h2>Bagaimana melaporkannya? 1️⃣</h2>
 <blockquote>
 <p>Untuk menguji hipotesis penelitian, kami melakukan analisis <em>linear mixed effects</em> (LME) dengan menggunakan REML (<em>Restricted Maximum Likelihood</em>) di jamovi (GAMLj). Data bersarang dalam dua level: pengukuran sesaat (<em>beep</em>, N=2.800) bersarang dalam individu (N=80).</p>
-</blockquote>
-<blockquote>
 <p>Sebelum analisis, variabel stres sesaat di-<em>person-mean centered</em> dengan cara mengurangi skor stres setiap <em>beep</em> dengan rata-rata skor stres individu tersebut di seluruh <em>beep</em>-nya. Rata-rata stres individu dimasukkan sebagai prediktor Level-2 yang terpisah untuk mengestimasi efek <em>between-person</em> secara eksplisit.</p>
-</blockquote>
-<blockquote>
 <p>Struktur kovarians residual AR(1) dipilih untuk menangkap <em>temporal autocorrelation</em> antar pengukuran, yang diperkuat oleh estimasi koefisien autokorelasi ρ = 0.372, menunjukkan korelasi yang moderat antara pengukuran berturutan.</p>
 </blockquote>
 </section>
@@ -996,17 +992,14 @@ Rizqy Amelia Zein
 <h2>Bagaimana melaporkannya? 2️⃣</h2>
 <blockquote>
 <p><em>Model null</em> menunjukkan bahwa 59.9% varians afek positif sesaat berada di level individu (ICC = 0.599), mengindikasikan bahwa penggunaan <code>lme</code> lebih sesuai daripada regresi OLS.</p>
-</blockquote>
-<blockquote>
 <p>Efek <em>within-person</em> stres sesaat terhadap afek positif sesaat signifikan negatif (<em>B</em> = -0.336 95% CI [-0.371, -0.301], <em>SE</em> = 0.017, <em>t</em> = -18.72, <em>p</em> = .001), artinya ketika seseorang <strong>saat ini lebih stres dari biasanya</strong>, afek positifnya juga lebih rendah dari biasanya sebesar 0.336 poin.</p>
-</blockquote>
-<blockquote>
 <p>Efek <em>between-person</em> stres juga signifikan (<em>B</em> = -0.409 95% CI [-0.548, -0.271], <em>SE</em> = 0.069, <em>t</em> = -5.89, <em>p</em> = .001), artinya <strong>orang yang secara umum lebih stres</strong> memiliki afek positif rata-rata yang lebih rendah sebesar 0.409 poin, dibanding orang yang lebih tidak stres — bahkan ketika perbedaan fluktuasi sesaat sudah dikontrol.</p>
 </blockquote>
+</section>
+<section id="bagaimana-melaporkannya-3" class="slide level2">
+<h2>Bagaimana melaporkannya? 3️⃣</h2>
 <blockquote>
 <p>Efek regulasi emosi positif dan signifikan berkaitan dengan afek positif (<em>B</em> = 0.176 95% CI [0.053, 0.300], <em>SE</em> = 0.061, <em>t</em> = 2.86, <em>p</em> = .006). Artinya, partisipan dengan regulasi emosi yang baik juga cenderung memiliki afek positif yang lebih baik.</p>
-</blockquote>
-<blockquote>
 <p><em>Cross-level interaction</em> antara stres sesaat dan regulasi emosi signifikan (<em>B</em> = 0.006 95% CI [0.004, 0.009], <em>SE</em> = 0.001, <em>t</em> = 6.08, <em>p</em> = .001), menunjukkan bahwa orang dengan regulasi emosi yang lebih baik menunjukkan reaktivitas stres-afek yang lebih lemah.</p>
 </blockquote>
 </section>

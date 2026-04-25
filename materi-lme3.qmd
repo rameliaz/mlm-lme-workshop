@@ -4,7 +4,7 @@ subtitle: "Menggunakan `jamovi` (GAMLj)"
 author: "Rizqy Amelia Zein"
 institute:
   - "[_Departemen Psikologi, Universitas Airlangga_](https://psikologi.unair.ac.id/dosen-rizqy-amelia-zein/)"
-  - "[Research Data & Methods Team, Center for Advanced Internet Studies](https://www.cais-research.de/team/rizqy-amelia-zein/)"
+  - "[_Research Data & Methods Team, Center for Advanced Internet Studies_](https://www.cais-research.de/team/rizqy-amelia-zein/)"
 date: today
 format:
   unair-revealjs:
@@ -219,7 +219,7 @@ Perhatikan: **neuro** tidak berubah antar waktu (variabel Level-2), sedangkan **
 
 # Latihan 5️⃣: Setup repeated measures di GAMLj {background-color="#14497F"}
 
-Buka [**dataset-rm.omv**](/materials/dataset-rm.omv)
+Buka [dataset-rm.omv](/materials/dataset-rm.omv)
 
 ## Latihan 5️⃣: Langkah-langkah
 
@@ -464,7 +464,7 @@ Sebelum studi dimulai, partisipan mengisi:
 ## Ilustrasi Kasus ESM: Afek dan regulasi emosi
 
 **Klik teks di bawah ini untuk mengunduh dataset**
-[**dataset-esm.omv**](/materials/dataset-esm.omv)
+[dataset-esm.omv](/materials/dataset-esm.omv)
 
 **Variabel Level-1 (_beep_):**
 
@@ -483,7 +483,7 @@ Sebelum studi dimulai, partisipan mengisi:
 **Persiapan data:**
 
 * Sebelum analisis, kita perlu membuat variabel **stres_centered** (stres yang sudah di-_person-mean centered_)
-  - Dalam jamovi: **Data** → **Add Computed Variable**
+  - Dalam `jamovi`: **Data** → **Add Computed Variable**
   - Formula: `stres - VMEAN(stres, group_by = id)` (mengurangi dengan rata-rata dalam kelompok id)
   - Variabel ini mewakili _within-person effect_
 
@@ -491,7 +491,7 @@ Sebelum studi dimulai, partisipan mengisi:
   - Formula: `VMEAN(stres, group_by = id)` → variabel ini mewakili _between-person effect_
 
 ::: {.callout-note}
-**Tips**: dalam jamovi, fungsi `VMEAN(var, group_by = group)` menghitung rata-rata variabel `var` untuk setiap nilai `group`. Ini mirip dengan _group-mean centering_ yang kita gunakan di materi sebelumnya.
+**Tips**: dalam `jamovi`, fungsi `VMEAN(var, group_by = group)` menghitung rata-rata variabel `var` untuk setiap nilai `group`. Ini mirip dengan _group-mean centering_ yang kita gunakan di materi sebelumnya.
 :::
 
 ## Latihan 6️⃣: Langkah-langkah (2)
@@ -546,21 +546,23 @@ Sebelum studi dimulai, partisipan mengisi:
 ## Bagaimana melaporkannya? 1️⃣
 
 > Untuk menguji hipotesis penelitian, kami melakukan analisis _linear mixed effects_ (LME) dengan menggunakan REML (_Restricted Maximum Likelihood_) di jamovi (GAMLj). Data bersarang dalam dua level: pengukuran sesaat (_beep_, N=2.800) bersarang dalam individu (N=80).
-
+>
 > Sebelum analisis, variabel stres sesaat di-_person-mean centered_ dengan cara mengurangi skor stres setiap _beep_ dengan rata-rata skor stres individu tersebut di seluruh _beep_-nya. Rata-rata stres individu dimasukkan sebagai prediktor Level-2 yang terpisah untuk mengestimasi efek _between-person_ secara eksplisit.
-
+>
 > Struktur kovarians residual AR(1) dipilih untuk menangkap _temporal autocorrelation_ antar pengukuran, yang diperkuat oleh estimasi koefisien autokorelasi ρ = 0.372, menunjukkan korelasi yang moderat antara pengukuran berturutan.
 
 ## Bagaimana melaporkannya? 2️⃣
 
 > _Model null_ menunjukkan bahwa 59.9% varians afek positif sesaat berada di level individu (ICC = 0.599), mengindikasikan bahwa penggunaan `lme` lebih sesuai daripada regresi OLS.
-
+>
 > Efek _within-person_ stres sesaat terhadap afek positif sesaat signifikan negatif (_B_ = -0.336 95% CI [-0.371, -0.301], _SE_ = 0.017, _t_ = -18.72, _p_ = .001), artinya ketika seseorang **saat ini lebih stres dari biasanya**, afek positifnya juga lebih rendah dari biasanya sebesar 0.336 poin.
-
+>
 > Efek _between-person_ stres juga signifikan (_B_ = -0.409 95% CI [-0.548, -0.271], _SE_ = 0.069, _t_ = -5.89, _p_ = .001), artinya **orang yang secara umum lebih stres** memiliki afek positif rata-rata yang lebih rendah sebesar 0.409 poin, dibanding orang yang lebih tidak stres — bahkan ketika perbedaan fluktuasi sesaat sudah dikontrol.
 
-> Efek regulasi emosi positif dan signifikan berkaitan dengan afek positif (_B_ = 0.176 95% CI [0.053, 0.300], _SE_ = 0.061, _t_ = 2.86, _p_ = .006). Artinya, partisipan dengan regulasi emosi yang baik juga cenderung memiliki afek positif yang lebih baik.
+## Bagaimana melaporkannya? 3️⃣
 
+> Efek regulasi emosi positif dan signifikan berkaitan dengan afek positif (_B_ = 0.176 95% CI [0.053, 0.300], _SE_ = 0.061, _t_ = 2.86, _p_ = .006). Artinya, partisipan dengan regulasi emosi yang baik juga cenderung memiliki afek positif yang lebih baik.
+>
 > _Cross-level interaction_ antara stres sesaat dan regulasi emosi signifikan (_B_ = 0.006 95% CI [0.004, 0.009], _SE_ = 0.001, _t_ = 6.08, _p_ = .001), menunjukkan bahwa orang dengan regulasi emosi yang lebih baik menunjukkan reaktivitas stres-afek yang lebih lemah.
 
 ## Rangkuman
