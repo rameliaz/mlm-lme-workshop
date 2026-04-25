@@ -187,6 +187,34 @@ execute:
 
 ![](libs/full-model.jpg)
 
+## _Fixed_ vs. _random effects_: Apa bedanya?
+
+:::: {.columns}
+::: {.column width="50%"}
+
+### _Fixed effects_
+
+* Mengestimasi **rata-rata** populasi — nilai koefisiennya (_intercept_ dan _slope_) **sama** untuk semua kelompok
+* Menjawab pertanyaan: _"Seberapa besar kontribusi X menjelaskan Y secara keseluruhan?"_
+* Contoh: rata-rata _intercept_ (_c_~00~) dan rata-rata _slope_ (_c_~10~) — berlaku di seluruh sekolah
+
+:::
+::: {.column width="50%"}
+
+### _Random effects_
+
+* Mengestimasi **variasi** di sekitar nilai rata-rata — seberapa jauh setiap kelompok **menyimpang** dari nilai populasi
+* Menjawab pertanyaan: _"Seberapa besar perbedaan antar-kelompok dalam intercept dan/atau slope?"_
+* Contoh: varians _random intercept_ (σ²~U0~) dan _random slopes_ (σ²~U1~) — menggambarkan variasi antar-sekolah
+
+:::
+::::
+
+::: {.callout-tip}
+#### Singkatnya 
+_Fixed effects_ = parameter model yang berlaku pada seluruh sampel, yang merupakan nilai agregat (rata-rata) masing-masing subkelompok; _Random effects_ = seberapa besar parameter model di setiap subkelompok menyimpang dari rata-rata itu.
+:::
+
 ## Kovarians antara _random intercept_ dan _random slopes_ (σ~U0~~U1~)
 
 ::: {.incremental}

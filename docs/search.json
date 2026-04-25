@@ -798,6 +798,13 @@
     "text": "Full model"
   },
   {
+    "objectID": "materi-lme2.html#fixed-vs.-random-effects-apa-bedanya",
+    "href": "materi-lme2.html#fixed-vs.-random-effects-apa-bedanya",
+    "title": "Linear Mixed Models",
+    "section": "Fixed vs. random effects: Apa bedanya?",
+    "text": "Fixed vs. random effects: Apa bedanya?\n\n\nFixed effects\n\nMengestimasi rata-rata populasi — nilai koefisiennya (intercept dan slope) sama untuk semua kelompok\nMenjawab pertanyaan: “Seberapa besar kontribusi X menjelaskan Y secara keseluruhan?”\nContoh: rata-rata intercept (c00) dan rata-rata slope (c10) — berlaku di seluruh sekolah\n\n\nRandom effects\n\nMengestimasi variasi di sekitar nilai rata-rata — seberapa jauh setiap kelompok menyimpang dari nilai populasi\nMenjawab pertanyaan: “Seberapa besar perbedaan antar-kelompok dalam intercept dan/atau slope?”\nContoh: varians random intercept (σ²U0) dan random slopes (σ²U1) — menggambarkan variasi antar-sekolah\n\n\n\n\n\n\n\n\nSingkatnya\n\n\nFixed effects = parameter model yang berlaku pada seluruh sampel, yang merupakan nilai agregat (rata-rata) masing-masing subkelompok; Random effects = seberapa besar parameter model di setiap subkelompok menyimpang dari rata-rata itu."
+  },
+  {
     "objectID": "materi-lme2.html#kovarians-antara-random-intercept-dan-random-slopes-σu0u1",
     "href": "materi-lme2.html#kovarians-antara-random-intercept-dan-random-slopes-σu0u1",
     "title": "Linear Mixed Models",
