@@ -56,6 +56,8 @@ Berikut adalah *outline* materi yang tersedia di laman web ini:
 Karena asumsinya mahasiswa S3 sudah memiliki pengetahuan statistik dasar, maka  **Bagian 1 tidak diajarkan** di _workshop_. Bagian 1 **harus dikuasai** oleh peserta terlebih dahulu sebelum memulai _workshop_ dan dapat dipelajari secara mandiri.
 :::
 
+[<i class="fa-regular fa-file-powerpoint"></i> Buka Materi Regresi OLS](materi-lme1.html){.btn .btn-primary}
+
 ### **Bagian 2️⃣**: _Linear Mixed Effects Model_ 
 
 * Struktur data berjenjang/bersarang (*hierarchical/nested data*)
@@ -72,6 +74,8 @@ Karena asumsinya mahasiswa S3 sudah memiliki pengetahuan statistik dasar, maka  
 * _Contextual effect_ dan _partitioning/centering_
 * Melaporkan analisis dengan `lme` dalam manuskrip
 * Pengukuran berulang (_repeated measures_) dan _experience sampling_
+
+[<i class="fa-regular fa-file-powerpoint"></i> Buka Materi Pengantar LME](materi-lme2.html){.btn .btn-primary}
 
 ### **Bagian 3️⃣**: `lme` untuk Pengukuran Berulang dan *Experience Sampling*
 
@@ -91,6 +95,8 @@ Karena asumsinya mahasiswa S3 sudah memiliki pengetahuan statistik dasar, maka  
 #### _Repeated Measures_ dan ESM tidak diajarkan
 Karena keterbatasan waktu, bagian 3️⃣ **tidak diajarkan** secara mendalam di _workshop_. Materi tersedia di laman web ini dan dapat dipelajari peserta secara mandiri.
 :::
+
+[<i class="fa-regular fa-file-powerpoint"></i> Buka Materi LME Pengukuran Berulang](materi-lme3.html){.btn .btn-primary}
 
 ::: {.callout-note}
 #### Unduh materi dalam bentuk PDF

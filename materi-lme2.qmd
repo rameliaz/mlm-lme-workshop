@@ -54,7 +54,7 @@ execute:
 
 ::: {.center}
 
-![](libs/scat-group.png){fig-align="center"}
+![](libs/scat-group.png){fig-align="center" width="110%"}
 
 :::
 
