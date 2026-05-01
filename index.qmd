@@ -18,9 +18,10 @@ Materi berlisensi [<i class="fab fa-creative-commons"><i class="fa fa-universal-
 *Workshop* diselenggarakan pada hari **Sabtu, 9 Mei 2026** pukul 15.00 - 17.00 WIB secara virtual melalui Microsoft Teams.
 
 ::: {.callout-note}
-#### Catatan 
-Peserta dapat _join meeting_ melalui _browser_, sehingga **tidak harus** _login_ atau memiliki akun MS Teams. 
-Namun, apabila peserta ingin menyimpan atau mengakses _history chat_ setelah _workshop_ berakhir, peserta disarankan untuk _login_ akun Microsoft yang disediakan Universitas Airlangga (email dengan domain `@drive.unair.ac.id`) sebelum _join meeting_.
+#### Menggunakan Microsoft Teams
+Untuk *user experience* yang terbaik, peserta **sangat disarankan** untuk [mengunduh aplikasi MS Teams](https://www.microsoft.com/en-us/microsoft-teams/download-app) di perangkatnya masing-masing lalu *login* akun Microsoft Unair (email dengan domain `@drive.unair.ac.id`) sebelum _join meeting_. [Baca panduan dari DSI Universitas Airlangga](https://drive.google.com/file/d/1GZRz9a7TBCpDvYjJJE_ny8-3rgShKK_6/view) untuk mengetahui langkah-langkahnya.
+
+Alternatifnya, peserta dapat _join meeting_ melalui _browser_, sehingga **tidak harus** _login_ atau memiliki akun MS Teams. 
 :::
 
 :::{style="text-align: center;"}
