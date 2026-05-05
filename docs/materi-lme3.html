@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.10.3">
 
   <meta name="author" content="Rizqy Amelia Zein">
-  <meta name="dcterms.date" content="2026-05-02">
+  <meta name="dcterms.date" content="2026-05-05">
   <title>LME Workshop – lme untuk Pengukuran Berulang dan Experience Sampling</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -149,7 +149,7 @@ Rizqy Amelia Zein
     </div>
 </div>
 
-  <p class="date">2026-05-02</p>
+  <p class="date">2026-05-05</p>
 </section>
 <section id="outline" class="slide level2">
 <h2><em>Outline</em></h2>
@@ -286,7 +286,7 @@ Rizqy Amelia Zein
 <ul>
 <li>Semua varians sama (σ²), semua kovarians sama (σ_c)</li>
 <li>Korelasi antara T1–T2 = korelasi T1–T4: <strong>jarak waktu tidak berpengaruh</strong></li>
-<li>Ini adalah asumsi di balik <em>Repeated Measures ANOVA</em> klasik (biasanya disebut <strong>sphericity</strong>)</li>
+<li>CS menjamin terpenuhinya asumsi <strong>sphericity</strong> yang disyaratkan <em>Repeated Measures ANOVA</em> klasik — meskipun perlu dicatat bahwa CS adalah kondisi yang <strong>lebih ketat</strong> dari sphericity: sphericity hanya mensyaratkan kesamaan varians selisih antar pasangan waktu, sedangkan CS mensyaratkan semua varians dan semua kovarians masing-masing sama.</li>
 <li><strong>Kapan dipakai:</strong> desain <em>within-subject</em> atau <em>repeated between-subject</em>, utamanya ketika kondisi eksperimen tidak berurutan (<em>counterbalanced</em>)</li>
 <li><strong>Jumlah parameter:</strong> 2</li>
 </ul>
@@ -296,10 +296,10 @@ Rizqy Amelia Zein
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<p><strong>Mirip dengan ANOVA <em>repeated measures</em></strong></p>
+<p><strong>Hubungannya dengan ANOVA <em>repeated measures</em></strong></p>
 </div>
 <div class="callout-content">
-<p><em>Compound symmetry</em> adalah asumsi yang diuji oleh <strong><em>Mauchly’s test</em></strong> dalam ANOVA <em>repeated measures</em>. Jika <em>Mauchly’s</em> test signifikan, <em>sphericity</em> dilanggar dan CS bukan pilihan terbaik.</p>
+<p><strong><em>Mauchly’s test</em></strong> menguji asumsi <strong>sphericity</strong> (bukan CS secara langsung). CS <em>mengimplikasikan</em> sphericity, sehingga jika CS terpenuhi maka sphericity pasti terpenuhi. Namun kebalikannya tidak selalu benar: data bisa memenuhi sphericity tanpa memenuhi CS. Jika <em>Mauchly’s</em> test signifikan, sphericity dilanggar dan CS bukan pilihan terbaik.</p>
 </div>
 </div>
 </div>

@@ -53,7 +53,7 @@
     "href": "materi-lme3.html#struktur-2-compound-symmetry-cs",
     "title": "lme untuk Pengukuran Berulang dan Experience Sampling",
     "section": "Struktur 2: Compound Symmetry (CS)",
-    "text": "Struktur 2: Compound Symmetry (CS)\n\\[\\mathbf{R} = \\begin{bmatrix} \\sigma^2 & \\sigma_c & \\sigma_c & \\sigma_c \\\\ \\sigma_c & \\sigma^2 & \\sigma_c & \\sigma_c \\\\ \\sigma_c & \\sigma_c & \\sigma^2 & \\sigma_c \\\\ \\sigma_c & \\sigma_c & \\sigma_c & \\sigma^2 \\end{bmatrix}\\]\n\nSemua varians sama (σ²), semua kovarians sama (σ_c)\nKorelasi antara T1–T2 = korelasi T1–T4: jarak waktu tidak berpengaruh\nIni adalah asumsi di balik Repeated Measures ANOVA klasik (biasanya disebut sphericity)\nKapan dipakai: desain within-subject atau repeated between-subject, utamanya ketika kondisi eksperimen tidak berurutan (counterbalanced)\nJumlah parameter: 2\n\n\n\n\n\n\n\nMirip dengan ANOVA repeated measures\n\n\nCompound symmetry adalah asumsi yang diuji oleh Mauchly’s test dalam ANOVA repeated measures. Jika Mauchly’s test signifikan, sphericity dilanggar dan CS bukan pilihan terbaik."
+    "text": "Struktur 2: Compound Symmetry (CS)\n\\[\\mathbf{R} = \\begin{bmatrix} \\sigma^2 & \\sigma_c & \\sigma_c & \\sigma_c \\\\ \\sigma_c & \\sigma^2 & \\sigma_c & \\sigma_c \\\\ \\sigma_c & \\sigma_c & \\sigma^2 & \\sigma_c \\\\ \\sigma_c & \\sigma_c & \\sigma_c & \\sigma^2 \\end{bmatrix}\\]\n\nSemua varians sama (σ²), semua kovarians sama (σ_c)\nKorelasi antara T1–T2 = korelasi T1–T4: jarak waktu tidak berpengaruh\nCS menjamin terpenuhinya asumsi sphericity yang disyaratkan Repeated Measures ANOVA klasik — meskipun perlu dicatat bahwa CS adalah kondisi yang lebih ketat dari sphericity: sphericity hanya mensyaratkan kesamaan varians selisih antar pasangan waktu, sedangkan CS mensyaratkan semua varians dan semua kovarians masing-masing sama.\nKapan dipakai: desain within-subject atau repeated between-subject, utamanya ketika kondisi eksperimen tidak berurutan (counterbalanced)\nJumlah parameter: 2\n\n\n\n\n\n\n\nHubungannya dengan ANOVA repeated measures\n\n\nMauchly’s test menguji asumsi sphericity (bukan CS secara langsung). CS mengimplikasikan sphericity, sehingga jika CS terpenuhi maka sphericity pasti terpenuhi. Namun kebalikannya tidak selalu benar: data bisa memenuhi sphericity tanpa memenuhi CS. Jika Mauchly’s test signifikan, sphericity dilanggar dan CS bukan pilihan terbaik."
   },
   {
     "objectID": "materi-lme3.html#struktur-3-unstructured-un",
@@ -403,7 +403,7 @@
     "href": "materi-lme1.html#kekuatan-dan-arah-korelasi-1",
     "title": "Regresi Linear (Ordinary Least Square)",
     "section": "Kekuatan dan arah korelasi 1️⃣",
-    "text": "Kekuatan dan arah korelasi 1️⃣\nKorelasi yang tampak pada scatterplot tadi dapat dikonseptualisasikan dengan lebih jelas dengan menghitung koefisien korelasi, yang mengimplikasikan kekuatan hubungan.\n\nPearson’s r misalnya, biasanya ditulis dengan rxy, sedangkan Spearman’s ρ ditulis rs.\nBerkisar antara -1 s/d 1\n-1 artinya korelasi negatif sempurna, 1 artinya korelasi positif sempurna\nKoefisien korelasi Pearson’s r atau Spearman’s ρ dihitung dari kovarians (covariance/average cross product dari dua variabel).\n\nDua variabel yang sama sekali tak berkorelasi, maka kovarians nol."
+    "text": "Kekuatan dan arah korelasi 1️⃣\nKorelasi yang tampak pada scatterplot tadi dapat dikonseptualisasikan dengan lebih jelas dengan menghitung koefisien korelasi, yang mengimplikasikan kekuatan hubungan.\n\nPearson’s r misalnya, biasanya ditulis dengan rxy, sedangkan Spearman’s ρ ditulis rs.\nBerkisar antara -1 s/d 1\n-1 artinya korelasi negatif sempurna, 1 artinya korelasi positif sempurna\nKoefisien korelasi Pearson’s r dihitung dari kovarians (covariance/average cross product) dari dua variabel, sedangkan Spearman’s ρ dihitung dari kovarians peringkat (rank) kedua variabel — bukan nilai aslinya\n\nDua variabel yang sama sekali tak berkorelasi, maka kovarians nol"
   },
   {
     "objectID": "materi-lme1.html#kekuatan-dan-arah-korelasi-2",
@@ -564,7 +564,7 @@
     "href": "materi-lme1.html#model-comparison",
     "title": "Regresi Linear (Ordinary Least Square)",
     "section": "Model comparison",
-    "text": "Model comparison\n\n\nKetika dibandingkan, Model 1 dan Model 2 berbeda signifikan (F(1,397) = 29.5, p = .001). ΔR2 = .122, artinya selisih R2 Model 1 dan Model 2 = .128 atau R2 naik sebesar 12.8%\nCoba perhatikan Residuals Model 1 dengan Model 2"
+    "text": "Model comparison\n\n\nKetika dibandingkan, Model 1 dan Model 2 berbeda signifikan (F(1,397) = 29.5, p = .001). ΔR2 = .128, artinya R2 naik sebesar 12.8%\nCoba perhatikan Residuals Model 1 dengan Model 2"
   },
   {
     "objectID": "materi-lme1.html#koefisien-model-2",
@@ -592,7 +592,7 @@
     "href": "materi-lme1.html#diagnostik-kolinearitas",
     "title": "Regresi Linear (Ordinary Least Square)",
     "section": "Diagnostik kolinearitas",
-    "text": "Diagnostik kolinearitas\n\n\n\nDapat dideteksi dengan melakukan analisis melihat variance inflated factors (VIF)\n\nBila VIF &lt; 5, maka multi-kolinearitas tidak terjadi\n\nPenelitian longitudinal punya potensi terjadinya autokorelasi (residual time 1 dan time 2 berkorelasi)\n\nDapat dicek dengan tes Durbin-Watson\nBila nilai p analisis autokorelasi &gt; .05, maka autokorelasi residual tidak terjadi\nUmumnya, untuk data cross-sectional, autokorelasi tidak terlalu relevan"
+    "text": "Diagnostik kolinearitas\n\n\n\nDapat dideteksi dengan melakukan analisis melihat variance inflated factors (VIF)\n\nBila VIF &lt; 5, maka multi-kolinearitas tidak terjadi\n\nPenelitian longitudinal punya potensi terjadinya autokorelasi (residual time 1 dan time 2 berkorelasi)\n\nDapat dicek dengan tes Durbin-Watson (nilai statistik DW berkisar 0–4; nilai ~2 artinya tidak ada autokorelasi, &lt; 2 autokorelasi positif, &gt; 2 autokorelasi negatif)\nBeberapa perangkat lunak melaporkan nilai p untuk tes ini; bila p &gt; .05, autokorelasi residual tidak terjadi\nUmumnya, untuk data cross-sectional, autokorelasi tidak terlalu relevan"
   },
   {
     "objectID": "materi-lme1.html#bagaimana-melaporkannya",
@@ -760,7 +760,7 @@
     "href": "materi-lme2.html#simpsons-paradox",
     "title": "Linear Mixed Models",
     "section": "Simpson’s paradox",
-    "text": "Simpson’s paradox\n\n\n\nFenomena ini dikenal sebagai Simpson’s paradox\n\n..yaitu ketika tren yang diamati di level kelompok berbalik arah atau menghilang sama sekali ketika kelompok-kelompok tersebut digabungkan (diagregasi).\n\nKalau Simpson’s paradox diabaikan, kesimpulan bisa terkontaminasi ecological fallacy\n\nTerjadi ketika peneliti salah menyimpulkan suatu gejala yang skalanya individual, padahal yang dianalisis sesungguhnya fenomena di level yang lebih besar (kelompok atau sub-kelompok)"
+    "text": "Simpson’s paradox\n\n\n\nFenomena ini dikenal sebagai Simpson’s paradox\n\n..yaitu ketika tren yang tampak di setiap sub-kelompok berbalik arah atau menghilang sama sekali ketika data dari semua kelompok digabungkan (aggregated).\n\nKalau Simpson’s paradox diabaikan, kesimpulan bisa terkontaminasi ecological fallacy\n\nTerjadi ketika peneliti salah menyimpulkan suatu gejala yang skalanya individual, padahal yang dianalisis sesungguhnya fenomena di level yang lebih besar (kelompok atau sub-kelompok)"
   },
   {
     "objectID": "materi-lme2.html#simpsons-paradox-1",

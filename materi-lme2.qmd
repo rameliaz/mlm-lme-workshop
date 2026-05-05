@@ -103,7 +103,7 @@ execute:
 :::: {.columns}
 ::: {.column width="55%"}
 * Fenomena ini dikenal sebagai [_Simpson's paradox_](https://en.wikipedia.org/wiki/Simpson%27s_paradox)
-  - ..yaitu ketika tren yang diamati di level kelompok berbalik arah atau menghilang sama sekali ketika kelompok-kelompok tersebut digabungkan (diagregasi).
+  - ..yaitu ketika tren yang tampak di setiap sub-kelompok berbalik arah atau menghilang sama sekali ketika data dari semua kelompok digabungkan (_aggregated_).
 
 * Kalau _Simpson's paradox_ diabaikan, kesimpulan bisa terkontaminasi _ecological fallacy_
   - Terjadi ketika peneliti salah menyimpulkan suatu gejala yang skalanya individual, padahal yang dianalisis sesungguhnya fenomena di level yang lebih besar (kelompok atau sub-kelompok)

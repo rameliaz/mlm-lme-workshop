@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.10.3">
 
   <meta name="author" content="Rizqy Amelia Zein">
-  <meta name="dcterms.date" content="2026-05-02">
+  <meta name="dcterms.date" content="2026-05-05">
   <title>LME Workshop – Regresi Linear (Ordinary Least Square)</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -149,7 +149,7 @@ Rizqy Amelia Zein
     </div>
 </div>
 
-  <p class="date">2026-05-02</p>
+  <p class="date">2026-05-05</p>
 </section>
 <section id="outline" class="slide level2">
 <h2><em>Outline</em></h2>
@@ -316,9 +316,9 @@ Rizqy Amelia Zein
 <li class="fragment"><em>Pearson’s</em> r misalnya, biasanya ditulis dengan <em>r</em><sub>xy</sub>, sedangkan <em>Spearman’s</em> ρ ditulis <em>r</em><sub>s</sub>.</li>
 <li class="fragment">Berkisar antara -1 s/d 1</li>
 <li class="fragment">-1 artinya korelasi negatif sempurna, 1 artinya korelasi positif sempurna</li>
-<li class="fragment">Koefisien korelasi <em>Pearson’s</em> <em>r</em> atau <em>Spearman’s</em> ρ dihitung dari kovarians (<em>covariance</em>/<em>average cross product</em> dari dua variabel).
+<li class="fragment">Koefisien korelasi <em>Pearson’s</em> <em>r</em> dihitung dari kovarians (<em>covariance</em>/<em>average cross product</em>) dari dua variabel, sedangkan <em>Spearman’s</em> ρ dihitung dari kovarians <strong>peringkat</strong> (<em>rank</em>) kedua variabel — bukan nilai aslinya
 <ul>
-<li class="fragment">Dua variabel yang sama sekali tak berkorelasi, maka kovarians nol.</li>
+<li class="fragment">Dua variabel yang sama sekali tak berkorelasi, maka kovarians nol</li>
 </ul></li>
 </ul>
 </section>
@@ -677,7 +677,7 @@ Rizqy Amelia Zein
 <h2><em>Model comparison</em></h2>
 <div class="columns">
 <div class="column" style="width:55%;">
-<p>Ketika dibandingkan, Model 1 dan Model 2 berbeda signifikan (<em>F</em>(1,397) = 29.5, <em>p</em> = .001). ΔR<sup>2</sup> = .122, artinya selisih <em>R</em><sup>2</sup> Model 1 dan Model 2 = .128 atau <em>R</em><sup>2</sup> naik sebesar 12.8%</p>
+<p>Ketika dibandingkan, Model 1 dan Model 2 berbeda signifikan (<em>F</em>(1,397) = 29.5, <em>p</em> = .001). ΔR<sup>2</sup> = .128, artinya <em>R</em><sup>2</sup> naik sebesar 12.8%</p>
 <p><strong>Coba perhatikan Residuals Model 1 dengan Model 2</strong></p>
 </div><div class="column" style="width:45%;">
 <div class="quarto-figure quarto-figure-center">
@@ -732,8 +732,8 @@ Rizqy Amelia Zein
 </ul></li>
 <li>Penelitian <em>longitudinal</em> punya potensi terjadinya autokorelasi (residual <em>time 1</em> dan <em>time 2</em> berkorelasi)
 <ul>
-<li>Dapat dicek dengan tes Durbin-Watson</li>
-<li>Bila nilai p analisis autokorelasi &gt; .05, maka autokorelasi residual tidak terjadi</li>
+<li>Dapat dicek dengan tes Durbin-Watson (nilai statistik DW berkisar 0–4; nilai ~2 artinya tidak ada autokorelasi, &lt; 2 autokorelasi positif, &gt; 2 autokorelasi negatif)</li>
+<li>Beberapa perangkat lunak melaporkan nilai <em>p</em> untuk tes ini; bila <em>p</em> &gt; .05, autokorelasi residual tidak terjadi</li>
 <li>Umumnya, untuk data <em>cross-sectional</em>, autokorelasi tidak terlalu relevan</li>
 </ul></li>
 </ul>

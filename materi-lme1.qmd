@@ -172,8 +172,8 @@ Korelasi yang tampak pada _scatterplot_ tadi dapat dikonseptualisasikan dengan l
 * _Pearson's_ r misalnya, biasanya ditulis dengan _r_~xy~, sedangkan _Spearman's_ ρ ditulis _r_~s~.
 * Berkisar antara -1 s/d 1
 * -1 artinya korelasi negatif sempurna, 1 artinya korelasi positif sempurna
-* Koefisien korelasi _Pearson's_ _r_ atau _Spearman's_ ρ dihitung dari kovarians (_covariance_/_average cross product_ dari dua variabel).
-  - Dua variabel yang sama sekali tak berkorelasi, maka kovarians nol.
+* Koefisien korelasi _Pearson's_ _r_ dihitung dari kovarians (_covariance_/_average cross product_) dari dua variabel, sedangkan _Spearman's_ ρ dihitung dari kovarians **peringkat** (_rank_) kedua variabel — bukan nilai aslinya
+  - Dua variabel yang sama sekali tak berkorelasi, maka kovarians nol
 
 :::
 
@@ -496,7 +496,7 @@ Model 2 (_F_(2,397) = 74.3, _p_ = .001, _Adj. R_^2^ = .424) dapat menjelaskan va
 :::: {.columns}
 ::: {.column width="55%"}
 
-Ketika dibandingkan, Model 1 dan Model 2 berbeda signifikan (_F_(1,397) = 29.5, _p_ = .001). ΔR^2^ = .122, artinya selisih _R_^2^ Model 1 dan Model 2 = .128 atau _R_^2^ naik sebesar 12.8%
+Ketika dibandingkan, Model 1 dan Model 2 berbeda signifikan (_F_(1,397) = 29.5, _p_ = .001). ΔR^2^ = .128, artinya _R_^2^ naik sebesar 12.8%
 
 **Coba perhatikan Residuals Model 1 dengan Model 2**
 
@@ -550,8 +550,8 @@ Tidak ada bukti bahwa ada interaksi antara _neuroticism_ dengan _trust in organi
 * Dapat dideteksi dengan melakukan analisis melihat _variance inflated factors_ (VIF)
   - Bila VIF \< 5, maka multi-kolinearitas tidak terjadi
 * Penelitian _longitudinal_ punya potensi terjadinya autokorelasi (residual _time 1_ dan _time 2_ berkorelasi)
-  - Dapat dicek dengan tes Durbin-Watson
-  - Bila nilai p analisis autokorelasi \> .05, maka autokorelasi residual tidak terjadi
+  - Dapat dicek dengan tes Durbin-Watson (nilai statistik DW berkisar 0–4; nilai ~2 artinya tidak ada autokorelasi, < 2 autokorelasi positif, > 2 autokorelasi negatif)
+  - Beberapa perangkat lunak melaporkan nilai _p_ untuk tes ini; bila _p_ \> .05, autokorelasi residual tidak terjadi
   - Umumnya, untuk data _cross-sectional_, autokorelasi tidak terlalu relevan
 
 :::

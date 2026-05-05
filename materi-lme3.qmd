@@ -115,13 +115,13 @@ $$\mathbf{R} = \begin{bmatrix} \sigma^2 & \sigma_c & \sigma_c & \sigma_c \\ \sig
 
 * Semua varians sama (σ²), semua kovarians sama (σ_c)
 * Korelasi antara T1–T2 = korelasi T1–T4: **jarak waktu tidak berpengaruh**
-* Ini adalah asumsi di balik _Repeated Measures ANOVA_ klasik (biasanya disebut **sphericity**)
+* CS menjamin terpenuhinya asumsi **sphericity** yang disyaratkan _Repeated Measures ANOVA_ klasik — meskipun perlu dicatat bahwa CS adalah kondisi yang **lebih ketat** dari sphericity: sphericity hanya mensyaratkan kesamaan varians selisih antar pasangan waktu, sedangkan CS mensyaratkan semua varians dan semua kovarians masing-masing sama.
 * **Kapan dipakai:** desain _within-subject_ atau _repeated between-subject_, utamanya ketika kondisi eksperimen tidak berurutan (_counterbalanced_)
 * **Jumlah parameter:** 2
 
 ::: {.callout-note}
-#### Mirip dengan ANOVA _repeated measures_
-_Compound symmetry_ adalah asumsi yang diuji oleh **_Mauchly's test_** dalam ANOVA _repeated measures_. Jika _Mauchly's_ test signifikan, _sphericity_ dilanggar dan CS bukan pilihan terbaik.
+#### Hubungannya dengan ANOVA _repeated measures_
+**_Mauchly's test_** menguji asumsi **sphericity** (bukan CS secara langsung). CS _mengimplikasikan_ sphericity, sehingga jika CS terpenuhi maka sphericity pasti terpenuhi. Namun kebalikannya tidak selalu benar: data bisa memenuhi sphericity tanpa memenuhi CS. Jika _Mauchly's_ test signifikan, sphericity dilanggar dan CS bukan pilihan terbaik.
 :::
 
 ## Struktur 3: _Unstructured_ (UN)
