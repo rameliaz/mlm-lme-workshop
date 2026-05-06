@@ -392,7 +392,7 @@ Rizqy Amelia Zein
 </ul></li>
 <li><p>Pada menu <strong>model comparison</strong> centang <strong>more fit indices</strong></p></li>
 <li><p>Catat nilai AIC yang tersedia dalam tabel <strong>additional indices</strong></p></li>
-<li><p>Di sesi sebelumnya, sudah dijelaskan tentang <a href="https://rameliaz.github.io/mlm-lme-workshop/materi-lme1.html#/model-fit-1">fungsi AIC dan BIC</a></p></li>
+<li><p>Di bagian <a href="https://rameliaz.github.io/mlm-lme-workshop/materi-lme1.html#/">Regresi Linear</a>, sudah dijelaskan tentang <a href="https://rameliaz.github.io/mlm-lme-workshop/materi-lme1.html#/model-fit-2">fungsi AIC dan BIC</a></p></li>
 </ul>
 </section>
 <section id="latihan-3-model-dengan-prediktor" class="slide level2">
@@ -736,7 +736,7 @@ Rizqy Amelia Zein
 <div class="columns">
 <div class="column" style="width:55%;">
 <ul>
-<li><strong><em>Contextual effects</em></strong> (<span class="math inline">\(\beta_{between_{ij}}-\beta_{within_{ij}}\)</span> = 0.732 - (-0.621) = 1.535) menunjukkan bahwa terdapat pengaruh tambahan dari konteks sekolah (yang cukup substansial) terhadap kemandirian siswa, di luar pengaruh pendapatan keluarga siswa itu sendiri.</li>
+<li><strong><em>Contextual effects</em></strong> (<span class="math inline">\(\beta_{between_{ij}}-\beta_{within_{ij}}\)</span> = 0.732 - (-0.621) = 1.353) menunjukkan bahwa terdapat pengaruh tambahan dari konteks sekolah (yang cukup substansial) terhadap kemandirian siswa, di luar pengaruh pendapatan keluarga siswa itu sendiri.</li>
 </ul>
 </div><div class="column" style="width:45%;">
 <p><img data-src="libs/context.png"></p>
@@ -751,7 +751,7 @@ Rizqy Amelia Zein
 <section id="bagaimana-melaporkannya-2" class="slide level2">
 <h2>Bagaimana melaporkannya? 2️⃣</h2>
 <blockquote>
-<p>Model <em>fixed effects</em> menunjukkan bahwa ada bukti bahwa perbedaan tingkat pendapatan keluarga di dalam sekolah yang sama berhubungan dengan perbedaan tingkat kemandirian (<em>within-group effect</em>: <em>B</em> = -0.621 95% CI [-0.786, -0.456], <em>SE</em> = 0.084, <em>t</em> = -7.386, <em>p</em> = .004). Artinya, di dalam sekolah yang sama, siswa dengan tingkat pendapatan keluarga yang lebih tinggi cenderung memiliki tingkat kemandirian yang lebih rendah. Selain itu, ada bukti bahwa sekolah dengan rata-rata tingkat pendapatan keluarga yang lebih tinggi cenderung memiliki rata-rata tingkat kemandirian yang lebih tinggi (<em>between-group effect</em>: <em>B</em> = 0.732 95% CI [0.583, 0.881], <em>SE</em> = 0.075, <em>t</em> = 9.64, <em>p</em> = .002). Model <em>random effects</em> menunjukkan bahwa ada perbedaan rata-rata tingkat kemandirian antar-kelompok (LRT(1) = 8.18, <em>p</em> = .004) yang signifikan antar sekolah. <em>Contextual effects</em> ditemukan sebesar 1.535, yang menunjukkan bahwa ada pengaruh tambahan dari konteks sekolah yang cukup substansial terhadap tingkat kemandirian siswa, di luar pengaruh pendapatan keluarga siswa itu sendiri.”</p>
+<p>Model <em>fixed effects</em> menunjukkan bahwa ada bukti bahwa perbedaan tingkat pendapatan keluarga di dalam sekolah yang sama berhubungan dengan perbedaan tingkat kemandirian (<em>within-group effect</em>: <em>B</em> = -0.621 95% CI [-0.786, -0.456], <em>SE</em> = 0.084, <em>t</em> = -7.386, <em>p</em> = .004). Artinya, di dalam sekolah yang sama, siswa dengan tingkat pendapatan keluarga yang lebih tinggi cenderung memiliki tingkat kemandirian yang lebih rendah. Selain itu, ada bukti bahwa sekolah dengan rata-rata tingkat pendapatan keluarga yang lebih tinggi cenderung memiliki rata-rata tingkat kemandirian yang lebih tinggi (<em>between-group effect</em>: <em>B</em> = 0.732 95% CI [0.583, 0.881], <em>SE</em> = 0.075, <em>t</em> = 9.64, <em>p</em> = .002). Model <em>random effects</em> menunjukkan bahwa ada perbedaan rata-rata tingkat kemandirian antar-kelompok (LRT(1) = 8.18, <em>p</em> = .004) yang signifikan antar sekolah. <em>Contextual effects</em> ditemukan sebesar 1.353, yang menunjukkan bahwa ada pengaruh tambahan dari konteks sekolah yang cukup substansial terhadap tingkat kemandirian siswa, di luar pengaruh pendapatan keluarga siswa itu sendiri.”</p>
 </blockquote>
 </section>
 <section id="latihan-mandiri-2" class="slide level2">

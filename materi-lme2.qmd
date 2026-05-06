@@ -264,7 +264,7 @@ Kita akan membuat _linear mixed model_ dengan **tingkat pendapatan** sebagai pre
 * Pada menu **model comparison** centang **more fit indices**
 * Catat nilai AIC yang tersedia dalam tabel **additional indices**
 
-* Di sesi sebelumnya, sudah dijelaskan tentang [fungsi AIC dan BIC](https://rameliaz.github.io/mlm-lme-workshop/materi-lme1.html#/model-fit-1)
+* Di bagian [Regresi Linear](https://rameliaz.github.io/mlm-lme-workshop/materi-lme1.html#/), sudah dijelaskan tentang [fungsi AIC dan BIC](https://rameliaz.github.io/mlm-lme-workshop/materi-lme1.html#/model-fit-2)
 
 ## Latihan 3️⃣: Model dengan prediktor
 
@@ -582,7 +582,7 @@ Jangan masukkan **hi_gm** ke _random coefficient_ karena ini adalah rerata kelom
 :::: {.columns}
 ::: {.column width="55%"}
 
-* **_Contextual effects_** ($\beta_{between_{ij}}-\beta_{within_{ij}}$ = 0.732 - (-0.621) = 1.535) menunjukkan bahwa terdapat pengaruh tambahan dari konteks sekolah (yang cukup substansial) terhadap kemandirian siswa, di luar pengaruh pendapatan keluarga siswa itu sendiri. 
+* **_Contextual effects_** ($\beta_{between_{ij}}-\beta_{within_{ij}}$ = 0.732 - (-0.621) = 1.353) menunjukkan bahwa terdapat pengaruh tambahan dari konteks sekolah (yang cukup substansial) terhadap kemandirian siswa, di luar pengaruh pendapatan keluarga siswa itu sendiri. 
 
 :::
 ::: {.column width="45%"}
@@ -603,7 +603,7 @@ Jangan masukkan **hi_gm** ke _random coefficient_ karena ini adalah rerata kelom
 > Model _fixed effects_ menunjukkan bahwa ada bukti bahwa perbedaan tingkat pendapatan keluarga di dalam sekolah yang sama berhubungan dengan perbedaan tingkat kemandirian (_within-group effect_: _B_ = -0.621 95% CI [-0.786, -0.456], _SE_ = 0.084, _t_ = -7.386, _p_ = .004). Artinya, di dalam sekolah yang sama, siswa dengan tingkat pendapatan keluarga yang lebih tinggi cenderung memiliki tingkat kemandirian yang lebih rendah.
 > Selain itu, ada bukti bahwa sekolah dengan rata-rata tingkat pendapatan keluarga yang lebih tinggi cenderung memiliki rata-rata tingkat kemandirian yang lebih tinggi (_between-group effect_: _B_ = 0.732 95% CI [0.583, 0.881], _SE_ = 0.075, _t_ = 9.64, _p_ = .002).
 > Model _random effects_ menunjukkan bahwa ada perbedaan rata-rata tingkat kemandirian antar-kelompok (LRT(1) = 8.18, _p_ = .004) yang signifikan antar sekolah. 
-> _Contextual effects_ ditemukan sebesar 1.535, yang menunjukkan bahwa ada pengaruh tambahan dari konteks sekolah yang cukup substansial terhadap tingkat kemandirian siswa, di luar pengaruh pendapatan keluarga siswa itu sendiri."
+> _Contextual effects_ ditemukan sebesar 1.353, yang menunjukkan bahwa ada pengaruh tambahan dari konteks sekolah yang cukup substansial terhadap tingkat kemandirian siswa, di luar pengaruh pendapatan keluarga siswa itu sendiri."
 
 ## Latihan mandiri 2️⃣
 

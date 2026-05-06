@@ -123,7 +123,7 @@
     "href": "materi-lme3.html#membandingkan-model-1",
     "title": "lme untuk Pengukuran Berulang dan Experience Sampling",
     "section": "Membandingkan model 1️⃣",
-    "text": "Membandingkan model 1️⃣\n\nModel dengan waktu + CS biasanya sudah jauh lebih baik daripada model dengan Identity\nLihat tabel Model Info (AIC) dan Fixed Coefficients (efek waktu terhadap kecemasan)\nTetapi ada problem spesifikasi ketika struktur residual diset compound asymmetry atau unstructured\n\nHal ini terjadi karena random intercept sudah secara implisit memasukkan asumsi compound symmetry, sehingga kombinasi random intercept + compound symmetry atau unstructured akan menghasilkan masalah spesifikasi\nUntuk sebagian besar use case data pengukuran berulang, random intercept + identity adalah kombinasi yang tepat"
+    "text": "Membandingkan model 1️⃣\n\nModel dengan waktu + CS biasanya sudah jauh lebih baik daripada model dengan Identity\nLihat tabel Model Info (AIC) dan Fixed Coefficients (efek waktu terhadap kecemasan)\nTetapi ada problem spesifikasi ketika struktur residual diset Compound Symmetry atau unstructured\n\nHal ini terjadi karena random intercept sudah secara implisit memasukkan asumsi compound symmetry, sehingga kombinasi random intercept + compound symmetry atau unstructured akan menghasilkan masalah spesifikasi\nUntuk sebagian besar use case data pengukuran berulang, random intercept + identity adalah kombinasi yang tepat"
   },
   {
     "objectID": "materi-lme3.html#membandingkan-model-2",
@@ -417,7 +417,7 @@
     "href": "materi-lme1.html#regresi-linear",
     "title": "Regresi Linear (Ordinary Least Square)",
     "section": "Regresi linear",
-    "text": "Regresi linear\n\n\n\nMerupakan kelanjutan yang lebih kompleks dari Pearson’s r\nIde dasarnya adalah menyusun persamaan garis yang dapat digunakan untuk memperkirakan nilai Y ketika nilai X diketahui\n\nContohnya, kita memiliki hipotesis bahwa kemandirian berkorelasi positif dan sedang dengan neuroticism dan trust dan memang menemukan korelasi antara keduanya\nNamun dengan regresi, kita bisa mengestimasi tingkat kemandirian anak, ketika hanya informasi mengenai neuroticism dan trust yang tersedia.\n\nOLS bekerja dengan pendekatan least square, artinya mencari jumlah kuadrat terkecil antara garis regresi (nilai Y yang diperkirakan oleh model) dengan nilai Y yang diobservasi."
+    "text": "Regresi linear\n\n\n\nMerupakan kelanjutan yang lebih kompleks dari Pearson’s r\nIde dasarnya adalah menyusun persamaan garis yang dapat digunakan untuk memperkirakan nilai Y ketika nilai X diketahui\n\nContohnya, kita memiliki hipotesis bahwa kemandirian berkorelasi dengan neuroticism (negatif) dan trust (positif) dan memang menemukan korelasi antara keduanya\nNamun dengan regresi, kita bisa mengestimasi tingkat kemandirian anak, ketika hanya informasi mengenai neuroticism dan trust yang tersedia.\n\nOLS bekerja dengan pendekatan least square, artinya mencari jumlah kuadrat terkecil antara garis regresi (nilai Y yang diperkirakan oleh model) dengan nilai Y yang diobservasi."
   },
   {
     "objectID": "materi-lme1.html#persamaan-garis-regresi",
@@ -571,7 +571,7 @@
     "href": "materi-lme1.html#koefisien-model-2",
     "title": "Regresi Linear (Ordinary Least Square)",
     "section": "Koefisien model 2",
-    "text": "Koefisien model 2\n\nPendapatan keluarga dapat menjelaskan variasi kemandirian anak (B = 0.153 95% CI [0.025, 0.281], SE = 0.065, t = 2.354, p = .019). Artinya, anak yang dibesarkan di keluarga dengan tingkat pendapatan yang tinggi, maka cenderung lebih mandiri.\nMain effect neuroticism (B = 0.387 95% CI [0.261, 0.514], SE = 0.064, t = 6.018, p = .001) dan trust in organismic development (B = 0.391 95% CI [0.275, 0.508], SE = 0.059, t = 6.609, p = .001) secara independen menjelaskan tingkat kemandirian anak.\nTidak ada bukti bahwa ada interaksi antara neuroticism dengan trust in organismic development dalam menjelaskan varians kemandirian anak (B = -0.005 95% CI [-0.019, 0.018], SE = 0.009, t = -0.05, p = .955)."
+    "text": "Koefisien model 2\n\nPendapatan keluarga dapat menjelaskan variasi kemandirian anak (B = 0.153 95% CI [0.025, 0.281], SE = 0.065, t = 2.354, p = .019). Artinya, anak yang dibesarkan di keluarga dengan tingkat pendapatan yang tinggi, maka cenderung lebih mandiri.\nMain effect neuroticism (B = 0.387 95% CI [0.261, 0.514], SE = 0.064, t = 6.018, p = .001) dan trust in organismic development (B = 0.391 95% CI [0.275, 0.508], SE = 0.059, t = 6.609, p = .001) secara independen menjelaskan tingkat kemandirian anak.\nTidak ada bukti bahwa ada interaksi antara neuroticism dengan trust in organismic development dalam menjelaskan varians kemandirian anak (B = -0.005 95% CI [-0.019, 0.018], SE = 0.009, t = -0.556, p = .578)."
   },
   {
     "objectID": "materi-lme1.html#estimated-marginal-means",
@@ -606,7 +606,7 @@
     "href": "materi-lme1.html#bagaimana-melaporkannya-1",
     "title": "Regresi Linear (Ordinary Least Square)",
     "section": "Bagaimana melaporkannya?",
-    "text": "Bagaimana melaporkannya?\n\nPendapatan keluarga dapat menjelaskan variasi kemandirian anak (B = 0.153 95% CI [0.025, 0.281], SE = 0.065, t = 2.354, p = .019). Main effect neuroticism (B = 0.387 95% CI [0.261, 0.514], SE = 0.064, t = 6.018, p = .001) dan trust in organismic development (B = 0.391 95% CI [0.275, 0.508], SE = 0.059, t = 6.609, p = .001) secara independen menjelaskan tingkat kemandirian anak. Tidak ada bukti bahwa interaksi antara neuroticism dengan trust in organismic development dapat menjelaskan varians kemandirian anak (B = -0.005 95% CI [-0.019, 0.018], SE = 0.009, t = -0.05, p = .955).\n\n\nPotensi multikolinearitas dideteksi dengan VIF dan hasil analisis menunjukkan multikolinearitas kemungkinan tidak terjadi (VIF = 1.03 - 3.47)."
+    "text": "Bagaimana melaporkannya?\n\nPendapatan keluarga dapat menjelaskan variasi kemandirian anak (B = 0.153 95% CI [0.025, 0.281], SE = 0.065, t = 2.354, p = .019). Main effect neuroticism (B = 0.387 95% CI [0.261, 0.514], SE = 0.064, t = 6.018, p = .001) dan trust in organismic development (B = 0.391 95% CI [0.275, 0.508], SE = 0.059, t = 6.609, p = .001) secara independen menjelaskan tingkat kemandirian anak. Tidak ada bukti bahwa interaksi antara neuroticism dengan trust in organismic development dapat menjelaskan varians kemandirian anak (B = -0.005 95% CI [-0.019, 0.018], SE = 0.009, t = -0.556, p = .578).\n\n\nPotensi multikolinearitas dideteksi dengan VIF dan hasil analisis menunjukkan multikolinearitas kemungkinan tidak terjadi (VIF = 1.03 - 3.47)."
   },
   {
     "objectID": "materi-lme1.html#latihan-mandiri-1",
@@ -830,7 +830,7 @@
     "href": "materi-lme2.html#latihan-3-kembali-ke-dataset-sekolah",
     "title": "Linear Mixed-Effect (lme)",
     "section": "Latihan 3️⃣: Kembali ke dataset sekolah 🏫",
-    "text": "Latihan 3️⃣: Kembali ke dataset sekolah 🏫\nKita akan membuat linear mixed model dengan tingkat pendapatan sebagai prediktor, dan tingkat kemandirian anak sebagai variabel dependen.\nBuat “model kosong” (null model)\n\nYaitu model yang isinya hanya intercept saja, tidak ada prediktornya (slopes)\nPada menu bar, klik Linear Models, pilih mixed models\n\nMasukkan mandiri dalam kolom dependent variable\nMasukkan idsekolah dalam kolom cluster variables\nPada menu random effects masukkan intercept|idsekolah dalam kolom random coefficients\n\nPada menu model comparison centang more fit indices\nCatat nilai AIC yang tersedia dalam tabel additional indices\nDi sesi sebelumnya, sudah dijelaskan tentang fungsi AIC dan BIC"
+    "text": "Latihan 3️⃣: Kembali ke dataset sekolah 🏫\nKita akan membuat linear mixed model dengan tingkat pendapatan sebagai prediktor, dan tingkat kemandirian anak sebagai variabel dependen.\nBuat “model kosong” (null model)\n\nYaitu model yang isinya hanya intercept saja, tidak ada prediktornya (slopes)\nPada menu bar, klik Linear Models, pilih mixed models\n\nMasukkan mandiri dalam kolom dependent variable\nMasukkan idsekolah dalam kolom cluster variables\nPada menu random effects masukkan intercept|idsekolah dalam kolom random coefficients\n\nPada menu model comparison centang more fit indices\nCatat nilai AIC yang tersedia dalam tabel additional indices\nDi bagian Regresi Linear, sudah dijelaskan tentang fungsi AIC dan BIC"
   },
   {
     "objectID": "materi-lme2.html#latihan-3-model-dengan-prediktor",
@@ -963,7 +963,7 @@
     "href": "materi-lme2.html#contextual-effects-2",
     "title": "Linear Mixed-Effect (lme)",
     "section": "Contextual effects",
-    "text": "Contextual effects\n\n\n\nContextual effects (\\(\\beta_{between_{ij}}-\\beta_{within_{ij}}\\) = 0.732 - (-0.621) = 1.535) menunjukkan bahwa terdapat pengaruh tambahan dari konteks sekolah (yang cukup substansial) terhadap kemandirian siswa, di luar pengaruh pendapatan keluarga siswa itu sendiri."
+    "text": "Contextual effects\n\n\n\nContextual effects (\\(\\beta_{between_{ij}}-\\beta_{within_{ij}}\\) = 0.732 - (-0.621) = 1.353) menunjukkan bahwa terdapat pengaruh tambahan dari konteks sekolah (yang cukup substansial) terhadap kemandirian siswa, di luar pengaruh pendapatan keluarga siswa itu sendiri."
   },
   {
     "objectID": "materi-lme2.html#bagaimana-melaporkannya-1",
@@ -977,7 +977,7 @@
     "href": "materi-lme2.html#bagaimana-melaporkannya-2",
     "title": "Linear Mixed-Effect (lme)",
     "section": "Bagaimana melaporkannya? 2️⃣",
-    "text": "Bagaimana melaporkannya? 2️⃣\n\nModel fixed effects menunjukkan bahwa ada bukti bahwa perbedaan tingkat pendapatan keluarga di dalam sekolah yang sama berhubungan dengan perbedaan tingkat kemandirian (within-group effect: B = -0.621 95% CI [-0.786, -0.456], SE = 0.084, t = -7.386, p = .004). Artinya, di dalam sekolah yang sama, siswa dengan tingkat pendapatan keluarga yang lebih tinggi cenderung memiliki tingkat kemandirian yang lebih rendah. Selain itu, ada bukti bahwa sekolah dengan rata-rata tingkat pendapatan keluarga yang lebih tinggi cenderung memiliki rata-rata tingkat kemandirian yang lebih tinggi (between-group effect: B = 0.732 95% CI [0.583, 0.881], SE = 0.075, t = 9.64, p = .002). Model random effects menunjukkan bahwa ada perbedaan rata-rata tingkat kemandirian antar-kelompok (LRT(1) = 8.18, p = .004) yang signifikan antar sekolah. Contextual effects ditemukan sebesar 1.535, yang menunjukkan bahwa ada pengaruh tambahan dari konteks sekolah yang cukup substansial terhadap tingkat kemandirian siswa, di luar pengaruh pendapatan keluarga siswa itu sendiri.”"
+    "text": "Bagaimana melaporkannya? 2️⃣\n\nModel fixed effects menunjukkan bahwa ada bukti bahwa perbedaan tingkat pendapatan keluarga di dalam sekolah yang sama berhubungan dengan perbedaan tingkat kemandirian (within-group effect: B = -0.621 95% CI [-0.786, -0.456], SE = 0.084, t = -7.386, p = .004). Artinya, di dalam sekolah yang sama, siswa dengan tingkat pendapatan keluarga yang lebih tinggi cenderung memiliki tingkat kemandirian yang lebih rendah. Selain itu, ada bukti bahwa sekolah dengan rata-rata tingkat pendapatan keluarga yang lebih tinggi cenderung memiliki rata-rata tingkat kemandirian yang lebih tinggi (between-group effect: B = 0.732 95% CI [0.583, 0.881], SE = 0.075, t = 9.64, p = .002). Model random effects menunjukkan bahwa ada perbedaan rata-rata tingkat kemandirian antar-kelompok (LRT(1) = 8.18, p = .004) yang signifikan antar sekolah. Contextual effects ditemukan sebesar 1.353, yang menunjukkan bahwa ada pengaruh tambahan dari konteks sekolah yang cukup substansial terhadap tingkat kemandirian siswa, di luar pengaruh pendapatan keluarga siswa itu sendiri.”"
   },
   {
     "objectID": "materi-lme2.html#latihan-mandiri-2",

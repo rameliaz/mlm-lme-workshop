@@ -271,7 +271,7 @@ Urutkan dari yang paling sederhana ke yang paling kompleks: Identity → CS → 
 
 * Lihat tabel **Model Info** (AIC) dan **Fixed Coefficients** (efek waktu terhadap kecemasan)
 
-* Tetapi ada problem spesifikasi ketika struktur residual diset _compound asymmetry_ atau _unstructured_
+* Tetapi ada problem spesifikasi ketika struktur residual diset _Compound Symmetry_ atau _unstructured_
   - Hal ini terjadi karena _random intercept_ sudah secara implisit memasukkan asumsi _compound symmetry_, sehingga kombinasi _random intercept_ + _compound symmetry_ atau _unstructured_ akan menghasilkan masalah spesifikasi
   - Untuk sebagian besar _use case_ data pengukuran berulang, _random intercept_ + _identity_ adalah kombinasi yang tepat
 

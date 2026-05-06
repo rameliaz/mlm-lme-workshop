@@ -190,7 +190,7 @@ Rizqy Amelia Zein
 <ul>
 <li>Marimar yang penasaran akhirnya melakukan survei di 5 PAUD di Kota Surabaya, dengan ukuran sampel sebesar total 400 orang</li>
 <li>Buka <a href="https://rameliaz.github.io/mlm-lme-workshop/">laman web <em>workshop</em></a></li>
-<li>Klik menu <strong>Dataset</strong> di pojok kanan dan unduh <a href="https://rameliaz.github.io/mlm-lme-workshop/dataset-sekolah.omv">dataset-sekolah.omv</a></li>
+<li>Klik menu <strong>Dataset</strong> di pojok kanan dan unduh <a href="https://rameliaz.github.io/mlm-lme-workshop/materials/dataset-sekolah.omv">dataset-sekolah.omv</a></li>
 <li>Dalam dataset tersebut ada beberapa variabel
 <ul>
 <li><strong>neu</strong> = Kecenderungan <em>neuroticism</em> ibu (<em>five factor model</em>). Makin tinggi skor, Ibu makin mudah cemas, frustasi, cemburu, rasa bersalah, dan ketakutan berlebihan.</li>
@@ -350,7 +350,7 @@ Rizqy Amelia Zein
 <li class="fragment">Merupakan kelanjutan yang lebih kompleks dari <em>Pearson’s</em> r</li>
 <li class="fragment">Ide dasarnya adalah menyusun persamaan garis yang dapat digunakan untuk <strong>memperkirakan</strong> nilai Y ketika nilai X diketahui
 <ul>
-<li class="fragment">Contohnya, kita memiliki hipotesis bahwa <strong>kemandirian</strong> berkorelasi positif dan sedang dengan <strong>neuroticism</strong> dan <strong>trust</strong> dan memang menemukan korelasi antara keduanya</li>
+<li class="fragment">Contohnya, kita memiliki hipotesis bahwa <strong>kemandirian</strong> berkorelasi dengan <strong>neuroticism</strong> (negatif) dan <strong>trust</strong> (positif) dan memang menemukan korelasi antara keduanya</li>
 <li class="fragment">Namun dengan regresi, kita bisa <em>mengestimasi</em> tingkat kemandirian anak, ketika hanya informasi mengenai <em>neuroticism</em> dan <em>trust</em> yang tersedia.</li>
 </ul></li>
 <li class="fragment">OLS bekerja dengan pendekatan <em>least square</em>, artinya mencari <strong>jumlah kuadrat terkecil</strong> antara garis regresi (nilai Y yang diperkirakan oleh model) dengan nilai Y yang diobservasi.</li>
@@ -692,7 +692,7 @@ Rizqy Amelia Zein
 
 <img data-src="libs/mod-coef2.png" class="quarto-figure quarto-figure-center r-stretch"><p>Pendapatan keluarga dapat menjelaskan variasi kemandirian anak (<em>B</em> = 0.153 95% CI [0.025, 0.281], <em>SE</em> = 0.065, <em>t</em> = 2.354, <em>p</em> = .019). Artinya, anak yang dibesarkan di keluarga dengan tingkat pendapatan yang tinggi, maka cenderung lebih mandiri.</p>
 <p><em>Main effect neuroticism</em> (<em>B</em> = 0.387 95% CI [0.261, 0.514], <em>SE</em> = 0.064, <em>t</em> = 6.018, <em>p</em> = .001) dan <em>trust in organismic development</em> (<em>B</em> = 0.391 95% CI [0.275, 0.508], <em>SE</em> = 0.059, <em>t</em> = 6.609, <em>p</em> = .001) secara independen menjelaskan tingkat kemandirian anak.</p>
-<p>Tidak ada bukti bahwa ada interaksi antara <em>neuroticism</em> dengan <em>trust in organismic development</em> dalam menjelaskan varians kemandirian anak (<em>B</em> = -0.005 95% CI [-0.019, 0.018], <em>SE</em> = 0.009, <em>t</em> = -0.05, <em>p</em> = .955).</p>
+<p>Tidak ada bukti bahwa ada interaksi antara <em>neuroticism</em> dengan <em>trust in organismic development</em> dalam menjelaskan varians kemandirian anak (<em>B</em> = -0.005 95% CI [-0.019, 0.018], <em>SE</em> = 0.009, <em>t</em> = -0.556, <em>p</em> = .578).</p>
 </section>
 <section id="estimated-marginal-means" class="slide level2">
 <h2><em>Estimated Marginal Means</em></h2>
@@ -757,7 +757,7 @@ Rizqy Amelia Zein
 <section id="bagaimana-melaporkannya-1" class="slide level2">
 <h2>Bagaimana melaporkannya?</h2>
 <blockquote>
-<p>Pendapatan keluarga dapat menjelaskan variasi kemandirian anak (<em>B</em> = 0.153 95% CI [0.025, 0.281], <em>SE</em> = 0.065, <em>t</em> = 2.354, <em>p</em> = .019). <em>Main effect neuroticism</em> (<em>B</em> = 0.387 95% CI [0.261, 0.514], <em>SE</em> = 0.064, <em>t</em> = 6.018, <em>p</em> = .001) dan <em>trust in organismic development</em> (<em>B</em> = 0.391 95% CI [0.275, 0.508], <em>SE</em> = 0.059, <em>t</em> = 6.609, <em>p</em> = .001) secara independen menjelaskan tingkat kemandirian anak. Tidak ada bukti bahwa interaksi antara <em>neuroticism</em> dengan <em>trust in organismic development</em> dapat menjelaskan varians kemandirian anak (<em>B</em> = -0.005 95% CI [-0.019, 0.018], <em>SE</em> = 0.009, <em>t</em> = -0.05, <em>p</em> = .955).</p>
+<p>Pendapatan keluarga dapat menjelaskan variasi kemandirian anak (<em>B</em> = 0.153 95% CI [0.025, 0.281], <em>SE</em> = 0.065, <em>t</em> = 2.354, <em>p</em> = .019). <em>Main effect neuroticism</em> (<em>B</em> = 0.387 95% CI [0.261, 0.514], <em>SE</em> = 0.064, <em>t</em> = 6.018, <em>p</em> = .001) dan <em>trust in organismic development</em> (<em>B</em> = 0.391 95% CI [0.275, 0.508], <em>SE</em> = 0.059, <em>t</em> = 6.609, <em>p</em> = .001) secara independen menjelaskan tingkat kemandirian anak. Tidak ada bukti bahwa interaksi antara <em>neuroticism</em> dengan <em>trust in organismic development</em> dapat menjelaskan varians kemandirian anak (<em>B</em> = -0.005 95% CI [-0.019, 0.018], <em>SE</em> = 0.009, <em>t</em> = -0.556, <em>p</em> = .578).</p>
 </blockquote>
 <blockquote>
 <p>Potensi multikolinearitas dideteksi dengan VIF dan hasil analisis menunjukkan multikolinearitas kemungkinan tidak terjadi (VIF = 1.03 - 3.47).</p>
@@ -781,7 +781,7 @@ Rizqy Amelia Zein
 <h3 id="dataset-2-dataset-organisasi.omv">Dataset 2: <a href="materials/dataset-organisasi.omv">dataset-organisasi.omv</a></h3>
 <ul>
 <li>Fernando Jose akhirnya melakukan penelitian survei pada 450 karyawan di 3 perusahaan yang berbeda</li>
-<li>Buka <a href="https://rameliaz.github.io/mlm-lme-workshop/">laman web <em>workshop</em></a> dan unduh <a href="https://rameliaz.github.io/mlm-lme-workshop/dataset-organisasi.omv">dataset-organisasi.omv</a></li>
+<li>Buka <a href="https://rameliaz.github.io/mlm-lme-workshop/">laman web <em>workshop</em></a> dan unduh <a href="https://rameliaz.github.io/mlm-lme-workshop/materials/dataset-organisasi.omv">dataset-organisasi.omv</a></li>
 <li>Dalam dataset tersebut ada beberapa variabel
 <ul>
 <li><strong>con</strong> = Kecenderungan <em>conscientiousness</em> karyawan. Makin tinggi skornya, karyawan lebih mungkin menunjukkan kehati-hatian dan keteraturan dalam bekerja, efisien, dan bertanggung jawab.</li>

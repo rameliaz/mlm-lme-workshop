@@ -58,7 +58,7 @@ Marimar heran sekaligus penasaran, mengapa tiap anak **memberikan respon yang be
 
 * Marimar yang penasaran akhirnya melakukan survei di 5 PAUD di Kota Surabaya, dengan ukuran sampel sebesar total 400 orang
 * Buka [laman web _workshop_](https://rameliaz.github.io/mlm-lme-workshop/)
-* Klik menu **Dataset** di pojok kanan dan unduh [dataset-sekolah.omv](https://rameliaz.github.io/mlm-lme-workshop/dataset-sekolah.omv)
+* Klik menu **Dataset** di pojok kanan dan unduh [dataset-sekolah.omv](https://rameliaz.github.io/mlm-lme-workshop/materials/dataset-sekolah.omv)
 * Dalam dataset tersebut ada beberapa variabel
   - **neu** = Kecenderungan _neuroticism_ ibu (_five factor model_). Makin tinggi skor, Ibu makin mudah cemas, frustasi, cemburu, rasa bersalah, dan ketakutan berlebihan.
   - **trust** = Kepercayaan ibu bahwa perkembangan anak dapat berlangsung secara natural ([**trust in organismic development**](https://link.springer.com/article/10.1007/s11031-008-9092-2)). Makin tinggi skor, ibu makin percaya anaknya bisa berkembang secara natural.
@@ -205,7 +205,7 @@ Korelasi yang tampak pada _scatterplot_ tadi dapat dikonseptualisasikan dengan l
 
 * Merupakan kelanjutan yang lebih kompleks dari _Pearson's_ r
 * Ide dasarnya adalah menyusun persamaan garis yang dapat digunakan untuk **memperkirakan** nilai Y ketika nilai X diketahui
-  - Contohnya, kita memiliki hipotesis bahwa **kemandirian** berkorelasi positif dan sedang dengan **neuroticism** dan **trust** dan memang menemukan korelasi antara keduanya
+  - Contohnya, kita memiliki hipotesis bahwa **kemandirian** berkorelasi dengan **neuroticism** (negatif) dan **trust** (positif) dan memang menemukan korelasi antara keduanya
   - Namun dengan regresi, kita bisa _mengestimasi_ tingkat kemandirian anak, ketika hanya informasi mengenai _neuroticism_ dan _trust_ yang tersedia.
 * OLS bekerja dengan pendekatan _least square_, artinya mencari **jumlah kuadrat terkecil** antara garis regresi (nilai Y yang diperkirakan oleh model) dengan nilai Y yang diobservasi.
 
@@ -516,7 +516,7 @@ Pendapatan keluarga dapat menjelaskan variasi kemandirian anak (_B_ = 0.153 95% 
 
 _Main effect neuroticism_ (_B_ = 0.387 95% CI [0.261, 0.514], _SE_ = 0.064, _t_ = 6.018, _p_ = .001) dan _trust in organismic development_ (_B_ = 0.391 95% CI [0.275, 0.508], _SE_ = 0.059, _t_ = 6.609, _p_ = .001) secara independen menjelaskan tingkat kemandirian anak.
 
-Tidak ada bukti bahwa ada interaksi antara _neuroticism_ dengan _trust in organismic development_ dalam menjelaskan varians kemandirian anak (_B_ = -0.005 95% CI [-0.019, 0.018], _SE_ = 0.009, _t_ = -0.05, _p_ = .955).
+Tidak ada bukti bahwa ada interaksi antara _neuroticism_ dengan _trust in organismic development_ dalam menjelaskan varians kemandirian anak (_B_ = -0.005 95% CI [-0.019, 0.018], _SE_ = 0.009, _t_ = -0.556, _p_ = .578).
 
 ## _Estimated Marginal Means_
 
@@ -570,7 +570,7 @@ Tidak ada bukti bahwa ada interaksi antara _neuroticism_ dengan _trust in organi
 
 ## Bagaimana melaporkannya?
 
-> Pendapatan keluarga dapat menjelaskan variasi kemandirian anak (_B_ = 0.153 95% CI [0.025, 0.281], _SE_ = 0.065, _t_ = 2.354, _p_ = .019). _Main effect neuroticism_ (_B_ = 0.387 95% CI [0.261, 0.514], _SE_ = 0.064, _t_ = 6.018, _p_ = .001) dan _trust in organismic development_ (_B_ = 0.391 95% CI [0.275, 0.508], _SE_ = 0.059, _t_ = 6.609, _p_ = .001) secara independen menjelaskan tingkat kemandirian anak. Tidak ada bukti bahwa interaksi antara _neuroticism_ dengan _trust in organismic development_ dapat menjelaskan varians kemandirian anak (_B_ = -0.005 95% CI [-0.019, 0.018], _SE_ = 0.009, _t_ = -0.05, _p_ = .955).
+> Pendapatan keluarga dapat menjelaskan variasi kemandirian anak (_B_ = 0.153 95% CI [0.025, 0.281], _SE_ = 0.065, _t_ = 2.354, _p_ = .019). _Main effect neuroticism_ (_B_ = 0.387 95% CI [0.261, 0.514], _SE_ = 0.064, _t_ = 6.018, _p_ = .001) dan _trust in organismic development_ (_B_ = 0.391 95% CI [0.275, 0.508], _SE_ = 0.059, _t_ = 6.609, _p_ = .001) secara independen menjelaskan tingkat kemandirian anak. Tidak ada bukti bahwa interaksi antara _neuroticism_ dengan _trust in organismic development_ dapat menjelaskan varians kemandirian anak (_B_ = -0.005 95% CI [-0.019, 0.018], _SE_ = 0.009, _t_ = -0.556, _p_ = .578).
 
 > Potensi multikolinearitas dideteksi dengan VIF dan hasil analisis menunjukkan multikolinearitas kemungkinan tidak terjadi (VIF = 1.03 - 3.47).
 
@@ -598,7 +598,7 @@ Untuk faktor situasi, ia mengamati sepertinya persepsi atas kondisi kerja yang i
 ### Dataset 2: [dataset-organisasi.omv](materials/dataset-organisasi.omv)
 
 * Fernando Jose akhirnya melakukan penelitian survei pada 450 karyawan di 3 perusahaan yang berbeda
-* Buka [laman web _workshop_](https://rameliaz.github.io/mlm-lme-workshop/) dan unduh [dataset-organisasi.omv](https://rameliaz.github.io/mlm-lme-workshop/dataset-organisasi.omv)
+* Buka [laman web _workshop_](https://rameliaz.github.io/mlm-lme-workshop/) dan unduh [dataset-organisasi.omv](https://rameliaz.github.io/mlm-lme-workshop/materials/dataset-organisasi.omv)
 * Dalam dataset tersebut ada beberapa variabel
   - **con** = Kecenderungan _conscientiousness_ karyawan. Makin tinggi skornya, karyawan lebih mungkin menunjukkan kehati-hatian dan keteraturan dalam bekerja, efisien, dan bertanggung jawab.
   - **inf** = Persepsi atas nuansa informal dalam kantor. Makin tinggi, karyawan makin merasa situasi kantor lebih informal.
