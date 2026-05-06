@@ -1,5 +1,5 @@
 ---
-title: "_Linear Mixed Models_"
+title: "_Linear Mixed-Effect_ (`lme`)"
 subtitle: "Menggunakan `jamovi` (_Module_ GAMLj)"
 author: "Rizqy Amelia Zein"
 institute:
@@ -35,6 +35,7 @@ execute:
   - _Conditional R^2^_
 * _Contextual effect_ dan _partitioning/centering_
 * Melaporkan analisis dengan `lme` dalam manuskrip
+* Pengantar `lme` untuk pengukuran berulang dan *experience sampling*
 
 ## Coba kita lihat lebih dekat...
 

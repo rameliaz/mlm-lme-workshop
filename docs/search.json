@@ -639,378 +639,378 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "Linear Mixed Models (LME) Workshop",
+    "title": "Linear Mixed-Effect (LME) Workshop",
     "section": "",
-    "text": "NoteKuis Pre-test\n\n\n\nlme merupakan teknik statistik yang kompleks dan menguasainya perlu melewati learning curve yang lumayan curam. Agar workshop ini benar-benar bermanfaat, peserta wajib untuk mengikuti kuis pre-test sebelum workshop untuk mengetahui apa saja materi yang perlu dipersiapkan sebelum workshop dimulai.\nSilakan klik menu Kuis Pre-Test di navigation bar untuk mengikuti kuis.\nLaman web berikut ini merupakan laman web untuk Workshop Linear Mixed Models yang diselenggarakan oleh program studi Doktor (S3) Psikologi, Fakultas Psikologi, Universitas Airlangga.\nMateri berlisensi  BY 4.0. Materi bebas digunakan kembali namun wajib mengatribusi sumber aslinya."
+    "text": "NoteKuis Pre-test\n\n\n\nlme merupakan teknik statistik yang kompleks dan menguasainya perlu melewati learning curve yang lumayan curam. Agar workshop ini benar-benar bermanfaat, peserta wajib untuk mengikuti kuis pre-test sebelum workshop untuk mengetahui apa saja materi yang perlu dipersiapkan sebelum workshop dimulai.\nSilakan klik menu Kuis Pre-Test di navigation bar untuk mengikuti kuis.\nLaman web berikut ini merupakan laman web untuk Workshop Linear Mixed-Effect (LME) yang diselenggarakan oleh program studi Doktor (S3) Psikologi, Fakultas Psikologi, Universitas Airlangga.\nMateri berlisensi  BY 4.0. Materi bebas digunakan kembali namun wajib mengatribusi sumber aslinya."
   },
   {
     "objectID": "index.html#waktu-dan-tempat",
     "href": "index.html#waktu-dan-tempat",
-    "title": "Linear Mixed Models (LME) Workshop",
+    "title": "Linear Mixed-Effect (LME) Workshop",
     "section": "Waktu dan tempat",
     "text": "Waktu dan tempat\nWorkshop diselenggarakan pada hari Sabtu, 9 Mei 2026 pukul 15.00 - 17.00 WIB secara virtual melalui Microsoft Teams.\n\n\n\n\n\n\nNoteMenggunakan Microsoft Teams\n\n\n\nUntuk user experience yang terbaik, peserta sangat disarankan untuk mengunduh aplikasi MS Teams di perangkatnya masing-masing lalu login akun Microsoft Unair (email dengan domain @drive.unair.ac.id) sebelum join meeting. Baca panduan dari DSI Universitas Airlangga untuk mengetahui langkah-langkahnya.\nAlternatifnya, peserta dapat join meeting melalui browser, sehingga tidak harus login atau memiliki akun MS Teams.\n\n\n\nKlik disini untuk join meeting"
   },
   {
     "objectID": "index.html#outline-materi",
     "href": "index.html#outline-materi",
-    "title": "Linear Mixed Models (LME) Workshop",
+    "title": "Linear Mixed-Effect (LME) Workshop",
     "section": "Outline materi",
     "text": "Outline materi\nMateri yang tersedia di laman web ini juga mencakup konsep dasar ordinary least square regression selain pengenalan lme.\nPeserta juga akan diminta untuk menganalisis data dengan menggunakan lme dan melaporkannya dengan format yang biasa digunakan dalam artikel penelitian.\n\n\n\n\n\n\nNoteUnduh materi dalam bentuk PDF\n\n\n\nKlik navigation bar yang mengarah pada PDF materi, kemudian tekan ctrl dan p bersamaan. Setelah window untuk print muncul, pilih Save to PDF dan klik Save.\n\n\nBerikut adalah outline materi yang tersedia di laman web ini:\n\nBagian 1️⃣: Ordinary Least Square Regression\n\nBerlatih menginspeksi data secara visual dengan scatterplot\nModel regresi linear (ordinary least square)\nMenarik garis regresi (fitted regression line)\nVarians yang dapat dan yang tidak dapat dijelaskan oleh model (R2)\nMenguji hipotesis\nMengecek kecocokan model dengan data (model fit)\nMengecek asumsi\n\nDistribusi (normalitas) residual\nHomoskedastisitas\nMultikolinearitas\n\nMendeteksi outliers\nMenguji interaction effects dan model change\nMenulis hasil analisis regresi linear dengan interaction terms dalam manuskrip\n\n\n\n\n\n\n\nImportantRegresi OLS tidak diajarkan di workshop\n\n\n\nKarena asumsinya mahasiswa S3 sudah memiliki pengetahuan statistik dasar, maka Bagian 1 tidak diajarkan di workshop. Bagian 1 harus dikuasai oleh peserta terlebih dahulu sebelum memulai workshop dan dapat dipelajari secara mandiri.\n\n\n Buka Materi Regresi OLS\n\n\nBagian 2️⃣: Linear Mixed Effects Model\n\nStruktur data berjenjang/bersarang (hierarchical/nested data)\nWithin- dan between-group variances\nPengantar linear mixed-effect (lme)\nIntra-class correlation dan likelihood ratio test (LRT)\nMembandingkan garis regresi antar kelompok dengan lme\nlme dengan prediktor level 1 (random coefficients model)\n\nMengidentifikasi intercept (konstanta) yang berbeda antar kelompok (random-intercept model)\nMengidentifikasi slopes (gradien/kemiringan garis) yang berbeda antar kelompok (random slopes model)\n\n“Explained variances” (Nakagawa & Schielzeth, 2012)\n\nMarginal R2\nConditional R2\n\nContextual effect dan partitioning/centering\nMelaporkan analisis dengan lme dalam manuskrip\nPengukuran berulang (repeated measures) dan experience sampling\n\n Buka Materi Pengantar LME\n\n\nBagian 3️⃣: lme untuk Pengukuran Berulang dan Experience Sampling\n\nKeterbatasan lme biasa untuk data pengukuran berulang\nRepeated measures dengan lme\n\nStruktur kovarians residual: Identity, Compound Symmetry, Unstructured\nMembandingkan model dengan struktur residual berbeda\n\nExperience Sampling Method (ESM)\n\nApa itu ESM dan pada saat seperti apa ESM dilakukan?\nTemporal autocorrelation dan struktur AR(1) & ARMA(1,1)\nPerson-mean centering: efek within- vs. between-person\nCross-level interaction dalam data ESM\n\nSetup di jamovi GAMLj\nMelaporkan hasil dalam manuskrip\n\n\n\n\n\n\n\nImportantRepeated Measures dan ESM tidak diajarkan\n\n\n\nKarena keterbatasan waktu, bagian 3️⃣ tidak diajarkan secara mendalam di workshop. Materi tersedia di laman web ini dan dapat dipelajari peserta secara mandiri.\n\n\n Buka Materi LME Pengukuran Berulang"
   },
   {
     "objectID": "index.html#referensi",
     "href": "index.html#referensi",
-    "title": "Linear Mixed Models (LME) Workshop",
+    "title": "Linear Mixed-Effect (LME) Workshop",
     "section": "Referensi",
     "text": "Referensi\n\nBrown, V.A. (2021). An Introduction to Linear Mixed-Effects Modeling in R. Advances in Methods and Practices in Psychological Science, 4(1), 1-19. doi: 10.1177/2515245920960351\nGalucci, M. (2025). GAMLj: General analysis for the linear model in jamovi. https://gamlj.github.io/index.html\nGalucci, M. (2025). Mixed models module. https://gamlj.github.io/mixed.html\nHajduk, G.K. (2017). Introduction to linear mixed models. https://ourcodingclub.github.io/2017/03/15/mixed-models.html\nNakagawa, S. and Schielzeth, H. (2013), A general and simple method for obtaining R2 from generalized linear mixed‐effects models. Methods in Ecology and Evolution, 4: 133-142. doi: 10.1111/j.2041-210x.2012.00261.x\nPeugh, James L. (2010). A practical guide to multilevel modeling. Journal of School Psychology, 48, 85-112. doi: 10.1016/j.jsp.2009.09.002\nWinter, B. (2013). Linear models and linear mixed effects models in R with linguistic applications. arXiv:1308.5499."
   },
   {
     "objectID": "index.html#referensi-tambahan-untuk-repeated-measures-dan-experience-sampling",
     "href": "index.html#referensi-tambahan-untuk-repeated-measures-dan-experience-sampling",
-    "title": "Linear Mixed Models (LME) Workshop",
+    "title": "Linear Mixed-Effect (LME) Workshop",
     "section": "Referensi tambahan untuk repeated measures dan experience sampling",
     "text": "Referensi tambahan untuk repeated measures dan experience sampling\n\nBolger, N., & Laurenceau, J-P. (2013). Intensive longitudinal methods: An introduction to diary and experience sampling research. Guilford Press.\nHamaker, E.L., Kuiper, R.M., & Grasman, R.P.P.P. (2015). A critique of the cross-lagged panel model. Psychological Methods, 20(1), 102-116. doi: 10.1037/a0038889\nNezlek, J.B. (2012). Multilevel modeling analyses of diary-style data. In M.R. Mehl & T.S. Conner (Eds.), Handbook of Research Methods for Studying Daily Life (pp. 384-410). Guilford Press.\nTrull, T.J. & Ebner-Priemer, U. (2014). The role of ambulatory assessment in psychological science. Current Directions in Psychological Science, 23(6), 466-470. doi: 10.1177/0963721414550706"
   },
   {
     "objectID": "index.html#contoh-penelitian-dengan-lme",
     "href": "index.html#contoh-penelitian-dengan-lme",
-    "title": "Linear Mixed Models (LME) Workshop",
+    "title": "Linear Mixed-Effect (LME) Workshop",
     "section": "Contoh penelitian dengan lme",
     "text": "Contoh penelitian dengan lme\n\nYoungseek, K. & Stanton, J.M. (2016). Institutional and individual factors affecting scientists’ data-sharing behaviors: A multilevel analysis. Journal of the Association for Information Science and Technology, 67(4), 776-799. doi: 10.1002/asi.23424\nZein, R.A. & Gollwitzer, M. (2025). More Than Dilution: Religiosity and Conflict Perceptions Predict Perceived Utility of Religious, but not Scientific Explanations. PsyArXiv. doi: 10.31234/osf.io/4rjqs_v1\nZein, R.A., Putri, N.K., & Ridlo, I.A. (2019). Do Justice and Trust Affect Acceptability of Indonesian Social Health Insurance Policy? A cross-sectional survey of laypeople and health care workers. International Journal of Health Governance, 25(1), 78-92. doi: 10.1108/IJHG-05-2019-0028"
   },
   {
     "objectID": "index.html#sumber-belajar-lainnya",
     "href": "index.html#sumber-belajar-lainnya",
-    "title": "Linear Mixed Models (LME) Workshop",
+    "title": "Linear Mixed-Effect (LME) Workshop",
     "section": "Sumber belajar lainnya",
     "text": "Sumber belajar lainnya\n\nLEMMA (Learning Environment for Multilevel Methods and Applications)\nLearning Statistics with jamovi\nVideo tutorial jamovi dari Datalab"
   },
   {
     "objectID": "index.html#sebelum-mulai-workshop",
     "href": "index.html#sebelum-mulai-workshop",
-    "title": "Linear Mixed Models (LME) Workshop",
+    "title": "Linear Mixed-Effect (LME) Workshop",
     "section": "Sebelum mulai workshop",
     "text": "Sebelum mulai workshop\n\nSebaiknya semua peserta sudah memasang jamovi pada perangkatnya masing-masing, untuk menghindari terlalu banyaknya waktu untuk menyelesaikan troubleshooting instalasi ketika workshop.\nPeserta sangat disarankan untuk menonton video tutorial jamovi sebelum workshop untuk belajar menavigasikan menu dan fitur yang ada dalam jamovi. Cukup hanya dengan menonton bagian Welcome, Installing jamovi, dan Navigating jamovi (total durasi kurang lebih hanya 7 menit)."
   },
   {
     "objectID": "index.html#cara-instalasi-module-gamlj-v.3",
     "href": "index.html#cara-instalasi-module-gamlj-v.3",
-    "title": "Linear Mixed Models (LME) Workshop",
+    "title": "Linear Mixed-Effect (LME) Workshop",
     "section": "Cara instalasi module GAMLj v.3",
     "text": "Cara instalasi module GAMLj v.3\nMohon untuk menyimak video petunjuk instalasi module GAMLj jamovi berikut ini.\nGunakan jamovi versi stabil yang terbaru (2.6.44) untuk Windows atau MacOS."
   },
   {
     "objectID": "index.html#tutorial-jamovi-modules",
     "href": "index.html#tutorial-jamovi-modules",
-    "title": "Linear Mixed Models (LME) Workshop",
+    "title": "Linear Mixed-Effect (LME) Workshop",
     "section": "Tutorial jamovi + modules",
     "text": "Tutorial jamovi + modules\nSaat ini, sudah cukup banyak tutorial jamovi yang tersedia. Salah satu yang paling populer dan komperhensif adalah tutorial di bawah ini ⬇️\n\nSimak seluruh video tutorial di  playlist."
   },
   {
     "objectID": "index.html#evaluasi-workshop",
     "href": "index.html#evaluasi-workshop",
-    "title": "Linear Mixed Models (LME) Workshop",
+    "title": "Linear Mixed-Effect (LME) Workshop",
     "section": "Evaluasi workshop",
     "text": "Evaluasi workshop\nSetelah workshop, peserta dimohon untuk mengisi kuesioner evaluasi yang dapat diakses di menu bar Survei bagian pojok kanan atas sebagai bahan evaluasi untuk meningkatkan kualitas materi workshop di masa depan."
   },
   {
     "objectID": "materi-lme2.html#outline-1",
     "href": "materi-lme2.html#outline-1",
-    "title": "Linear Mixed Models",
+    "title": "Linear Mixed-Effect (lme)",
     "section": "Outline 1️⃣",
     "text": "Outline 1️⃣\n\nStruktur data berjenjang/bersarang (hierarchical/nested data)\nWithin dan between group variance\nPengantar linear mixed-effect (lme)\nIntra-class correlation dan likelihood ratio test (LRT)\nMembandingkan garis regresi antar kelompok dengan lme\nlme dengan prediktor level 1 (random coefficients model)\n\nMengidentifikasi intercept (konstanta) yang berbeda antar kelompok (random intercept model)\nMengidentifikasi slopes (gradien/kemiringan garis) yang berbeda antar kelompok (random slopes model)"
   },
   {
     "objectID": "materi-lme2.html#outline-2",
     "href": "materi-lme2.html#outline-2",
-    "title": "Linear Mixed Models",
+    "title": "Linear Mixed-Effect (lme)",
     "section": "Outline 2️⃣",
-    "text": "Outline 2️⃣\n\nExplained variances (Nakagawa & Schielzeth, 2012)\n\nMarginal R2\nConditional R2\n\nContextual effect dan partitioning/centering\nMelaporkan analisis dengan lme dalam manuskrip"
+    "text": "Outline 2️⃣\n\nExplained variances (Nakagawa & Schielzeth, 2012)\n\nMarginal R2\nConditional R2\n\nContextual effect dan partitioning/centering\nMelaporkan analisis dengan lme dalam manuskrip\nPengantar lme untuk pengukuran berulang dan experience sampling"
   },
   {
     "objectID": "materi-lme2.html#coba-kita-lihat-lebih-dekat",
     "href": "materi-lme2.html#coba-kita-lihat-lebih-dekat",
-    "title": "Linear Mixed Models",
+    "title": "Linear Mixed-Effect (lme)",
     "section": "Coba kita lihat lebih dekat…",
     "text": "Coba kita lihat lebih dekat…\n\nDi sesi sebelumnya, kita telah melakukan analisis regresi OLS dengan dataset-sekolah.omv\n\nBaca ilustrasi kasusnya disini\n\nCoba kita lakukan inspeksi visual sekali lagi pada dataset yang sama\nBuat scatterplot dimana mandiri menjadi Y-Axis, sedangkan neu, hi, trust sebagai X-Axis\nKemudian masukkan idsekolah pada kolom Group\n\nFungsinya, kita akan mendapatkan garis regresi untuk masing-masing sekolah yang berbeda\n\nApa yang terjadi?"
   },
   {
     "objectID": "materi-lme2.html#scatterplot-subkelompok",
     "href": "materi-lme2.html#scatterplot-subkelompok",
-    "title": "Linear Mixed Models",
+    "title": "Linear Mixed-Effect (lme)",
     "section": "Scatterplot subkelompok",
     "text": "Scatterplot subkelompok"
   },
   {
     "objectID": "materi-lme2.html#scatterplot",
     "href": "materi-lme2.html#scatterplot",
-    "title": "Linear Mixed Models",
+    "title": "Linear Mixed-Effect (lme)",
     "section": "Scatterplot",
     "text": "Scatterplot\n\n\n\n\n\n\n\n\nScatterplot 1. Neuroticism dan Kemandirian\n\n\n\n\n\n\n\n\nScatterplot 2. Trust dan Kemandirian"
   },
   {
     "objectID": "materi-lme2.html#ada-yang-janggal..",
     "href": "materi-lme2.html#ada-yang-janggal..",
-    "title": "Linear Mixed Models",
+    "title": "Linear Mixed-Effect (lme)",
     "section": "Ada yang janggal.. 🤔",
     "text": "Ada yang janggal.. 🤔\n\n\n\nNeuroticism dan pendapatan keluarga ternyata menunjukkan korelasi negatif dengan tingkat kemandirian, dengan intercept dan kemiringan (slopes) yang bervariasi di setiap sekolah.\nSelain itu, meskipun trust menunjukkan korelasi positif di semua sekolah, tetapi intercept dan slope nya juga bervariasi di setiap sekolah\nPadahal, berdasarkan analisis yang kita lakukan di sesi sebelumnya, disimpulkan bahwa neuroticism ibu dan kemandirian anak korelasinya positif (lihat output di samping)."
   },
   {
     "objectID": "materi-lme2.html#simpsons-paradox",
     "href": "materi-lme2.html#simpsons-paradox",
-    "title": "Linear Mixed Models",
+    "title": "Linear Mixed-Effect (lme)",
     "section": "Simpson’s paradox",
     "text": "Simpson’s paradox\n\n\n\nFenomena ini dikenal sebagai Simpson’s paradox\n\n..yaitu ketika tren yang tampak di setiap sub-kelompok berbalik arah atau menghilang sama sekali ketika data dari semua kelompok digabungkan (aggregated).\n\nKalau Simpson’s paradox diabaikan, kesimpulan bisa terkontaminasi ecological fallacy\n\nTerjadi ketika peneliti salah menyimpulkan suatu gejala yang skalanya individual, padahal yang dianalisis sesungguhnya fenomena di level yang lebih besar (kelompok atau sub-kelompok)"
   },
   {
     "objectID": "materi-lme2.html#simpsons-paradox-1",
     "href": "materi-lme2.html#simpsons-paradox-1",
-    "title": "Linear Mixed Models",
+    "title": "Linear Mixed-Effect (lme)",
     "section": "Simpson’s paradox",
     "text": "Simpson’s paradox\n\n\n\n“Saya ga percaya kalau ada yang bilang 7 dari 10 laki-laki dewasa di Indonesia adalah perokok. lha, suami saya, kakek saya, adik-adik saya, semuanya laki-laki dewasa dan tidak ada yang merokok, tuh”.\n\nKalau kebanyakan pria dewasa adalah perokok, bukan berarti tidak ada pria yang bukan perokok.\nAtau sebaliknya, kalau orang terdekat saya bukan perokok, tidak bisa menggugurkan fakta bahwa mayoritas pria dewasa di Indonesia adalah perokok.\nOleh karena itu, perlu dipisahkan, mana fenomena yang terjadi di level kelompok, mana yang terjadi di level individual."
   },
   {
     "objectID": "materi-lme2.html#struktur-sampel-bersarangberjenjang",
     "href": "materi-lme2.html#struktur-sampel-bersarangberjenjang",
-    "title": "Linear Mixed Models",
+    "title": "Linear Mixed-Effect (lme)",
     "section": "Struktur sampel bersarang/berjenjang",
     "text": "Struktur sampel bersarang/berjenjang"
   },
   {
     "objectID": "materi-lme2.html#apa-yang-harus-dilakukan",
     "href": "materi-lme2.html#apa-yang-harus-dilakukan",
-    "title": "Linear Mixed Models",
+    "title": "Linear Mixed-Effect (lme)",
     "section": "Apa yang harus dilakukan?",
     "text": "Apa yang harus dilakukan?\n\nKita abaikan saja dan langsung menggunakan regresi OLS, dengan atau tanpa informasi mengenai pengelompokan data sebagai variabel kontrol.\n\nMasalahnya, data/observasi kita sangat bergantung pada pengelompokan unit analisis\nNah, lalu melanggar asumsi OLS? (data/observasi dan residual harus independen)\nEfeknya, standard error yang diestimasi oleh model terlalu kecil (karena mengabaikan varians dependen variabel yang ditentukan oleh kelompok)\nVarians variabel dependen yang tidak bisa dijelaskan (residual) akan makin besar\nKesimpulan/inferensi yang ditarik menjadi tidak tepat, sehingga risiko terjadinya type I error meningkat."
   },
   {
     "objectID": "materi-lme2.html#apa-yang-harus-dilakukan-1",
     "href": "materi-lme2.html#apa-yang-harus-dilakukan-1",
-    "title": "Linear Mixed Models",
+    "title": "Linear Mixed-Effect (lme)",
     "section": "Apa yang harus dilakukan?",
     "text": "Apa yang harus dilakukan?\n\nBagaimana kalau pengelompokan (grouping variable) dimasukkan aja dalam regresi OLS sebagai variabel moderator\n\nDengan begitu, estimasi standard error disesuaikan dengan menggunakan marginal model\nEstimasi standard error akan lebih presisi, tetapi kita tetap tidak bisa membandingkan variasi antar-kelompok (between-group variance)\n\nKalau diagregat? Jadi, unit analisis yang tadinya individual, menjadi kelompok.\n\nUkuran sampel menjadi lebih sedikit, sehingga statistical power menjadi lebih rendah❗"
   },
   {
     "objectID": "materi-lme2.html#fixed-dan-random-effects",
     "href": "materi-lme2.html#fixed-dan-random-effects",
-    "title": "Linear Mixed Models",
+    "title": "Linear Mixed-Effect (lme)",
     "section": "Fixed dan random effects",
     "text": "Fixed dan random effects\n\n\nModel fixed effects\n\n\nModel random effects"
   },
   {
     "objectID": "materi-lme2.html#full-model",
     "href": "materi-lme2.html#full-model",
-    "title": "Linear Mixed Models",
+    "title": "Linear Mixed-Effect (lme)",
     "section": "Full model",
     "text": "Full model"
   },
   {
     "objectID": "materi-lme2.html#fixed-vs.-random-effects-apa-bedanya",
     "href": "materi-lme2.html#fixed-vs.-random-effects-apa-bedanya",
-    "title": "Linear Mixed Models",
+    "title": "Linear Mixed-Effect (lme)",
     "section": "Fixed vs. random effects: Apa bedanya?",
     "text": "Fixed vs. random effects: Apa bedanya?\n\n\nFixed effects\n\nMengestimasi rata-rata populasi — nilai koefisiennya (intercept dan slope) sama untuk semua kelompok\nMenjawab pertanyaan: “Seberapa besar kontribusi X menjelaskan Y secara keseluruhan?”\nContoh: rata-rata intercept (c00) dan rata-rata slope (c10) — berlaku di seluruh sekolah\n\n\nRandom effects\n\nMengestimasi variasi di sekitar nilai rata-rata — seberapa jauh setiap kelompok menyimpang dari nilai populasi\nMenjawab pertanyaan: “Seberapa besar perbedaan antar-kelompok dalam intercept dan/atau slope?”\nContoh: varians random intercept (σ²U0) dan random slopes (σ²U1) — menggambarkan variasi antar-sekolah\n\n\n\n\n\n\n\n\nSingkatnya\n\n\nFixed effects = parameter model yang berlaku pada seluruh sampel, yang merupakan nilai agregat (rata-rata) masing-masing subkelompok; Random effects = seberapa besar parameter model di setiap subkelompok menyimpang dari rata-rata itu."
   },
   {
     "objectID": "materi-lme2.html#kovarians-antara-random-intercept-dan-random-slopes-σu0u1",
     "href": "materi-lme2.html#kovarians-antara-random-intercept-dan-random-slopes-σu0u1",
-    "title": "Linear Mixed Models",
+    "title": "Linear Mixed-Effect (lme)",
     "section": "Kovarians antara random intercept dan random slopes (σU0U1)",
     "text": "Kovarians antara random intercept dan random slopes (σU0U1)\n\nNilainya positif, maka semakin tinggi intercept akan diasosiasikan dengan kemiringan garis yang lebih curam/slopes yang lebih besar\nMisalnya, di sekolah yang rata-rata pendapatan keluarga inti perbulan siswanya tinggi, maka korelasi antara pendapatan per bulan dengan tingkat kemandirian siswa akan menguat.\nNilainya negatif, maka semakin tinggi intercept akan diasosiasikan dengan kemiringan garis yang lebih landai/slopes yang lebih kecil\nMisalnya, di sekolah yang rata-rata pendapatan keluarga inti perbulan siswanya tinggi, maka korelasi antara pendapatan per bulan dengan tingkat kemandirian siswa akan melemah."
   },
   {
     "objectID": "materi-lme2.html#parameter-yang-diestimasi-dalam-lme",
     "href": "materi-lme2.html#parameter-yang-diestimasi-dalam-lme",
-    "title": "Linear Mixed Models",
+    "title": "Linear Mixed-Effect (lme)",
     "section": "Parameter yang diestimasi dalam lme",
     "text": "Parameter yang diestimasi dalam lme\n\nFixed intercept (c00)\nFixed slopes (c10)\nVarians random intercept (σ2U0)\nVarians random slopes (σ2U1)\nKovarians antara random intercept dan random slopes (σU0U1)\nVarians residual level-1 (σ2e)"
   },
   {
     "objectID": "materi-lme2.html#latihan-3-kembali-ke-dataset-sekolah",
     "href": "materi-lme2.html#latihan-3-kembali-ke-dataset-sekolah",
-    "title": "Linear Mixed Models",
+    "title": "Linear Mixed-Effect (lme)",
     "section": "Latihan 3️⃣: Kembali ke dataset sekolah 🏫",
     "text": "Latihan 3️⃣: Kembali ke dataset sekolah 🏫\nKita akan membuat linear mixed model dengan tingkat pendapatan sebagai prediktor, dan tingkat kemandirian anak sebagai variabel dependen.\nBuat “model kosong” (null model)\n\nYaitu model yang isinya hanya intercept saja, tidak ada prediktornya (slopes)\nPada menu bar, klik Linear Models, pilih mixed models\n\nMasukkan mandiri dalam kolom dependent variable\nMasukkan idsekolah dalam kolom cluster variables\nPada menu random effects masukkan intercept|idsekolah dalam kolom random coefficients\n\nPada menu model comparison centang more fit indices\nCatat nilai AIC yang tersedia dalam tabel additional indices\nDi sesi sebelumnya, sudah dijelaskan tentang fungsi AIC dan BIC"
   },
   {
     "objectID": "materi-lme2.html#latihan-3-model-dengan-prediktor",
     "href": "materi-lme2.html#latihan-3-model-dengan-prediktor",
-    "title": "Linear Mixed Models",
+    "title": "Linear Mixed-Effect (lme)",
     "section": "Latihan 3️⃣: Model dengan prediktor",
     "text": "Latihan 3️⃣: Model dengan prediktor\nBikin linear mixed model dengan prediktor\n\nMasukkan hi dalam kolom covariates\nPada menu random effects, masukkan juga hi|idsekolah, karena kita akan mengestimasi random slopes-nya juga\n\nCentang opsi LRT for Random Test dan random coefficients\n\nPada menu covariates scaling, ubah centered menjadi centered clusterwise\n\nBerkaitan dengan partitioning (akan dijelaskan di bagian selanjutnya)"
   },
   {
     "objectID": "materi-lme2.html#fixed-coefficients",
     "href": "materi-lme2.html#fixed-coefficients",
-    "title": "Linear Mixed Models",
+    "title": "Linear Mixed-Effect (lme)",
     "section": "Fixed coefficients",
     "text": "Fixed coefficients\n\n\n\nTes kecocokan model (Omnibus Test) signifikan menggambarkan data (F(1, 3.28) = 51.7, p = .004)\nKorelasi antara tingkat pendapatan keluarga dengan kemandirian anak negatif, bukan positif, seperti hasil OLS sebelumnya\nAnak yang dibesarkan di keluarga dengan tingkat pendapatan yang tinggi, justru memiliki tingkat kemandirian yang rendah (B = -0.623 95% CI [-0.794, -0.453], SE = 0.086, t = -7.29, p = .004)."
   },
   {
     "objectID": "materi-lme2.html#random-coefficients-1",
     "href": "materi-lme2.html#random-coefficients-1",
-    "title": "Linear Mixed Models",
+    "title": "Linear Mixed-Effect (lme)",
     "section": "Random coefficients 1️⃣",
     "text": "Random coefficients 1️⃣\n\n\n\nBandingkan varians random intercept (σ2U0) dan varians random slopes (σ2U1) dengan varians residual\nVarians random intercept lebih besar, sedangkan varians random slopes lebih kecil\nArtinya, tingkat kemandirian berbeda signifikan antar-sekolah, namun kekuatan korelasi/hubungan antara pendapatan rumah tangga dengan tingkat kemandirian relatif tidak berbeda antar sekolah"
   },
   {
     "objectID": "materi-lme2.html#interpretasi-random-intercept-dan-random-slopes-vs.-residual",
     "href": "materi-lme2.html#interpretasi-random-intercept-dan-random-slopes-vs.-residual",
-    "title": "Linear Mixed Models",
+    "title": "Linear Mixed-Effect (lme)",
     "section": "Interpretasi random intercept dan random slopes (vs. residual)",
     "text": "Interpretasi random intercept dan random slopes (vs. residual)\n\n\n\n\n\n\n\n\nVariansRandomIntercept\nVariansRandomSlope\nInterpretasi\n\n\n\n\nBesar\nKecil\nKelompok berbeda secara substansial dalam rata-rata outcome, tetapi hubungan antara prediktor dan outcome relatif seragam di semua kelompok\n\n\nKecil\nBesar\nKelompok memiliki rata-rata outcome yang serupa, tetapi kekuatan (dan/atau arah) hubungan antara prediktor dan outcome sangat bervariasi antar kelompok"
   },
   {
     "objectID": "materi-lme2.html#interpretasi-random-intercept-dan-random-slopes-vs.-residual-1",
     "href": "materi-lme2.html#interpretasi-random-intercept-dan-random-slopes-vs.-residual-1",
-    "title": "Linear Mixed Models",
+    "title": "Linear Mixed-Effect (lme)",
     "section": "Interpretasi random intercept dan random slopes (vs. residual)",
     "text": "Interpretasi random intercept dan random slopes (vs. residual)\n\n\n\n\n\n\n\n\nVariansRandomIntercept\nVariansRandomSlope\nInterpretasi\n\n\n\n\nBesar\nBesar\nKelompok berbeda baik dalam rata-rata outcome maupun dalam hubungan prediktor–outcome — periksa kovarians intercept-slope (σU0U1) untuk melihat apakah kelompok dengan rata-rata tinggi juga memiliki slope yang lebih besar atau lebih kecil\n\n\nKecil\nKecil\nSedikit variasi antar kelompok — struktur multilevel mungkin tidak diperlukan, pertimbangkan model regresi OLS"
   },
   {
     "objectID": "materi-lme2.html#random-coefficients-2",
     "href": "materi-lme2.html#random-coefficients-2",
-    "title": "Linear Mixed Models",
+    "title": "Linear Mixed-Effect (lme)",
     "section": "Random coefficients 2️⃣",
     "text": "Random coefficients 2️⃣\n\n\n\nMenguji efek sekolah (kelompok)\n\nIntra-class correlation, yaitu merupakan proporsi total varians variabel dependen yang dapat dijelaskan oleh variasi antar kelompok\nLikelihood ratio test (LRT), yaitu teknik untuk menguji ada/tidaknya perbedaan varians antar-kelompok\nLRT dan ICC juga bisa berfungsi sebagai indikator perlu/tidaknya lme dilakukan"
   },
   {
     "objectID": "materi-lme2.html#random-coefficients-3",
     "href": "materi-lme2.html#random-coefficients-3",
-    "title": "Linear Mixed Models",
+    "title": "Linear Mixed-Effect (lme)",
     "section": "Random coefficients 3️⃣",
     "text": "Random coefficients 3️⃣\n\n\n\nICC = 0.622, artinya 62.2% varians tingkat kemandirian siswa dijelaskan oleh perbedaan sekolah.\nICC di atas 0.1 biasanya menunjukkan lme adalah opsi yang lebih baik daripada OLS.\nLRT menunjukkan bahwa tidak ada perbedaan yang signifikan antara varians tingkat kemandirian antar-sekolah (LRT(2) = 0.627, p = .731), tetapi…\n…struktur multilevel tetap dipertahankan mengingat besarnya ICC yang mengindikasikan ketidakindependenan observasi dalam sekolah yang sama.\nLRT bisa jadi tidak signifikan karena power rendah akibat kita hanya punya sedikit kelompok (≤ 5 sekolah) dalam dataset"
   },
   {
     "objectID": "materi-lme2.html#random-coefficients-4",
     "href": "materi-lme2.html#random-coefficients-4",
-    "title": "Linear Mixed Models",
+    "title": "Linear Mixed-Effect (lme)",
     "section": "Random coefficients 4️⃣",
     "text": "Random coefficients 4️⃣\n\n\n\nKorelasi antara random slopes dan random intercept (σU0U1) nilainya negatif.\nArtinya, sekolah yang siswanya rata-rata lebih mandiri, korelasi negatif pendapatan keluarga terhadap kemandirian lebih kuat (pendapatan tinggi, kemandirian justru makin turun drastis)\nJadi pendapatan keluarga justru lebih “menonjol” sebagai penjelas variasi kemandirian yang tersisa di sekolah dengan rata-rata kemandirian yang tinggi. Efek negatifnya lebih kuat.\nApakah artinya lingkungan sekolah tidak berdampak pada kemandirian anak?\n\nBelum tentu😉 Periksa dulu contextual effect\nAkan kita eksplorasi di bagian selanjutnya"
   },
   {
     "objectID": "materi-lme2.html#random-coefficients-5",
     "href": "materi-lme2.html#random-coefficients-5",
-    "title": "Linear Mixed Models",
+    "title": "Linear Mixed-Effect (lme)",
     "section": "Random coefficients 5️⃣",
     "text": "Random coefficients 5️⃣\n\n\n\nTabel di samping adalah intercept dan slopes untuk masing-masing sekolah\nSekolah E adalah sekolah dengan rata-rata kemandirian yang paling tinggi (intercept paling besar)\nSekaligus sekolah dengan korelasi antara kemandirian dan tingkat pendapatan keluarga yang paling tinggi (slope paling besar)"
   },
   {
     "objectID": "materi-lme2.html#model-comparison-1",
     "href": "materi-lme2.html#model-comparison-1",
-    "title": "Linear Mixed Models",
+    "title": "Linear Mixed-Effect (lme)",
     "section": "Model Comparison 1️⃣",
     "text": "Model Comparison 1️⃣\n\n\n\nAIC\n\nApabila kita membandingkan “model kosong” (atas) dengan model yang ada prediktor (bawah), maka model yang terakhir lebih mampu menjelaskan varians kemandirian anak.\n\nLRT test signifikan pada null model (atas) tetapi menjadi nonsignifikan pada model dengan prediktor (bawah)\nArtinya, mempertahankan struktur bersarang memang pilihan tepat dan menguatkan dugaan sebelumnya bahwa LRT test yang tidak signifikan karena under-powered"
   },
   {
     "objectID": "materi-lme2.html#model-comparison-2",
     "href": "materi-lme2.html#model-comparison-2",
-    "title": "Linear Mixed Models",
+    "title": "Linear Mixed-Effect (lme)",
     "section": "Model Comparison 2️⃣",
     "text": "Model Comparison 2️⃣\n\n\n\nR2 (Nakagawa & Schielzeth, 2012)\n\nMarginal: proporsi varians variabel dependen yang dapat dijelaskan oleh fixed models saja\nConditional: proporsi varians variabel dependen yang dapat dijelaskan oleh fixed dan random models sekaligus\nVarians yang dapat dijelaskan oleh fixed model saja hanya 6.4%, sedangkan oleh keseluruhan model adalah 64.6%."
   },
   {
     "objectID": "materi-lme2.html#within-group-effect",
     "href": "materi-lme2.html#within-group-effect",
-    "title": "Linear Mixed Models",
+    "title": "Linear Mixed-Effect (lme)",
     "section": "Within-group effect",
     "text": "Within-group effect\n\n\n\nSeberapa besar selisih Y dari 2 orang yang berada di kelompok yang sama, ketika selisih X-nya sebesar 1 poin?\nSeberapa besar perbedaan tingkat kemandirian dua orang anak yang berada dalam sekolah yang sama, ketika selisih tingkat pendapatan keluarga mereka berbeda sebesar 1 poin?\n\nDidapatkan dengan cara melakukan group-mean centering (akan dijelaskan di bagian berikutnya)"
   },
   {
     "objectID": "materi-lme2.html#between-group-effect",
     "href": "materi-lme2.html#between-group-effect",
-    "title": "Linear Mixed Models",
+    "title": "Linear Mixed-Effect (lme)",
     "section": "Between-group effect",
     "text": "Between-group effect\n\n\n\nSeberapa besar selisih Y dari dua orang yang masing-masing berada pada rerata X kelompok mereka (yaitu, X individual = rerata kelompok), ketika rerata X kelompok mereka berbeda sebesar 1 poin?\nSeberapa besar perbedaan tingkat kemandirian dari dua siswa yang masing-masing berada pada rerata tingkat pendapatan keluarga di sekolah mereka (yaitu, tingkat pendapatan keluarga siswa tsb = rerata sekolah), ketika rerata tingkat pendapatan keluarga di sekolah mereka berbeda sebesar 1 poin?\n\nDidapatkan dengan cara memasukkan rerata kelompok ke dalam model"
   },
   {
     "objectID": "materi-lme2.html#contextual-effects",
     "href": "materi-lme2.html#contextual-effects",
-    "title": "Linear Mixed Models",
+    "title": "Linear Mixed-Effect (lme)",
     "section": "Contextual effects",
     "text": "Contextual effects\n\n\n\nSeberapa besar selisih Y dua orang dari kelompok yang berbeda, namun dengan X yang sama, ketika rerata X kelompoknya berbeda sebesar 1 poin.\nSeberapa besar perbedaan tingkat kemandirian dua siswa dari dua sekolah yang berbeda, ketika tingkat pendapatan keluarga kedua siswa tersebut sama, tetapi rerata tingkat pendapatan keluarga di sekolah mereka berbeda sebesar 1 poin?"
   },
   {
     "objectID": "materi-lme2.html#contextual-effects-partitioning-1",
     "href": "materi-lme2.html#contextual-effects-partitioning-1",
-    "title": "Linear Mixed Models",
+    "title": "Linear Mixed-Effect (lme)",
     "section": "Contextual effects & partitioning 1️⃣",
     "text": "Contextual effects & partitioning 1️⃣\n\nUntuk menghitung contextual effect, kita harus melakukan partitioning terlebih dahulu\nUmumnya yang dipartisi/centering adalah variabel X, bukan Y\nProsedurnya menggunakan (Mundlak’s approach):\n\nLakukan group-mean centering\nHitung rerata tiap kelompok\nMasukkan keduanya ke dalam model"
   },
   {
     "objectID": "materi-lme2.html#contextual-effects-partitioning-2",
     "href": "materi-lme2.html#contextual-effects-partitioning-2",
-    "title": "Linear Mixed Models",
+    "title": "Linear Mixed-Effect (lme)",
     "section": "Contextual effects & partitioning 2️⃣",
     "text": "Contextual effects & partitioning 2️⃣\n\nGroup-mean centering\n\nHitung group-mean centering dengan formula \\[X_{within_{ij}} = X_{ij} - \\bar{X}_{j}\\]\nSederhananya: nilai X individu dikurangi rata-rata X kelompoknya\nPendapatan keluarga anak \\(i\\) dikurangi rata-rata pendapatan keluarga anak-anak di sekolah \\(j\\)\n\nMasukkan skor variabel X yang sudah di centering dan rerata masing-masing kelompok ke dalam model\nContextual effect = Between-group effect - Within-group effect\n\nPositif: ketika rata-rata X kelompok lebih tinggi sebesar 1 poin, rata-rata Y kelompok cenderung lebih tinggi, bahkan setelah nilai X individu dikontrol\nNegatif: kebalikannya — kelompok dengan rata-rata X lebih tinggi justru memiliki rata-rata Y lebih rendah, setelah X individu dikontrol"
   },
   {
     "objectID": "materi-lme2.html#latihan-4-contextual-effects",
     "href": "materi-lme2.html#latihan-4-contextual-effects",
-    "title": "Linear Mixed Models",
+    "title": "Linear Mixed-Effect (lme)",
     "section": "Latihan 4️⃣: Contextual effects",
     "text": "Latihan 4️⃣: Contextual effects\n\n\n\nLakukan lme dengan memasukkan hi_group_centered dan hi_gm dalam satu model yang sama\nMasukkan kedua variabel tersebut dalam fixed coefficients\nMasukkan intercept (Intercept|idsekolah) dan hi_group_centered ke kotak random coefficients, kemudian pada menu effect correlation pilih not correlated\nPada menu covariates scaling, set keduanya pada none (karena variabel sudah di group-mean centered secara manual)\nLihat fixed slopes-nya untuk kedua prediktor\n\n\n\n\n\n\n\nWarning\n\n\nJangan masukkan hi_gm ke random coefficient karena ini adalah rerata kelompok, sehingga nilainya sama untuk semua individu di kelompok yang sama."
   },
   {
     "objectID": "materi-lme2.html#contextual-effects-1",
     "href": "materi-lme2.html#contextual-effects-1",
-    "title": "Linear Mixed Models",
+    "title": "Linear Mixed-Effect (lme)",
     "section": "Contextual effects",
     "text": "Contextual effects\n\n\n\nWithin (B = -0.621 95% CI [-0.786, -0.456], SE = 0.084, t = -7.386, p = .004), maupun between-group effect (B = 0.732 95% CI [0.583, 0.881], SE = 0.075, t = 9.64, p = .002) berhubungan dengan tingkat kemandirian siswa.\nWithin-group effect: Di dalam sekolah yang sama, siswa dengan tingkat pendapatan keluarga yang lebih tinggi cenderung memiliki tingkat kemandirian yang lebih rendah.\nBetween-group effect: Ada bukti bahwa sekolah dengan rata-rata pendapatan keluarga yang lebih tinggi cenderung memiliki siswa yang lebih mandiri."
   },
   {
     "objectID": "materi-lme2.html#contextual-effects-2",
     "href": "materi-lme2.html#contextual-effects-2",
-    "title": "Linear Mixed Models",
+    "title": "Linear Mixed-Effect (lme)",
     "section": "Contextual effects",
     "text": "Contextual effects\n\n\n\nContextual effects (\\(\\beta_{between_{ij}}-\\beta_{within_{ij}}\\) = 0.732 - (-0.621) = 1.535) menunjukkan bahwa terdapat pengaruh tambahan dari konteks sekolah (yang cukup substansial) terhadap kemandirian siswa, di luar pengaruh pendapatan keluarga siswa itu sendiri."
   },
   {
     "objectID": "materi-lme2.html#bagaimana-melaporkannya-1",
     "href": "materi-lme2.html#bagaimana-melaporkannya-1",
-    "title": "Linear Mixed Models",
+    "title": "Linear Mixed-Effect (lme)",
     "section": "Bagaimana melaporkannya? 1️⃣",
     "text": "Bagaimana melaporkannya? 1️⃣\n\nUntuk menguji hipotesis bahwa ada perbedaan rerata tingkat kemandirian anak, dan korelasi antara pendapatan keluarga dengan tingkat kemandirian anak di masing-masing sekolah, peneliti melakukan analisis linear mixed effect. Tingkat kemandirian anak dijelaskan sebagai fungsi dari tingkat pendapatan keluarga, dengan mengontrol asal sekolah (PAUD) anak. Sebelum melakukan analisis, tingkat pendapatan keluarga dipartisi dengan cara menguranginya dengan rata-rata tingkat pendapatan keluarga di masing-masing sekolah (group-mean/cluster-based centering). Pengujian model menghasilkan kesimpulan bahwa model tepat menggambarkan data (F(1, 3.28) = 51.7, p = .004), sehingga dapat disimpulkan bahwa tingkat pendapatan keluarga dan kemandirian anak, berkaitan secara berarti."
   },
   {
     "objectID": "materi-lme2.html#bagaimana-melaporkannya-2",
     "href": "materi-lme2.html#bagaimana-melaporkannya-2",
-    "title": "Linear Mixed Models",
+    "title": "Linear Mixed-Effect (lme)",
     "section": "Bagaimana melaporkannya? 2️⃣",
     "text": "Bagaimana melaporkannya? 2️⃣\n\nModel fixed effects menunjukkan bahwa ada bukti bahwa perbedaan tingkat pendapatan keluarga di dalam sekolah yang sama berhubungan dengan perbedaan tingkat kemandirian (within-group effect: B = -0.621 95% CI [-0.786, -0.456], SE = 0.084, t = -7.386, p = .004). Artinya, di dalam sekolah yang sama, siswa dengan tingkat pendapatan keluarga yang lebih tinggi cenderung memiliki tingkat kemandirian yang lebih rendah. Selain itu, ada bukti bahwa sekolah dengan rata-rata tingkat pendapatan keluarga yang lebih tinggi cenderung memiliki rata-rata tingkat kemandirian yang lebih tinggi (between-group effect: B = 0.732 95% CI [0.583, 0.881], SE = 0.075, t = 9.64, p = .002). Model random effects menunjukkan bahwa ada perbedaan rata-rata tingkat kemandirian antar-kelompok (LRT(1) = 8.18, p = .004) yang signifikan antar sekolah. Contextual effects ditemukan sebesar 1.535, yang menunjukkan bahwa ada pengaruh tambahan dari konteks sekolah yang cukup substansial terhadap tingkat kemandirian siswa, di luar pengaruh pendapatan keluarga siswa itu sendiri.”"
   },
   {
     "objectID": "materi-lme2.html#latihan-mandiri-2",
     "href": "materi-lme2.html#latihan-mandiri-2",
-    "title": "Linear Mixed Models",
+    "title": "Linear Mixed-Effect (lme)",
     "section": "Latihan mandiri 2️⃣",
     "text": "Latihan mandiri 2️⃣\n\nLakukan analisis lme untuk mengetahui:\n\nApakah varians tingkat kemandirian anak dapat dijelaskan oleh sekolah tempat anak tersebut belajar?\nApakah varians korelasi antara kecenderungan neuroticism ibu dengan kemandirian anak juga dapat dijelaskan oleh sekolah tempat anak tersebut belajar?\nSeberapa besar perbedaan tingkat kemandirian dua orang anak yang berada di sekolah yang berbeda, yang ibunya sama-sama pencemas, apabila rata-rata neuroticism wali murid di dua sekolah tersebut berbeda sebesar 1 poin?"
   },
   {
     "objectID": "materi-lme2.html#yang-belum-dibahas",
     "href": "materi-lme2.html#yang-belum-dibahas",
-    "title": "Linear Mixed Models",
+    "title": "Linear Mixed-Effect (lme)",
     "section": "Yang belum dibahas…",
     "text": "Yang belum dibahas…\n\nKalau korelasi antara X dan Y tidak linear, pakai apa dong?\n\nJelas tidak bisa menggunakan lme. Alternatifnya, bisa menggunakan generalized additive model (GAM).\n\nKalau prediktornya level-2, bagaimana?\nBagaimana cara merencanakan jumlah sampelnya?\nBagaimana kalau sampelnya bersarang/berjenjang level-3, bahkan lebih?\nBagaimana kalo terjadi interaksi antara variabel prediktor level-1 dengan level-2 (cross-level interactions)?"
   },
   {
     "objectID": "materi-lme2.html#bagaimana-dengan-pengukuran-berulang",
     "href": "materi-lme2.html#bagaimana-dengan-pengukuran-berulang",
-    "title": "Linear Mixed Models",
+    "title": "Linear Mixed-Effect (lme)",
     "section": "Bagaimana dengan pengukuran berulang?",
     "text": "Bagaimana dengan pengukuran berulang?\n\nBayangkan kita mengukur tingkat kecemasan menteri pada:\n\nSebelum BBM naik (T1)\nSaat kebijakan BBM naik diumumkan (T2)\nSeminggu sesudah BBM dinyatakan naik (T3)\n\nKecemasan Menteri Purbaya di T1 dan T2 sangat mungkin berkorelasi, karena Purbaya yang sama yang diukur dua kali pada dua titik waktu (time points atau beep dalam literatur experience sampling).\nKetika ini terjadi, maka model melanggar asumsi independensi residual (untuk level-2) dari lme biasa.\n\nKalau diabaikan, standard error akan terlalu kecil ➡️ risiko Type I error meningkat.\n\nOleh karena itu, dalam desain eksperimen within-subject, penelitian longitudinal, dan experience sampling, peneliti harus mempertimbangkan struktur korelasi residual antarwaktu pengukuran.\nLanjutkan dengan belajar mandiri: lme untuk pengukuran berulang dan experience sampling."
   },
   {
     "objectID": "materi-lme2.html#the-problem-with-linear-relationship",
     "href": "materi-lme2.html#the-problem-with-linear-relationship",
-    "title": "Linear Mixed Models",
+    "title": "Linear Mixed-Effect (lme)",
     "section": "The problem with linear relationship",
     "text": "The problem with linear relationship"
   },
   {
     "objectID": "materi-lme2.html#ada-pertanyaan",
     "href": "materi-lme2.html#ada-pertanyaan",
-    "title": "Linear Mixed Models",
+    "title": "Linear Mixed-Effect (lme)",
     "section": "Ada pertanyaan❓",
     "text": "Ada pertanyaan❓\n\n\n\n\n\n\n\nNote\n\n\n\nPaparan disusun dengan menggunakan  dan Quarto dengan template dari UNAIR Theme.\nKontak saya via  amelia.zein@psikologi.unair.ac.id"
   }

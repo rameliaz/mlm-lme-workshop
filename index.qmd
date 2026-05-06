@@ -1,5 +1,5 @@
 ---
-title: "Linear Mixed Models (LME) Workshop"
+title: "Linear Mixed-Effect (LME) Workshop"
 ---
 
 ::: {.callout-note}
@@ -9,7 +9,7 @@ title: "Linear Mixed Models (LME) Workshop"
 Silakan klik menu `Kuis Pre-Test` di _navigation bar_ untuk mengikuti kuis. 
 :::
 
-Laman web berikut ini merupakan laman web untuk **Workshop Linear Mixed Models** yang diselenggarakan oleh program studi Doktor (S3) Psikologi, Fakultas Psikologi, Universitas Airlangga.
+Laman web berikut ini merupakan laman web untuk **Workshop Linear Mixed-Effect (LME)** yang diselenggarakan oleh program studi Doktor (S3) Psikologi, Fakultas Psikologi, Universitas Airlangga.
 
 Materi berlisensi [<i class="fab fa-creative-commons"><i class="fa fa-universal-access"></i></i> BY 4.0](https://creativecommons.org/licenses/by/4.0/). **Materi bebas digunakan kembali namun wajib mengatribusi sumber aslinya**.
 
