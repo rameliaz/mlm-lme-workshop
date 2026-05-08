@@ -46,19 +46,6 @@ execute:
 
 * Buat _scatterplot_ dimana **mandiri** menjadi **Y-Axis**, sedangkan **neu**, **hi**, **trust** sebagai **X-Axis**
 
-* Kemudian masukkan **idsekolah** pada kolom **Group**
-  - Fungsinya, kita akan mendapatkan garis regresi untuk masing-masing sekolah yang berbeda
-
-* Apa yang terjadi?
-
-## _Scatterplot_ subkelompok
-
-::: {.center}
-
-![](libs/scat-group.png){fig-align="center" width="110%"}
-
-:::
-
 ## _Scatterplot_
 
 :::: {.columns}
@@ -77,6 +64,21 @@ execute:
 
 :::
 ::::
+
+## Coba kita lihat lebih dekat...
+
+* Kemudian masukkan **idsekolah** pada kolom **Group**
+  - Fungsinya, kita akan mendapatkan garis regresi untuk masing-masing sekolah yang berbeda
+
+* Apa yang terjadi?
+
+## _Scatterplot_ subkelompok
+
+::: {.center}
+
+![](libs/scat-group.png){fig-align="center" width="110%"}
+
+:::
 
 ## Ada yang janggal.. 🤔
 

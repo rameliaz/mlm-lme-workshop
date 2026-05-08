@@ -732,14 +732,7 @@
     "href": "materi-lme2.html#coba-kita-lihat-lebih-dekat",
     "title": "Linear Mixed-Effect (lme)",
     "section": "Coba kita lihat lebih dekat…",
-    "text": "Coba kita lihat lebih dekat…\n\nDi sesi sebelumnya, kita telah melakukan analisis regresi OLS dengan dataset-sekolah.omv\n\nBaca ilustrasi kasusnya disini\n\nCoba kita lakukan inspeksi visual sekali lagi pada dataset yang sama\nBuat scatterplot dimana mandiri menjadi Y-Axis, sedangkan neu, hi, trust sebagai X-Axis\nKemudian masukkan idsekolah pada kolom Group\n\nFungsinya, kita akan mendapatkan garis regresi untuk masing-masing sekolah yang berbeda\n\nApa yang terjadi?"
-  },
-  {
-    "objectID": "materi-lme2.html#scatterplot-subkelompok",
-    "href": "materi-lme2.html#scatterplot-subkelompok",
-    "title": "Linear Mixed-Effect (lme)",
-    "section": "Scatterplot subkelompok",
-    "text": "Scatterplot subkelompok"
+    "text": "Coba kita lihat lebih dekat…\n\nDi sesi sebelumnya, kita telah melakukan analisis regresi OLS dengan dataset-sekolah.omv\n\nBaca ilustrasi kasusnya disini\n\nCoba kita lakukan inspeksi visual sekali lagi pada dataset yang sama\nBuat scatterplot dimana mandiri menjadi Y-Axis, sedangkan neu, hi, trust sebagai X-Axis"
   },
   {
     "objectID": "materi-lme2.html#scatterplot",
@@ -747,6 +740,20 @@
     "title": "Linear Mixed-Effect (lme)",
     "section": "Scatterplot",
     "text": "Scatterplot\n\n\n\n\n\n\n\n\nScatterplot 1. Neuroticism dan Kemandirian\n\n\n\n\n\n\n\n\nScatterplot 2. Trust dan Kemandirian"
+  },
+  {
+    "objectID": "materi-lme2.html#coba-kita-lihat-lebih-dekat-1",
+    "href": "materi-lme2.html#coba-kita-lihat-lebih-dekat-1",
+    "title": "Linear Mixed-Effect (lme)",
+    "section": "Coba kita lihat lebih dekat…",
+    "text": "Coba kita lihat lebih dekat…\n\nKemudian masukkan idsekolah pada kolom Group\n\nFungsinya, kita akan mendapatkan garis regresi untuk masing-masing sekolah yang berbeda\n\nApa yang terjadi?"
+  },
+  {
+    "objectID": "materi-lme2.html#scatterplot-subkelompok",
+    "href": "materi-lme2.html#scatterplot-subkelompok",
+    "title": "Linear Mixed-Effect (lme)",
+    "section": "Scatterplot subkelompok",
+    "text": "Scatterplot subkelompok"
   },
   {
     "objectID": "materi-lme2.html#ada-yang-janggal..",
