@@ -48,22 +48,7 @@ execute:
 
 ## _Scatterplot_
 
-:::: {.columns}
-::: {.column width="50%"}
-
-![](libs/scat-1.png){fig-align="center"}
-
-<p style="text-align: center;"><em>Scatterplot</em> 1. <em>Neuroticism</em> dan Kemandirian</p>
-
-:::
-::: {.column width="50%"}
-
-![](libs/scat-2.png){fig-align="center"}
-
-<p style="text-align: center;"><em>Scatterplot</em> 2. <em>Trust</em> dan Kemandirian</p>
-
-:::
-::::
+![](libs/scat-all.png){fig-align="center"}
 
 ## Coba kita lihat lebih dekat...
 
@@ -108,8 +93,8 @@ execute:
 * Fenomena ini dikenal sebagai [_Simpson's paradox_](https://en.wikipedia.org/wiki/Simpson%27s_paradox)
   - ..yaitu ketika tren yang tampak di setiap sub-kelompok berbalik arah atau menghilang sama sekali ketika data dari semua kelompok digabungkan (_aggregated_).
 
-* Kalau _Simpson's paradox_ diabaikan, kesimpulan bisa terkontaminasi _ecological fallacy_
-  - Terjadi ketika peneliti salah menyimpulkan suatu gejala yang skalanya individual, padahal yang dianalisis sesungguhnya fenomena di level yang lebih besar (kelompok atau sub-kelompok)
+* Kalau _Simpson's paradox_ diabaikan, kesimpulan bisa terkontaminasi _ecological/atomistic fallacy_
+  - Terjadi ketika peneliti salah menyimpulkan suatu gejala yang skalanya individual, padahal yang dianalisis sesungguhnya fenomena di level yang lebih besar (kelompok atau sub-kelompok) -- atau sebaliknya
 
 :::
 ::: {.column width="45%"}
@@ -119,23 +104,15 @@ execute:
 :::
 ::::
 
-## Simpson's *paradox*
+## Contoh Simpson's *paradox*
 
-:::: {.columns}
-::: {.column width="55%"}
+::: {.incremental}
 
-* "Saya _ga_ percaya kalau ada yang _bilang_ [7 dari 10 laki-laki dewasa di Indonesia adalah perokok](https://rri.co.id/bogor/kesehatan/1501636/indonesia-peringkat-satu-pria-perokok-tertinggi-dunia). _lha_, suami saya, kakek saya, adik-adik saya, semuanya laki-laki dewasa dan tidak ada yang merokok, _tuh_".
-  - Kalau kebanyakan pria dewasa adalah perokok, bukan berarti _tidak ada pria_ yang bukan perokok.
-  - Atau sebaliknya, kalau orang terdekat saya bukan perokok, tidak bisa menggugurkan fakta bahwa mayoritas pria dewasa di Indonesia adalah perokok.
-  - Oleh karena itu, perlu dipisahkan, mana fenomena yang terjadi di level kelompok, mana yang terjadi di level individual.
+* [Suatu studi longitudinal di Whickham, Inggris (Appleton dkk., 1996)](https://www.researchgate.net/profile/Mark-Vanderpump/publication/254331089_Ignoring_a_Covariate_An_Example_of_Simpson%27s_Paradox/links/53d7ebac0cf2631430bfd618/Ignoring-a-Covariate-An-Example-of-Simpsons-Paradox.pdf) menyimpulkan bahwa angka kematian perokok justru *lebih rendah* dibanding bukan perokok (24% vs. 31%), sehingga **memberikan kesan** bahwa perokok berusia lebih panjang daripada yang bukan perokok❌ 
+* Tapi ketika data dipilah berdasarkan kelompok usia, perokok justru memiliki angka kematian yang *lebih tinggi* di *semua* kelompok usia
+* Temuan yang *counterintuitive* ini terjadi karena di awal penelitian, usia perokok rata-rata *lebih muda* daripada partisipan yang bukan perokok, sehingga usia menjadi variabel *confounding* yang *membalikkan* arah hubungan di level sampel/agregat
 
 :::
-::: {.column width="45%"}
-
-![](libs/ecological-fallacy.jpg)
-
-:::
-::::
 
 ## Struktur sampel bersarang/berjenjang
 
@@ -145,12 +122,12 @@ execute:
 
 ::: {.incremental}
 
-* Kita abaikan saja dan langsung menggunakan regresi OLS, dengan atau tanpa informasi mengenai pengelompokan data sebagai variabel kontrol.
+* Kita abaikan saja dan langsung menggunakan regresi OLS, dengan atau tanpa informasi mengenai pengelompokan data sebagai variabel kontrol
   - Masalahnya, data/observasi kita sangat bergantung pada pengelompokan unit analisis
-  - **Nah, lalu melanggar asumsi OLS?** (data/observasi dan residual harus independen)
+  - **Kalau begitu, dependensi ini melanggar asumsi OLS** (data/observasi dan residual harus independen)
   - Efeknya, _standard error_ yang diestimasi oleh model terlalu kecil (karena mengabaikan varians dependen variabel yang ditentukan oleh kelompok)
-  - Varians variabel dependen yang tidak bisa dijelaskan (residual) akan makin besar
-  - Kesimpulan/inferensi yang ditarik menjadi tidak tepat, sehingga risiko terjadinya _type I error_ meningkat.
+  - Varians variabel dependen yang tidak bisa dijelaskan (residual) akan **makin besar**
+  - Kesimpulan/inferensi yang ditarik menjadi tidak tepat (ingat *ecological fallacy*❗), sehingga risiko terjadinya _type I error_ meningkat.
 
 :::
 
@@ -159,8 +136,8 @@ execute:
 ::: {.incremental}
 
 * Bagaimana kalau pengelompokan (_grouping variable_) dimasukkan aja dalam regresi OLS sebagai variabel moderator
-  - Dengan begitu, estimasi _standard error_ disesuaikan dengan menggunakan _marginal model_
-  - Estimasi _standard error_ akan lebih presisi, **tetapi** kita tetap tidak bisa membandingkan variasi antar-kelompok (_between-group variance_)
+  - Dengan begitu, estimasi _standard error_ bisa disesuaikan dengan menggunakan _marginal model_
+  - Kelebihannya, estimasi _standard error_ akan lebih presisi, **tetapi** kita tetap tidak bisa membandingkan variasi antar-kelompok (_between-group variance_)
 
 * Kalau diagregat? Jadi, unit analisis yang tadinya individual, menjadi kelompok.
   - Ukuran sampel menjadi lebih sedikit, sehingga _statistical power_ menjadi lebih rendah❗
@@ -409,7 +386,8 @@ Kita akan membuat _linear mixed model_ dengan **tingkat pendapatan** sebagai pre
 
 * Tabel di samping adalah _intercept_ dan _slopes_ untuk masing-masing sekolah
 * Sekolah E adalah sekolah dengan rata-rata kemandirian yang paling tinggi (_intercept_ paling besar)
-* Sekaligus sekolah dengan korelasi antara kemandirian dan tingkat pendapatan keluarga yang paling tinggi (_slope_ paling besar)
+* Sekaligus sekolah dengan hubungan negatif yang paling kuat/besar antara pendapatan keluarga dan kemandirian (_slope_ paling negatif), konsisten dengan 
+σ~U0~~U1~ yang negatif
 
 :::
 
@@ -502,6 +480,7 @@ Kita akan membuat _linear mixed model_ dengan **tingkat pendapatan** sebagai pre
 
 * Seberapa besar selisih Y dua orang dari kelompok yang berbeda, namun dengan **X yang sama**, ketika **rerata X kelompoknya** berbeda sebesar 1 poin.
 * Seberapa besar perbedaan **tingkat kemandirian** dua siswa dari **dua sekolah yang berbeda**, ketika tingkat pendapatan keluarga kedua siswa tersebut sama, tetapi rerata tingkat pendapatan keluarga di sekolah mereka berbeda sebesar 1 poin?
+* Contoh *contextual effects* di psikologi: [*big-fish-little-pond effect* (BFLPE)](https://en.wikipedia.org/wiki/Big-fish%E2%80%93little-pond_effect)
 
 :::
 ::: {.column}
@@ -532,8 +511,8 @@ Kita akan membuat _linear mixed model_ dengan **tingkat pendapatan** sebagai pre
 * Masukkan skor variabel X yang sudah di _centering_ dan rerata masing-masing kelompok ke dalam model
 
 * **_Contextual effect_** = _Between-group effect_ - _Within-group effect_
-  - Positif: ketika **rata-rata X kelompok** lebih **tinggi** sebesar 1 poin, **rata-rata Y kelompok** cenderung lebih **tinggi**, bahkan setelah nilai X individu dikontrol
-  - Negatif: kebalikannya — kelompok dengan **rata-rata X lebih tinggi** justru memiliki **rata-rata Y lebih rendah**, setelah X individu dikontrol
+- Positif: dua orang dengan **nilai X yang sama**, tetapi dari **kelompok berbeda** (dengan rerata X kelompok berbeda 1 poin), maka orang dari kelompok dengan rerata **X lebih tinggi** cenderung memiliki **Y lebih tinggi**
+- Negatif: kebalikannya — kelompok dengan **rata-rata X lebih tinggi** justru memiliki **rata-rata Y lebih rendah**
 
 ## Latihan 4️⃣: _Contextual effects_
 
@@ -567,9 +546,9 @@ Jangan masukkan **hi_gm** ke _random coefficient_ karena ini adalah rerata kelom
 :::: {.columns}
 ::: {.column}
 
-* _Within_ (_B_ = -0.621 95% CI [-0.786, -0.456], _SE_ = 0.084, _t_ = -7.386, _p_ = .004), maupun _between-group effect_ (_B_ = 0.732 95% CI [0.583, 0.881], _SE_ = 0.075, _t_ = 9.64, _p_ = .002) berhubungan dengan tingkat kemandirian siswa.
-* _Within-group effect_: Di dalam sekolah yang sama, siswa dengan tingkat pendapatan keluarga yang lebih tinggi cenderung memiliki tingkat kemandirian yang lebih rendah.
-* _Between-group effect_: Ada bukti bahwa sekolah dengan rata-rata pendapatan keluarga yang lebih tinggi cenderung memiliki siswa yang lebih mandiri.
+* _Between_ (_B_ = 0.732 95% CI [0.583, 0.881], _SE_ = 0.075, _t_ = 9.64, _p_ = .002), maupun _within-group effect_ (_B_ = -0.621 95% CI [-0.786, -0.456], _SE_ = 0.084, _t_ = -7.386, _p_ = .004) berhubungan dengan tingkat kemandirian siswa.
+* _**Between**-group effect_: Ada bukti bahwa sekolah dengan **rata-rata pendapatan keluarga yang lebih tinggi** cenderung memiliki **siswa yang lebih mandiri**.
+* _**Within**-group effect_: Di masing-masing sekolah yang sama, **siswa dengan tingkat pendapatan keluarga yang lebih tinggi** cenderung memiliki **tingkat kemandirian yang lebih rendah**.
 
 :::
 ::: {.column}
@@ -584,7 +563,7 @@ Jangan masukkan **hi_gm** ke _random coefficient_ karena ini adalah rerata kelom
 :::: {.columns}
 ::: {.column width="55%"}
 
-* **_Contextual effects_** ($\beta_{between_{ij}}-\beta_{within_{ij}}$ = 0.732 - (-0.621) = 1.353) menunjukkan bahwa terdapat pengaruh tambahan dari konteks sekolah (yang cukup substansial) terhadap kemandirian siswa, di luar pengaruh pendapatan keluarga siswa itu sendiri. 
+* **_Contextual effects_** ($\beta_{between_{j}}-\beta_{within_{ij}}$ = 0.732 - (-0.621) = 1.353) menunjukkan bahwa terdapat pengaruh tambahan dari konteks sekolah (e.g., rata-rata tingkat pendapatan keluarga di level sekolah, yang cukup substansial) terhadap kemandirian siswa, **yang tidak dapat dijelaskan oleh/diluar dari** tingkat pendapatan keluarga siswa itu sendiri (di level individual). 
 
 :::
 ::: {.column width="45%"}

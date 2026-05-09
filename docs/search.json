@@ -739,7 +739,7 @@
     "href": "materi-lme2.html#scatterplot",
     "title": "Linear Mixed-Effect (lme)",
     "section": "Scatterplot",
-    "text": "Scatterplot\n\n\n\n\n\n\n\n\nScatterplot 1. Neuroticism dan Kemandirian\n\n\n\n\n\n\n\n\nScatterplot 2. Trust dan Kemandirian"
+    "text": "Scatterplot"
   },
   {
     "objectID": "materi-lme2.html#coba-kita-lihat-lebih-dekat-1",
@@ -767,14 +767,14 @@
     "href": "materi-lme2.html#simpsons-paradox",
     "title": "Linear Mixed-Effect (lme)",
     "section": "Simpson’s paradox",
-    "text": "Simpson’s paradox\n\n\n\nFenomena ini dikenal sebagai Simpson’s paradox\n\n..yaitu ketika tren yang tampak di setiap sub-kelompok berbalik arah atau menghilang sama sekali ketika data dari semua kelompok digabungkan (aggregated).\n\nKalau Simpson’s paradox diabaikan, kesimpulan bisa terkontaminasi ecological fallacy\n\nTerjadi ketika peneliti salah menyimpulkan suatu gejala yang skalanya individual, padahal yang dianalisis sesungguhnya fenomena di level yang lebih besar (kelompok atau sub-kelompok)"
+    "text": "Simpson’s paradox\n\n\n\nFenomena ini dikenal sebagai Simpson’s paradox\n\n..yaitu ketika tren yang tampak di setiap sub-kelompok berbalik arah atau menghilang sama sekali ketika data dari semua kelompok digabungkan (aggregated).\n\nKalau Simpson’s paradox diabaikan, kesimpulan bisa terkontaminasi ecological/atomistic fallacy\n\nTerjadi ketika peneliti salah menyimpulkan suatu gejala yang skalanya individual, padahal yang dianalisis sesungguhnya fenomena di level yang lebih besar (kelompok atau sub-kelompok) – atau sebaliknya"
   },
   {
-    "objectID": "materi-lme2.html#simpsons-paradox-1",
-    "href": "materi-lme2.html#simpsons-paradox-1",
+    "objectID": "materi-lme2.html#contoh-simpsons-paradox",
+    "href": "materi-lme2.html#contoh-simpsons-paradox",
     "title": "Linear Mixed-Effect (lme)",
-    "section": "Simpson’s paradox",
-    "text": "Simpson’s paradox\n\n\n\n“Saya ga percaya kalau ada yang bilang 7 dari 10 laki-laki dewasa di Indonesia adalah perokok. lha, suami saya, kakek saya, adik-adik saya, semuanya laki-laki dewasa dan tidak ada yang merokok, tuh”.\n\nKalau kebanyakan pria dewasa adalah perokok, bukan berarti tidak ada pria yang bukan perokok.\nAtau sebaliknya, kalau orang terdekat saya bukan perokok, tidak bisa menggugurkan fakta bahwa mayoritas pria dewasa di Indonesia adalah perokok.\nOleh karena itu, perlu dipisahkan, mana fenomena yang terjadi di level kelompok, mana yang terjadi di level individual."
+    "section": "Contoh Simpson’s paradox",
+    "text": "Contoh Simpson’s paradox\n\nSuatu studi longitudinal di Whickham, Inggris (Appleton dkk., 1996) menyimpulkan bahwa angka kematian perokok justru lebih rendah dibanding bukan perokok (24% vs. 31%), sehingga memberikan kesan bahwa perokok berusia lebih panjang daripada yang bukan perokok❌\nTapi ketika data dipilah berdasarkan kelompok usia, perokok justru memiliki angka kematian yang lebih tinggi di semua kelompok usia\nTemuan yang counterintuitive ini terjadi karena di awal penelitian, usia perokok rata-rata lebih muda daripada partisipan yang bukan perokok, sehingga usia menjadi variabel confounding yang membalikkan arah hubungan di level sampel/agregat"
   },
   {
     "objectID": "materi-lme2.html#struktur-sampel-bersarangberjenjang",
@@ -788,14 +788,14 @@
     "href": "materi-lme2.html#apa-yang-harus-dilakukan",
     "title": "Linear Mixed-Effect (lme)",
     "section": "Apa yang harus dilakukan?",
-    "text": "Apa yang harus dilakukan?\n\nKita abaikan saja dan langsung menggunakan regresi OLS, dengan atau tanpa informasi mengenai pengelompokan data sebagai variabel kontrol.\n\nMasalahnya, data/observasi kita sangat bergantung pada pengelompokan unit analisis\nNah, lalu melanggar asumsi OLS? (data/observasi dan residual harus independen)\nEfeknya, standard error yang diestimasi oleh model terlalu kecil (karena mengabaikan varians dependen variabel yang ditentukan oleh kelompok)\nVarians variabel dependen yang tidak bisa dijelaskan (residual) akan makin besar\nKesimpulan/inferensi yang ditarik menjadi tidak tepat, sehingga risiko terjadinya type I error meningkat."
+    "text": "Apa yang harus dilakukan?\n\nKita abaikan saja dan langsung menggunakan regresi OLS, dengan atau tanpa informasi mengenai pengelompokan data sebagai variabel kontrol\n\nMasalahnya, data/observasi kita sangat bergantung pada pengelompokan unit analisis\nKalau begitu, dependensi ini melanggar asumsi OLS (data/observasi dan residual harus independen)\nEfeknya, standard error yang diestimasi oleh model terlalu kecil (karena mengabaikan varians dependen variabel yang ditentukan oleh kelompok)\nVarians variabel dependen yang tidak bisa dijelaskan (residual) akan makin besar\nKesimpulan/inferensi yang ditarik menjadi tidak tepat (ingat ecological fallacy❗), sehingga risiko terjadinya type I error meningkat."
   },
   {
     "objectID": "materi-lme2.html#apa-yang-harus-dilakukan-1",
     "href": "materi-lme2.html#apa-yang-harus-dilakukan-1",
     "title": "Linear Mixed-Effect (lme)",
     "section": "Apa yang harus dilakukan?",
-    "text": "Apa yang harus dilakukan?\n\nBagaimana kalau pengelompokan (grouping variable) dimasukkan aja dalam regresi OLS sebagai variabel moderator\n\nDengan begitu, estimasi standard error disesuaikan dengan menggunakan marginal model\nEstimasi standard error akan lebih presisi, tetapi kita tetap tidak bisa membandingkan variasi antar-kelompok (between-group variance)\n\nKalau diagregat? Jadi, unit analisis yang tadinya individual, menjadi kelompok.\n\nUkuran sampel menjadi lebih sedikit, sehingga statistical power menjadi lebih rendah❗"
+    "text": "Apa yang harus dilakukan?\n\nBagaimana kalau pengelompokan (grouping variable) dimasukkan aja dalam regresi OLS sebagai variabel moderator\n\nDengan begitu, estimasi standard error bisa disesuaikan dengan menggunakan marginal model\nKelebihannya, estimasi standard error akan lebih presisi, tetapi kita tetap tidak bisa membandingkan variasi antar-kelompok (between-group variance)\n\nKalau diagregat? Jadi, unit analisis yang tadinya individual, menjadi kelompok.\n\nUkuran sampel menjadi lebih sedikit, sehingga statistical power menjadi lebih rendah❗"
   },
   {
     "objectID": "materi-lme2.html#fixed-dan-random-effects",
@@ -900,7 +900,7 @@
     "href": "materi-lme2.html#random-coefficients-5",
     "title": "Linear Mixed-Effect (lme)",
     "section": "Random coefficients 5️⃣",
-    "text": "Random coefficients 5️⃣\n\n\n\nTabel di samping adalah intercept dan slopes untuk masing-masing sekolah\nSekolah E adalah sekolah dengan rata-rata kemandirian yang paling tinggi (intercept paling besar)\nSekaligus sekolah dengan korelasi antara kemandirian dan tingkat pendapatan keluarga yang paling tinggi (slope paling besar)"
+    "text": "Random coefficients 5️⃣\n\n\n\nTabel di samping adalah intercept dan slopes untuk masing-masing sekolah\nSekolah E adalah sekolah dengan rata-rata kemandirian yang paling tinggi (intercept paling besar)\nSekaligus sekolah dengan hubungan negatif yang paling kuat/besar antara pendapatan keluarga dan kemandirian (slope paling negatif), konsisten dengan σU0U1 yang negatif"
   },
   {
     "objectID": "materi-lme2.html#model-comparison-1",
@@ -935,7 +935,7 @@
     "href": "materi-lme2.html#contextual-effects",
     "title": "Linear Mixed-Effect (lme)",
     "section": "Contextual effects",
-    "text": "Contextual effects\n\n\n\nSeberapa besar selisih Y dua orang dari kelompok yang berbeda, namun dengan X yang sama, ketika rerata X kelompoknya berbeda sebesar 1 poin.\nSeberapa besar perbedaan tingkat kemandirian dua siswa dari dua sekolah yang berbeda, ketika tingkat pendapatan keluarga kedua siswa tersebut sama, tetapi rerata tingkat pendapatan keluarga di sekolah mereka berbeda sebesar 1 poin?"
+    "text": "Contextual effects\n\n\n\nSeberapa besar selisih Y dua orang dari kelompok yang berbeda, namun dengan X yang sama, ketika rerata X kelompoknya berbeda sebesar 1 poin.\nSeberapa besar perbedaan tingkat kemandirian dua siswa dari dua sekolah yang berbeda, ketika tingkat pendapatan keluarga kedua siswa tersebut sama, tetapi rerata tingkat pendapatan keluarga di sekolah mereka berbeda sebesar 1 poin?\nContoh contextual effects di psikologi: big-fish-little-pond effect (BFLPE)"
   },
   {
     "objectID": "materi-lme2.html#contextual-effects-partitioning-1",
@@ -949,7 +949,7 @@
     "href": "materi-lme2.html#contextual-effects-partitioning-2",
     "title": "Linear Mixed-Effect (lme)",
     "section": "Contextual effects & partitioning 2️⃣",
-    "text": "Contextual effects & partitioning 2️⃣\n\nGroup-mean centering\n\nHitung group-mean centering dengan formula \\[X_{within_{ij}} = X_{ij} - \\bar{X}_{j}\\]\nSederhananya: nilai X individu dikurangi rata-rata X kelompoknya\nPendapatan keluarga anak \\(i\\) dikurangi rata-rata pendapatan keluarga anak-anak di sekolah \\(j\\)\n\nMasukkan skor variabel X yang sudah di centering dan rerata masing-masing kelompok ke dalam model\nContextual effect = Between-group effect - Within-group effect\n\nPositif: ketika rata-rata X kelompok lebih tinggi sebesar 1 poin, rata-rata Y kelompok cenderung lebih tinggi, bahkan setelah nilai X individu dikontrol\nNegatif: kebalikannya — kelompok dengan rata-rata X lebih tinggi justru memiliki rata-rata Y lebih rendah, setelah X individu dikontrol"
+    "text": "Contextual effects & partitioning 2️⃣\n\nGroup-mean centering\n\nHitung group-mean centering dengan formula \\[X_{within_{ij}} = X_{ij} - \\bar{X}_{j}\\]\nSederhananya: nilai X individu dikurangi rata-rata X kelompoknya\nPendapatan keluarga anak \\(i\\) dikurangi rata-rata pendapatan keluarga anak-anak di sekolah \\(j\\)\n\nMasukkan skor variabel X yang sudah di centering dan rerata masing-masing kelompok ke dalam model\nContextual effect = Between-group effect - Within-group effect\nPositif: dua orang dengan nilai X yang sama, tetapi dari kelompok berbeda (dengan rerata X kelompok berbeda 1 poin), maka orang dari kelompok dengan rerata X lebih tinggi cenderung memiliki Y lebih tinggi\nNegatif: kebalikannya — kelompok dengan rata-rata X lebih tinggi justru memiliki rata-rata Y lebih rendah"
   },
   {
     "objectID": "materi-lme2.html#latihan-4-contextual-effects",
@@ -963,14 +963,14 @@
     "href": "materi-lme2.html#contextual-effects-1",
     "title": "Linear Mixed-Effect (lme)",
     "section": "Contextual effects",
-    "text": "Contextual effects\n\n\n\nWithin (B = -0.621 95% CI [-0.786, -0.456], SE = 0.084, t = -7.386, p = .004), maupun between-group effect (B = 0.732 95% CI [0.583, 0.881], SE = 0.075, t = 9.64, p = .002) berhubungan dengan tingkat kemandirian siswa.\nWithin-group effect: Di dalam sekolah yang sama, siswa dengan tingkat pendapatan keluarga yang lebih tinggi cenderung memiliki tingkat kemandirian yang lebih rendah.\nBetween-group effect: Ada bukti bahwa sekolah dengan rata-rata pendapatan keluarga yang lebih tinggi cenderung memiliki siswa yang lebih mandiri."
+    "text": "Contextual effects\n\n\n\nBetween (B = 0.732 95% CI [0.583, 0.881], SE = 0.075, t = 9.64, p = .002), maupun within-group effect (B = -0.621 95% CI [-0.786, -0.456], SE = 0.084, t = -7.386, p = .004) berhubungan dengan tingkat kemandirian siswa.\nBetween-group effect: Ada bukti bahwa sekolah dengan rata-rata pendapatan keluarga yang lebih tinggi cenderung memiliki siswa yang lebih mandiri.\nWithin-group effect: Di masing-masing sekolah yang sama, siswa dengan tingkat pendapatan keluarga yang lebih tinggi cenderung memiliki tingkat kemandirian yang lebih rendah."
   },
   {
     "objectID": "materi-lme2.html#contextual-effects-2",
     "href": "materi-lme2.html#contextual-effects-2",
     "title": "Linear Mixed-Effect (lme)",
     "section": "Contextual effects",
-    "text": "Contextual effects\n\n\n\nContextual effects (\\(\\beta_{between_{ij}}-\\beta_{within_{ij}}\\) = 0.732 - (-0.621) = 1.353) menunjukkan bahwa terdapat pengaruh tambahan dari konteks sekolah (yang cukup substansial) terhadap kemandirian siswa, di luar pengaruh pendapatan keluarga siswa itu sendiri."
+    "text": "Contextual effects\n\n\n\nContextual effects (\\(\\beta_{between_{j}}-\\beta_{within_{ij}}\\) = 0.732 - (-0.621) = 1.353) menunjukkan bahwa terdapat pengaruh tambahan dari konteks sekolah (e.g., rata-rata tingkat pendapatan keluarga di level sekolah, yang cukup substansial) terhadap kemandirian siswa, yang tidak dapat dijelaskan oleh/diluar dari tingkat pendapatan keluarga siswa itu sendiri (di level individual)."
   },
   {
     "objectID": "materi-lme2.html#bagaimana-melaporkannya-1",

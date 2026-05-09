@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.10.3">
 
   <meta name="author" content="Rizqy Amelia Zein">
-  <meta name="dcterms.date" content="2026-05-08">
+  <meta name="dcterms.date" content="2026-05-09">
   <title>LME Workshop – Linear Mixed-Effect (lme)</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -149,7 +149,7 @@ Rizqy Amelia Zein
     </div>
 </div>
 
-  <p class="date">2026-05-08</p>
+  <p class="date">2026-05-09</p>
 </section>
 <section id="outline-1" class="slide level2">
 <h2><em>Outline</em> 1️⃣</h2>
@@ -192,27 +192,8 @@ Rizqy Amelia Zein
 </section>
 <section id="scatterplot" class="slide level2">
 <h2><em>Scatterplot</em></h2>
-<div class="columns">
-<div class="column" style="width:50%;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="libs/scat-1.png" class="quarto-figure quarto-figure-center"></p>
-</figure>
-</div>
-<p style="text-align: center;">
-<em>Scatterplot</em> 1. <em>Neuroticism</em> dan Kemandirian
-</p>
-</div><div class="column" style="width:50%;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="libs/scat-2.png" class="quarto-figure quarto-figure-center"></p>
-</figure>
-</div>
-<p style="text-align: center;">
-<em>Scatterplot</em> 2. <em>Trust</em> dan Kemandirian
-</p>
-</div></div>
-</section>
+
+<img data-src="libs/scat-all.png" class="quarto-figure quarto-figure-center r-stretch"></section>
 <section id="coba-kita-lihat-lebih-dekat-1" class="slide level2">
 <h2>Coba kita lihat lebih dekat…</h2>
 <ul>
@@ -255,30 +236,22 @@ Rizqy Amelia Zein
 <ul>
 <li>..yaitu ketika tren yang tampak di setiap sub-kelompok berbalik arah atau menghilang sama sekali ketika data dari semua kelompok digabungkan (<em>aggregated</em>).</li>
 </ul></li>
-<li>Kalau <em>Simpson’s paradox</em> diabaikan, kesimpulan bisa terkontaminasi <em>ecological fallacy</em>
+<li>Kalau <em>Simpson’s paradox</em> diabaikan, kesimpulan bisa terkontaminasi <em>ecological/atomistic fallacy</em>
 <ul>
-<li>Terjadi ketika peneliti salah menyimpulkan suatu gejala yang skalanya individual, padahal yang dianalisis sesungguhnya fenomena di level yang lebih besar (kelompok atau sub-kelompok)</li>
+<li>Terjadi ketika peneliti salah menyimpulkan suatu gejala yang skalanya individual, padahal yang dianalisis sesungguhnya fenomena di level yang lebih besar (kelompok atau sub-kelompok) – atau sebaliknya</li>
 </ul></li>
 </ul>
 </div><div class="column" style="width:45%;">
 <p><img data-src="libs/ecological-fallacy.jpg"></p>
 </div></div>
 </section>
-<section id="simpsons-paradox-1" class="slide level2">
-<h2>Simpson’s <em>paradox</em></h2>
-<div class="columns">
-<div class="column" style="width:55%;">
+<section id="contoh-simpsons-paradox" class="slide level2">
+<h2>Contoh Simpson’s <em>paradox</em></h2>
 <ul>
-<li>“Saya <em>ga</em> percaya kalau ada yang <em>bilang</em> <a href="https://rri.co.id/bogor/kesehatan/1501636/indonesia-peringkat-satu-pria-perokok-tertinggi-dunia">7 dari 10 laki-laki dewasa di Indonesia adalah perokok</a>. <em>lha</em>, suami saya, kakek saya, adik-adik saya, semuanya laki-laki dewasa dan tidak ada yang merokok, <em>tuh</em>”.
-<ul>
-<li>Kalau kebanyakan pria dewasa adalah perokok, bukan berarti <em>tidak ada pria</em> yang bukan perokok.</li>
-<li>Atau sebaliknya, kalau orang terdekat saya bukan perokok, tidak bisa menggugurkan fakta bahwa mayoritas pria dewasa di Indonesia adalah perokok.</li>
-<li>Oleh karena itu, perlu dipisahkan, mana fenomena yang terjadi di level kelompok, mana yang terjadi di level individual.</li>
-</ul></li>
+<li class="fragment"><a href="https://www.researchgate.net/profile/Mark-Vanderpump/publication/254331089_Ignoring_a_Covariate_An_Example_of_Simpson%27s_Paradox/links/53d7ebac0cf2631430bfd618/Ignoring-a-Covariate-An-Example-of-Simpsons-Paradox.pdf">Suatu studi longitudinal di Whickham, Inggris (Appleton dkk., 1996)</a> menyimpulkan bahwa angka kematian perokok justru <em>lebih rendah</em> dibanding bukan perokok (24% vs.&nbsp;31%), sehingga <strong>memberikan kesan</strong> bahwa perokok berusia lebih panjang daripada yang bukan perokok❌</li>
+<li class="fragment">Tapi ketika data dipilah berdasarkan kelompok usia, perokok justru memiliki angka kematian yang <em>lebih tinggi</em> di <em>semua</em> kelompok usia</li>
+<li class="fragment">Temuan yang <em>counterintuitive</em> ini terjadi karena di awal penelitian, usia perokok rata-rata <em>lebih muda</em> daripada partisipan yang bukan perokok, sehingga usia menjadi variabel <em>confounding</em> yang <em>membalikkan</em> arah hubungan di level sampel/agregat</li>
 </ul>
-</div><div class="column" style="width:45%;">
-<p><img data-src="libs/ecological-fallacy.jpg"></p>
-</div></div>
 </section>
 <section id="struktur-sampel-bersarangberjenjang" class="slide level2">
 <h2>Struktur sampel bersarang/berjenjang</h2>
@@ -287,13 +260,13 @@ Rizqy Amelia Zein
 <section id="apa-yang-harus-dilakukan" class="slide level2">
 <h2>Apa yang harus dilakukan?</h2>
 <ul>
-<li class="fragment">Kita abaikan saja dan langsung menggunakan regresi OLS, dengan atau tanpa informasi mengenai pengelompokan data sebagai variabel kontrol.
+<li class="fragment">Kita abaikan saja dan langsung menggunakan regresi OLS, dengan atau tanpa informasi mengenai pengelompokan data sebagai variabel kontrol
 <ul>
 <li class="fragment">Masalahnya, data/observasi kita sangat bergantung pada pengelompokan unit analisis</li>
-<li class="fragment"><strong>Nah, lalu melanggar asumsi OLS?</strong> (data/observasi dan residual harus independen)</li>
+<li class="fragment"><strong>Kalau begitu, dependensi ini melanggar asumsi OLS</strong> (data/observasi dan residual harus independen)</li>
 <li class="fragment">Efeknya, <em>standard error</em> yang diestimasi oleh model terlalu kecil (karena mengabaikan varians dependen variabel yang ditentukan oleh kelompok)</li>
-<li class="fragment">Varians variabel dependen yang tidak bisa dijelaskan (residual) akan makin besar</li>
-<li class="fragment">Kesimpulan/inferensi yang ditarik menjadi tidak tepat, sehingga risiko terjadinya <em>type I error</em> meningkat.</li>
+<li class="fragment">Varians variabel dependen yang tidak bisa dijelaskan (residual) akan <strong>makin besar</strong></li>
+<li class="fragment">Kesimpulan/inferensi yang ditarik menjadi tidak tepat (ingat <em>ecological fallacy</em>❗), sehingga risiko terjadinya <em>type I error</em> meningkat.</li>
 </ul></li>
 </ul>
 </section>
@@ -302,8 +275,8 @@ Rizqy Amelia Zein
 <ul>
 <li class="fragment">Bagaimana kalau pengelompokan (<em>grouping variable</em>) dimasukkan aja dalam regresi OLS sebagai variabel moderator
 <ul>
-<li class="fragment">Dengan begitu, estimasi <em>standard error</em> disesuaikan dengan menggunakan <em>marginal model</em></li>
-<li class="fragment">Estimasi <em>standard error</em> akan lebih presisi, <strong>tetapi</strong> kita tetap tidak bisa membandingkan variasi antar-kelompok (<em>between-group variance</em>)</li>
+<li class="fragment">Dengan begitu, estimasi <em>standard error</em> bisa disesuaikan dengan menggunakan <em>marginal model</em></li>
+<li class="fragment">Kelebihannya, estimasi <em>standard error</em> akan lebih presisi, <strong>tetapi</strong> kita tetap tidak bisa membandingkan variasi antar-kelompok (<em>between-group variance</em>)</li>
 </ul></li>
 <li class="fragment">Kalau diagregat? Jadi, unit analisis yang tadinya individual, menjadi kelompok.
 <ul>
@@ -561,7 +534,7 @@ Rizqy Amelia Zein
 <ul>
 <li>Tabel di samping adalah <em>intercept</em> dan <em>slopes</em> untuk masing-masing sekolah</li>
 <li>Sekolah E adalah sekolah dengan rata-rata kemandirian yang paling tinggi (<em>intercept</em> paling besar)</li>
-<li>Sekaligus sekolah dengan korelasi antara kemandirian dan tingkat pendapatan keluarga yang paling tinggi (<em>slope</em> paling besar)</li>
+<li>Sekaligus sekolah dengan hubungan negatif yang paling kuat/besar antara pendapatan keluarga dan kemandirian (<em>slope</em> paling negatif), konsisten dengan σ<sub>U0U1</sub> yang negatif</li>
 </ul>
 </div><div class="column">
 <div class="quarto-figure quarto-figure-center">
@@ -656,6 +629,7 @@ Rizqy Amelia Zein
 <ul>
 <li>Seberapa besar selisih Y dua orang dari kelompok yang berbeda, namun dengan <strong>X yang sama</strong>, ketika <strong>rerata X kelompoknya</strong> berbeda sebesar 1 poin.</li>
 <li>Seberapa besar perbedaan <strong>tingkat kemandirian</strong> dua siswa dari <strong>dua sekolah yang berbeda</strong>, ketika tingkat pendapatan keluarga kedua siswa tersebut sama, tetapi rerata tingkat pendapatan keluarga di sekolah mereka berbeda sebesar 1 poin?</li>
+<li>Contoh <em>contextual effects</em> di psikologi: <a href="https://en.wikipedia.org/wiki/Big-fish%E2%80%93little-pond_effect"><em>big-fish-little-pond effect</em> (BFLPE)</a></li>
 </ul>
 </div><div class="column">
 <div class="quarto-figure quarto-figure-center">
@@ -688,11 +662,9 @@ Rizqy Amelia Zein
 <li>Pendapatan keluarga anak <span class="math inline">\(i\)</span> dikurangi rata-rata pendapatan keluarga anak-anak di sekolah <span class="math inline">\(j\)</span></li>
 </ul></li>
 <li><p>Masukkan skor variabel X yang sudah di <em>centering</em> dan rerata masing-masing kelompok ke dalam model</p></li>
-<li><p><strong><em>Contextual effect</em></strong> = <em>Between-group effect</em> - <em>Within-group effect</em></p>
-<ul>
-<li>Positif: ketika <strong>rata-rata X kelompok</strong> lebih <strong>tinggi</strong> sebesar 1 poin, <strong>rata-rata Y kelompok</strong> cenderung lebih <strong>tinggi</strong>, bahkan setelah nilai X individu dikontrol</li>
-<li>Negatif: kebalikannya — kelompok dengan <strong>rata-rata X lebih tinggi</strong> justru memiliki <strong>rata-rata Y lebih rendah</strong>, setelah X individu dikontrol</li>
-</ul></li>
+<li><p><strong><em>Contextual effect</em></strong> = <em>Between-group effect</em> - <em>Within-group effect</em></p></li>
+<li><p>Positif: dua orang dengan <strong>nilai X yang sama</strong>, tetapi dari <strong>kelompok berbeda</strong> (dengan rerata X kelompok berbeda 1 poin), maka orang dari kelompok dengan rerata <strong>X lebih tinggi</strong> cenderung memiliki <strong>Y lebih tinggi</strong></p></li>
+<li><p>Negatif: kebalikannya — kelompok dengan <strong>rata-rata X lebih tinggi</strong> justru memiliki <strong>rata-rata Y lebih rendah</strong></p></li>
 </ul>
 </section>
 <section id="latihan-4-contextual-effects" class="slide level2">
@@ -728,9 +700,9 @@ Rizqy Amelia Zein
 <div class="columns">
 <div class="column">
 <ul>
-<li><em>Within</em> (<em>B</em> = -0.621 95% CI [-0.786, -0.456], <em>SE</em> = 0.084, <em>t</em> = -7.386, <em>p</em> = .004), maupun <em>between-group effect</em> (<em>B</em> = 0.732 95% CI [0.583, 0.881], <em>SE</em> = 0.075, <em>t</em> = 9.64, <em>p</em> = .002) berhubungan dengan tingkat kemandirian siswa.</li>
-<li><em>Within-group effect</em>: Di dalam sekolah yang sama, siswa dengan tingkat pendapatan keluarga yang lebih tinggi cenderung memiliki tingkat kemandirian yang lebih rendah.</li>
-<li><em>Between-group effect</em>: Ada bukti bahwa sekolah dengan rata-rata pendapatan keluarga yang lebih tinggi cenderung memiliki siswa yang lebih mandiri.</li>
+<li><em>Between</em> (<em>B</em> = 0.732 95% CI [0.583, 0.881], <em>SE</em> = 0.075, <em>t</em> = 9.64, <em>p</em> = .002), maupun <em>within-group effect</em> (<em>B</em> = -0.621 95% CI [-0.786, -0.456], <em>SE</em> = 0.084, <em>t</em> = -7.386, <em>p</em> = .004) berhubungan dengan tingkat kemandirian siswa.</li>
+<li><em><strong>Between</strong>-group effect</em>: Ada bukti bahwa sekolah dengan <strong>rata-rata pendapatan keluarga yang lebih tinggi</strong> cenderung memiliki <strong>siswa yang lebih mandiri</strong>.</li>
+<li><em><strong>Within</strong>-group effect</em>: Di masing-masing sekolah yang sama, <strong>siswa dengan tingkat pendapatan keluarga yang lebih tinggi</strong> cenderung memiliki <strong>tingkat kemandirian yang lebih rendah</strong>.</li>
 </ul>
 </div><div class="column">
 <p><img data-src="libs/context.png"></p>
@@ -741,7 +713,7 @@ Rizqy Amelia Zein
 <div class="columns">
 <div class="column" style="width:55%;">
 <ul>
-<li><strong><em>Contextual effects</em></strong> (<span class="math inline">\(\beta_{between_{ij}}-\beta_{within_{ij}}\)</span> = 0.732 - (-0.621) = 1.353) menunjukkan bahwa terdapat pengaruh tambahan dari konteks sekolah (yang cukup substansial) terhadap kemandirian siswa, di luar pengaruh pendapatan keluarga siswa itu sendiri.</li>
+<li><strong><em>Contextual effects</em></strong> (<span class="math inline">\(\beta_{between_{j}}-\beta_{within_{ij}}\)</span> = 0.732 - (-0.621) = 1.353) menunjukkan bahwa terdapat pengaruh tambahan dari konteks sekolah (e.g., rata-rata tingkat pendapatan keluarga di level sekolah, yang cukup substansial) terhadap kemandirian siswa, <strong>yang tidak dapat dijelaskan oleh/diluar dari</strong> tingkat pendapatan keluarga siswa itu sendiri (di level individual).</li>
 </ul>
 </div><div class="column" style="width:45%;">
 <p><img data-src="libs/context.png"></p>
