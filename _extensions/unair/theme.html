@@ -56,24 +56,20 @@ document.addEventListener('DOMContentLoaded', function() {
     Reveal.on('ready', function() {
       manageLogos();
     });
+    Reveal.on('slidechanged', function() {
+      manageLogos();
+    });
   } else {
     setTimeout(manageLogos, 500);
   }
 });
-
-// Update when slides change
-if (typeof Reveal !== 'undefined') {
-  Reveal.on('slidechanged', function() {
-    manageLogos();
-  });
-}
 </script>
 
 <style>
 /* Additional inline styles for logo */
 .reveal .slide-logo {
   position: absolute !important;
-  top: -1em !important;  /* Aligns with title */
+  top: 10px !important;
   right: 15px !important;
   max-height: 80px !important;
   max-width: 200px !important;

@@ -32,7 +32,7 @@ $code-color: $unair-blue;
 // Logo positioning in top-right corner
 .reveal .slide-logo {
   position: absolute !important;
-  top: -1em !important;  // Use em units to match text positioning
+  top: 10px !important;
   right: 15px !important;
   max-height: 80px;
   z-index: 100;
