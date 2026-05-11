@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.10.3">
 
   <meta name="author" content="Rizqy Amelia Zein">
-  <meta name="dcterms.date" content="2026-05-09">
+  <meta name="dcterms.date" content="2026-05-11">
   <title>LME Workshop – Linear Mixed-Effect (lme)</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -33,7 +33,7 @@
       vertical-align: middle;
     }
   </style>
-  <link rel="stylesheet" href="site_libs/revealjs/dist/theme/quarto-412eadd36123f746125f48227448fbd0.css">
+  <link rel="stylesheet" href="site_libs/revealjs/dist/theme/quarto-14c7313e0bd1a6ac1391ac8d6dd3db46.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
   <link href="site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
@@ -149,7 +149,7 @@ Rizqy Amelia Zein
     </div>
 </div>
 
-  <p class="date">2026-05-09</p>
+  <p class="date">2026-05-11</p>
 </section>
 <section id="outline-1" class="slide level2">
 <h2><em>Outline</em> 1️⃣</h2>
@@ -332,12 +332,18 @@ Rizqy Amelia Zein
 </div>
 </section>
 <section id="kovarians-antara-random-intercept-dan-random-slopes-σu0u1" class="slide level2">
-<h2>Kovarians antara <em>random intercept</em> dan <em>random slopes</em> (σ<sub>U0U1</sub>)</h2>
+<h2><mark>Kovarians antara <em>random intercept</em> dan <em>random slopes</em> (σ<sub>U0U1</sub>)</mark></h2>
 <ul>
-<li class="fragment"><p><strong>Nilainya positif</strong>, maka semakin tinggi <em>intercept</em> akan diasosiasikan dengan kemiringan garis yang lebih curam/<em>slopes</em> yang lebih besar</p></li>
-<li class="fragment"><p>Misalnya, di sekolah yang <strong>rata-rata pendapatan</strong> keluarga inti perbulan siswanya <strong>tinggi</strong>, maka <strong>korelasi</strong> antara pendapatan per bulan dengan tingkat kemandirian siswa <strong>akan menguat</strong>.</p></li>
-<li class="fragment"><p><strong>Nilainya negatif</strong>, maka semakin tinggi <em>intercept</em> akan diasosiasikan dengan kemiringan garis yang lebih landai/<em>slopes</em> yang lebih kecil</p></li>
-<li class="fragment"><p>Misalnya, di sekolah yang <strong>rata-rata pendapatan</strong> keluarga inti perbulan siswanya <strong>tinggi</strong>, maka <strong>korelasi</strong> antara pendapatan per bulan dengan tingkat kemandirian siswa <strong>akan melemah</strong>.</p></li>
+<li class="fragment"><strong>Nilainya positif</strong>, maka semakin besar <em>intercept</em> akan diasosiasikan dengan nilai <em>slope</em> yang lebih besar
+<ul>
+<li class="fragment">Kalau <em>slope</em>nya positif, maka korelasi X-Y semakin positif. Tetapi kalau negatif, maka korelasinya melemah.</li>
+<li class="fragment">Apabila diketahui korelasi antara pendapatan dan kemandirian adalah <strong>negatif</strong>, maka kalau σ<sub>U0U1</sub> positif, artinya di sekolah yang <strong>rata-rata kemandirian</strong> siswanya <strong>lebih tinggi</strong>, maka <strong>korelasi</strong> antara pendapatan per bulan dengan tingkat kemandirian siswa <strong>akan melemah</strong>.</li>
+</ul></li>
+<li class="fragment"><strong>Nilainya negatif</strong>, maka semakin tinggi <em>intercept</em> akan diasosiasikan dengan <em>slope</em> yang lebih kecil
+<ul>
+<li class="fragment">Kalau <em>slope</em>nya positif, maka korelasi X-Y melemah, sedangkan kalau negatif, maka akan semakin negatif.</li>
+<li class="fragment">Apabila diketahui korelasi antara pendapatan dan kemandirian adalah <strong>negatif</strong>, maka kalau σ<sub>U0U1</sub> negatif, artinya di sekolah yang <strong>rata-rata kemandirian</strong> siswanya <strong>lebih tinggi</strong>, maka <strong>korelasi</strong> antara pendapatan per bulan dengan tingkat kemandirian siswa <strong>akan makin negatif</strong>.</li>
+</ul></li>
 </ul>
 </section>
 <section id="parameter-yang-diestimasi-dalam-lme" class="slide level2">
@@ -394,7 +400,7 @@ Rizqy Amelia Zein
 <div class="column">
 <ul>
 <li>Tes kecocokan model (<em>Omnibus Test</em>) signifikan menggambarkan data (<em>F</em>(1, 3.28) = 51.7, <em>p</em> = .004)</li>
-<li>Korelasi antara tingkat pendapatan keluarga dengan kemandirian anak negatif, bukan positif, seperti hasil OLS sebelumnya</li>
+<li><strong>Korelasi</strong> antara tingkat pendapatan keluarga dengan kemandirian anak <strong>negatif</strong>, bukan positif, seperti hasil OLS sebelumnya</li>
 <li>Anak yang dibesarkan di keluarga dengan tingkat pendapatan yang tinggi, justru memiliki tingkat kemandirian yang rendah (<em>B</em> = -0.623 95% CI [-0.794, -0.453], <em>SE</em> = 0.086, <em>t</em> = -7.29, <em>p</em> = .004).</li>
 </ul>
 </div><div class="column">
@@ -510,9 +516,9 @@ Rizqy Amelia Zein
 <div class="columns">
 <div class="column">
 <ul>
-<li><p>Korelasi antara <em>random slopes</em> dan <em>random intercept</em> (σ<sub>U0U1</sub>) nilainya negatif.</p></li>
+<li><p>Korelasi antara <em>random slope</em> dan <em>random intercept</em> (σ<sub>U0U1</sub>) nilainya negatif, sedangkan <a href="https://rameliaz.github.io/mlm-lme-workshop/materi-lme2.html#/fixed-coefficients"><em>fixed slope</em>nya sendiri juga negatif</a></p></li>
 <li><p>Artinya, sekolah yang siswanya rata-rata lebih mandiri, korelasi negatif pendapatan keluarga terhadap kemandirian lebih kuat (pendapatan tinggi, kemandirian justru makin turun drastis)</p></li>
-<li><p>Jadi pendapatan keluarga justru lebih “menonjol” sebagai penjelas variasi kemandirian yang tersisa di sekolah dengan rata-rata kemandirian yang tinggi. Efek negatifnya lebih kuat.</p></li>
+<li><p>Jadi pendapatan keluarga <strong>lebih kuat dan negatif</strong> efeknya pada tingkat kemandirian siswa, di sekolah dengan <strong>rata-rata kemandirian yang tinggi</strong> (i.e., <em>intercept</em> tinggi)</p></li>
 <li><p>Apakah artinya lingkungan sekolah tidak berdampak pada kemandirian anak?</p>
 <ul>
 <li>Belum tentu😉 Periksa dulu <em>contextual effect</em></li>
@@ -747,7 +753,7 @@ Rizqy Amelia Zein
 <ul>
 <li><p>Kalau korelasi antara X dan Y tidak linear, pakai apa <em>dong</em>?</p>
 <ul>
-<li>Jelas tidak bisa menggunakan <code>lme</code>. Alternatifnya, bisa menggunakan <a href="https://en.wikipedia.org/wiki/Generalized_additive_model"><em>generalized additive model</em> (GAM)</a>.</li>
+<li>Jelas tidak bisa menggunakan <code>lme</code>. Alternatifnya, bisa menggunakan <a href="https://yeungpinghei.github.io/"><em>generalized additive mixed model</em> (GAMM)</a>.</li>
 </ul></li>
 <li><p>Kalau prediktornya level-2, bagaimana?</p></li>
 <li><p>Bagaimana cara merencanakan jumlah sampelnya?</p></li>
@@ -1029,7 +1035,7 @@ Rizqy Amelia Zein
           // Add centered logo if it doesn't exist
           if (!slide.querySelector('.title-slide-logo')) {
             const titleLogo = document.createElement('img');
-            titleLogo.src = 'img/logo.png';
+            titleLogo.src = 'libs/logo.png';
             titleLogo.className = 'title-slide-logo';
             titleLogo.alt = 'Universitas Airlangga Logo';
             slide.insertBefore(titleLogo, slide.firstChild);
@@ -1048,8 +1054,8 @@ Rizqy Amelia Zein
         // Check background color
         const bgColor = slide.getAttribute('data-background-color');
         const logoSrc = (bgColor === '#14497F' || bgColor === '#14497f') 
-          ? 'img/logo_white.png' 
-          : 'img/logo.png';
+          ? 'libs/logo_white.png' 
+          : 'libs/logo.png';
         
         // If exactly one logo exists, just update its source
         if (existingLogos.length === 1) {
@@ -1072,20 +1078,24 @@ Rizqy Amelia Zein
         Reveal.on('ready', function() {
           manageLogos();
         });
-        Reveal.on('slidechanged', function() {
-          manageLogos();
-        });
       } else {
         setTimeout(manageLogos, 500);
       }
     });
+
+    // Update when slides change
+    if (typeof Reveal !== 'undefined') {
+      Reveal.on('slidechanged', function() {
+        manageLogos();
+      });
+    }
     </script>
 
     <style>
     /* Additional inline styles for logo */
     .reveal .slide-logo {
       position: absolute !important;
-      top: 10px !important;
+      top: -1em !important;  /* Aligns with title */
       right: 15px !important;
       max-height: 80px !important;
       max-width: 200px !important;

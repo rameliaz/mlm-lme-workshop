@@ -115,13 +115,14 @@ $$\mathbf{R} = \begin{bmatrix} \sigma^2 & \sigma_c & \sigma_c & \sigma_c \\ \sig
 
 * Semua varians sama (σ²), semua kovarians sama (σ_c)
 * Korelasi antara T1–T2 = korelasi T1–T4: **jarak waktu tidak berpengaruh**
-* CS menjamin terpenuhinya asumsi **sphericity** yang disyaratkan _Repeated Measures ANOVA_ klasik — meskipun perlu dicatat bahwa CS adalah kondisi yang **lebih ketat** dari sphericity: sphericity hanya mensyaratkan kesamaan varians selisih antar pasangan waktu, sedangkan CS mensyaratkan semua varians dan semua kovarians masing-masing sama.
-* **Kapan dipakai:** desain _within-subject_ atau _repeated between-subject_, utamanya ketika kondisi eksperimen tidak berurutan (_counterbalanced_)
+* CS menjamin terpenuhinya asumsi ***sphericity*** yang disyaratkan _Repeated Measures ANOVA_ klasik, meskipun perlu dicatat bahwa CS adalah kondisi yang **lebih ketat** dari *sphericity*. 
+  - *Sphericity* hanya mensyaratkan kesamaan varians selisih antar dua *beep*, sedangkan CS mensyaratkan semua varians dan semua kovarians masing-masing sama besarnya.
+* **Kapan dipakai:** desain _within-subject_ atau _repeated between-subject_, utamanya ketika kondisi eksperimen urutannya diacak (_counterbalanced_)
 * **Jumlah parameter:** 2
 
 ::: {.callout-note}
 #### Hubungannya dengan ANOVA _repeated measures_
-**_Mauchly's test_** menguji asumsi **sphericity** (bukan CS secara langsung). CS _mengimplikasikan_ sphericity, sehingga jika CS terpenuhi maka sphericity pasti terpenuhi. Namun kebalikannya tidak selalu benar: data bisa memenuhi sphericity tanpa memenuhi CS. Jika _Mauchly's_ test signifikan, sphericity dilanggar dan CS bukan pilihan terbaik.
+**_Mauchly's test_** menguji asumsi ***sphericity*** (bukan CS secara langsung). CS _mengimplikasikan_ *sphericity*, sehingga jika CS terpenuhi maka *sphericity* pasti terpenuhi. Namun kebalikannya tidak selalu benar: data bisa memenuhi *sphericity* tanpa memenuhi CS. Jika _Mauchly's_ test signifikan, *sphericity* dilanggar dan CS bukan pilihan terbaik.
 :::
 
 ## Struktur 3: _Unstructured_ (UN)
@@ -130,7 +131,7 @@ $$\mathbf{R} = \begin{bmatrix} \sigma^2_1 & \sigma_{12} & \sigma_{13} & \sigma_{
 
 * Setiap varians dan kovarians diestimasi **secara bebas**
 * Paling fleksibel, tidak ada asumsi tentang pola korelasi
-* **Kapan dipakai:** sebagai _baseline_ pembanding; _time points_ sedikit (≤5); sampel besar; menggunakan beberapa skala dengan reliabilitas yang berbeda untuk tiap _time point_
+* **Kapan dipakai:** sebagai _baseline_ pembanding; jumlah _time points_ sedikit (≤5); sampel besar; menggunakan beberapa skala dengan reliabilitas yang berbeda untuk tiap _time point_
 * **Perhatian:** dengan p _time points_ → p(p+1)/2 parameter — terlalu banyak parameter diestimasi, risiko model tidak _converged_ lebih besar
 * **Jumlah parameter:** p(p+1)/2
 
@@ -143,7 +144,7 @@ Gunakan UN untuk **menguji** apakah struktur yang lebih sederhana (CS) sudah cuk
 
 | Struktur | Parameter | Kapan pakai |
 |----------|-----------|-------------|
-| Identity | 1 | Tidak ada korelasi temporal (bukan pilihan tepat pada kebanyakan kasus) |
+| Identity | 1 | Tidak ada korelasi temporal (bukan pilihan tepat pada beberapa kasus) |
 | Compound Symmetry | 2 | Korelasi sama untuk semua jarak waktu |
 | Unstructured | p(p+1)/2 | Baseline; time points sedikit, N besar |
 | AR(1) | 2 | Korelasi meluruh (_decayed_) seiring jarak waktu |
@@ -153,7 +154,7 @@ Gunakan UN untuk **menguji** apakah struktur yang lebih sederhana (CS) sudah cuk
 
 ::: {.callout-tip}
 #### Tips
-Gunakan AIC/BIC untuk memilih❗ 
+Gunakan AIC/BIC untuk memilih model yang terbaik❗ 
 
 Model dengan AIC/BIC lebih kecil = lebih baik
 :::
@@ -233,7 +234,7 @@ Buka [dataset-rm.omv](/materials/dataset-rm.omv)
 * Catat AIC
 
 ::: {.callout-note}
-**Catatan penting:** Saat ini, kita belum menentukan struktur kovarians dari residual — ini berarti kita masih menggunakan _Identity_ (asumsi independensi). Kita akan coba bandingkan dengan model di langkah berikutnya.
+**Catatan penting:** Saat ini, kita belum menentukan struktur kovarians dari residual. Artinya, kita masih menggunakan _Identity_ (asumsi independensi). Kita akan coba bandingkan dengan model di langkah berikutnya.
 :::
 
 ## Latihan 5️⃣: Membandingkan struktur kovarians
@@ -248,7 +249,7 @@ Buka [dataset-rm.omv](/materials/dataset-rm.omv)
 
 ::: {.callout-tip}
 #### Kapan waktu diset sebagai kontinum atau kategorikal?
-**Tergantung** prediksi teoritisnya. Apabila perubahan _outcome_ mengikuti pola tertentu (e.g., linear, kuadratik/curvilinear, atau pola lainnya), maka set waktu sebagai kontinum. Apabila tidak ada prediksi teoritis tertentu mengenai pola perubahannya, set waktu sebagai variabel kategorikal/diskrit.
+**Tergantung** prediksi teoritisnya. Apabila perubahan _outcome_ mengikuti pola tertentu (e.g., linear, kuadratik/*curvilinear*, atau pola lainnya), maka set waktu sebagai kontinum. Apabila tidak ada prediksi teoritis tertentu mengenai pola perubahannya, set waktu sebagai variabel kategorikal/diskrit.
 :::
 
 ## Latihan 5️⃣: Membandingkan struktur kovarians
@@ -567,7 +568,7 @@ Sebelum studi dimulai, partisipan mengisi:
 
 ## Rangkuman
 
-**Repeated measures (sedikit _time points_, ≤ 5):**
+***Repeated measures* (sedikit _time points_, ≤ 5):**
 
 1. Mulai dengan _Unstructured_ sebagai baseline
 2. Bandingkan dengan _Compound Symmetry_

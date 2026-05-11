@@ -195,17 +195,17 @@ execute:
 _Fixed effects_ = parameter model yang berlaku pada seluruh sampel, yang merupakan nilai agregat (rata-rata) masing-masing subkelompok; _Random effects_ = seberapa besar parameter model di setiap subkelompok menyimpang dari rata-rata itu.
 :::
 
-## Kovarians antara _random intercept_ dan _random slopes_ (σ~U0~~U1~)
+## [Kovarians antara _random intercept_ dan _random slopes_ (σ~U0~~U1~)]{.mark}
 
 ::: {.incremental}
 
-* **Nilainya positif**, maka semakin tinggi _intercept_ akan diasosiasikan dengan kemiringan garis yang lebih curam/_slopes_ yang lebih besar
+* **Nilainya positif**, maka semakin besar _intercept_ akan diasosiasikan dengan nilai _slope_ yang lebih besar
+  - Kalau *slope*nya positif, maka korelasi X-Y semakin positif. Tetapi kalau negatif, maka korelasinya melemah.
+  - Apabila diketahui korelasi antara pendapatan dan kemandirian adalah **negatif**, maka kalau σ~U0~~U1~ positif, artinya di sekolah yang **rata-rata kemandirian** siswanya **lebih tinggi**, maka **korelasi** antara pendapatan per bulan dengan tingkat kemandirian siswa **akan melemah**.
 
-* Misalnya, di sekolah yang **rata-rata pendapatan** keluarga inti perbulan siswanya **tinggi**, maka **korelasi** antara pendapatan per bulan dengan tingkat kemandirian siswa **akan menguat**.
-
-* **Nilainya negatif**, maka semakin tinggi _intercept_ akan diasosiasikan dengan kemiringan garis yang lebih landai/_slopes_ yang lebih kecil
-
-* Misalnya, di sekolah yang **rata-rata pendapatan** keluarga inti perbulan siswanya **tinggi**, maka **korelasi** antara pendapatan per bulan dengan tingkat kemandirian siswa **akan melemah**.
+* **Nilainya negatif**, maka semakin tinggi _intercept_ akan diasosiasikan dengan _slope_ yang lebih kecil
+  - Kalau *slope*nya positif, maka korelasi X-Y melemah, sedangkan kalau negatif, maka akan semakin negatif.
+  - Apabila diketahui korelasi antara pendapatan dan kemandirian adalah **negatif**, maka kalau σ~U0~~U1~ negatif, artinya di sekolah yang **rata-rata kemandirian** siswanya **lebih tinggi**, maka **korelasi** antara pendapatan per bulan dengan tingkat kemandirian siswa **akan makin negatif**.
 
 :::
 
@@ -263,7 +263,7 @@ Kita akan membuat _linear mixed model_ dengan **tingkat pendapatan** sebagai pre
 ::: {.column}
 
 * Tes kecocokan model (_Omnibus Test_) signifikan menggambarkan data (_F_(1, 3.28) = 51.7, _p_ = .004)
-* Korelasi antara tingkat pendapatan keluarga dengan kemandirian anak negatif, bukan positif, seperti hasil OLS sebelumnya
+* **Korelasi** antara tingkat pendapatan keluarga dengan kemandirian anak **negatif**, bukan positif, seperti hasil OLS sebelumnya
 * Anak yang dibesarkan di keluarga dengan tingkat pendapatan yang tinggi, justru memiliki tingkat kemandirian yang rendah (_B_ = -0.623 95% CI [-0.794, -0.453], _SE_ = 0.086, _t_ = -7.29, _p_ = .004).
 
 :::
@@ -361,11 +361,11 @@ Kita akan membuat _linear mixed model_ dengan **tingkat pendapatan** sebagai pre
 :::: {.columns}
 ::: {.column}
 
-* Korelasi antara _random slopes_ dan _random intercept_ (σ~U0~~U1~) nilainya negatif.
+* Korelasi antara _random slope_ dan _random intercept_ (σ~U0~~U1~) nilainya negatif, sedangkan [*fixed slope*nya sendiri juga negatif](https://rameliaz.github.io/mlm-lme-workshop/materi-lme2.html#/fixed-coefficients)
 
 * Artinya, sekolah yang siswanya rata-rata lebih mandiri, korelasi negatif pendapatan keluarga terhadap kemandirian lebih kuat (pendapatan tinggi, kemandirian justru makin turun drastis)
 
-* Jadi pendapatan keluarga justru lebih "menonjol" sebagai penjelas variasi kemandirian yang tersisa di sekolah dengan rata-rata kemandirian yang tinggi. Efek negatifnya lebih kuat.
+* Jadi pendapatan keluarga **lebih kuat dan negatif** efeknya pada tingkat kemandirian siswa, di sekolah dengan **rata-rata kemandirian yang tinggi** (i.e., *intercept* tinggi)
 
 * Apakah artinya lingkungan sekolah tidak berdampak pada kemandirian anak?
   - Belum tentu😉 Periksa dulu _contextual effect_
@@ -599,7 +599,7 @@ Jangan masukkan **hi_gm** ke _random coefficient_ karena ini adalah rerata kelom
 ## Yang belum dibahas...
 
 * Kalau korelasi antara X dan Y tidak linear, pakai apa _dong_?
-  - Jelas tidak bisa menggunakan `lme`. Alternatifnya, bisa menggunakan [_generalized additive model_ (GAM)](https://en.wikipedia.org/wiki/Generalized_additive_model).
+  - Jelas tidak bisa menggunakan `lme`. Alternatifnya, bisa menggunakan [_generalized additive mixed model_ (GAMM)](https://yeungpinghei.github.io/).
 
 * Kalau prediktornya level-2, bagaimana?
 

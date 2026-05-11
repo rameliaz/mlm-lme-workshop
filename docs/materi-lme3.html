@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.10.3">
 
   <meta name="author" content="Rizqy Amelia Zein">
-  <meta name="dcterms.date" content="2026-05-09">
+  <meta name="dcterms.date" content="2026-05-11">
   <title>LME Workshop – lme untuk Pengukuran Berulang dan Experience Sampling</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -33,7 +33,7 @@
       vertical-align: middle;
     }
   </style>
-  <link rel="stylesheet" href="site_libs/revealjs/dist/theme/quarto-412eadd36123f746125f48227448fbd0.css">
+  <link rel="stylesheet" href="site_libs/revealjs/dist/theme/quarto-14c7313e0bd1a6ac1391ac8d6dd3db46.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
   <link href="site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
@@ -149,7 +149,7 @@ Rizqy Amelia Zein
     </div>
 </div>
 
-  <p class="date">2026-05-09</p>
+  <p class="date">2026-05-11</p>
 </section>
 <section id="outline" class="slide level2">
 <h2><em>Outline</em></h2>
@@ -286,8 +286,11 @@ Rizqy Amelia Zein
 <ul>
 <li>Semua varians sama (σ²), semua kovarians sama (σ_c)</li>
 <li>Korelasi antara T1–T2 = korelasi T1–T4: <strong>jarak waktu tidak berpengaruh</strong></li>
-<li>CS menjamin terpenuhinya asumsi <strong>sphericity</strong> yang disyaratkan <em>Repeated Measures ANOVA</em> klasik — meskipun perlu dicatat bahwa CS adalah kondisi yang <strong>lebih ketat</strong> dari sphericity: sphericity hanya mensyaratkan kesamaan varians selisih antar pasangan waktu, sedangkan CS mensyaratkan semua varians dan semua kovarians masing-masing sama.</li>
-<li><strong>Kapan dipakai:</strong> desain <em>within-subject</em> atau <em>repeated between-subject</em>, utamanya ketika kondisi eksperimen tidak berurutan (<em>counterbalanced</em>)</li>
+<li>CS menjamin terpenuhinya asumsi <strong><em>sphericity</em></strong> yang disyaratkan <em>Repeated Measures ANOVA</em> klasik, meskipun perlu dicatat bahwa CS adalah kondisi yang <strong>lebih ketat</strong> dari <em>sphericity</em>.
+<ul>
+<li><em>Sphericity</em> hanya mensyaratkan kesamaan varians selisih antar dua <em>beep</em>, sedangkan CS mensyaratkan semua varians dan semua kovarians masing-masing sama besarnya.</li>
+</ul></li>
+<li><strong>Kapan dipakai:</strong> desain <em>within-subject</em> atau <em>repeated between-subject</em>, utamanya ketika kondisi eksperimen urutannya diacak (<em>counterbalanced</em>)</li>
 <li><strong>Jumlah parameter:</strong> 2</li>
 </ul>
 <div class="callout callout-note callout-titled callout-style-default">
@@ -299,7 +302,7 @@ Rizqy Amelia Zein
 <p><strong>Hubungannya dengan ANOVA <em>repeated measures</em></strong></p>
 </div>
 <div class="callout-content">
-<p><strong><em>Mauchly’s test</em></strong> menguji asumsi <strong>sphericity</strong> (bukan CS secara langsung). CS <em>mengimplikasikan</em> sphericity, sehingga jika CS terpenuhi maka sphericity pasti terpenuhi. Namun kebalikannya tidak selalu benar: data bisa memenuhi sphericity tanpa memenuhi CS. Jika <em>Mauchly’s</em> test signifikan, sphericity dilanggar dan CS bukan pilihan terbaik.</p>
+<p><strong><em>Mauchly’s test</em></strong> menguji asumsi <strong><em>sphericity</em></strong> (bukan CS secara langsung). CS <em>mengimplikasikan</em> <em>sphericity</em>, sehingga jika CS terpenuhi maka <em>sphericity</em> pasti terpenuhi. Namun kebalikannya tidak selalu benar: data bisa memenuhi <em>sphericity</em> tanpa memenuhi CS. Jika <em>Mauchly’s</em> test signifikan, <em>sphericity</em> dilanggar dan CS bukan pilihan terbaik.</p>
 </div>
 </div>
 </div>
@@ -310,7 +313,7 @@ Rizqy Amelia Zein
 <ul>
 <li>Setiap varians dan kovarians diestimasi <strong>secara bebas</strong></li>
 <li>Paling fleksibel, tidak ada asumsi tentang pola korelasi</li>
-<li><strong>Kapan dipakai:</strong> sebagai <em>baseline</em> pembanding; <em>time points</em> sedikit (≤5); sampel besar; menggunakan beberapa skala dengan reliabilitas yang berbeda untuk tiap <em>time point</em></li>
+<li><strong>Kapan dipakai:</strong> sebagai <em>baseline</em> pembanding; jumlah <em>time points</em> sedikit (≤5); sampel besar; menggunakan beberapa skala dengan reliabilitas yang berbeda untuk tiap <em>time point</em></li>
 <li><strong>Perhatian:</strong> dengan p <em>time points</em> → p(p+1)/2 parameter — terlalu banyak parameter diestimasi, risiko model tidak <em>converged</em> lebih besar</li>
 <li><strong>Jumlah parameter:</strong> p(p+1)/2</li>
 </ul>
@@ -347,7 +350,7 @@ Rizqy Amelia Zein
 <tr class="odd">
 <td>Identity</td>
 <td>1</td>
-<td>Tidak ada korelasi temporal (bukan pilihan tepat pada kebanyakan kasus)</td>
+<td>Tidak ada korelasi temporal (bukan pilihan tepat pada beberapa kasus)</td>
 </tr>
 <tr class="even">
 <td>Compound Symmetry</td>
@@ -380,7 +383,7 @@ Rizqy Amelia Zein
 <p><strong>Tips</strong></p>
 </div>
 <div class="callout-content">
-<p>Gunakan AIC/BIC untuk memilih❗</p>
+<p>Gunakan AIC/BIC untuk memilih model yang terbaik❗</p>
 <p>Model dengan AIC/BIC lebih kecil = lebih baik</p>
 </div>
 </div>
@@ -516,7 +519,7 @@ Rizqy Amelia Zein
 <p><strong>Note</strong></p>
 </div>
 <div class="callout-content">
-<p><strong>Catatan penting:</strong> Saat ini, kita belum menentukan struktur kovarians dari residual — ini berarti kita masih menggunakan <em>Identity</em> (asumsi independensi). Kita akan coba bandingkan dengan model di langkah berikutnya.</p>
+<p><strong>Catatan penting:</strong> Saat ini, kita belum menentukan struktur kovarians dari residual. Artinya, kita masih menggunakan <em>Identity</em> (asumsi independensi). Kita akan coba bandingkan dengan model di langkah berikutnya.</p>
 </div>
 </div>
 </div>
@@ -542,7 +545,7 @@ Rizqy Amelia Zein
 <p><strong>Kapan waktu diset sebagai kontinum atau kategorikal?</strong></p>
 </div>
 <div class="callout-content">
-<p><strong>Tergantung</strong> prediksi teoritisnya. Apabila perubahan <em>outcome</em> mengikuti pola tertentu (e.g., linear, kuadratik/curvilinear, atau pola lainnya), maka set waktu sebagai kontinum. Apabila tidak ada prediksi teoritis tertentu mengenai pola perubahannya, set waktu sebagai variabel kategorikal/diskrit.</p>
+<p><strong>Tergantung</strong> prediksi teoritisnya. Apabila perubahan <em>outcome</em> mengikuti pola tertentu (e.g., linear, kuadratik/<em>curvilinear</em>, atau pola lainnya), maka set waktu sebagai kontinum. Apabila tidak ada prediksi teoritis tertentu mengenai pola perubahannya, set waktu sebagai variabel kategorikal/diskrit.</p>
 </div>
 </div>
 </div>
@@ -1005,7 +1008,7 @@ Rizqy Amelia Zein
 </section>
 <section id="rangkuman" class="slide level2">
 <h2>Rangkuman</h2>
-<p><strong>Repeated measures (sedikit <em>time points</em>, ≤ 5):</strong></p>
+<p><strong><em>Repeated measures</em> (sedikit <em>time points</em>, ≤ 5):</strong></p>
 <ol type="1">
 <li>Mulai dengan <em>Unstructured</em> sebagai baseline</li>
 <li>Bandingkan dengan <em>Compound Symmetry</em></li>
@@ -1306,7 +1309,7 @@ Rizqy Amelia Zein
           // Add centered logo if it doesn't exist
           if (!slide.querySelector('.title-slide-logo')) {
             const titleLogo = document.createElement('img');
-            titleLogo.src = 'img/logo.png';
+            titleLogo.src = 'libs/logo.png';
             titleLogo.className = 'title-slide-logo';
             titleLogo.alt = 'Universitas Airlangga Logo';
             slide.insertBefore(titleLogo, slide.firstChild);
@@ -1325,8 +1328,8 @@ Rizqy Amelia Zein
         // Check background color
         const bgColor = slide.getAttribute('data-background-color');
         const logoSrc = (bgColor === '#14497F' || bgColor === '#14497f') 
-          ? 'img/logo_white.png' 
-          : 'img/logo.png';
+          ? 'libs/logo_white.png' 
+          : 'libs/logo.png';
         
         // If exactly one logo exists, just update its source
         if (existingLogos.length === 1) {
@@ -1349,20 +1352,24 @@ Rizqy Amelia Zein
         Reveal.on('ready', function() {
           manageLogos();
         });
-        Reveal.on('slidechanged', function() {
-          manageLogos();
-        });
       } else {
         setTimeout(manageLogos, 500);
       }
     });
+
+    // Update when slides change
+    if (typeof Reveal !== 'undefined') {
+      Reveal.on('slidechanged', function() {
+        manageLogos();
+      });
+    }
     </script>
 
     <style>
     /* Additional inline styles for logo */
     .reveal .slide-logo {
       position: absolute !important;
-      top: 10px !important;
+      top: -1em !important;  /* Aligns with title */
       right: 15px !important;
       max-height: 80px !important;
       max-width: 200px !important;
