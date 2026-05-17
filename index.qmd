@@ -2,6 +2,8 @@
 title: "Linear Mixed-Effect (LME)"
 ---
 
+Laman web ini memuat materi tentang ***Linear Mixed-Effect*** Model (LME), atau yang juga dikenal sebagai *Multilevel Modeling*, *Random-Effect Coefficient Models*, *Nested Data Models*, atau *Hierarchical Linear Modeling* (HLM).
+
 ## *Outline* materi
 
 Materi yang tersedia di laman web ini juga mencakup konsep dasar *ordinary least square regression* selain pengenalan `lme`. 
@@ -68,13 +70,8 @@ Karena asumsinya mahasiswa S3 sudah memiliki pengetahuan statistik dasar, maka  
   - *Temporal autocorrelation* dan struktur AR(1) & ARMA(1,1)
   - *Person-mean centering*: efek *within-* vs. *between-person*
   - *Cross-level interaction* dalam data ESM
-* _Setup_ di jamovi GAMLj
+* _Setup_ di `jamovi` GAMLj
 * Melaporkan hasil dalam manuskrip
-
-::: {.callout-important}
-#### _Repeated Measures_ dan ESM tidak diajarkan
-Karena keterbatasan waktu, bagian 3️⃣ **tidak diajarkan** secara mendalam di _workshop_. Materi tersedia di laman web ini dan dapat dipelajari peserta secara mandiri.
-:::
 
 [<i class="fa-regular fa-file-powerpoint"></i> Buka Materi LME Pengukuran Berulang](materi-lme3.html){.btn .btn-primary}
 
