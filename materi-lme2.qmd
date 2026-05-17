@@ -195,7 +195,7 @@ execute:
 _Fixed effects_ = parameter model yang berlaku pada seluruh sampel, yang merupakan nilai agregat (rata-rata) masing-masing subkelompok; _Random effects_ = seberapa besar parameter model di setiap subkelompok menyimpang dari rata-rata itu.
 :::
 
-## [Kovarians antara _random intercept_ dan _random slopes_ (σ~U0~~U1~)]{.mark}
+## Kovarians antara _random intercept_ dan _random slopes_ (σ~U0~~U1~)
 
 ::: {.incremental}
 

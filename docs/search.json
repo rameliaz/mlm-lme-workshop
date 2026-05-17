@@ -639,77 +639,70 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "Linear Mixed-Effect (LME) Workshop",
+    "title": "Linear Mixed-Effect (LME)",
     "section": "",
-    "text": "NoteKuis Pre-test\n\n\n\nlme merupakan teknik statistik yang kompleks dan menguasainya perlu melewati learning curve yang lumayan curam. Agar workshop ini benar-benar bermanfaat, peserta wajib untuk mengikuti kuis pre-test sebelum workshop untuk mengetahui apa saja materi yang perlu dipersiapkan sebelum workshop dimulai.\nSilakan klik menu Kuis Pre-Test di navigation bar untuk mengikuti kuis.\nLaman web berikut ini merupakan laman web untuk Workshop Linear Mixed-Effect (LME) yang diselenggarakan oleh program studi Doktor (S3) Psikologi, Fakultas Psikologi, Universitas Airlangga.\nMateri berlisensi  BY 4.0. Materi bebas digunakan kembali namun wajib mengatribusi sumber aslinya."
-  },
-  {
-    "objectID": "index.html#waktu-dan-tempat",
-    "href": "index.html#waktu-dan-tempat",
-    "title": "Linear Mixed-Effect (LME) Workshop",
-    "section": "Waktu dan tempat",
-    "text": "Waktu dan tempat\nWorkshop diselenggarakan pada hari Sabtu, 9 Mei 2026 pukul 15.00 - 17.00 WIB secara virtual melalui Microsoft Teams.\n\n\n\n\n\n\nNoteMenggunakan Microsoft Teams\n\n\n\nUntuk user experience yang terbaik, peserta sangat disarankan untuk mengunduh aplikasi MS Teams di perangkatnya masing-masing lalu login akun Microsoft Unair (email dengan domain @drive.unair.ac.id) sebelum join meeting. Baca panduan dari DSI Universitas Airlangga untuk mengetahui langkah-langkahnya.\nAlternatifnya, peserta dapat join meeting melalui browser, sehingga tidak harus login atau memiliki akun MS Teams.\n\n\n\nKlik disini untuk join meeting"
+    "text": "Materi yang tersedia di laman web ini juga mencakup konsep dasar ordinary least square regression selain pengenalan lme.\nPeserta juga akan diminta untuk menganalisis data dengan menggunakan lme dan melaporkannya dengan format yang biasa digunakan dalam artikel penelitian.\n\n\n\n\n\n\nNoteUnduh materi dalam bentuk PDF\n\n\n\nKlik navigation bar yang mengarah pada PDF materi, kemudian tekan ctrl dan p bersamaan. Setelah window untuk print muncul, pilih Save to PDF dan klik Save.\n\n\nBerikut adalah outline materi yang tersedia di laman web ini:\n\n\n\nBerlatih menginspeksi data secara visual dengan scatterplot\nModel regresi linear (ordinary least square)\nMenarik garis regresi (fitted regression line)\nVarians yang dapat dan yang tidak dapat dijelaskan oleh model (R2)\nMenguji hipotesis\nMengecek kecocokan model dengan data (model fit)\nMengecek asumsi\n\nDistribusi (normalitas) residual\nHomoskedastisitas\nMultikolinearitas\n\nMendeteksi outliers\nMenguji interaction effects dan model change\nMenulis hasil analisis regresi linear dengan interaction terms dalam manuskrip\n\n\n\n\n\n\n\nImportantRegresi OLS tidak diajarkan di workshop\n\n\n\nKarena asumsinya mahasiswa S3 sudah memiliki pengetahuan statistik dasar, maka Bagian 1 tidak diajarkan di workshop. Bagian 1 harus dikuasai oleh peserta terlebih dahulu sebelum memulai workshop dan dapat dipelajari secara mandiri.\n\n\n Buka Materi Regresi OLS\n\n\n\n\nStruktur data berjenjang/bersarang (hierarchical/nested data)\nWithin- dan between-group variances\nPengantar linear mixed-effect (lme)\nIntra-class correlation dan likelihood ratio test (LRT)\nMembandingkan garis regresi antar kelompok dengan lme\nlme dengan prediktor level 1 (random coefficients model)\n\nMengidentifikasi intercept (konstanta) yang berbeda antar kelompok (random-intercept model)\nMengidentifikasi slopes (gradien/kemiringan garis) yang berbeda antar kelompok (random slopes model)\n\n“Explained variances” (Nakagawa & Schielzeth, 2012)\n\nMarginal R2\nConditional R2\n\nContextual effect dan partitioning/centering\nMelaporkan analisis dengan lme dalam manuskrip\nPengukuran berulang (repeated measures) dan experience sampling\n\n Buka Materi Pengantar LME\n\n\n\n\nKeterbatasan lme biasa untuk data pengukuran berulang\nRepeated measures dengan lme\n\nStruktur kovarians residual: Identity, Compound Symmetry, Unstructured\nMembandingkan model dengan struktur residual berbeda\n\nExperience Sampling Method (ESM)\n\nApa itu ESM dan pada saat seperti apa ESM dilakukan?\nTemporal autocorrelation dan struktur AR(1) & ARMA(1,1)\nPerson-mean centering: efek within- vs. between-person\nCross-level interaction dalam data ESM\n\nSetup di jamovi GAMLj\nMelaporkan hasil dalam manuskrip\n\n\n\n\n\n\n\nImportantRepeated Measures dan ESM tidak diajarkan\n\n\n\nKarena keterbatasan waktu, bagian 3️⃣ tidak diajarkan secara mendalam di workshop. Materi tersedia di laman web ini dan dapat dipelajari peserta secara mandiri.\n\n\n Buka Materi LME Pengukuran Berulang"
   },
   {
     "objectID": "index.html#outline-materi",
     "href": "index.html#outline-materi",
-    "title": "Linear Mixed-Effect (LME) Workshop",
-    "section": "Outline materi",
-    "text": "Outline materi\nMateri yang tersedia di laman web ini juga mencakup konsep dasar ordinary least square regression selain pengenalan lme.\nPeserta juga akan diminta untuk menganalisis data dengan menggunakan lme dan melaporkannya dengan format yang biasa digunakan dalam artikel penelitian.\n\n\n\n\n\n\nNoteUnduh materi dalam bentuk PDF\n\n\n\nKlik navigation bar yang mengarah pada PDF materi, kemudian tekan ctrl dan p bersamaan. Setelah window untuk print muncul, pilih Save to PDF dan klik Save.\n\n\nBerikut adalah outline materi yang tersedia di laman web ini:\n\nBagian 1️⃣: Ordinary Least Square Regression\n\nBerlatih menginspeksi data secara visual dengan scatterplot\nModel regresi linear (ordinary least square)\nMenarik garis regresi (fitted regression line)\nVarians yang dapat dan yang tidak dapat dijelaskan oleh model (R2)\nMenguji hipotesis\nMengecek kecocokan model dengan data (model fit)\nMengecek asumsi\n\nDistribusi (normalitas) residual\nHomoskedastisitas\nMultikolinearitas\n\nMendeteksi outliers\nMenguji interaction effects dan model change\nMenulis hasil analisis regresi linear dengan interaction terms dalam manuskrip\n\n\n\n\n\n\n\nImportantRegresi OLS tidak diajarkan di workshop\n\n\n\nKarena asumsinya mahasiswa S3 sudah memiliki pengetahuan statistik dasar, maka Bagian 1 tidak diajarkan di workshop. Bagian 1 harus dikuasai oleh peserta terlebih dahulu sebelum memulai workshop dan dapat dipelajari secara mandiri.\n\n\n Buka Materi Regresi OLS\n\n\nBagian 2️⃣: Linear Mixed Effects Model\n\nStruktur data berjenjang/bersarang (hierarchical/nested data)\nWithin- dan between-group variances\nPengantar linear mixed-effect (lme)\nIntra-class correlation dan likelihood ratio test (LRT)\nMembandingkan garis regresi antar kelompok dengan lme\nlme dengan prediktor level 1 (random coefficients model)\n\nMengidentifikasi intercept (konstanta) yang berbeda antar kelompok (random-intercept model)\nMengidentifikasi slopes (gradien/kemiringan garis) yang berbeda antar kelompok (random slopes model)\n\n“Explained variances” (Nakagawa & Schielzeth, 2012)\n\nMarginal R2\nConditional R2\n\nContextual effect dan partitioning/centering\nMelaporkan analisis dengan lme dalam manuskrip\nPengukuran berulang (repeated measures) dan experience sampling\n\n Buka Materi Pengantar LME\n\n\nBagian 3️⃣: lme untuk Pengukuran Berulang dan Experience Sampling\n\nKeterbatasan lme biasa untuk data pengukuran berulang\nRepeated measures dengan lme\n\nStruktur kovarians residual: Identity, Compound Symmetry, Unstructured\nMembandingkan model dengan struktur residual berbeda\n\nExperience Sampling Method (ESM)\n\nApa itu ESM dan pada saat seperti apa ESM dilakukan?\nTemporal autocorrelation dan struktur AR(1) & ARMA(1,1)\nPerson-mean centering: efek within- vs. between-person\nCross-level interaction dalam data ESM\n\nSetup di jamovi GAMLj\nMelaporkan hasil dalam manuskrip\n\n\n\n\n\n\n\nImportantRepeated Measures dan ESM tidak diajarkan\n\n\n\nKarena keterbatasan waktu, bagian 3️⃣ tidak diajarkan secara mendalam di workshop. Materi tersedia di laman web ini dan dapat dipelajari peserta secara mandiri.\n\n\n Buka Materi LME Pengukuran Berulang"
+    "title": "Linear Mixed-Effect (LME)",
+    "section": "",
+    "text": "Materi yang tersedia di laman web ini juga mencakup konsep dasar ordinary least square regression selain pengenalan lme.\nPeserta juga akan diminta untuk menganalisis data dengan menggunakan lme dan melaporkannya dengan format yang biasa digunakan dalam artikel penelitian.\n\n\n\n\n\n\nNoteUnduh materi dalam bentuk PDF\n\n\n\nKlik navigation bar yang mengarah pada PDF materi, kemudian tekan ctrl dan p bersamaan. Setelah window untuk print muncul, pilih Save to PDF dan klik Save.\n\n\nBerikut adalah outline materi yang tersedia di laman web ini:\n\n\n\nBerlatih menginspeksi data secara visual dengan scatterplot\nModel regresi linear (ordinary least square)\nMenarik garis regresi (fitted regression line)\nVarians yang dapat dan yang tidak dapat dijelaskan oleh model (R2)\nMenguji hipotesis\nMengecek kecocokan model dengan data (model fit)\nMengecek asumsi\n\nDistribusi (normalitas) residual\nHomoskedastisitas\nMultikolinearitas\n\nMendeteksi outliers\nMenguji interaction effects dan model change\nMenulis hasil analisis regresi linear dengan interaction terms dalam manuskrip\n\n\n\n\n\n\n\nImportantRegresi OLS tidak diajarkan di workshop\n\n\n\nKarena asumsinya mahasiswa S3 sudah memiliki pengetahuan statistik dasar, maka Bagian 1 tidak diajarkan di workshop. Bagian 1 harus dikuasai oleh peserta terlebih dahulu sebelum memulai workshop dan dapat dipelajari secara mandiri.\n\n\n Buka Materi Regresi OLS\n\n\n\n\nStruktur data berjenjang/bersarang (hierarchical/nested data)\nWithin- dan between-group variances\nPengantar linear mixed-effect (lme)\nIntra-class correlation dan likelihood ratio test (LRT)\nMembandingkan garis regresi antar kelompok dengan lme\nlme dengan prediktor level 1 (random coefficients model)\n\nMengidentifikasi intercept (konstanta) yang berbeda antar kelompok (random-intercept model)\nMengidentifikasi slopes (gradien/kemiringan garis) yang berbeda antar kelompok (random slopes model)\n\n“Explained variances” (Nakagawa & Schielzeth, 2012)\n\nMarginal R2\nConditional R2\n\nContextual effect dan partitioning/centering\nMelaporkan analisis dengan lme dalam manuskrip\nPengukuran berulang (repeated measures) dan experience sampling\n\n Buka Materi Pengantar LME\n\n\n\n\nKeterbatasan lme biasa untuk data pengukuran berulang\nRepeated measures dengan lme\n\nStruktur kovarians residual: Identity, Compound Symmetry, Unstructured\nMembandingkan model dengan struktur residual berbeda\n\nExperience Sampling Method (ESM)\n\nApa itu ESM dan pada saat seperti apa ESM dilakukan?\nTemporal autocorrelation dan struktur AR(1) & ARMA(1,1)\nPerson-mean centering: efek within- vs. between-person\nCross-level interaction dalam data ESM\n\nSetup di jamovi GAMLj\nMelaporkan hasil dalam manuskrip\n\n\n\n\n\n\n\nImportantRepeated Measures dan ESM tidak diajarkan\n\n\n\nKarena keterbatasan waktu, bagian 3️⃣ tidak diajarkan secara mendalam di workshop. Materi tersedia di laman web ini dan dapat dipelajari peserta secara mandiri.\n\n\n Buka Materi LME Pengukuran Berulang"
   },
   {
     "objectID": "index.html#referensi",
     "href": "index.html#referensi",
-    "title": "Linear Mixed-Effect (LME) Workshop",
+    "title": "Linear Mixed-Effect (LME)",
     "section": "Referensi",
     "text": "Referensi\n\nBrown, V.A. (2021). An Introduction to Linear Mixed-Effects Modeling in R. Advances in Methods and Practices in Psychological Science, 4(1), 1-19. doi: 10.1177/2515245920960351\nGalucci, M. (2025). GAMLj: General analysis for the linear model in jamovi. https://gamlj.github.io/index.html\nGalucci, M. (2025). Mixed models module. https://gamlj.github.io/mixed.html\nHajduk, G.K. (2017). Introduction to linear mixed models. https://ourcodingclub.github.io/2017/03/15/mixed-models.html\nNakagawa, S. and Schielzeth, H. (2013), A general and simple method for obtaining R2 from generalized linear mixed‐effects models. Methods in Ecology and Evolution, 4: 133-142. doi: 10.1111/j.2041-210x.2012.00261.x\nPeugh, James L. (2010). A practical guide to multilevel modeling. Journal of School Psychology, 48, 85-112. doi: 10.1016/j.jsp.2009.09.002\nWinter, B. (2013). Linear models and linear mixed effects models in R with linguistic applications. arXiv:1308.5499."
   },
   {
     "objectID": "index.html#referensi-tambahan-untuk-repeated-measures-dan-experience-sampling",
     "href": "index.html#referensi-tambahan-untuk-repeated-measures-dan-experience-sampling",
-    "title": "Linear Mixed-Effect (LME) Workshop",
+    "title": "Linear Mixed-Effect (LME)",
     "section": "Referensi tambahan untuk repeated measures dan experience sampling",
     "text": "Referensi tambahan untuk repeated measures dan experience sampling\n\nBolger, N., & Laurenceau, J-P. (2013). Intensive longitudinal methods: An introduction to diary and experience sampling research. Guilford Press.\nHamaker, E.L., Kuiper, R.M., & Grasman, R.P.P.P. (2015). A critique of the cross-lagged panel model. Psychological Methods, 20(1), 102-116. doi: 10.1037/a0038889\nNezlek, J.B. (2012). Multilevel modeling analyses of diary-style data. In M.R. Mehl & T.S. Conner (Eds.), Handbook of Research Methods for Studying Daily Life (pp. 384-410). Guilford Press.\nTrull, T.J. & Ebner-Priemer, U. (2014). The role of ambulatory assessment in psychological science. Current Directions in Psychological Science, 23(6), 466-470. doi: 10.1177/0963721414550706"
   },
   {
     "objectID": "index.html#contoh-penelitian-dengan-lme",
     "href": "index.html#contoh-penelitian-dengan-lme",
-    "title": "Linear Mixed-Effect (LME) Workshop",
+    "title": "Linear Mixed-Effect (LME)",
     "section": "Contoh penelitian dengan lme",
     "text": "Contoh penelitian dengan lme\n\nYoungseek, K. & Stanton, J.M. (2016). Institutional and individual factors affecting scientists’ data-sharing behaviors: A multilevel analysis. Journal of the Association for Information Science and Technology, 67(4), 776-799. doi: 10.1002/asi.23424\nZein, R.A. & Gollwitzer, M. (2025). More Than Dilution: Religiosity and Conflict Perceptions Predict Perceived Utility of Religious, but not Scientific Explanations. PsyArXiv. doi: 10.31234/osf.io/4rjqs_v1\nZein, R.A., Putri, N.K., & Ridlo, I.A. (2019). Do Justice and Trust Affect Acceptability of Indonesian Social Health Insurance Policy? A cross-sectional survey of laypeople and health care workers. International Journal of Health Governance, 25(1), 78-92. doi: 10.1108/IJHG-05-2019-0028"
   },
   {
     "objectID": "index.html#sumber-belajar-lainnya",
     "href": "index.html#sumber-belajar-lainnya",
-    "title": "Linear Mixed-Effect (LME) Workshop",
+    "title": "Linear Mixed-Effect (LME)",
     "section": "Sumber belajar lainnya",
     "text": "Sumber belajar lainnya\n\nLEMMA (Learning Environment for Multilevel Methods and Applications)\nLearning Statistics with jamovi\nVideo tutorial jamovi dari Datalab"
   },
   {
     "objectID": "index.html#sebelum-mulai-workshop",
     "href": "index.html#sebelum-mulai-workshop",
-    "title": "Linear Mixed-Effect (LME) Workshop",
+    "title": "Linear Mixed-Effect (LME)",
     "section": "Sebelum mulai workshop",
     "text": "Sebelum mulai workshop\n\nSebaiknya semua peserta sudah memasang jamovi pada perangkatnya masing-masing, untuk menghindari terlalu banyaknya waktu untuk menyelesaikan troubleshooting instalasi ketika workshop.\nPeserta sangat disarankan untuk menonton video tutorial jamovi sebelum workshop untuk belajar menavigasikan menu dan fitur yang ada dalam jamovi. Cukup hanya dengan menonton bagian Welcome, Installing jamovi, dan Navigating jamovi (total durasi kurang lebih hanya 7 menit)."
   },
   {
     "objectID": "index.html#cara-instalasi-module-gamlj-v.3",
     "href": "index.html#cara-instalasi-module-gamlj-v.3",
-    "title": "Linear Mixed-Effect (LME) Workshop",
+    "title": "Linear Mixed-Effect (LME)",
     "section": "Cara instalasi module GAMLj v.3",
     "text": "Cara instalasi module GAMLj v.3\nMohon untuk menyimak video petunjuk instalasi module GAMLj jamovi berikut ini.\nGunakan jamovi versi stabil yang terbaru (2.6.44) untuk Windows atau MacOS."
   },
   {
     "objectID": "index.html#tutorial-jamovi-modules",
     "href": "index.html#tutorial-jamovi-modules",
-    "title": "Linear Mixed-Effect (LME) Workshop",
+    "title": "Linear Mixed-Effect (LME)",
     "section": "Tutorial jamovi + modules",
     "text": "Tutorial jamovi + modules\nSaat ini, sudah cukup banyak tutorial jamovi yang tersedia. Salah satu yang paling populer dan komperhensif adalah tutorial di bawah ini ⬇️\n\nSimak seluruh video tutorial di  playlist."
   },
   {
     "objectID": "index.html#evaluasi-workshop",
     "href": "index.html#evaluasi-workshop",
-    "title": "Linear Mixed-Effect (LME) Workshop",
+    "title": "Linear Mixed-Effect (LME)",
     "section": "Evaluasi workshop",
     "text": "Evaluasi workshop\nSetelah workshop, peserta dimohon untuk mengisi kuesioner evaluasi yang dapat diakses di menu bar Survei bagian pojok kanan atas sebagai bahan evaluasi untuk meningkatkan kualitas materi workshop di masa depan."
   },
